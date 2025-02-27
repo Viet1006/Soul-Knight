@@ -1,17 +1,18 @@
+using System.Collections.Generic;
 using UnityEngine;
 // Lớp cơ sở các loại đạn
 public class BaseBullet : MonoBehaviour
 {
-    [SerializeField] protected BulletData bulletData;
+    public BulletData bulletData;
     [SerializeField] protected GameObject bullet;
     [SerializeField] protected Animator animator;
     [SerializeField] ParticleSystem explodeEffect;
-    [SerializeField] protected float damage;
+    [HideInInspector] public List<BaseBulletBuff> bulletBuffs;
+    public float damage;
     bool isExplode;
-    public virtual void SpawnBullet(Vector3 initialPos,Quaternion initialQuaternion,Vector2 target,float damage)
+    void Awake() // Nhận tất cả các buff đã ném vào trong viên đạn
     {
-        Instantiate(bullet,initialPos,initialQuaternion);
-        this.damage = damage;
+        bulletBuffs.AddRange(GetComponents<BaseBulletBuff>());
     }
     void Update()
     {
@@ -20,23 +21,41 @@ public class BaseBullet : MonoBehaviour
             transform.position += Time.deltaTime * bulletData.speed * transform.right;
         }
     }
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        HandleCollision(collision);
+        if(!IsHaveIBuffTriggered()) // Nếu có loại buff nào ko kích hoạt khi va chạm như xuyên qua enemy hoặc bật tường thì để loại buff đấy tự gọi khi destroy đạn
+        {
+            HandleCollision(collider);
+        }
     }
-    void Destroy()
+    protected void Destroy()
     {
         gameObject.SetActive(false);
     }
-    public virtual void HandleCollision(Collider2D collision)
+    public virtual void HandleCollision(Collider2D collider) // hàm xử lý va chạm cơ bản
     {
         isExplode = true;
         animator.SetTrigger("Explode");
         explodeEffect.Play();
-        BaseEnemy hittedEnemy = collision.gameObject.GetComponent<BaseEnemy>();
+        BaseEnemy hittedEnemy = collider.gameObject.GetComponent<BaseEnemy>();
         if(hittedEnemy)
         {
             hittedEnemy.GetHit(damage,bulletData.colorDamage);
         }
+        foreach (BaseBulletBuff buff in bulletBuffs) // Dùng tất cả các loại buff
+        {
+            buff.ApplyBuff(collider);
+        }
+    }
+    bool IsHaveIBuffTriggered() // Kiểm tra có buff nào thuộc dạng tự trigger không
+    {
+        foreach(BaseBulletBuff buff in bulletBuffs)
+        {
+            if(buff.GetComponent<IBuffTriggeredBullet>() != null)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

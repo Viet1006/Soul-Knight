@@ -10,4 +10,5 @@ public class WeaponData : ScriptableObject
     [Tooltip("Độ lệch của đạn theo độ")]
     public float inaccuracy;
     public RareColor rareColor;
+    public GameObject bullet;
 }

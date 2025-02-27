@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 5509384408881489039}
-  maxSpeed: {x: 1, y: 2}
-  minSpeed: {x: 1, y: 2}
-  acceleration: 10
-  timeLife: 0.5
+  maxSpeed: {x: 0.5, y: 3}
+  minSpeed: {x: 1.5, y: 2}
+  acceleration: 15
+  timeLife: 0.7

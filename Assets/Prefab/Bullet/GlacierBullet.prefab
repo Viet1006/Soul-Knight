@@ -4851,8 +4851,9 @@ GameObject:
   - component: {fileID: 8323711761491945146}
   - component: {fileID: 1297701733415637912}
   - component: {fileID: 3555149386917809966}
-  - component: {fileID: 741825338195072500}
   - component: {fileID: 8842920404379822919}
+  - component: {fileID: -6544284066407299390}
+  - component: {fileID: 8240632537428227041}
   m_Layer: 7
   m_Name: GlacierBullet
   m_TagString: Untagged
@@ -5000,22 +5001,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7536726, y: 0.27090153}
   m_EdgeRadius: 0
---- !u!114 &741825338195072500
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8716283894238101725}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b19e687987abc44933fb6ab0929e52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletData: {fileID: 11400000, guid: b4ff39633d42bf6448fc53f14a8142c0, type: 2}
-  bullet: {fileID: 8716283894238101725}
-  animator: {fileID: 8842920404379822919}
-  explodeEffect: {fileID: 1262758662324695988}
 --- !u!95 &8842920404379822919
 Animator:
   serializedVersion: 5
@@ -5037,3 +5022,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-6544284066407299390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716283894238101725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05b19e687987abc44933fb6ab0929e52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletData: {fileID: 11400000, guid: b4ff39633d42bf6448fc53f14a8142c0, type: 2}
+  bullet: {fileID: 8716283894238101725}
+  animator: {fileID: 8842920404379822919}
+  explodeEffect: {fileID: 1262758662324695988}
+  bulletBuffs: []
+  damage: 0
+--- !u!114 &8240632537428227041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8716283894238101725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e2a74c1ca2696488a66d1b4e1536c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pierceCount: 2

@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : NetworkBehaviour
 {
     [SerializeField] private float speed = 5f;
     [SerializeField] private Rigidbody2D rb2D;
@@ -15,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if( !IsOwner ) return;
         rb2D.velocity = moveInputValue * speed;
         if(moveInputValue == Vector2.zero)
         {
@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void OnMove(InputAction.CallbackContext context)
     {
+        if(!IsOwner) return;
         moveInputValue = context.ReadValue<Vector2>();
         animator.SetInteger(Parameters.state,StateEnum.RUN);
     }

@@ -145,11 +145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea03576a503e0145bbfbcea07daf5b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  speed: 0
+  enemyData: {fileID: 0}
   textDamage: {fileID: 3445322831368300233, guid: 2599c36ea0c86e549a6ea0305de99e56, type: 3}
   currentWeapon: {fileID: 0}
-  selectionCircle: {fileID: 0}
+  selectionCircle: {fileID: 3756589464904862056}
 --- !u!95 &1861182626193857925
 Animator:
   serializedVersion: 5
@@ -182,6 +181,10 @@ PrefabInstance:
     - target: {fileID: 4291578104872840897, guid: 21ce45cc787391b40acbfaf8e96fc10b, type: 3}
       propertyPath: m_Name
       value: SelectedCircle
+      objectReference: {fileID: 0}
+    - target: {fileID: 4291578104872840897, guid: 21ce45cc787391b40acbfaf8e96fc10b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7915250778361714062, guid: 21ce45cc787391b40acbfaf8e96fc10b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -228,6 +231,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21ce45cc787391b40acbfaf8e96fc10b, type: 3}
+--- !u!1 &3756589464904862056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4291578104872840897, guid: 21ce45cc787391b40acbfaf8e96fc10b, type: 3}
+  m_PrefabInstance: {fileID: 1129464229274527657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7094355915340083751 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7915250778361714062, guid: 21ce45cc787391b40acbfaf8e96fc10b, type: 3}

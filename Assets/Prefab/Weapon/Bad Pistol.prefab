@@ -104,7 +104,6 @@ MonoBehaviour:
   spawnBulletPos: {fileID: 6674040724061918830}
   target: {x: 0, y: 0}
   weaponCollider: {fileID: 5667982345772518088}
-  bullet: {fileID: 3556396154919191171, guid: 02aba1c042b01244593806258c42de56, type: 3}
   SelectedItemName: {fileID: 6294642815887888834}
   sprite: {fileID: 3778890600426485931}
 --- !u!58 &5667982345772518088

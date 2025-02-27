@@ -18,3 +18,4 @@ MonoBehaviour:
   energyCost: 0
   inaccuracy: 5
   rareColor: 0
+  bullet: {fileID: 3914658589996339777, guid: 02aba1c042b01244593806258c42de56, type: 3}

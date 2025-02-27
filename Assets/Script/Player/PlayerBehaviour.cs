@@ -1,7 +1,8 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerBehaviour : MonoBehaviour
+public class PlayerBehaviour : NetworkBehaviour
 {
     public BaseWeapon currentWeapon; // Vũ khí đang sử dụng
     public BaseWeapon secondWeapon;
@@ -11,9 +12,12 @@ public class PlayerBehaviour : MonoBehaviour
     PlayerMovement playerMovement;
     GameObject nearestItem; // Item gần nhất
     GameObject selectingItem; // Item đang chọn để tắt object đang chọn của item đấy khi ko chọn nữa
+    GameObject nearestEnemy;
+    GameObject selectingEnemy;
     bool isAttack;
     public void OnFire(InputAction.CallbackContext context)
     {
+        if( !IsOwner ) return;
         if(context.performed) // Khi ấn nút bắn
         {
             if(nearestItem != null)
@@ -42,20 +46,23 @@ public class PlayerBehaviour : MonoBehaviour
     }
     public void OnSwitch(InputAction.CallbackContext context)
     {
-        if(context.performed)
+        if( !IsOwner ) return;
+        if(context.performed && secondWeapon != null && currentWeapon != null)
         {
             (currentWeapon, secondWeapon) = (secondWeapon, currentWeapon);
             secondWeapon.PutAwayWeapon();
             currentWeapon.GetWeapon();
         }
     }
-    void Start()
+    public override void OnNetworkSpawn()
     {
+        if( !IsOwner ) return;
         playerMovement = GetComponent<PlayerMovement>();
     }
     void Update()
     {
-        GameObject nearestEnemy = FindTarget.GetNearistObject(transform.position,findRadius,LayerMask.GetMask("Enemy"));
+        if( !IsOwner ) return;
+        nearestEnemy = FindTarget.GetNearistObject(transform.position,findRadius,LayerMask.GetMask("Enemy"));
         nearestItem = FindTarget.GetNearistObject(transform.position,getItemRadius,LayerMask.GetMask("Default"));
         if(nearestEnemy != null)
         {
@@ -69,6 +76,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         FlipToTarget();
         HandleSelectItem();
+        HandleSelectEnemy();
         if(currentWeapon != null)
         {
             currentWeapon.target = target;
@@ -88,12 +96,24 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if(selectingItem != null)
         {
-            selectingItem.GetComponent<IShowName>()?.ShowName();
+            selectingItem.GetComponent<ICanSelect>()?.ShowSelectObject();
             if(nearestItem == null || nearestItem != selectingItem) // ẩn tên item khi ko có item trong vùng hoặc tìm thấy item gần hơn
             {
-                selectingItem.GetComponent<IShowName>()?.HideName();
+                selectingItem.GetComponent<ICanSelect>()?.HideSelectObject();
             }
         }
         selectingItem = nearestItem; // Đặt Item đang chọn là Item gần nhất
+    }
+    void HandleSelectEnemy()
+    {
+        if(selectingEnemy != null)
+        {
+            selectingEnemy.GetComponent<ICanSelect>()?.ShowSelectObject();
+            if(nearestEnemy == null || nearestEnemy != selectingEnemy) // ẩn tên Enemy khi ko có Enemy trong vùng hoặc tìm thấy Enemy gần hơn
+            {
+                selectingEnemy.GetComponent<ICanSelect>()?.HideSelectObject();
+            }
+        }
+        selectingEnemy = nearestEnemy; // Đặt Enemy đang chọn là Enemy gần nhất
     }
 }

@@ -1,12 +1,13 @@
+
+using System.Collections;
 using UnityEngine;
-public class BaseWeapon : MonoBehaviour , IShowName
+public class BaseWeapon : MonoBehaviour , ICanSelect
 {
-    [SerializeField]WeaponData weaponData;
+    [SerializeField] WeaponData weaponData;
     [SerializeField] protected GameObject spawnBulletPos;
-    public Vector2 target;
+    [HideInInspector] public Vector2 target;
     [SerializeField] Collider2D weaponCollider;
     float timeToNextFire;
-    [SerializeField] BaseBullet bullet;
     [SerializeField] GameObject SelectedItemName;
     [SerializeField] SpriteRenderer sprite;
     public virtual void Attack(Vector2 target)
@@ -14,9 +15,10 @@ public class BaseWeapon : MonoBehaviour , IShowName
         if(timeToNextFire<0)
         {
             Quaternion quaternion = transform.rotation * Quaternion.Euler(0,0,UnityEngine.Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy));
-            bullet.SpawnBullet(spawnBulletPos.transform.position,quaternion,target,weaponData.damage);
+            BaseBullet newBullet =  Instantiate(weaponData.bullet,transform.position,quaternion).GetComponent<BaseBullet>();
+            newBullet.damage = weaponData.damage;
             spawnBulletPos.SetActive(true);
-            Invoke("DisableFireEffect",0.05f);
+            StartCoroutine(DisableFireEffect());
             timeToNextFire = 1/weaponData.fireRate;
         }
     }
@@ -35,16 +37,17 @@ public class BaseWeapon : MonoBehaviour , IShowName
             }
         }
     }
-    public void ShowName() // hiện tên vũ khí
+    public void ShowSelectObject() // hiện tên vũ khí
     {
         SelectedItemName.SetActive(true);
     }
-    public void HideName() // Ẩn tên vũ khí
+    public void HideSelectObject() // Ẩn tên vũ khí
     {
         SelectedItemName.SetActive(false);
     }
-    protected void DisableFireEffect() // Tắt hiệu ứng bắn
+    protected IEnumerator DisableFireEffect()
     {
+        yield return new WaitForSeconds(0.05f);
         spawnBulletPos.SetActive(false);
     }
     public void PickUp(Transform parent) // Nhặt vũ khí
