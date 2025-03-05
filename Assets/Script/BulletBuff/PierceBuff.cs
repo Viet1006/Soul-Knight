@@ -1,4 +1,5 @@
 using UnityEngine;
+[DisallowMultipleComponent]
 public class PierceBuff : BaseBulletBuff , IBuffTriggeredBullet
 {
     public int pierceCount;
@@ -8,13 +9,15 @@ public class PierceBuff : BaseBulletBuff , IBuffTriggeredBullet
     }
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        BaseEnemy hittedEnemy = collider.gameObject.GetComponent<BaseEnemy>();
-        if(!hittedEnemy || pierceCount == 0 )
+        // Nếu va với tường hoặc hết lượt xuyên thì dừng
+        Debug.Log(collider.name);
+        if(collider.gameObject.layer == LayerMask.NameToLayer("Wall") || pierceCount == 0 )
         {
-            bullet.HandleCollision(collider);
+            bullet.HandleCollision();
+            bullet.HandleOnObject(collider);
         } else
         {
-            hittedEnemy.GetHit(bullet.damage,bullet.bulletData.colorDamage);
+            bullet.HandleOnObject(collider);
             pierceCount -= 1;
         }
     }

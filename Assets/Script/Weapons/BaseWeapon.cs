@@ -7,7 +7,7 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
     [SerializeField] protected GameObject spawnBulletPos;
     [HideInInspector] public Vector2 target;
     [SerializeField] Collider2D weaponCollider;
-    float timeToNextFire;
+    protected float timeToNextFire;
     [SerializeField] GameObject SelectedItemName;
     [SerializeField] SpriteRenderer sprite;
     public virtual void Attack(Vector2 target)
@@ -22,7 +22,7 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
             timeToNextFire = 1/weaponData.fireRate;
         }
     }
-    public void RotateToTarget() // quay vũ khí vào target 
+    public void RotateToTargetServerRpc() // quay vũ khí vào target, clientId là Id người quay
     {
         Vector2 direction = target - (Vector2)transform.position;
         // trả về góc từ 0 -> 90 với vector thuộc góc phần tư 1,3 và từ -90 -> 0 với góc phần tư 2,4
@@ -39,7 +39,7 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
     }
     public void ShowSelectObject() // hiện tên vũ khí
     {
-        SelectedItemName.SetActive(true);
+         SelectedItemName.SetActive(true);
     }
     public void HideSelectObject() // Ẩn tên vũ khí
     {
@@ -53,9 +53,9 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
     public void PickUp(Transform parent) // Nhặt vũ khí
     {
         transform.SetParent(parent);
-        weaponCollider.enabled= false;
+        weaponCollider.enabled = false;
         transform.localPosition = Vector2.zero;
-        GetWeapon(); // lấy ra khi được nhặt
+        GetWeapon();
     }
     public void Drop() // Thả vũ khí
     {
@@ -72,13 +72,16 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
         sprite.sortingOrder = -3;
         transform.localRotation = Quaternion.Euler(0,180,-20);
     } 
-    void Start()
+    protected virtual void Start()
     {
-        TextMesh textMesh = SelectedItemName.GetComponent<TextMesh>();
-        textMesh.text = name;
-        textMesh.color = SetColor.SetColorRare(weaponData.rareColor);
+        if(SelectedItemName != null)
+        {
+            TextMesh textMesh = SelectedItemName.GetComponent<TextMesh>();
+            textMesh.text = name;
+            textMesh.color = SetColor.SetColorRare(weaponData.rareColor);
+        }
     }
-    void Update()
+    protected virtual void Update()
     {
         timeToNextFire -= Time.deltaTime;
     }

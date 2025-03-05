@@ -4,15 +4,16 @@ using UnityEngine;
 public class BaseBullet : MonoBehaviour
 {
     public BulletData bulletData;
-    [SerializeField] protected GameObject bullet;
     [SerializeField] protected Animator animator;
     [SerializeField] ParticleSystem explodeEffect;
     [HideInInspector] public List<BaseBulletBuff> bulletBuffs;
-    public float damage;
+    [HideInInspector] public float damage;
+    Collider2D colliderBullet;
     bool isExplode;
     void Awake() // Nhận tất cả các buff đã ném vào trong viên đạn
     {
         bulletBuffs.AddRange(GetComponents<BaseBulletBuff>());
+        colliderBullet = GetComponent<Collider2D>();
     }
     void Update()
     {
@@ -25,23 +26,24 @@ public class BaseBullet : MonoBehaviour
     {
         if(!IsHaveIBuffTriggered()) // Nếu có loại buff nào ko kích hoạt khi va chạm như xuyên qua enemy hoặc bật tường thì để loại buff đấy tự gọi khi destroy đạn
         {
-            HandleCollision(collider);
+            HandleCollision();
+            HandleOnObject(collider);
         }
     }
     protected void Destroy()
     {
         gameObject.SetActive(false);
     }
-    public virtual void HandleCollision(Collider2D collider) // hàm xử lý va chạm cơ bản
+    public virtual void HandleCollision() // hàm xử lý va chạm cơ bản
     {
         isExplode = true;
         animator.SetTrigger("Explode");
-        explodeEffect.Play();
-        BaseEnemy hittedEnemy = collider.gameObject.GetComponent<BaseEnemy>();
-        if(hittedEnemy)
-        {
-            hittedEnemy.GetHit(damage,bulletData.colorDamage);
-        }
+        colliderBullet.enabled = false;
+        if(explodeEffect != null) explodeEffect.Play();
+    }
+    public void HandleOnObject(Collider2D collider)
+    {
+        if(collider.gameObject.TryGetComponent<IGetHit>(out var hittedObject)) hittedObject.GetHit(damage,bulletData.colorDamage);
         foreach (BaseBulletBuff buff in bulletBuffs) // Dùng tất cả các loại buff
         {
             buff.ApplyBuff(collider);

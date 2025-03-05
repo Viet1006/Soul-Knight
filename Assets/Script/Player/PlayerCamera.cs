@@ -1,21 +1,16 @@
-using Unity.Netcode;
 using Cinemachine;
 using UnityEngine;
 
-public class PlayerCamera : NetworkBehaviour
+public class PlayerCamera : MonoBehaviour
 {
     public Transform playerTracker;
 
-    public override void OnNetworkSpawn()
+    void Start()
     {
-        if (IsOwner) // Chỉ áp dụng camera cho player của chính mình
-        {
-            playerTracker = GameObject.Find("PlayerTracker").transform;
-        }
+        playerTracker = GameObject.Find("PlayerTracker").transform;
     }
     void Update()
     {
-        if(!IsOwner) return;
-        playerTracker.transform.position = transform.position;
+        playerTracker.position = transform.position;
     }
 }

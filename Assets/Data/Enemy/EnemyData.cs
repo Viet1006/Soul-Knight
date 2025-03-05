@@ -5,4 +5,7 @@ public class EnemyData : ScriptableObject
     public float health;
     public float speed;
     public GameObject textDamage;
+    public float radiusFindPlayer;
+    public float radiusAttack;
+    public float AttackRate;
 }

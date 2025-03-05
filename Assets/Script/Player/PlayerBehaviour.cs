@@ -1,14 +1,14 @@
-using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerBehaviour : NetworkBehaviour
+public class PlayerBehaviour : MonoBehaviour
 {
     public BaseWeapon currentWeapon; // Vũ khí đang sử dụng
     public BaseWeapon secondWeapon;
     public Vector2 target; // Target để điều hướng
     [SerializeField] float findRadius; // Bán kính tìm quái
     [SerializeField] float getItemRadius; // Bán kính nhặt các item
+    [SerializeField] 
     PlayerMovement playerMovement;
     GameObject nearestItem; // Item gần nhất
     GameObject selectingItem; // Item đang chọn để tắt object đang chọn của item đấy khi ko chọn nữa
@@ -17,7 +17,6 @@ public class PlayerBehaviour : NetworkBehaviour
     bool isAttack;
     public void OnFire(InputAction.CallbackContext context)
     {
-        if( !IsOwner ) return;
         if(context.performed) // Khi ấn nút bắn
         {
             if(nearestItem != null)
@@ -46,7 +45,6 @@ public class PlayerBehaviour : NetworkBehaviour
     }
     public void OnSwitch(InputAction.CallbackContext context)
     {
-        if( !IsOwner ) return;
         if(context.performed && secondWeapon != null && currentWeapon != null)
         {
             (currentWeapon, secondWeapon) = (secondWeapon, currentWeapon);
@@ -54,16 +52,14 @@ public class PlayerBehaviour : NetworkBehaviour
             currentWeapon.GetWeapon();
         }
     }
-    public override void OnNetworkSpawn()
+    void Start()
     {
-        if( !IsOwner ) return;
         playerMovement = GetComponent<PlayerMovement>();
     }
     void Update()
     {
-        if( !IsOwner ) return;
-        nearestEnemy = FindTarget.GetNearistObject(transform.position,findRadius,LayerMask.GetMask("Enemy"));
-        nearestItem = FindTarget.GetNearistObject(transform.position,getItemRadius,LayerMask.GetMask("Default"));
+        nearestEnemy = FindTarget.GetNearestObject(transform.position,findRadius,LayerMask.GetMask("Enemy"));
+        nearestItem = FindTarget.GetNearestObject(transform.position,getItemRadius,LayerMask.GetMask("Default"));
         if(nearestEnemy != null)
         {
             target = nearestEnemy.transform.position;
@@ -80,7 +76,7 @@ public class PlayerBehaviour : NetworkBehaviour
         if(currentWeapon != null)
         {
             currentWeapon.target = target;
-            currentWeapon.RotateToTarget();
+            currentWeapon.RotateToTargetServerRpc();
         }
     }
     void FlipToTarget() // Lật theo target

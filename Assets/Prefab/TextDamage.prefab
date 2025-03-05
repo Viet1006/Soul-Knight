@@ -51,6 +51,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -113,5 +115,5 @@ MonoBehaviour:
   textMesh: {fileID: 5509384408881489039}
   maxSpeed: {x: 0.5, y: 3}
   minSpeed: {x: 1.5, y: 2}
-  acceleration: 15
-  timeLife: 0.7
+  acceleration: 10
+  timeLife: 0.6

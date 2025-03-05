@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FindTarget : MonoBehaviour
+public class FindTarget
 {
     static public List<GameObject> GetAllObjetInRadius(Vector2 mainPos, float findRadius,int layerMask)
     {
@@ -13,7 +13,7 @@ public class FindTarget : MonoBehaviour
         }
         return objectsInRadius;
     }
-    static public GameObject GetNearistObject(Vector2 mainPos,float findRadius,int LayerMask)
+    static public GameObject GetNearestObject(Vector2 mainPos,float findRadius,int LayerMask)
     {
         List<GameObject> objectsInRadius = GetAllObjetInRadius(mainPos, findRadius, LayerMask);
         GameObject nearestObject = null;

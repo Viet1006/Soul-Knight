@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1921433781665780730}
   - component: {fileID: 259981041009252458}
   - component: {fileID: 6178114644320455623}
+  - component: {fileID: -7253609692001032303}
   m_Layer: 7
   m_Name: WaterCanBullet
   m_TagString: Untagged
@@ -105,6 +106,8 @@ MonoBehaviour:
   bullet: {fileID: 639383819589707901}
   animator: {fileID: 6178114644320455623}
   explodeEffect: {fileID: 8027866677360566429}
+  bulletBuffs: []
+  damage: 0
 --- !u!50 &1921433781665780730
 Rigidbody2D:
   serializedVersion: 4
@@ -168,7 +171,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.78, y: 1.14}
+    oldSize: {x: 1.1142857, y: 1.6285714}
     newSize: {x: 0.63, y: 0.56}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -198,6 +201,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7253609692001032303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 639383819589707901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b756bdc46086274bacdbdbb8ab4610e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distancePushBack: 0.3
 --- !u!1 &7674739076211626420
 GameObject:
   m_ObjectHideFlags: 0
