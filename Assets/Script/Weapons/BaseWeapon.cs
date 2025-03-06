@@ -5,16 +5,16 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
 {
     [SerializeField] WeaponData weaponData;
     [SerializeField] protected GameObject spawnBulletPos;
-    [HideInInspector] public Vector2 target;
+    [HideInInspector] public Transform target;
     [SerializeField] Collider2D weaponCollider;
     protected float timeToNextFire;
     [SerializeField] GameObject SelectedItemName;
     [SerializeField] SpriteRenderer sprite;
-    public virtual void Attack(Vector2 target)
+    public virtual void Attack(Transform target)
     {
         if(timeToNextFire<0)
         {
-            Quaternion quaternion = transform.rotation * Quaternion.Euler(0,0,UnityEngine.Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy));
+            Quaternion quaternion = transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy));
             BaseBullet newBullet =  Instantiate(weaponData.bullet,transform.position,quaternion).GetComponent<BaseBullet>();
             newBullet.damage = weaponData.damage;
             spawnBulletPos.SetActive(true);
@@ -22,9 +22,9 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
             timeToNextFire = 1/weaponData.fireRate;
         }
     }
-    public void RotateToTargetServerRpc() // quay vũ khí vào target, clientId là Id người quay
+    public void RotateToTarget() // quay vũ khí vào target, clientId là Id người quay
     {
-        Vector2 direction = target - (Vector2)transform.position;
+        Vector2 direction = (Vector2)target.position - (Vector2)transform.position;
         // trả về góc từ 0 -> 90 với vector thuộc góc phần tư 1,3 và từ -90 -> 0 với góc phần tư 2,4
         if(direction != Vector2.zero)
         {
@@ -65,11 +65,11 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
     }
     public void GetWeapon() // lấy vũ khí
     {
-        sprite.sortingOrder = -1;
+        sprite.sortingOrder = 4;
     }
     public void PutAwayWeapon() // Cất vũ khí
     {
-        sprite.sortingOrder = -3;
+        sprite.sortingOrder = 2;
         transform.localRotation = Quaternion.Euler(0,180,-20);
     } 
     protected virtual void Start()

@@ -2,6 +2,9 @@ using UnityEngine;
 public class ExplodeBuff : BaseBulletBuff , IBuffTriggeredBullet
 {
     public float explosionRadius;
+    void Awake()
+    {
+    }
     public override void ApplyBuff(Collider2D collider)
     {
         

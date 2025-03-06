@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36065775374cafa47b21c714dd209462, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceCount: 0
+  bounceCount: 1
 --- !u!1 &5735703858628652144
 GameObject:
   m_ObjectHideFlags: 0

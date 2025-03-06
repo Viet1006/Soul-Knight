@@ -3,5 +3,5 @@ using UnityEngine;
 
 interface IPushable
 {
-    IEnumerator PushBackIEnum(Vector2 direction,float distance);
+    void StartPushCoroutine(Vector2 direction,float distance);
 }

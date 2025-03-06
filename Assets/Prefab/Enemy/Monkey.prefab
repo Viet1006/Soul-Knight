@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7879602406790104467}
   - component: {fileID: 7448212091140935913}
   - component: {fileID: 7482722015536770416}
+  - component: {fileID: 3272226775716664017}
   m_Layer: 6
   m_Name: Monkey
   m_TagString: Untagged
@@ -132,6 +133,7 @@ MonoBehaviour:
   selectionCircle: {fileID: 3756589464904862056}
   target: {fileID: 0}
   material: {fileID: 2100000, guid: f94ddedf53a51f049b384ce64089b44e, type: 2}
+  aIPath: {fileID: 0}
   weapon: {fileID: 0}
   attackTime: 2
 --- !u!114 &6580545050322348381
@@ -268,6 +270,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.0060842037, y: 0.33914733}
   m_Radius: 0.5385082
+--- !u!114 &3272226775716664017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926595480736889479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a02b62b387506043be8783c8fad25f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stunIcon: {fileID: 4652578631376984911, guid: 489d5ec97ce4ceb45b58e1afe407aea0, type: 3}
+  baseEnemy: {fileID: 1171691069820176578}
 --- !u!1001 &1129464229274527657
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using Pathfinding;
 using UnityEngine;
 
-public abstract class BaseEnemy : MonoBehaviour, ICanSelect, IGetHit, IPushable
+public abstract class BaseEnemy : MonoBehaviour, ICanSelect, IGetHit
 {
     [SerializeField] protected EnemyData enemyData;
     [SerializeField] GameObject selectionCircle;
@@ -14,7 +14,7 @@ public abstract class BaseEnemy : MonoBehaviour, ICanSelect, IGetHit, IPushable
     float currentHealth;
     Renderer rendererEnemy;
     MaterialPropertyBlock propertyBlock;
-    AIPath aIPath;
+    public AIPath aIPath;
     protected void Awake()
     {
         currentHealth = enemyData.health;
@@ -42,9 +42,7 @@ public abstract class BaseEnemy : MonoBehaviour, ICanSelect, IGetHit, IPushable
         rendererEnemy.GetPropertyBlock(propertyBlock);
         propertyBlock.SetFloat("_FlashAmount", 1f);  // Làm trắng
         rendererEnemy.SetPropertyBlock(propertyBlock);
-
         yield return new WaitForSeconds(0.05f);
-
         propertyBlock.SetFloat("_FlashAmount", 0f);  // Trở lại bình thường
         rendererEnemy.SetPropertyBlock(propertyBlock);
     }
@@ -61,21 +59,17 @@ public abstract class BaseEnemy : MonoBehaviour, ICanSelect, IGetHit, IPushable
         }
     }
     protected abstract void Attack(Vector2 Target);
-    public void PushBack(Vector2 direction,float distance)
-    {
-        StartCoroutine(PushBackIEnum(direction,distance));
-    }
     public virtual IEnumerator PushBackIEnum(Vector2 direction, float distance)
     {
-        float timePushBack = 0.15f;
+        int pushBackCount = 3; // Chia nhỏ ra đẩy tạo hiệu ứng đẩy mượt hơn
         aIPath.enabled = false;
-        while(timePushBack > 0)
+        while(pushBackCount > 0)
         {
-            timePushBack -= Time.fixedDeltaTime;
+            pushBackCount -= 1;
             // Kiểm tra hướng đẩy có dính tường hay water ko
-            if(!Physics2D.Raycast(transform.position,direction,distance*Time.deltaTime/timePushBack,LayerMask.GetMask("Wall")+LayerMask.GetMask("Water")))
+            if(!Physics2D.Raycast(transform.position,direction,distance/3,LayerMask.GetMask("Wall")+LayerMask.GetMask("Water")))
             {
-                transform.position += distance*Time.deltaTime/timePushBack * (Vector3)direction.normalized; 
+                transform.position += distance/3 * (Vector3)direction.normalized;
             }
             yield return null;
         }

@@ -5,14 +5,14 @@ public class PlayerBehaviour : MonoBehaviour
 {
     public BaseWeapon currentWeapon; // Vũ khí đang sử dụng
     public BaseWeapon secondWeapon;
-    public Vector2 target; // Target để điều hướng
+    public Transform target; // Target để điều hướng súng
     [SerializeField] float findRadius; // Bán kính tìm quái
     [SerializeField] float getItemRadius; // Bán kính nhặt các item
     [SerializeField] 
     PlayerMovement playerMovement;
     GameObject nearestItem; // Item gần nhất
     GameObject selectingItem; // Item đang chọn để tắt object đang chọn của item đấy khi ko chọn nữa
-    GameObject nearestEnemy;
+    public GameObject nearestEnemy;
     GameObject selectingEnemy;
     bool isAttack;
     public void OnFire(InputAction.CallbackContext context)
@@ -21,10 +21,10 @@ public class PlayerBehaviour : MonoBehaviour
         {
             if(nearestItem != null)
             {
-                BaseWeapon selectedWeapon = nearestItem.GetComponent<BaseWeapon>();
-                if(selectedWeapon !=null)
+                
+                if(nearestItem.TryGetComponent(out BaseWeapon selectedWeapon))
                 {
-                    nearestItem.GetComponent<BaseWeapon>().PickUp(transform);
+                    selectedWeapon.PickUp(transform);
                     if(secondWeapon != null)
                     {
                         currentWeapon.Drop();
@@ -62,29 +62,26 @@ public class PlayerBehaviour : MonoBehaviour
         nearestItem = FindTarget.GetNearestObject(transform.position,getItemRadius,LayerMask.GetMask("Default"));
         if(nearestEnemy != null)
         {
-            target = nearestEnemy.transform.position;
+            target.position = nearestEnemy.transform.position;
         }else{
-            target = (Vector2)transform.position + playerMovement.moveInputValue; // Ko có target thì quay theo hướng di chuyển player
+            target.position = (Vector2)transform.position + playerMovement.moveInputValue; // Ko có target thì quay theo hướng di chuyển player
         }
-        if(isAttack && currentWeapon != null)
-        {
-            currentWeapon.Attack(target);
-        }
+        if(isAttack && currentWeapon != null) currentWeapon.Attack(target);
         FlipToTarget();
         HandleSelectItem();
         HandleSelectEnemy();
         if(currentWeapon != null)
         {
             currentWeapon.target = target;
-            currentWeapon.RotateToTargetServerRpc();
+            currentWeapon.RotateToTarget();
         }
     }
     void FlipToTarget() // Lật theo target
     {
-        if(target.x>transform.position.x)
+        if(target.position.x>transform.position.x)
         {
             transform.rotation = Quaternion.Euler(0,0,0);
-        }else if(target.x<transform.position.x){
+        }else if(target.position.x<transform.position.x){
             transform.rotation = Quaternion.Euler(0,-180,0);
         }
     }

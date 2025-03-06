@@ -27,7 +27,6 @@ public class TextDamage : MonoBehaviour
     {
         initialSpeed.y -= acceleration * Time.deltaTime;
         transform.position += new Vector3(initialSpeed.x * direction, initialSpeed.y, 0) * Time.deltaTime;
-        
     }
     public void SetText(float damage,Color color)
     {

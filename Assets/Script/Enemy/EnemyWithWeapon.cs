@@ -15,7 +15,7 @@ public class EnemyWithWeapon : BaseEnemy
         }
         if(weapon!= null && attackTimeRemain > 0)
         {
-            weapon.Attack(nearestPlayer.transform.position);
+            weapon.Attack(nearestPlayer.transform);
             attackTimeRemain -= Time.deltaTime;
         } else if(attackTimeRemain <=0)
         {
@@ -36,8 +36,8 @@ public class EnemyWithWeapon : BaseEnemy
         }
         if (nearestPlayer != null && weapon != null)
         {
-            weapon.target = nearestPlayer.transform.position;
-            weapon.RotateToTargetServerRpc();
+            weapon.target = nearestPlayer.transform;
+            weapon.RotateToTarget();
         }else if(weapon!=null) {
             weapon.transform.localRotation = Quaternion.identity;
         }

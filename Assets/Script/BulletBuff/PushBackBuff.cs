@@ -5,9 +5,9 @@ public class PushBackBuff : BaseBulletBuff
     [SerializeField] float distancePushBack;
     public override void ApplyBuff(Collider2D collider)
     { 
-        if(collider.TryGetComponent<IPushable>(out IPushable pushable)) 
+        if(collider.TryGetComponent(out IPushable pushable)) 
         {
-            StartCoroutine(pushable.PushBackIEnum((collider.transform.position-transform.position).normalized,distancePushBack));
+            pushable.StartPushCoroutine((collider.transform.position-transform.position).normalized,distancePushBack);
         }
     }
 }
