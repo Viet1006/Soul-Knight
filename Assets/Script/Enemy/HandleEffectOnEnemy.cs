@@ -21,7 +21,7 @@ public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable
     public virtual IEnumerator PushBackIEnum(Vector2 direction, float distance)
     {
         int pushBackCount = 3; // Chia nhỏ ra đẩy tạo hiệu ứng đẩy mượt hơn
-        baseEnemy.aIPath.enabled = false;
+        baseEnemy.aIPath.canMove = false;
         while(pushBackCount > 0)
         {
             pushBackCount -= 1;
@@ -33,7 +33,7 @@ public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable
             yield return null;
         }
         ReturnMovementForEnemy();
-        baseEnemy.aIPath.enabled = true;
+        baseEnemy.aIPath.canMove = true;
         currentPushCoroutine = null;
     }
     public void StartStunCoroutine(float stunTime)
@@ -49,7 +49,7 @@ public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable
     public virtual IEnumerator StunIEnum(float stunTime)
     {
         baseEnemy.enabled = false;
-        baseEnemy.aIPath.enabled = false;
+        baseEnemy.aIPath.canMove = false;
         Destroy(Instantiate(stunIcon,new Vector2(transform.position.x,transform.position.y + 1.2f),Quaternion.identity),stunTime);
         while (stunTime > 0)
         {
@@ -63,7 +63,7 @@ public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable
     void ReturnMovementForEnemy()
     {
         if(holdMovementCount ==1){
-            baseEnemy.aIPath.enabled = true;
+            baseEnemy.aIPath.canMove = true;
             holdMovementCount -=1;
         }
     }

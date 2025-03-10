@@ -3,9 +3,8 @@ using UnityEngine;
 public class RocketFirework : BaseWeapon
 {
     SpriteRenderer spriteRenderer;
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
     protected override void Update()

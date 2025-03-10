@@ -7,6 +7,8 @@ public abstract class BaseEnemy : MonoBehaviour, ICanSelect, IGetHit
     [SerializeField] protected EnemyData enemyData;
     [SerializeField] GameObject selectionCircle;
     [HideInInspector] public Transform target;
+    Animator animator;
+    Collider2D colliderEnemy;
     public delegate void enemyBehaviour();
     public enemyBehaviour currentBehaviour;
     protected GameObject nearestPlayer;
@@ -21,6 +23,8 @@ public abstract class BaseEnemy : MonoBehaviour, ICanSelect, IGetHit
         rendererEnemy = GetComponent<Renderer>();
         propertyBlock = new MaterialPropertyBlock();
         aIPath = GetComponent<AIPath>();
+        animator = GetComponent<Animator>();
+        colliderEnemy = GetComponent<Collider2D>();
     }
     public void ShowSelectObject()
     {
@@ -35,7 +39,20 @@ public abstract class BaseEnemy : MonoBehaviour, ICanSelect, IGetHit
         GameObject newTextDamage = Instantiate(enemyData.textDamage, transform.position + new Vector3(0, 1f, 0), Quaternion.identity);
         newTextDamage.GetComponent<TextDamage>().SetText(damage, colorDamage);
         currentHealth -= damage;
+        if(currentHealth <=0)
+        {
+            Die();
+            return;
+        } 
         StartCoroutine(Blink());
+    }
+    public virtual void Die()
+    {
+        animator.SetTrigger(Parameters.die);
+        aIPath.enabled = false;
+        colliderEnemy.enabled = false;
+        Destroy(gameObject,1f);
+        enabled = false;
     }
     IEnumerator Blink()
     {
@@ -59,20 +76,4 @@ public abstract class BaseEnemy : MonoBehaviour, ICanSelect, IGetHit
         }
     }
     protected abstract void Attack(Vector2 Target);
-    public virtual IEnumerator PushBackIEnum(Vector2 direction, float distance)
-    {
-        int pushBackCount = 3; // Chia nhỏ ra đẩy tạo hiệu ứng đẩy mượt hơn
-        aIPath.enabled = false;
-        while(pushBackCount > 0)
-        {
-            pushBackCount -= 1;
-            // Kiểm tra hướng đẩy có dính tường hay water ko
-            if(!Physics2D.Raycast(transform.position,direction,distance/3,LayerMask.GetMask("Wall")+LayerMask.GetMask("Water")))
-            {
-                transform.position += distance/3 * (Vector3)direction.normalized;
-            }
-            yield return null;
-        }
-        aIPath.enabled = true;
-    }
 }

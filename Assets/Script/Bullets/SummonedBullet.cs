@@ -1,4 +1,3 @@
-using UnityEngine;
 public class SummonedBullet : BaseBullet
 {
     public delegate void endAttackDelegate();

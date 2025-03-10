@@ -11,7 +11,7 @@ public class ExplodeBuff : BaseBulletBuff , IBuffTriggeredBullet
     }
     public void OnTriggerEnter2D(Collider2D collider)
     {
-        bullet.HandleCollision();
+        bullet.HandleCollision(collider);
         Collider2D[] hittedObjects = Physics2D.OverlapCircleAll(transform.position,explosionRadius,LayerMask.GetMask("Enemy")+LayerMask.GetMask("Player"));
         foreach(Collider2D hittedObject in hittedObjects)
         {

@@ -11,4 +11,5 @@ public class WeaponData : ScriptableObject
     public float inaccuracy;
     public RareColor rareColor;
     public GameObject bullet;
+    public float bulletSpeed;
 }

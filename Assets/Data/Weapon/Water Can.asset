@@ -19,3 +19,4 @@ MonoBehaviour:
   inaccuracy: 5
   rareColor: 0
   bullet: {fileID: 639383819589707901, guid: 587646da29cb05a4ca798b7b53c3542c, type: 3}
+  bulletSpeed: 20

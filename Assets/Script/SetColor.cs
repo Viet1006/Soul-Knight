@@ -11,7 +11,8 @@ public static class SetColor
             return Color.green;
         }else if(color == RareColor.Blue)
         {
-            return Color.blue;
+            return new Color(50f / 255f, 161f / 255f, 226f / 255f);
+
         }else if(color == RareColor.Purple)
         {
             return new Color(0.5f, 0f, 0.5f, 1f); // Màu tím tương đươngrgb(127, 3, 127);

@@ -8,8 +8,7 @@ public class PlayerBehaviour : MonoBehaviour
     public Transform target; // Target để điều hướng súng
     [SerializeField] float findRadius; // Bán kính tìm quái
     [SerializeField] float getItemRadius; // Bán kính nhặt các item
-    [SerializeField] 
-    PlayerMovement playerMovement;
+    [SerializeField] PlayerMovement playerMovement;
     GameObject nearestItem; // Item gần nhất
     GameObject selectingItem; // Item đang chọn để tắt object đang chọn của item đấy khi ko chọn nữa
     public GameObject nearestEnemy;
@@ -41,6 +40,7 @@ public class PlayerBehaviour : MonoBehaviour
         if(context.canceled) // Thả nút bắn
         {
             isAttack = false;
+            if(currentWeapon != null) currentWeapon.StopAttack();
         }
     }
     public void OnSwitch(InputAction.CallbackContext context)

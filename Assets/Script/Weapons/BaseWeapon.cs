@@ -3,10 +3,10 @@ using System.Collections;
 using UnityEngine;
 public class BaseWeapon : MonoBehaviour , ICanSelect
 {
-    [SerializeField] WeaponData weaponData;
+    [SerializeField] protected WeaponData weaponData;
     [SerializeField] protected GameObject spawnBulletPos;
     [HideInInspector] public Transform target;
-    [SerializeField] Collider2D weaponCollider;
+    [SerializeField] protected Collider2D weaponCollider;
     protected float timeToNextFire;
     [SerializeField] GameObject SelectedItemName;
     [SerializeField] SpriteRenderer sprite;
@@ -15,14 +15,14 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
         if(timeToNextFire<0)
         {
             Quaternion quaternion = transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy));
-            BaseBullet newBullet =  Instantiate(weaponData.bullet,transform.position,quaternion).GetComponent<BaseBullet>();
-            newBullet.damage = weaponData.damage;
+            Instantiate(weaponData.bullet,transform.position,quaternion).GetComponent<BaseBullet>().SetBullet(weaponData.damage,weaponData.bulletSpeed);
             spawnBulletPos.SetActive(true);
             StartCoroutine(DisableFireEffect());
             timeToNextFire = 1/weaponData.fireRate;
         }
     }
-    public void RotateToTarget() // quay vũ khí vào target, clientId là Id người quay
+    public virtual void StopAttack() {}
+    public virtual void RotateToTarget() // quay vũ khí vào target, clientId là Id người quay
     {
         Vector2 direction = (Vector2)target.position - (Vector2)transform.position;
         // trả về góc từ 0 -> 90 với vector thuộc góc phần tư 1,3 và từ -90 -> 0 với góc phần tư 2,4
@@ -50,7 +50,7 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
         yield return new WaitForSeconds(0.05f);
         spawnBulletPos.SetActive(false);
     }
-    public void PickUp(Transform parent) // Nhặt vũ khí
+    public virtual void PickUp(Transform parent) // Nhặt vũ khí
     {
         transform.SetParent(parent);
         weaponCollider.enabled = false;
@@ -72,7 +72,7 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
         sprite.sortingOrder = 2;
         transform.localRotation = Quaternion.Euler(0,180,-20);
     } 
-    protected virtual void Start()
+    protected void Awake()
     {
         if(SelectedItemName != null)
         {

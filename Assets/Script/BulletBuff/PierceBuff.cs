@@ -12,7 +12,7 @@ public class PierceBuff : BaseBulletBuff , IBuffTriggeredBullet
         // Nếu va với tường hoặc hết lượt xuyên thì dừng
         if(collider.gameObject.layer == LayerMask.NameToLayer("Wall") || pierceCount == 0 )
         {
-            bullet.HandleCollision();
+            bullet.HandleCollision(collider);
             bullet.HandleOnObject(collider);
         } else
         {

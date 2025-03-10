@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a24b68dfc8a0b42b8f064c12599d77, type: 3}
+  m_Name: GreenBow
+  m_EditorClassIdentifier: 
+  fireRate: 1.66
+  damage: 4
+  critChance: 0
+  energyCost: 2
+  inaccuracy: 0
+  rareColor: 0
+  bullet: {fileID: 8732064480031709227, guid: e60fdfc43883b0e46aa7508581b051b0, type: 3}
+  bulletSpeed: 20
