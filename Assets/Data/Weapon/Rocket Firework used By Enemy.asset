@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a24b68dfc8a0b42b8f064c12599d77, type: 3}
   m_Name: Rocket Firework used By Enemy
   m_EditorClassIdentifier: 
-  fireRate: 0.75
+  fireRate: 0.5
   damage: 3
   critChance: 0
   energyCost: 0

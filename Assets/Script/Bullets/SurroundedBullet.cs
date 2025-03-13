@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class SurroundedBullet : BaseBullet
 {
-    [SerializeField]GameObject childBullet;
+    GameObject childBullet;
     [SerializeField]float childBulletSpeed;
     public float childBulletDamage;
-    public int numberOfBullet =3;
+    int numberOfBullet;
     void Start()
     {
         for(int i=0 ; i < numberOfBullet;i++)
@@ -18,10 +18,13 @@ public class SurroundedBullet : BaseBullet
             newBullet.transform.SetParent(transform);
         }
     }
-    public void SetSurroundedBullet(float speed, float childBulletDamage,float childBulletSpeed)
+    public void SetSurroundedBullet(float speed, float childBulletDamage,float childBulletSpeed,GameObject childBullet,int numberOfBullet,Vector2 right)
     {
         this.speed = speed;
         this.childBulletDamage = childBulletDamage;
         this.childBulletSpeed = childBulletSpeed; 
+        this.childBullet = childBullet;
+        this.numberOfBullet = numberOfBullet;
+        transform.right = right;
     }
 }

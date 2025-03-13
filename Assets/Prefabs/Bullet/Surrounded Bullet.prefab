@@ -51,7 +51,8 @@ MonoBehaviour:
   damage: 0
   speed: 0
   timeLife: 3
+  colliderBullet: {fileID: 0}
   childBullet: {fileID: 7876961994352399717, guid: 3f5c79fe9f3359f40a802c7fdaf27588, type: 3}
   childBulletSpeed: 0
   childBulletDamage: 0
-  numberOfBullet: 20
+  numberOfBullet: 15

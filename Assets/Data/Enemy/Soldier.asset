@@ -15,6 +15,5 @@ MonoBehaviour:
   health: 100
   speed: 5
   textDamage: {fileID: 3445322831368300233, guid: 2599c36ea0c86e549a6ea0305de99e56, type: 3}
-  radiusFindPlayer: 8
-  radiusAttack: 8
-  AttackRate: 2
+  attackRange: 10
+  AttackRate: 0.7

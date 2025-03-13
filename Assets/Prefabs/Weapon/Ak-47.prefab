@@ -49,6 +49,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -112,7 +114,7 @@ Transform:
   m_GameObject: {fileID: 4516633902601772909}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.00034904052, w: 0.99999994}
-  m_LocalPosition: {x: 0, y: -5.81, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -137,6 +139,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -180,6 +184,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4516633902601772909}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -203,9 +208,9 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0.15438922, y: 0.024128431}
-  serializedVersion: 2
   m_Radius: 0.16357183
 --- !u!114 &4589525650779876618
 MonoBehaviour:
@@ -221,7 +226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 78104be05bbc1ef4aab9163c225657a4, type: 2}
   spawnBulletPos: {fileID: 4386439224216324861}
-  target: {x: 0, y: 0}
   weaponCollider: {fileID: 4721301759610874077}
   SelectedItemName: {fileID: 5716999163437221724}
   sprite: {fileID: 3459752792336205903}

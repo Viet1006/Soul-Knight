@@ -16,5 +16,6 @@ public class MoveToStatus : MonoBehaviour
         destinationSetter.target = status;
         aiPath.maxSpeed = enemyData.speed;
         animator.SetInteger(Parameters.state,StateEnum.RUN);
+        
     }
 }

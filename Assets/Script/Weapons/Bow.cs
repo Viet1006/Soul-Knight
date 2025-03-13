@@ -24,7 +24,7 @@ public class Bow : BaseWeapon
         if(timeToNextFire<0 && isCharging == false)
         {
             isCharging = true;
-            currentBullet = Instantiate(weaponData.bullet,spawnBulletPos.transform.position,transform.rotation).GetComponent<BaseBullet>();
+            currentBullet = Instantiate(weaponData.bullet,spawnBulletPos.position,transform.rotation).GetComponent<BaseBullet>();
             currentBullet.transform.SetParent(transform.GetChild(0).transform);
             animator.SetTrigger(Parameters.charge);
             timeToNextLevelCharge = timeForEachLevelCharge;
@@ -45,7 +45,6 @@ public class Bow : BaseWeapon
                 timeToNextLevelCharge = timeForEachLevelCharge;
             }
         }
-        transform.localRotation = Quaternion.identity;
     }
     public override void StopAttack() // Bắt đầu thả cung
     {
@@ -65,6 +64,7 @@ public class Bow : BaseWeapon
         }
         animator.SetTrigger(Parameters.endAttack);
         timeToNextFire = 1/weaponData.fireRate;
+        transform.localRotation = Quaternion.identity;
     }
     public override void PickUp(Transform parent)
     {
@@ -72,9 +72,9 @@ public class Bow : BaseWeapon
         animator.enabled = true;
         transform.localRotation = Quaternion.identity;
     }
-    public override void RotateToTarget()
+    public override void RotateToTarget(Transform target)
     {
-        if(!isCharging) return;
-        base.RotateToTarget();
+        if(!isCharging) return; 
+        base.RotateToTarget(target);
     }
 }

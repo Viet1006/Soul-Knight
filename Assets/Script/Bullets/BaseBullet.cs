@@ -8,7 +8,7 @@ public class BaseBullet : MonoBehaviour
     [SerializeField] ParticleSystem explodeEffect;
     [HideInInspector] public List<BaseBulletBuff> bulletBuffs;
     [HideInInspector] public float damage;
-    [HideInInspector] public float speed;
+    public float speed;
     public float timeLife;
     public Collider2D colliderBullet;
     void Awake() // Nhận tất cả các buff đã ném vào trong viên đạn
@@ -64,8 +64,5 @@ public class BaseBullet : MonoBehaviour
     {
         this.damage = damage;
         this.speed = speed;
-    }
-    public virtual void StopAttack()
-    {
     }
 }

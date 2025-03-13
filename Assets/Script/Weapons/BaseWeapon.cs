@@ -4,8 +4,7 @@ using UnityEngine;
 public class BaseWeapon : MonoBehaviour , ICanSelect
 {
     [SerializeField] protected WeaponData weaponData;
-    [SerializeField] protected GameObject spawnBulletPos;
-    [HideInInspector] public Transform target;
+    [SerializeField] protected Transform spawnBulletPos;
     [SerializeField] protected Collider2D weaponCollider;
     protected float timeToNextFire;
     [SerializeField] GameObject SelectedItemName;
@@ -15,14 +14,14 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
         if(timeToNextFire<0)
         {
             Quaternion quaternion = transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy));
-            Instantiate(weaponData.bullet,transform.position,quaternion).GetComponent<BaseBullet>().SetBullet(weaponData.damage,weaponData.bulletSpeed);
-            spawnBulletPos.SetActive(true);
+            Instantiate(weaponData.bullet,spawnBulletPos.position,quaternion).GetComponent<BaseBullet>().SetBullet(weaponData.damage,weaponData.bulletSpeed);
+            spawnBulletPos.gameObject.SetActive(true);
             StartCoroutine(DisableFireEffect());
             timeToNextFire = 1/weaponData.fireRate;
         }
     }
     public virtual void StopAttack() {}
-    public virtual void RotateToTarget() // quay vũ khí vào target, clientId là Id người quay
+    public virtual void RotateToTarget(Transform target) // quay vũ khí vào target, clientId là Id người quay
     {
         Vector2 direction = (Vector2)target.position - (Vector2)transform.position;
         // trả về góc từ 0 -> 90 với vector thuộc góc phần tư 1,3 và từ -90 -> 0 với góc phần tư 2,4
@@ -48,7 +47,7 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
     protected IEnumerator DisableFireEffect()
     {
         yield return new WaitForSeconds(0.05f);
-        spawnBulletPos.SetActive(false);
+        spawnBulletPos.gameObject.SetActive(false);
     }
     public virtual void PickUp(Transform parent) // Nhặt vũ khí
     {

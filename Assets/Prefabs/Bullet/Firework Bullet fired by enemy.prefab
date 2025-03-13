@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2341624435142278086}
   - component: {fileID: 348028369580160122}
   - component: {fileID: 1462198540267722007}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Particle Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4857,7 +4857,7 @@ GameObject:
   - component: {fileID: 5965743125560319691}
   - component: {fileID: 5903977452796296527}
   - component: {fileID: 8108606128103916217}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Firework Bullet fired by enemy
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}

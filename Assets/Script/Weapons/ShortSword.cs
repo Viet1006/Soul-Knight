@@ -22,10 +22,10 @@ public class ShortSword : MeleeWeapon
     }
     public void CreateAttackZone1()
     {
-        Instantiate(weaponData.bullet,spawnBulletPos.transform.position,transform.rotation).GetComponent<BaseBullet>().SetBullet(weaponData.damage,weaponData.bulletSpeed);
+        Instantiate(weaponData.bullet,spawnBulletPos.position,transform.rotation).GetComponent<BaseBullet>().SetBullet(weaponData.damage,weaponData.bulletSpeed);
     }
     public void CreateAttackZone2()
     {
-        Instantiate(weaponData.bullet,spawnBulletPos.transform.position,transform.rotation * Quaternion.Euler(180,0,0)).GetComponent<BaseBullet>().SetBullet(weaponData.damage,weaponData.bulletSpeed);
+        Instantiate(weaponData.bullet,spawnBulletPos.position,transform.rotation * Quaternion.Euler(180,0,0)).GetComponent<BaseBullet>().SetBullet(weaponData.damage,weaponData.bulletSpeed);
     }
 }

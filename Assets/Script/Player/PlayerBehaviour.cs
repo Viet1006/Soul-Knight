@@ -72,8 +72,7 @@ public class PlayerBehaviour : MonoBehaviour
         HandleSelectEnemy();
         if(currentWeapon != null)
         {
-            currentWeapon.target = target;
-            currentWeapon.RotateToTarget();
+            currentWeapon.RotateToTarget(target);
         }
     }
     void FlipToTarget() // Lật theo target

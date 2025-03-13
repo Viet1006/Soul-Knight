@@ -26,15 +26,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2975137947254559144}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.00034904052, w: 0.99999994}
-  m_LocalPosition: {x: 0, y: -5.81, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9223320965173125127}
   - {fileID: 4487279865254951854}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.04}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3409453503530820214
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -52,6 +52,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -101,7 +103,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: b4192d47bb0fc104aac0579221e5f79e, type: 2}
   spawnBulletPos: {fileID: 6968474768628940307}
-  target: {x: 0, y: 0}
   weaponCollider: {fileID: 0}
   SelectedItemName: {fileID: 6075565976034735321}
   sprite: {fileID: 3409453503530820214}
