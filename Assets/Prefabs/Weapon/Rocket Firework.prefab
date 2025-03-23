@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8483904089933088185}
   - component: {fileID: 7441229600304325900}
   - component: {fileID: 2228816260258882603}
+  - component: {fileID: 6521611744762773152}
   m_Layer: 0
   m_Name: Rocket Firework
   m_TagString: Untagged
@@ -140,10 +141,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 7433847ba80b7204398daeed94197bf2, type: 2}
-  spawnBulletPos: {fileID: 6857214613499305008}
-  weaponCollider: {fileID: 7441229600304325900}
-  SelectedItemName: {fileID: 5586172600583540819}
-  sprite: {fileID: 8483904089933088185}
+  spawnBulletPos: {fileID: 5416271624851840167}
+--- !u!114 &6521611744762773152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4993269783049860602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bdb7dd3f751d074b846481d910af441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedItemName: {fileID: 5586172600583540819}
+  weaponData: {fileID: 11400000, guid: 7433847ba80b7204398daeed94197bf2, type: 2}
 --- !u!1 &6857214613499305008
 GameObject:
   m_ObjectHideFlags: 0

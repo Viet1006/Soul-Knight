@@ -10,12 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8615546996337294505}
   - component: {fileID: 4462896859080000298}
-  - component: {fileID: 3556396154919191171}
   - component: {fileID: 1155131911919348131}
-  - component: {fileID: 7587802792341397440}
-  - component: {fileID: -5875506407903381065}
   - component: {fileID: 7851738732413396650}
-  - component: {fileID: -8464159140987047318}
+  - component: {fileID: 7816045718283611278}
+  - component: {fileID: -340188099252742345}
   m_Layer: 7
   m_Name: YellowBullet
   m_TagString: PlayerBullet
@@ -93,26 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3556396154919191171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3914658589996339777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b19e687987abc44933fb6ab0929e52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorDamage: {r: 1, g: 0, b: 0, a: 1}
-  animator: {fileID: 1155131911919348131}
-  explodeEffect: {fileID: 8576537029630397952}
-  bulletBuffs: []
-  damage: 0
-  speed: 0
-  timeLife: 3
-  colliderBullet: {fileID: 7851738732413396650}
 --- !u!95 &1155131911919348131
 Animator:
   serializedVersion: 7
@@ -135,46 +113,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &7587802792341397440
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3914658589996339777}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &-5875506407903381065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3914658589996339777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b756bdc46086274bacdbdbb8ab4610e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distancePushBack: 0.3
 --- !u!58 &7851738732413396650
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -211,7 +149,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.027403772}
   m_Radius: 0.30927974
---- !u!114 &-8464159140987047318
+--- !u!114 &7816045718283611278
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -220,10 +158,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 3914658589996339777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36065775374cafa47b21c714dd209462, type: 3}
+  m_Script: {fileID: 11500000, guid: 31e4b9bb25228d24baa287ff3e8fcd26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletElement: 0
+  critMultiplier: 1
+  explodeEffect: {fileID: 8576537029630397952}
+  animator: {fileID: 1155131911919348131}
+  bulletCollider: {fileID: 7851738732413396650}
+  pierceCount: 0
   bounceCount: 1
+--- !u!114 &-340188099252742345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3914658589996339777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2bd8d46b7cac4479f5128304d2df92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushbackDistance: 1
 --- !u!1 &5735703858628652144
 GameObject:
   m_ObjectHideFlags: 0

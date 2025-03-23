@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 513678925463543512}
   - component: {fileID: 3982845980147744801}
   - component: {fileID: 565550514804745117}
-  - component: {fileID: 5745796817828851976}
+  - component: {fileID: 6144258501992719828}
   m_Layer: 0
   m_Name: Glacier
   m_TagString: Untagged
@@ -325,12 +325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 93382d396355d7a40ba6f13fab60ba4f, type: 2}
-  spawnBulletPos: {fileID: 3097227909343000262}
-  target: {fileID: 0}
-  weaponCollider: {fileID: 3982845980147744801}
-  SelectedItemName: {fileID: 1728317361940826011}
-  sprite: {fileID: 513678925463543512}
---- !u!114 &5745796817828851976
+  spawnBulletPos: {fileID: 8561894496752655377}
+--- !u!114 &6144258501992719828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -339,7 +335,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 8572086085584396000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65e2a74c1ca2696488a66d1b4e1536c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0bdb7dd3f751d074b846481d910af441, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pierceCount: 2
+  selectedItemName: {fileID: 1728317361940826011}
+  weaponData: {fileID: 11400000, guid: 93382d396355d7a40ba6f13fab60ba4f, type: 2}

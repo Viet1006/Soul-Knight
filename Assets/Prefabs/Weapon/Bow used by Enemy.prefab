@@ -187,10 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 467ad8102e1b89b4ba985bd31a2611f0, type: 2}
-  spawnBulletPos: {fileID: 1820670661919765529}
-  weaponCollider: {fileID: 0}
-  SelectedItemName: {fileID: 0}
-  sprite: {fileID: 9199324496922615887}
+  spawnBulletPos: {fileID: 3725974856271761669}
+  timeToNextFire: 0
   animator: {fileID: 6692698602913911600}
-  timeForEachLevelCharge: 0
+  timeForEachLevelCharge: 0.5
   chargingBar: {fileID: 0}

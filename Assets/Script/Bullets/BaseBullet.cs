@@ -1,68 +1,56 @@
-using System.Collections.Generic;
 using UnityEngine;
-// Lớp cơ sở các loại đạn
 public class BaseBullet : MonoBehaviour
 {
-    public Color colorDamage;
-    [SerializeField] protected Animator animator;
+    [HideInInspector] public BulletElements bulletElement;
+    protected float speed;
+    protected float damage;
+    public float critMultiplier = 1; // Hệ số nhân
     [SerializeField] ParticleSystem explodeEffect;
-    [HideInInspector] public List<BaseBulletBuff> bulletBuffs;
-    [HideInInspector] public float damage;
-    public float speed;
-    public float timeLife;
-    public Collider2D colliderBullet;
-    void Awake() // Nhận tất cả các buff đã ném vào trong viên đạn
+    [SerializeField] protected Animator animator;
+    [SerializeField] public Collider2D bulletCollider;
+    BulletBuff bulletBuff;
+    bool isCritical;
+    public void SetBullet(float speed , float damage , bool isCritical , BulletElements elements,float timeLife)
     {
-        bulletBuffs.AddRange(GetComponents<BaseBulletBuff>());
-        Destroy(gameObject,timeLife);
+        this.speed = speed;
+        if(isCritical) this.damage = damage* critMultiplier;
+        else this.damage = damage;
+        this.isCritical = isCritical;
+        bulletBuff = GetComponent<BulletBuff>();
+        bulletElement = elements;
+        if(timeLife >0) StartCounter(timeLife);
     }
-    void Update()
+    protected virtual void Update()
     {
-        transform.position += Time.deltaTime * speed * transform.right;
+        transform.position += speed * Time.deltaTime *transform.right;
     }
     protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
-        if(collider.CompareTag("PlayerBullet") || collider.CompareTag("EnemyBullet")) return;
-        if(!IsHaveIBuffTriggered()) // Nếu có loại buff nào ko kích hoạt khi va chạm như xuyên qua enemy hoặc bật tường thì để loại buff đấy tự gọi khi destroy đạn
-        {
-            HandleCollision(collider);
-            HandleOnObject(collider);
-        }
+        HandleCollisionEffect(collider);
+        if(collider.CompareTag("Wall")) return;
+        HandleOnObject(collider);
     }
-    protected void Destroy()
+    public virtual void HandleOnObject(Collider2D collider) //Gây sát thương cho object
     {
-        gameObject.SetActive(false);
+        if (collider.TryGetComponent(out IGetHit hittedObject)) hittedObject.GetHit(damage,SetColor.SetElementColor(bulletElement));
+        if(bulletBuff) bulletBuff.ApplyPassiveBuff(collider,bulletElement,isCritical);
     }
-    public virtual void HandleCollision(Collider2D collider) // hàm xử lý va chạm cơ bản
+    public virtual void HandleCollisionEffect(Collider2D collider) // Xử lý hiệu ứng va chạm
     {
         speed = 0;
-        animator.SetTrigger(Parameters.explode);
-        colliderBullet.enabled = false; // Tắt Collider để tránh Enemy đi vào trong quá trình xử lý hiệu ứng phát nổ
-        if(explodeEffect != null) explodeEffect.Play();
         transform.SetParent(null);
+        animator.SetTrigger(Parameters.explode);
+        bulletCollider.enabled = false;
+        if(explodeEffect) explodeEffect.Play();
     }
-    public void HandleOnObject(Collider2D collider)
+    public void StartCounter(float timeLife) // Bắt đầu đếm để trả đạn về pool
     {
-        if(collider.gameObject.TryGetComponent(out IGetHit hittedObject)) hittedObject.GetHit(damage,colorDamage);
-        foreach (BaseBulletBuff buff in bulletBuffs) // Dùng tất cả các loại buff
-        {
-            buff.ApplyBuff(collider);
-        }
+        Invoke(nameof(ReturnToPool),timeLife);
     }
-    bool IsHaveIBuffTriggered() // Kiểm tra có buff nào thuộc dạng tự trigger không
+    public virtual void ReturnToPool()
     {
-        foreach(BaseBulletBuff buff in bulletBuffs)
-        {
-            if(buff.GetComponent<IBuffTriggeredBullet>() != null)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-    public virtual void SetBullet(float damage, float speed)
-    {
-        this.damage = damage;
-        this.speed = speed;
+        if(IsInvoking(nameof(ReturnToPool))) CancelInvoke(nameof(ReturnToPool)); // tắt các invoke thực hiện hàm này
+        if(bulletCollider) bulletCollider.enabled = true;
+        BulletPool.instance.ReturnBullet(gameObject);
     }
 }

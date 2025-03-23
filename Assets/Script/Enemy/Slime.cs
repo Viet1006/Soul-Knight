@@ -7,7 +7,8 @@ public class Slime : EnemyWithoutWeapon
     {
         for(int i=0 ; i<numberOfBullet ; i++)
         {
-            Instantiate(bullet, transform.position, Quaternion.Euler(0,0,Random.Range(0,360))).GetComponent<BaseBullet>().SetBullet(damageBullet ,speedBullet ); // Spawn đạn lung tung
+            BaseBullet baseBullet = BulletPool.instance.GetBullet(bulletData.bullet, transform.position, Quaternion.Euler(0,0,Random.Range(0,360))).GetComponent<BaseBullet>(); // Spawn đạn lung tung
+            baseBullet.SetBullet(bulletData.speedBullet, bulletData.damageBullet, false,BulletElements.NoElement,3);
             ResetTimeToAttack();
         }
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3778890600426485931}
   - component: {fileID: 9105682815135995484}
   - component: {fileID: 5667982345772518088}
+  - component: {fileID: 2084354386167128813}
   m_Layer: 0
   m_Name: Bad Pistol
   m_TagString: Untagged
@@ -103,10 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 395d282dcf6263448a351f8d0841d018, type: 2}
-  spawnBulletPos: {fileID: 6674040724061918830}
-  weaponCollider: {fileID: 5667982345772518088}
-  SelectedItemName: {fileID: 6294642815887888834}
-  sprite: {fileID: 3778890600426485931}
+  spawnBulletPos: {fileID: 2123026760347122639}
 --- !u!58 &5667982345772518088
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -143,6 +141,20 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.32115304, y: -0.058689356}
   m_Radius: 0.31884634
+--- !u!114 &2084354386167128813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3657191387208301508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bdb7dd3f751d074b846481d910af441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedItemName: {fileID: 6294642815887888834}
+  weaponData: {fileID: 11400000, guid: 395d282dcf6263448a351f8d0841d018, type: 2}
 --- !u!1 &6294642815887888834
 GameObject:
   m_ObjectHideFlags: 0

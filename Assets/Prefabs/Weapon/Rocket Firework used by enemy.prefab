@@ -101,11 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: f2e1083f6abe7e94aa2a14ad8798c7c7, type: 2}
-  spawnBulletPos: {fileID: 5448181381700094162}
-  target: {x: 0, y: 0}
-  weaponCollider: {fileID: 0}
-  SelectedItemName: {fileID: 0}
-  sprite: {fileID: 7449016362582363220}
+  spawnBulletPos: {fileID: 8714633336823657209}
 --- !u!1 &5448181381700094162
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,7 +127,7 @@ Transform:
   m_GameObject: {fileID: 5448181381700094162}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.420244, y: -4.2188187, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

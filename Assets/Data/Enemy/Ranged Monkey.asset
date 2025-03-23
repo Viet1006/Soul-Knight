@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ddca26cc38333478c25ba9cdaefc5f, type: 3}
+  m_Name: Ranged Monkey
+  m_EditorClassIdentifier: 
+  health: 10
+  speed: 4
+  textDamage: {fileID: 3445322831368300233, guid: 2599c36ea0c86e549a6ea0305de99e56, type: 3}
+  attackRange: 10
+  AttackRate: 0.33
+  animatorController: {fileID: 9100000, guid: 83ceacab1585b334f9f83e312cffe7bb, type: 2}

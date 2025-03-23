@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3459752792336205903}
   - component: {fileID: 4721301759610874077}
   - component: {fileID: 4589525650779876618}
+  - component: {fileID: 9098186236308375059}
   m_Layer: 0
   m_Name: Ak-47
   m_TagString: Untagged
@@ -225,10 +226,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 78104be05bbc1ef4aab9163c225657a4, type: 2}
-  spawnBulletPos: {fileID: 4386439224216324861}
-  weaponCollider: {fileID: 4721301759610874077}
-  SelectedItemName: {fileID: 5716999163437221724}
-  sprite: {fileID: 3459752792336205903}
+  spawnBulletPos: {fileID: 6444599850191259697}
+--- !u!114 &9098186236308375059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4516633902601772909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bdb7dd3f751d074b846481d910af441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedItemName: {fileID: 5716999163437221724}
+  weaponData: {fileID: 11400000, guid: 78104be05bbc1ef4aab9163c225657a4, type: 2}
 --- !u!1001 &891533262862003408
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ public class Vine : MeleeWeapon
     public float delayTime;
     public override void Attack(Transform target)
     {
-        if(timeToNextFire<0)
+        if(timeToNextFire<=0)
         {
             timeToNextFire = 1/weaponData.fireRate;
             animator.SetTrigger(Parameters.attack);
@@ -15,7 +15,7 @@ public class Vine : MeleeWeapon
     }
     public void CreateAttackZone()
     {
-        Instantiate(weaponData.bullet,spawnBulletPos.position,transform.rotation).GetComponent<BaseBullet>().SetBullet(weaponData.damage,weaponData.bulletSpeed);
+        BulletPool.instance.GetBullet(weaponData.bullet,spawnBulletPos.position,transform.rotation).GetComponent<BaseBullet>().SetBullet(0,weaponData.damage,RandomChance.TryCrit(weaponData.critChance),weaponData.elements,0.2f);
         isAttacking = false;
     }
 }

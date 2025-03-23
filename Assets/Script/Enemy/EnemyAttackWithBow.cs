@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class EnemyAttackWithBow : EnemyWithWeapon
 {
-    public float chargeTime;
+    float chargeTime = 2;
     float chargeTimeRemain;
     protected override void StartAttack()
     {
+        chargeTimeRemain = chargeTime;
         StartCoroutine(AttackIEnum());
     }
-    IEnumerator AttackIEnum()
+    public IEnumerator AttackIEnum()
     {
         while(chargeTimeRemain > 0)
         {
@@ -18,7 +19,6 @@ public class EnemyAttackWithBow : EnemyWithWeapon
             yield return null;
         }
         weapon.StopAttack();
-        chargeTimeRemain = chargeTime;
         ResetTimeToAttack();
     }
 }

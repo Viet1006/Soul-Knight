@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2341624435142278086}
   - component: {fileID: 348028369580160122}
   - component: {fileID: 1462198540267722007}
-  m_Layer: 9
+  m_Layer: 7
   m_Name: Particle Explode
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4852,12 +4852,10 @@ GameObject:
   - component: {fileID: 59837506981403446}
   - component: {fileID: 5797861003902637031}
   - component: {fileID: 9145437457692933289}
-  - component: {fileID: 2656850095572042626}
-  - component: {fileID: 9093491386408356519}
   - component: {fileID: 5965743125560319691}
-  - component: {fileID: 5903977452796296527}
-  - component: {fileID: 8108606128103916217}
-  m_Layer: 9
+  - component: {fileID: 6464338516940981682}
+  - component: {fileID: 6606762641689191198}
+  m_Layer: 7
   m_Name: Firework Bullet
   m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
@@ -4956,53 +4954,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2656850095572042626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4713679031115448838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05b19e687987abc44933fb6ab0929e52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorDamage: {r: 1, g: 0, b: 0, a: 1}
-  animator: {fileID: 9145437457692933289}
-  explodeEffect: {fileID: 348028369580160122}
-  bulletBuffs: []
-  damage: 0
-  speed: 0
-  timeLife: 3
-  colliderBullet: {fileID: 5965743125560319691}
---- !u!50 &9093491386408356519
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4713679031115448838}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &5965743125560319691
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5039,7 +4990,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0.269603, y: -0.063991636}
   m_Radius: 0.3136027
---- !u!114 &5903977452796296527
+--- !u!114 &6464338516940981682
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5048,11 +4999,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 4713679031115448838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b756bdc46086274bacdbdbb8ab4610e, type: 3}
+  m_Script: {fileID: 11500000, guid: 0adc20b0fcdf02a4db6e1fb8a5cd25d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distancePushBack: 1
---- !u!114 &8108606128103916217
+  bulletElement: 0
+  critMultiplier: 2
+  explodeEffect: {fileID: 348028369580160122}
+  animator: {fileID: 9145437457692933289}
+  bulletCollider: {fileID: 5965743125560319691}
+  explodeRadius: 0.7
+--- !u!114 &6606762641689191198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5061,7 +5017,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4713679031115448838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ee9ac48c13db1b4cb6e1f7112152d26, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d2bd8d46b7cac4479f5128304d2df92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionRadius: 1
+  pushbackDistance: 0.7

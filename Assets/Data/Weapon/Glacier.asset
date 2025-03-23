@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Glacier
   m_EditorClassIdentifier: 
   fireRate: 1.2
-  damage: 10
   critChance: 50
   energyCost: 0
   inaccuracy: 2
   rareColor: 2
+  bulletSpeed: 3
+  damage: 10
   bullet: {fileID: 8716283894238101725, guid: fb2ef81544b2bb5439cf80bf934b9606, type: 3}
-  bulletSpeed: 25
+  elements: 2

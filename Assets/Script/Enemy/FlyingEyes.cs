@@ -7,8 +7,8 @@ public class FlyingEyes : EnemyWithoutWeapon
     [SerializeField] int numberOfBullet;
     protected override void StartAttack()
     {
-        Instantiate(bullet, transform.position, Quaternion.identity).GetComponent<SurroundedBullet>()
-        .SetSurroundedBullet(speedBullet,damageBullet,childBulletSpeed,childBullet,numberOfBullet,target.position - transform.position);
+        BulletPool.instance.GetBullet(bulletData.bullet, transform.position, target.position).GetComponent<SurroundedBullet>()
+        .SetSurroundedBullet(bulletData.speedBullet,bulletData.damageBullet,childBulletSpeed,childBullet,numberOfBullet,3f);
         ResetTimeToAttack();
     }
 }

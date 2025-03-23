@@ -5,11 +5,11 @@ public class SummonedBullet : BaseBullet
     public void SummonBullet()
     {
         animator.SetTrigger(Parameters.deploy);
-        colliderBullet.enabled = true;
+        bulletCollider.enabled = true;
     }
     public void EndAttack() // Kết thúc đòn tấn công
     {
-        colliderBullet.enabled = false;
+        bulletCollider.enabled = false;
         endAttack?.Invoke();
     }
 }

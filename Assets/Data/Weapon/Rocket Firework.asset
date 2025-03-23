@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 0.75
   damage: 15
-  critChance: 0
+  critChance: 10
   energyCost: 5
   inaccuracy: 9
   rareColor: 3

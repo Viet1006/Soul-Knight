@@ -23,13 +23,13 @@ public class PlayerBehaviour : MonoBehaviour
                 
                 if(nearestItem.TryGetComponent(out BaseWeapon selectedWeapon))
                 {
-                    selectedWeapon.PickUp(transform);
+                    selectedWeapon.GetComponent<PlayerWeapon>().PickUp(transform);
                     if(secondWeapon != null)
                     {
-                        currentWeapon.Drop();
+                        currentWeapon.GetComponent<PlayerWeapon>().Drop();
                     }else if(currentWeapon != null){
                         secondWeapon = currentWeapon;
-                        secondWeapon.PutAwayWeapon();
+                        secondWeapon.GetComponent<PlayerWeapon>().PutAwayWeapon();
                     }
                     currentWeapon = selectedWeapon;
                 }
@@ -48,8 +48,8 @@ public class PlayerBehaviour : MonoBehaviour
         if(context.performed && secondWeapon != null && currentWeapon != null)
         {
             (currentWeapon, secondWeapon) = (secondWeapon, currentWeapon);
-            secondWeapon.PutAwayWeapon();
-            currentWeapon.GetWeapon();
+            secondWeapon.GetComponent<PlayerWeapon>().PutAwayWeapon();
+            currentWeapon.GetComponent<PlayerWeapon>().GetWeapon();
         }
     }
     void Start()

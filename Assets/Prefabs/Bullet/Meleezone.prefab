@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7091318613141998577}
   - component: {fileID: 3445395799469414876}
   - component: {fileID: 3785934381250259746}
-  - component: {fileID: 6339751124064414944}
-  - component: {fileID: 8461875569607116459}
-  m_Layer: 7
+  - component: {fileID: -2320537702390435861}
+  - component: {fileID: -7227413482236756983}
+  - component: {fileID: 4062969027607650403}
+  m_Layer: 12
   m_Name: Meleezone
   m_TagString: AttackZone
   m_Icon: {fileID: 0}
@@ -149,7 +150,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0.6120047, y: -0.08589578}
   m_Size: {x: 1.1981155, y: 2.543284}
   m_Direction: 0
---- !u!50 &6339751124064414944
+--- !u!50 &-2320537702390435861
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -176,7 +177,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8461875569607116459
+--- !u!114 &-7227413482236756983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373595814231110869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d2bd8d46b7cac4479f5128304d2df92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pushbackDistance: 0
+--- !u!114 &4062969027607650403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -188,11 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d6820e58061bcb4db0685e1d2e58dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorDamage: {r: 1, g: 0, b: 0, a: 1}
-  animator: {fileID: 3445395799469414876}
+  bulletElement: 0
+  critMultiplier: 1
   explodeEffect: {fileID: 0}
-  bulletBuffs: []
-  damage: 0
-  speed: 0
-  timeLife: 0.2
-  colliderBullet: {fileID: 3785934381250259746}
+  animator: {fileID: 3445395799469414876}
+  bulletCollider: {fileID: 0}

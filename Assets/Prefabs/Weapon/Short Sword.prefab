@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7413131937379281595}
   - component: {fileID: 8461601350610572348}
   - component: {fileID: 9023288139258645384}
+  - component: {fileID: -2950476704081354356}
   m_Layer: 0
   m_Name: Short Sword
   m_TagString: Untagged
@@ -162,11 +163,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: a637415a5ec46ab48bacc41eee7a8780, type: 2}
-  spawnBulletPos: {fileID: 4121927115318524572}
-  weaponCollider: {fileID: 8461601350610572348}
-  SelectedItemName: {fileID: 5747375492119314217}
-  sprite: {fileID: 8860860353600556834}
+  spawnBulletPos: {fileID: 2642007709679921585}
   animator: {fileID: 7413131937379281595}
+--- !u!114 &-2950476704081354356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3560965700033917869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bdb7dd3f751d074b846481d910af441, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedItemName: {fileID: 5747375492119314217}
+  weaponData: {fileID: 11400000, guid: a637415a5ec46ab48bacc41eee7a8780, type: 2}
 --- !u!1 &4121927115318524572
 GameObject:
   m_ObjectHideFlags: 0

@@ -174,11 +174,8 @@ GameObject:
   - component: {fileID: 4660225812553026593}
   - component: {fileID: 3084807956151770031}
   - component: {fileID: 6423179105653935388}
-  - component: {fileID: 2894432333060478102}
   - component: {fileID: 7338695484423777696}
   - component: {fileID: 5728873981189136543}
-  - component: {fileID: 5376654924425493231}
-  - component: {fileID: 5947234207390621365}
   m_Layer: 7
   m_Name: Lightning Bullet
   m_TagString: Untagged
@@ -277,23 +274,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2894432333060478102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8253786441778221251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5312bb2f86a5144a74342f517d1e55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletData: {fileID: 11400000, guid: 338f50c301eb64e499a539d0648703ae, type: 2}
-  animator: {fileID: 6423179105653935388}
-  explodeEffect: {fileID: 0}
-  bulletBuffs: []
-  damage: 0
 --- !u!58 &7338695484423777696
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -357,31 +337,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5376654924425493231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8253786441778221251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d4035f508ab449c4da7802603ca54cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stunRate: 100
-  stunTime: 1
-  stunIcon: {fileID: 4652578631376984911, guid: 489d5ec97ce4ceb45b58e1afe407aea0, type: 3}
---- !u!114 &5947234207390621365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8253786441778221251}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ee9ac48c13db1b4cb6e1f7112152d26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionRadius: 0.9

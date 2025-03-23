@@ -4,67 +4,58 @@ using UnityEngine;
 public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable
 {
     [SerializeField] GameObject stunIcon;
-    [SerializeField]BaseEnemy baseEnemy;
-    Coroutine currentStunCoroutine; // Giữ Coroutine Stun để kiểm tra và dừng khi có coroutine stun khác muốn chạy
-    Coroutine currentPushCoroutine;
-    int holdMovementCount =0; // Số coroutine đang muốn sửa quyền di chuyển của enemy này
+    EnemyBrain enemyBrain;
+    int pushBackCount; // Chia nhỏ khoảng cách đẩy cho mỗi frame để mượt hơn
+    float stunTimeRemain;
+    void Awake()
+    {
+        enemyBrain = GetComponent<EnemyBrain>();
+    }
     public void StartPushCoroutine(Vector2 direction,float distance)
     {
-        if(currentPushCoroutine != null)
+        if(pushBackCount == 0) // Nếu = 0 là ko có coroutine nào đang đẩy
         {
-            StopCoroutine(currentPushCoroutine);
-            holdMovementCount -= 1; // Trả nếu coroutine bị dừng giữa chừng
+            pushBackCount = 10;
+            StartCoroutine(PushBackIEnum(direction,distance));
         }
-        currentPushCoroutine = StartCoroutine(PushBackIEnum(direction,distance));
-        holdMovementCount +=1;
+        pushBackCount = 10; // Nếu có thì chỉ cần đặt lại số lần đẩy
     }
     public virtual IEnumerator PushBackIEnum(Vector2 direction, float distance)
     {
-        int pushBackCount = 3; // Chia nhỏ ra đẩy tạo hiệu ứng đẩy mượt hơn
-        baseEnemy.aIPath.canMove = false;
         while(pushBackCount > 0)
         {
-            pushBackCount -= 1;
+            pushBackCount -= 10;
+            enemyBrain.aIPath.canMove = false;
             // Kiểm tra hướng đẩy có dính tường hay water ko
             if(!Physics2D.Raycast(transform.position,direction,distance/3,LayerMask.GetMask("Wall")+LayerMask.GetMask("Water")))
             {
-                transform.position += distance/3 * (Vector3)direction.normalized;
+                transform.position += distance/10 * (Vector3)direction.normalized;
             }
             yield return null;
         }
-        ReturnMovementForEnemy();
-        baseEnemy.aIPath.canMove = true;
-        currentPushCoroutine = null;
+        enemyBrain.aIPath.canMove = true;
     }
     public void StartStunCoroutine(float stunTime)
     {
-        if(currentStunCoroutine != null)
+        if(stunTimeRemain <= 0) // Nếu < 0 là ko có coroutine nào đang stun
         {
-            StopCoroutine(currentStunCoroutine);
-            holdMovementCount -= 1;
-        }
-        currentStunCoroutine = StartCoroutine(StunIEnum(stunTime));
-        holdMovementCount +=1;
+            stunTimeRemain = stunTime;
+            StartCoroutine(StunIEnum());
+        } 
+        pushBackCount = 10; // Nếu có thì chỉ cần đặt lại số lần đẩy
     }
-    public virtual IEnumerator StunIEnum(float stunTime)
+    public virtual IEnumerator StunIEnum()
     {
-        baseEnemy.enabled = false;
-        baseEnemy.aIPath.canMove = false;
-        Destroy(Instantiate(stunIcon,new Vector2(transform.position.x,transform.position.y + 1.2f),Quaternion.identity),stunTime);
-        while (stunTime > 0)
+        GameObject newIcon = Instantiate(stunIcon,new Vector2(transform.position.x,transform.position.y + 1.2f),Quaternion.identity);
+        while (stunTimeRemain >0)
         {
-            stunTime -= Time.deltaTime;
+            stunTimeRemain -= Time.deltaTime;
+            enemyBrain.enabled = false;
+            enemyBrain.aIPath.canMove = false;
             yield return null;
         }
-        ReturnMovementForEnemy();
-        baseEnemy.enabled = true;
-        currentStunCoroutine = null;
-    }
-    void ReturnMovementForEnemy()
-    {
-        if(holdMovementCount ==1){
-            baseEnemy.aIPath.canMove = true;
-            holdMovementCount -=1;
-        }
+        Destroy(newIcon);
+        enemyBrain.enabled = true;
+        enemyBrain.aIPath.canMove = true;
     }
 }

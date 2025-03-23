@@ -1,20 +1,17 @@
-
 using System.Collections;
 using UnityEngine;
-public class BaseWeapon : MonoBehaviour , ICanSelect
+public class BaseWeapon : MonoBehaviour
 {
-    [SerializeField] protected WeaponData weaponData;
+    public WeaponData weaponData;
     [SerializeField] protected Transform spawnBulletPos;
-    [SerializeField] protected Collider2D weaponCollider;
-    protected float timeToNextFire;
-    [SerializeField] GameObject SelectedItemName;
-    [SerializeField] SpriteRenderer sprite;
+    public float timeToNextFire;
     public virtual void Attack(Transform target)
     {
-        if(timeToNextFire<0)
+        if(timeToNextFire <= 0)
         {
             Quaternion quaternion = transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy));
-            Instantiate(weaponData.bullet,spawnBulletPos.position,quaternion).GetComponent<BaseBullet>().SetBullet(weaponData.damage,weaponData.bulletSpeed);
+            BaseBullet baseBullet = BulletPool.instance.GetBullet(weaponData.bullet,spawnBulletPos.position,quaternion).GetComponent<BaseBullet>();
+            baseBullet.SetBullet(weaponData.bulletSpeed,weaponData.damage,RandomChance.TryCrit(weaponData.critChance),weaponData.elements,3);
             spawnBulletPos.gameObject.SetActive(true);
             StartCoroutine(DisableFireEffect());
             timeToNextFire = 1/weaponData.fireRate;
@@ -36,52 +33,19 @@ public class BaseWeapon : MonoBehaviour , ICanSelect
             }
         }
     }
-    public void ShowSelectObject() // hiện tên vũ khí
-    {
-         SelectedItemName.SetActive(true);
-    }
-    public void HideSelectObject() // Ẩn tên vũ khí
-    {
-        SelectedItemName.SetActive(false);
-    }
     protected IEnumerator DisableFireEffect()
     {
         yield return new WaitForSeconds(0.05f);
         spawnBulletPos.gameObject.SetActive(false);
     }
-    public virtual void PickUp(Transform parent) // Nhặt vũ khí
-    {
-        transform.SetParent(parent);
-        weaponCollider.enabled = false;
-        transform.localPosition = Vector2.zero;
-        GetWeapon();
-    }
-    public void Drop() // Thả vũ khí
-    {
-        transform.parent = null;
-        weaponCollider.enabled= true;
-        transform.rotation = Quaternion.identity;
-    }
-    public void GetWeapon() // lấy vũ khí
-    {
-        sprite.sortingOrder = 4;
-    }
-    public void PutAwayWeapon() // Cất vũ khí
-    {
-        sprite.sortingOrder = 2;
-        transform.localRotation = Quaternion.Euler(0,180,-20);
-    } 
-    protected void Awake()
-    {
-        if(SelectedItemName != null)
-        {
-            TextMesh textMesh = SelectedItemName.GetComponent<TextMesh>();
-            textMesh.text = name;
-            textMesh.color = SetColor.SetColorRare(weaponData.rareColor);
-        }
-    }
     protected virtual void Update()
     {
         timeToNextFire -= Time.deltaTime;
+    }
+    public virtual void ResetToOringin() // Đặt lại trạng thái ban đầu cho vũ khí
+    {
+        StopAllCoroutines();
+        gameObject.SetActive(false);
+        timeToNextFire = 1/weaponData.fireRate;
     }
 }

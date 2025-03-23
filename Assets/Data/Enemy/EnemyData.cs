@@ -7,4 +7,6 @@ public class EnemyData : ScriptableObject
     public GameObject textDamage;
     public float attackRange;
     public float AttackRate;
+    public RuntimeAnimatorController animatorController;
+    public int cost;
 }

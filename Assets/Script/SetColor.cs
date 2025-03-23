@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class SetColor 
 {
-    public static Color SetColorRare(RareColor color)
+    public static Color SetRareColor(RareColor color)
     {
         if(color == RareColor.White){
             return Color.white;
@@ -26,6 +26,24 @@ public static class SetColor
         }else
         {
             return Color.magenta;
+        }
+    }
+    public static Color SetElementColor(BulletElements bulletElements)
+    {
+        if(bulletElements == BulletElements.NoElement){
+            return Color.red;
+        } else if (bulletElements == BulletElements.Fire)
+        {
+            return new Color(1f, 0.5f, 0f); 
+        } else if (bulletElements == BulletElements.Frozen)
+        {
+            return Color.blue;
+        } else if (bulletElements == BulletElements.Lightning)
+        {
+            return Color.yellow;
+        } else
+        {
+            return Color.green; // Poison
         }
     }
 }

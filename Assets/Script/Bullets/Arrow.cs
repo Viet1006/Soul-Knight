@@ -1,12 +1,24 @@
 using UnityEngine;
-
-public class Arrow : BaseBullet
+public class Arrow : BulletPierceAndBounce
 {
-    public override void HandleCollision(Collider2D collider)
+    SpriteRenderer spriteRenderer;
+    void Start()
     {
-        colliderBullet.enabled = false;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+    public override void HandleCollisionEffect(Collider2D collider)
+    {
+        bulletCollider.enabled = false;
         transform.SetParent(collider.transform);
-        enabled = false;
-        GetComponent<SpriteRenderer>().sortingOrder = -19;
+        spriteRenderer.sortingOrder = -19;
+        speed = 0;
+    }
+    public override void ReturnToPool()
+    {
+        spriteRenderer.sortingOrder = 0;
+        if(IsInvoking(nameof(ReturnToPool))) CancelInvoke(nameof(ReturnToPool)); // tắt các invoke thực hiện hàm này
+        BulletPool.instance.ReturnBullet(gameObject);
+        speed=0;
+        bulletCollider.enabled = false;
     }
 }

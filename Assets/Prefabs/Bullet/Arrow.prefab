@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 1648850697116285408}
   - component: {fileID: 7391587305467138182}
   - component: {fileID: 7924123983073565409}
-  - component: {fileID: 1772192486550259672}
   - component: {fileID: 9080118099911202238}
-  - component: {fileID: -5522166049000464331}
+  - component: {fileID: 5466404112576658715}
   m_Layer: 7
   m_Name: Arrow
   m_TagString: PlayerBullet
@@ -97,7 +96,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6666564744859772005}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -136,33 +135,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.985569, y: 0.2146753}
   m_EdgeRadius: 0
---- !u!50 &1772192486550259672
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6666564744859772005}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &9080118099911202238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,15 +147,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e97ef23298fb641a1e8730617b3450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  colorDamage: {r: 1, g: 0, b: 0, a: 1}
-  animator: {fileID: 0}
+  bulletElement: 0
+  critMultiplier: 2
   explodeEffect: {fileID: 0}
-  bulletBuffs: []
-  damage: 0
-  speed: 0
-  timeLife: 10
-  colliderBullet: {fileID: 7924123983073565409}
---- !u!114 &-5522166049000464331
+  animator: {fileID: 0}
+  bulletCollider: {fileID: 7924123983073565409}
+  pierceCount: 0
+  bounceCount: 0
+--- !u!114 &5466404112576658715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,7 +163,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6666564744859772005}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b756bdc46086274bacdbdbb8ab4610e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1d2bd8d46b7cac4479f5128304d2df92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distancePushBack: 0.7
+  pushbackDistance: 0

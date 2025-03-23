@@ -3,17 +3,12 @@ public class SummoningTower : BaseTower
 {
     public Transform target; // Lấy để tạo hình triệu hồi trên đầu quái thay vì lấy nearestEnemy
     SpriteRenderer spriteRenderer;
-    SummonedBullet summonedBullet;
     void Start()
     {
         spriteRenderer = target.GetComponent<SpriteRenderer>();
-        summonedBullet =target.GetComponent<SummonedBullet>();
-        summonedBullet.endAttack = ResetColor;
-        summonedBullet.damage = towerData.damage;
     }
     protected override void Attack(Transform target)
     {
-        summonedBullet.SummonBullet();
     }
     protected override void Update()
     {

@@ -1,8 +1,6 @@
 using UnityEngine;
 
-public abstract class EnemyWithoutWeapon : BaseEnemy
+public abstract class EnemyWithoutWeapon : AttackMethodEnemy
 {
-    [SerializeField] protected float damageBullet;
-    [SerializeField] protected GameObject bullet;
-    [SerializeField] protected float speedBullet;
+    [SerializeField] protected EnemyNoWeaponData bulletData;
 }

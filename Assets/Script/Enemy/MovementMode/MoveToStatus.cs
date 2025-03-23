@@ -3,19 +3,22 @@ using UnityEngine;
 [RequireComponent(typeof(AIDestinationSetter),typeof(AIPath))]
 public class MoveToStatus : MonoBehaviour
 {
-    AIDestinationSetter destinationSetter;
-    AIPath aiPath;
-    Transform status;
-    [SerializeField] EnemyData enemyData;
-    [SerializeField] Animator animator;
+    protected AIDestinationSetter destinationSetter;
+    protected Transform status;
+    Animator animator;
+    EnemyBrain enemyBrain;
     void Awake()
     {
-        destinationSetter = GetComponent<AIDestinationSetter>();
-        aiPath = GetComponent<AIPath>();
+        enemyBrain = GetComponent<EnemyBrain>();
         status = GameObject.Find("Status").transform;
+        destinationSetter = GetComponent<AIDestinationSetter>();
+        animator = GetComponent<Animator>();
         destinationSetter.target = status;
-        aiPath.maxSpeed = enemyData.speed;
-        animator.SetInteger(Parameters.state,StateEnum.RUN);
-        
+        if(animator)
+        {
+            
+            animator.runtimeAnimatorController = enemyBrain.enemyData.animatorController;
+            animator.SetInteger(Parameters.state,StateEnum.RUN);
+        }
     }
 }
