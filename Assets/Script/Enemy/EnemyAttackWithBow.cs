@@ -4,10 +4,14 @@ using UnityEngine;
 public class EnemyAttackWithBow : EnemyWithWeapon
 {
     float chargeTime = 2;
-    float chargeTimeRemain;
+    float chargeTimeRemain = 2; // Đặt bằng 2 ko cần Start
+    Animator bowAnimator;
+    void Start()
+    {
+        bowAnimator = weapon.GetComponentInChildren<Animator>(); // chuyển kiểu weapon sang bow
+    }
     protected override void StartAttack()
     {
-        chargeTimeRemain = chargeTime;
         StartCoroutine(AttackIEnum());
     }
     public IEnumerator AttackIEnum()
@@ -20,5 +24,16 @@ public class EnemyAttackWithBow : EnemyWithWeapon
         }
         weapon.StopAttack();
         ResetTimeToAttack();
+        chargeTimeRemain = chargeTime;
+    }
+    public override void StopAttack()
+    {
+        base.StopAttack();
+        bowAnimator.speed = 0;
+    }
+    public override void ContinueAttack()
+    {
+        base.ContinueAttack();
+        bowAnimator.speed = 1;
     }
 }

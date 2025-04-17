@@ -1,7 +1,5 @@
-using UnityEngine;
-
-interface ICanSelect
+public interface ICanSelect
 {
-    public void ShowSelectObject(); // hiện tên 
+    void ShowSelectObject(); // hiện tên 
     void HideSelectObject(); // Ẩn tên 
 }

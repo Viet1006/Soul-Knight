@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 public class BaseWeapon : MonoBehaviour
 {
@@ -9,11 +8,13 @@ public class BaseWeapon : MonoBehaviour
     {
         if(timeToNextFire <= 0)
         {
-            Quaternion quaternion = transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy));
-            BaseBullet baseBullet = BulletPool.instance.GetBullet(weaponData.bullet,spawnBulletPos.position,quaternion).GetComponent<BaseBullet>();
-            baseBullet.SetBullet(weaponData.bulletSpeed,weaponData.damage,RandomChance.TryCrit(weaponData.critChance),weaponData.elements,3);
+            BulletPool.instance
+                .GetBullet(weaponData.bulletPrefab,spawnBulletPos.position,transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy)))
+                .GetComponent<BaseBullet>()
+                .SetBullet(weaponData.speed,weaponData.damage,weaponData.critChance,weaponData.element,weaponData.bulletBuffs,3);
+                // Tạo đạn
             spawnBulletPos.gameObject.SetActive(true);
-            StartCoroutine(DisableFireEffect());
+            DG.Tweening.DOVirtual.DelayedCall(0.05f,() => spawnBulletPos.gameObject.SetActive(false));
             timeToNextFire = 1/weaponData.fireRate;
         }
     }
@@ -33,19 +34,12 @@ public class BaseWeapon : MonoBehaviour
             }
         }
     }
-    protected IEnumerator DisableFireEffect()
-    {
-        yield return new WaitForSeconds(0.05f);
-        spawnBulletPos.gameObject.SetActive(false);
-    }
     protected virtual void Update()
     {
         timeToNextFire -= Time.deltaTime;
     }
     public virtual void ResetToOringin() // Đặt lại trạng thái ban đầu cho vũ khí
     {
-        StopAllCoroutines();
-        gameObject.SetActive(false);
-        timeToNextFire = 1/weaponData.fireRate;
+        WeaponPool.instance.ReturnWeapon(gameObject);
     }
 }

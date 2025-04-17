@@ -1,10 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+[DefaultExecutionOrder(-100)]
 public class PlayerBehaviour : MonoBehaviour
 {
     public BaseWeapon currentWeapon; // Vũ khí đang sử dụng
-    public BaseWeapon secondWeapon;
     public Transform target; // Target để điều hướng súng
     [SerializeField] float findRadius; // Bán kính tìm quái
     [SerializeField] float getItemRadius; // Bán kính nhặt các item
@@ -13,48 +12,38 @@ public class PlayerBehaviour : MonoBehaviour
     GameObject selectingItem; // Item đang chọn để tắt object đang chọn của item đấy khi ko chọn nữa
     public GameObject nearestEnemy;
     GameObject selectingEnemy;
-    bool isAttack;
+    bool isAttacking;
     public void OnFire(InputAction.CallbackContext context)
     {
         if(context.performed) // Khi ấn nút bắn
         {
             if(nearestItem != null)
             {
-                
-                if(nearestItem.TryGetComponent(out BaseWeapon selectedWeapon))
+                if(nearestItem.TryGetComponent(out ICanInteract iCanInteract))
                 {
-                    selectedWeapon.GetComponent<PlayerWeapon>().PickUp(transform);
-                    if(secondWeapon != null)
-                    {
-                        currentWeapon.GetComponent<PlayerWeapon>().Drop();
-                    }else if(currentWeapon != null){
-                        secondWeapon = currentWeapon;
-                        secondWeapon.GetComponent<PlayerWeapon>().PutAwayWeapon();
-                    }
-                    currentWeapon = selectedWeapon;
+                    iCanInteract.Interact();
                 }
             }else{ // Nếu ko có item gần đó thì bắn
-                isAttack = true;
+                isAttacking = true;
             }
         }
         if(context.canceled) // Thả nút bắn
         {
-            isAttack = false;
+            isAttacking = false;
             if(currentWeapon != null) currentWeapon.StopAttack();
-        }
-    }
-    public void OnSwitch(InputAction.CallbackContext context)
-    {
-        if(context.performed && secondWeapon != null && currentWeapon != null)
-        {
-            (currentWeapon, secondWeapon) = (secondWeapon, currentWeapon);
-            secondWeapon.GetComponent<PlayerWeapon>().PutAwayWeapon();
-            currentWeapon.GetComponent<PlayerWeapon>().GetWeapon();
         }
     }
     void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
+        InventoryController.instance.usingWeapon = currentWeapon.gameObject;
+        WeaponShop.instance.DeleteSlot(currentWeapon.gameObject.name);
+        InventoryController.instance.OnWeaponEquipped += newWeaponPrefab => { // Sự kiện khi thay đổi trang bị
+            Destroy(currentWeapon.gameObject);
+            GameObject newWeapon = Instantiate(newWeaponPrefab,transform);
+            newWeapon.transform.localPosition = Vector2.zero;
+            currentWeapon = newWeapon.GetComponent<BaseWeapon>();
+        };
     }
     void Update()
     {
@@ -66,14 +55,11 @@ public class PlayerBehaviour : MonoBehaviour
         }else{
             target.position = (Vector2)transform.position + playerMovement.moveInputValue; // Ko có target thì quay theo hướng di chuyển player
         }
-        if(isAttack && currentWeapon != null) currentWeapon.Attack(target);
+        if(isAttacking && currentWeapon != null) currentWeapon.Attack(target);
         FlipToTarget();
         HandleSelectItem();
         HandleSelectEnemy();
-        if(currentWeapon != null)
-        {
-            currentWeapon.RotateToTarget(target);
-        }
+        if(currentWeapon != null) currentWeapon.RotateToTarget(target);
     }
     void FlipToTarget() // Lật theo target
     {

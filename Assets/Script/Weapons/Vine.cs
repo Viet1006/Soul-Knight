@@ -15,7 +15,9 @@ public class Vine : MeleeWeapon
     }
     public void CreateAttackZone()
     {
-        BulletPool.instance.GetBullet(weaponData.bullet,spawnBulletPos.position,transform.rotation).GetComponent<BaseBullet>().SetBullet(0,weaponData.damage,RandomChance.TryCrit(weaponData.critChance),weaponData.elements,0.2f);
+        BulletPool.instance.GetBullet(weaponData.bulletPrefab,spawnBulletPos.position,transform.rotation)
+            .GetComponent<BaseBullet>()
+            .SetBullet(weaponData.speed , weaponData.damage , weaponData.critChance , weaponData.element , weaponData.bulletBuffs , 0.2f);
         isAttacking = false;
     }
 }

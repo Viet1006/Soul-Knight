@@ -2,5 +2,5 @@ using UnityEngine;
 
 interface IGetHit
 {
-    void GetHit(float damage,Color colorDamage);
+    void GetHit(int damage,BulletElement bulletElements);
 }

@@ -5,14 +5,13 @@ public abstract class EnemyWithWeapon : AttackMethodEnemy
     public BaseWeapon weapon;
     protected override void Update()
     {
-        base.Update();
-        if( !weapon) return;
         if(target) weapon.RotateToTarget(target);
         else weapon.transform.localRotation = Quaternion.identity;
+        base.Update();
     }
     void OnDestroy()
     {
-        weapon.ResetToOringin();
+        weapon.ResetToOringin(); // trả vũ khí về pool và reset lại trạng thái
         weapon = null;
     }
 }

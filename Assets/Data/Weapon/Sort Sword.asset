@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Sort Sword
   m_EditorClassIdentifier: 
   fireRate: 2.4
-  critChance: 100
+  critChance: 20
   energyCost: 0
   inaccuracy: 0
   rareColor: 3
-  bulletSpeed: 0
+  speed: 0
   damage: 6
-  bullet: {fileID: 373595814231110869, guid: 7b319efa903f57a459b70780bd3ff40e, type: 3}
-  elements: 0
+  bulletPrefab: {fileID: 373595814231110869, guid: 7b319efa903f57a459b70780bd3ff40e, type: 3}
+  element: 0
+  bulletBuffs: []
+  price: 80

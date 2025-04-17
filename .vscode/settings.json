@@ -54,7 +54,22 @@
         "ProjectSettings/": true,
         "UserSettings/": true,
         "temp/": true,
-        "Temp/": true
+        "Temp/": true,
+        "Assets/Prefabs": true,
+        "Assets/TextMesh Pro": true,
+        "Assets/Scenes": true,
+        "Assets/Resource": true,
+        "Assets/Animation": true,
+        "Assets/AstarPathfindingProject": true,
+        "Assets/InputSystem": true,
+        "Assets/Images": true,
+        "Assets/Palette": true,
+        "Packages": true,
+        "Assets/Resources": true,
+        "UIElementsSchema": true,
+        "Assets/Tile Palette": true,
+        "Assets/Plugins" : true,
+        ".utmp" : true
     },
     "dotnet.defaultSolution": "Soul-Knight.sln"
 }

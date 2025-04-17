@@ -9,6 +9,7 @@ TagManager:
   - PlayerBullet
   - AttackZone
   - Wall
+  - Tower Platform
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Player
   - Enemy Bullet
   - Wall
-  - Tower
+  - Tower Platform
   - AttackZone
   - 
   - 

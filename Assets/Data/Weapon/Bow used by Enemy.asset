@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Bow used by Enemy
   m_EditorClassIdentifier: 
   fireRate: 1
-  damage: 3
   critChance: 0
   energyCost: 0
   inaccuracy: 0
   rareColor: 0
-  bullet: {fileID: 5113166920825708839, guid: fe6d8a8be286be24287a87db85763657, type: 3}
-  bulletSpeed: 20
+  speed: 30
+  damage: 3
+  bulletPrefab: {fileID: 5113166920825708839, guid: fe6d8a8be286be24287a87db85763657, type: 3}
+  element: 0
+  bulletBuffs: []
+  price: 0

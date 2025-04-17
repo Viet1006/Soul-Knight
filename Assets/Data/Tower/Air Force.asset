@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43098a16ced30f14ab591c04c0dc4b79, type: 3}
+  m_Name: Air Force
+  m_EditorClassIdentifier: 
+  health: 0
+  radiusAttack: 10
+  fireRate: 0.3
+  bulletPrefab: {fileID: 1723209756676236948, guid: f70d6dbac4a6e9d42aa0dbb7fc4118e0, type: 3}
+  damage: 3
+  speed: 15
+  critChance: 0
+  bulletBuffs:
+  - bulletBuffType: 5
+    effectDuration: 1
+    effectAmount: 3
+    chanceApply: 50
+  element: 1
+  towerPrefab: {fileID: 2212209488736851628, guid: 3d3320ae3b6ef294981b7937bd606738, type: 3}
+  towerDescription: 
+  price: 0

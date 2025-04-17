@@ -28,17 +28,17 @@ public static class SetColor
             return Color.magenta;
         }
     }
-    public static Color SetElementColor(BulletElements bulletElements)
+    public static Color SetElementColor(BulletElement bulletElement)
     {
-        if(bulletElements == BulletElements.NoElement){
+        if(bulletElement == BulletElement.NoElement){
             return Color.red;
-        } else if (bulletElements == BulletElements.Fire)
+        } else if (bulletElement == BulletElement.Fire)
         {
-            return new Color(1f, 0.5f, 0f); 
-        } else if (bulletElements == BulletElements.Frozen)
+            return new Color(1f, 0.1f, 0f); 
+        } else if (bulletElement == BulletElement.Frozen)
         {
             return Color.blue;
-        } else if (bulletElements == BulletElements.Lightning)
+        } else if (bulletElement == BulletElement.Lightning)
         {
             return Color.yellow;
         } else

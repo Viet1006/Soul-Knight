@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: Rocket Firework
   m_EditorClassIdentifier: 
   fireRate: 0.75
-  damage: 15
   critChance: 10
   energyCost: 5
   inaccuracy: 9
   rareColor: 3
-  bullet: {fileID: 4713679031115448838, guid: be19a11ba2a35ef47812bbf8ae542490, type: 3}
-  bulletSpeed: 20
+  speed: 20
+  damage: 15
+  bulletPrefab: {fileID: 4713679031115448838, guid: be19a11ba2a35ef47812bbf8ae542490, type: 3}
+  element: 0
+  bulletBuffs: []
+  price: 100

@@ -1,12 +1,10 @@
 using UnityEngine;
-[CreateAssetMenu(fileName = "NewEnemy", menuName = "Enemies/Enemies Data", order = 3)]
+[CreateAssetMenu(fileName = "NewEnemy", menuName = "Enemies/Enemies Data")]
 public class EnemyData : ScriptableObject
 {
-    public float health;
+    public int health;
     public float speed;
-    public GameObject textDamage;
     public float attackRange;
     public float AttackRate;
-    public RuntimeAnimatorController animatorController;
     public int cost;
 }

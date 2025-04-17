@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3216606457332152304}
   - component: {fileID: 6890433296679671492}
   - component: {fileID: 3781835625863629630}
-  - component: {fileID: 6115195987068685744}
   - component: {fileID: 6320147947182375393}
   - component: {fileID: 4544022132954035281}
   - component: {fileID: 295843090825606546}
@@ -66,7 +65,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f94ddedf53a51f049b384ce64089b44e, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,7 +142,7 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_ForceReceiveLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ContactCaptureLayers:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -198,7 +197,7 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &6115195987068685744
+--- !u!114 &6320147947182375393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,7 +206,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 697992453004028493}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Script: {fileID: 11500000, guid: 06cbe100a1d574d4dabd0e9e9de6b075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   version: 5
@@ -226,32 +225,20 @@ MonoBehaviour:
   enableRotation: 0
   autoRepath:
     mode: 2
-    interval: 0.5
+    interval: NaN
     sensitivity: 10
     maximumInterval: 2
     visualizeSensitivity: 0
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
-  rotationSpeed: 360
+  rotationSpeed: 32400
   slowdownDistance: 0.6
   pickNextWaypointDist: 2
-  endReachedDistance: 0.2
+  endReachedDistance: 0.6
   alwaysDrawGizmos: 0
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &6320147947182375393
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 697992453004028493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06cbe100a1d574d4dabd0e9e9de6b075, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4544022132954035281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,8 +265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a02b62b387506043be8783c8fad25f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stunIcon: {fileID: 4652578631376984911, guid: 489d5ec97ce4ceb45b58e1afe407aea0, type: 3}
-  enemyBrain: {fileID: 0}
 --- !u!50 &4700329004177462002
 Rigidbody2D:
   serializedVersion: 4
@@ -288,14 +273,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697992453004028493}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -306,7 +291,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &272400881952206104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,9 +306,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData: {fileID: 11400000, guid: 60edf6ea93dfbb645b52b93f2bd993dc, type: 2}
   selectionCircle: {fileID: 5447724918023889260}
-  dieParticle: {fileID: 1353442474484852396}
-  material: {fileID: 2100000, guid: f94ddedf53a51f049b384ce64089b44e, type: 2}
-  aIPath: {fileID: 0}
+  moveToStatus: {fileID: 0}
+  attackMethod: {fileID: 0}
 --- !u!1001 &5816867102198167890
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -381,11 +365,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58d546b77a667224f9bb91a2bff96409, type: 3}
---- !u!198 &1353442474484852396 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 4787833334853345278, guid: 58d546b77a667224f9bb91a2bff96409, type: 3}
-  m_PrefabInstance: {fileID: 5816867102198167890}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1898716337905974981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5395367038827939735, guid: 58d546b77a667224f9bb91a2bff96409, type: 3}

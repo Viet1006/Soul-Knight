@@ -1,25 +1,34 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletPierceAndBounce : BaseBullet
+public class BulletPierceAndBounce : StraightBullet
 {
     public int pierceCount;
     public int bounceCount;
+    int pierceCountTemp;
+    int bounceCountTemp;
+    public override void SetBullet(float speed, int damage, int critChance, BulletElement element, List<BulletBuff> bulletBuffs, float timeLife = 0)
+    {
+        pierceCountTemp = pierceCount;
+        bounceCountTemp = bounceCount;
+        base.SetBullet(speed, damage, critChance, element, bulletBuffs, timeLife);
+    }
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.CompareTag("Wall"))
         {
-            if(bounceCount > 0 || bounceCount <= -1) // Đặt -1 nếu muốn bật vô hạn
+            if(bounceCountTemp > 0 || bounceCountTemp <= -1) // Đặt -1 nếu muốn bật vô hạn
             {
                 Bounce(collider);
-                bounceCount-=1;
+                bounceCountTemp-=1;
                 return;
             }
         }else
         {
             HandleOnObject(collider);
-            if(pierceCount >0 || pierceCount <= -1) // Đặt -1 nếu muốn xuyên vô hạn 
+            if(pierceCountTemp >0 || pierceCountTemp <= -1) // Đặt -1 nếu muốn xuyên vô hạn 
             {
-                pierceCount -=1;
+                pierceCountTemp -=1;
                 return;
             }
         }

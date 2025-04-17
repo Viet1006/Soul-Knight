@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1155131911919348131}
   - component: {fileID: 7851738732413396650}
   - component: {fileID: 7816045718283611278}
-  - component: {fileID: -340188099252742345}
   m_Layer: 7
   m_Name: YellowBullet
   m_TagString: PlayerBullet
@@ -161,26 +160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e4b9bb25228d24baa287ff3e8fcd26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletElement: 0
-  critMultiplier: 1
-  explodeEffect: {fileID: 8576537029630397952}
-  animator: {fileID: 1155131911919348131}
   bulletCollider: {fileID: 7851738732413396650}
   pierceCount: 0
   bounceCount: 1
---- !u!114 &-340188099252742345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3914658589996339777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2bd8d46b7cac4479f5128304d2df92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushbackDistance: 1
 --- !u!1 &5735703858628652144
 GameObject:
   m_ObjectHideFlags: 0

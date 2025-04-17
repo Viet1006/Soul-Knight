@@ -1,4 +1,4 @@
 interface ICanStun 
 {
-    void StartStunCoroutine(float stunTime);
+    void StartStun(float stunTime);
 }

@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a24b68dfc8a0b42b8f064c12599d77, type: 3}
   m_Name: Rocket Firework used By Enemy
   m_EditorClassIdentifier: 
-  fireRate: 0.5
-  damage: 3
+  fireRate: 0.75
   critChance: 0
   energyCost: 0
   inaccuracy: 10
   rareColor: 0
-  bullet: {fileID: 4713679031115448838, guid: c879124831e686e43aa095141eb73d6c, type: 3}
-  bulletSpeed: 20
+  speed: 20
+  damage: 3
+  bulletPrefab: {fileID: 4713679031115448838, guid: c879124831e686e43aa095141eb73d6c, type: 3}
+  element: 0
+  bulletBuffs: []
+  price: 0

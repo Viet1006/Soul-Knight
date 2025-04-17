@@ -1,11 +1,10 @@
-using Pathfinding;
-
 public class ElectricMan : EnemyWithoutWeapon
 {
     protected override void StartAttack()
     {
-        BaseBullet baseBullet = BulletPool.instance.GetBullet(bulletData.bullet, transform.position , target.position).GetComponent<BaseBullet>();
-        baseBullet.SetBullet(bulletData.speedBullet, bulletData.damageBullet, false,BulletElements.Lightning,3);
+        BulletPool.instance.GetBullet(bulletData.bulletPrefab, transform.position , target.position)
+            .GetComponent<BaseBullet>()
+            .SetBullet(bulletData.speed, bulletData.damage,0,BulletElement.Lightning,bulletData.bulletBuffs,3); // Timelife là 3 và ko có chí mạng
         ResetTimeToAttack();
     }
 }

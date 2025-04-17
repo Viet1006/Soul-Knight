@@ -15,4 +15,16 @@ MonoBehaviour:
   health: 0
   radiusAttack: 10
   fireRate: 0.5
+  bulletPrefab: {fileID: 2272537413232825149, guid: e5d5225ec0b33444d8118d0f4613678a, type: 3}
   damage: 3
+  speed: 6
+  critChance: 0
+  bulletBuffs:
+  - bulletBuffType: 3
+    effectDuration: 1
+    effectAmount: 0
+    chanceApply: 100
+  element: 3
+  towerPrefab: {fileID: 6423898919594744729, guid: 5c09164e88950dd4db0039d35ff37573, type: 3}
+  towerDescription: 
+  price: 0

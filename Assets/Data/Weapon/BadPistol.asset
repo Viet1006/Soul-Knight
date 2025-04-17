@@ -13,10 +13,17 @@ MonoBehaviour:
   m_Name: BadPistol
   m_EditorClassIdentifier: 
   fireRate: 3
-  damage: 3
-  critChance: 5
+  critChance: 12
   energyCost: 0
   inaccuracy: 5
   rareColor: 0
-  bullet: {fileID: 3914658589996339777, guid: 02aba1c042b01244593806258c42de56, type: 3}
-  bulletSpeed: 20
+  speed: 25
+  damage: 1
+  bulletPrefab: {fileID: 3914658589996339777, guid: 02aba1c042b01244593806258c42de56, type: 3}
+  element: 0
+  bulletBuffs:
+  - bulletBuffType: 0
+    effectDuration: 0
+    effectAmount: 0.5
+    chanceApply: 100
+  price: 0

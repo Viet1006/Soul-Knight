@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5631145416589887684}
   - component: {fileID: 7010806607827960431}
   - component: {fileID: 8093632034438834254}
-  - component: {fileID: 6293400227347852946}
   m_Layer: 7
   m_Name: GreenArrow
   m_TagString: PlayerBullet
@@ -147,23 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e97ef23298fb641a1e8730617b3450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletElement: 0
-  critMultiplier: 1
-  explodeEffect: {fileID: 0}
-  animator: {fileID: 0}
   bulletCollider: {fileID: 7010806607827960431}
   pierceCount: 0
   bounceCount: 0
---- !u!114 &6293400227347852946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8732064480031709227}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2bd8d46b7cac4479f5128304d2df92, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pushbackDistance: 0.5

@@ -17,7 +17,13 @@ MonoBehaviour:
   energyCost: 0
   inaccuracy: 2
   rareColor: 2
-  bulletSpeed: 3
+  speed: 35
   damage: 10
-  bullet: {fileID: 8716283894238101725, guid: fb2ef81544b2bb5439cf80bf934b9606, type: 3}
-  elements: 2
+  bulletPrefab: {fileID: 8716283894238101725, guid: fb2ef81544b2bb5439cf80bf934b9606, type: 3}
+  element: 2
+  bulletBuffs:
+  - bulletBuffType: 4
+    effectDuration: 1
+    effectAmount: 0
+    chanceApply: 50
+  price: 120

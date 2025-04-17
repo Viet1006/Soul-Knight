@@ -1,24 +1,37 @@
 using Pathfinding;
 using UnityEngine;
-[RequireComponent(typeof(AIDestinationSetter),typeof(AIPath))]
-public class MoveToStatus : MonoBehaviour
+public class MoveToStatus : AIPath
 {
     protected AIDestinationSetter destinationSetter;
-    protected Transform status;
     Animator animator;
-    EnemyBrain enemyBrain;
-    void Awake()
+    public event System.Action OnTarget;
+    protected override void Awake()
     {
-        enemyBrain = GetComponent<EnemyBrain>();
-        status = GameObject.Find("Status").transform;
+        base.Awake();
         destinationSetter = GetComponent<AIDestinationSetter>();
+        destinationSetter.target = Status.instance.transform;
         animator = GetComponent<Animator>();
-        destinationSetter.target = status;
-        if(animator)
+    }
+    public void SetSpeed(float speed)
+    {
+        maxSpeed = speed;
+    }
+    public void StopMove()
+    {
+        canMove = false; // Dừng di chuyển
+        if(animator)animator.speed = 0; // Dừng animation
+    }
+    public void ContinueMove()
+    {
+        canMove = true;
+        if(animator)animator.speed = 1;
+    }
+    public override void OnTargetReached()
+    {
+        if(destinationSetter.target == Status.instance.transform)
         {
-            
-            animator.runtimeAnimatorController = enemyBrain.enemyData.animatorController;
-            animator.SetInteger(Parameters.state,StateEnum.RUN);
+            Status.instance.GetDamage(1);
+            OnTarget?.Invoke();
         }
     }
 }

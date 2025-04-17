@@ -1,7 +1,7 @@
 using UnityEngine;
 public class AttackZone : BaseBullet
 {
-    protected override void OnTriggerEnter2D(Collider2D collider)
+    protected virtual void OnTriggerEnter2D(Collider2D collider)
     {
         if(collider.CompareTag("EnemyBullet"))
         {

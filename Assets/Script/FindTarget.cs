@@ -29,4 +29,20 @@ public class FindTarget
         }
         return nearestObject;
     }
+    static public Transform GetNearestTransform(Vector2 mainPos,float findRadius,int LayerMask)
+    {
+        List<GameObject> objectsInRadius = GetAllObjetInRadius(mainPos, findRadius, LayerMask);
+        GameObject nearestObject = null;
+        float minDistance = Mathf.Infinity;
+        foreach (GameObject obj in objectsInRadius)
+        {
+            float distance = Vector2.Distance(mainPos, obj.transform.position);
+            if (distance < minDistance)
+            {
+                minDistance = distance;
+                nearestObject = obj;
+            }
+        }
+        return nearestObject != null ? nearestObject.transform : null;
+    }
 }

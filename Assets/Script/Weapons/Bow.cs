@@ -2,42 +2,36 @@ using UnityEngine;
 
 public class Bow : BaseWeapon
 {
-    [SerializeField] Animator animator;
+    public Animator animator;
     int chargeCount; // Đếm số lần nạp
-    float timeToNextLevelCharge; // thời gian đến mức nạp tiếp theo 
+    public float timeToNextLevelCharge; // thời gian đến mức nạp tiếp theo 
     bool isCharging;
     public float timeForEachLevelCharge; // Thời gian để thành 1 mức nạp
-    [HideInInspector] public GameObject chargingBar;
-    SpriteRenderer currentSquare;
-    BaseBullet currentBullet;
+    Arrow currentArrow;
+    PlayerBow playerBow; // Lấy tham chiếu đến Playerbow nếu có
     void Start()
     {
-        if(GetComponent<PlayerWeapon>()) chargingBar = GameObject.Find("ChargingBar");
-        if(chargingBar != null) chargingBar.SetActive(false);
+        playerBow = GetComponent<PlayerBow>();
     }
     public override void Attack(Transform target) // Được gọi mỗi frame khi player giữ nút tấn công
     {
-        if(timeToNextFire<0 && isCharging == false)
+        if(timeToNextFire<0 && isCharging == false) // Kiểm tra xem có đạng nạp và tới thời gian chưa để bắn
         {
             isCharging = true;
-            currentBullet = BulletPool.instance.GetBullet(weaponData.bullet,spawnBulletPos.position,transform.rotation).GetComponent<BaseBullet>();
-            currentBullet.transform.SetParent(transform.GetChild(0).transform);
+            currentArrow = BulletPool.instance.GetBullet(weaponData.bulletPrefab,spawnBulletPos.position,transform.rotation).GetComponent<Arrow>();
+            currentArrow.transform.SetParent(transform.GetChild(0).transform);
             animator.SetTrigger(Parameters.charge);
             timeToNextLevelCharge = timeForEachLevelCharge;
-            if(chargingBar) // Nếu được dùng bởi Player
-            {
-                currentSquare = chargingBar.transform.GetChild(0).GetComponent<SpriteRenderer>();
-                chargingBar.SetActive(true);
-            }
+            if(playerBow) playerBow.OnAttack();
         }
-        if(isCharging)
+        if(isCharging) // Kiểm tra trạng thái đang nạp
         {
             timeToNextLevelCharge -= Time.deltaTime;
-            if(chargingBar) currentSquare.color = Color.Lerp(Color.black,Color.white,1-timeToNextLevelCharge/timeForEachLevelCharge); // Chỉnh màu Square
+            if(playerBow) playerBow.OnCharging(timeToNextLevelCharge,timeForEachLevelCharge);
             if(timeToNextLevelCharge<0 && chargeCount < 4)
             {
                 chargeCount++;
-                if(chargingBar)currentSquare = chargingBar.transform.GetChild(chargeCount).GetComponent<SpriteRenderer>();
+                if(playerBow) playerBow.currentSquare = ChargingBar.instance.GetSquare(chargeCount);
                 timeToNextLevelCharge = timeForEachLevelCharge;
             }
         }
@@ -46,21 +40,13 @@ public class Bow : BaseWeapon
     {
         if(!isCharging) return;
         isCharging = false;
-        if(!chargingBar) chargeCount =0; // Nếu được dùng bởi Enemy
-        currentBullet.SetBullet(weaponData.bulletSpeed,weaponData.damage + chargeCount,RandomChance.TryCrit(weaponData.critChance+10*chargeCount),weaponData.elements,3);
-        currentBullet.transform.SetParent(null); // Tách arrow ra khỏi cung
-        currentBullet.StartCounter(3);
-        currentBullet.bulletCollider.enabled = true;
-        currentBullet = null;
+        if(!playerBow) chargeCount =0; // Nếu được dùng bởi Enemy
+        currentArrow.SetBullet(weaponData.speed,weaponData.damage + chargeCount,weaponData.critChance,weaponData.element,weaponData.bulletBuffs,3);
+        currentArrow.transform.SetParent(null); // Tách arrow ra khỏi cung
+        currentArrow.bulletCollider.enabled = true; // bật collider để xác định va chạm
+        currentArrow = null;
         chargeCount = 0;
-        if(chargingBar != null) 
-        {
-            for (int i = 0 ; i< 5 ;i++)
-            {
-                chargingBar.transform.GetChild(i).GetComponent<SpriteRenderer>().color = Color.black;
-                chargingBar.SetActive(false);
-            }
-        }
+        if(playerBow) playerBow.ResetAllSquare();
         animator.SetTrigger(Parameters.endAttack);
         timeToNextFire = 1/weaponData.fireRate;
         transform.localRotation = Quaternion.identity;
@@ -72,10 +58,10 @@ public class Bow : BaseWeapon
     }
     public override void ResetToOringin()
     {
-        if(currentBullet) 
+        if(currentArrow) 
         {
-            Destroy(currentBullet.gameObject);
-            currentBullet = null;
+            BulletPool.instance.ReturnBullet(currentArrow.gameObject);
+            currentArrow = null;
         }
         isCharging = false;
         timeToNextLevelCharge= timeForEachLevelCharge;

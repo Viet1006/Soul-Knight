@@ -18,3 +18,4 @@ MonoBehaviour:
   attackRange: 10
   AttackRate: 0.33
   animatorController: {fileID: 9100000, guid: 83ceacab1585b334f9f83e312cffe7bb, type: 2}
+  cost: 2

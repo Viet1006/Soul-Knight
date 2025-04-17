@@ -1,51 +1,41 @@
+using System.Collections.Generic;
 using UnityEngine;
 public class BaseBullet : MonoBehaviour
 {
-    [HideInInspector] public BulletElements bulletElement;
+    protected BulletElement element;
     protected float speed;
-    protected float damage;
-    public float critMultiplier = 1; // Hệ số nhân
-    [SerializeField] ParticleSystem explodeEffect;
-    [SerializeField] protected Animator animator;
-    [SerializeField] public Collider2D bulletCollider;
-    BulletBuff bulletBuff;
-    bool isCritical;
-    public void SetBullet(float speed , float damage , bool isCritical , BulletElements elements,float timeLife)
+    protected int damage;
+    protected int critChance;
+    protected Animator animator;
+    [HideInInspector] public Collider2D bulletCollider;
+    protected List<BulletBuff> bulletBuffs;
+    protected ParticleSystem explodeEffect;
+    void Awake()
+    {
+        bulletCollider = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
+        explodeEffect = GetComponentInChildren<ParticleSystem>();
+    }
+    public virtual void SetBullet(float speed, int damage,int critChance,BulletElement element ,List<BulletBuff> bulletBuffs,float timeLife = 0)
     {
         this.speed = speed;
-        if(isCritical) this.damage = damage* critMultiplier;
-        else this.damage = damage;
-        this.isCritical = isCritical;
-        bulletBuff = GetComponent<BulletBuff>();
-        bulletElement = elements;
-        if(timeLife >0) StartCounter(timeLife);
+        this.critChance = critChance;
+        this.damage = damage;
+        if(timeLife >0) StartLifeTimer(timeLife);
+        this.bulletBuffs = bulletBuffs;
+        this.element = element;
     }
-    protected virtual void Update()
+    public void StartLifeTimer(float timeLife) // Bắt đầu đếm để trả đạn về pool
     {
-        transform.position += speed * Time.deltaTime *transform.right;
+        Invoke(nameof(ReturnToPool) , timeLife);
     }
-    protected virtual void OnTriggerEnter2D(Collider2D collider)
-    {
-        HandleCollisionEffect(collider);
-        if(collider.CompareTag("Wall")) return;
-        HandleOnObject(collider);
-    }
+    public virtual void HandleCollisionEffect(Collider2D collider){}
     public virtual void HandleOnObject(Collider2D collider) //Gây sát thương cho object
     {
-        if (collider.TryGetComponent(out IGetHit hittedObject)) hittedObject.GetHit(damage,SetColor.SetElementColor(bulletElement));
-        if(bulletBuff) bulletBuff.ApplyPassiveBuff(collider,bulletElement,isCritical);
-    }
-    public virtual void HandleCollisionEffect(Collider2D collider) // Xử lý hiệu ứng va chạm
-    {
-        speed = 0;
-        transform.SetParent(null);
-        animator.SetTrigger(Parameters.explode);
-        bulletCollider.enabled = false;
-        if(explodeEffect) explodeEffect.Play();
-    }
-    public void StartCounter(float timeLife) // Bắt đầu đếm để trả đạn về pool
-    {
-        Invoke(nameof(ReturnToPool),timeLife);
+        // Apply buff trước vì nếu chết thì gọi gethit sau và trong gethit có hủy các icon mà buff sinh ra 
+        // Nếu gọi sau lúc chết sẽ hủy icon effect mà sau đó apply sẽ bị hiện lại
+        if (collider.TryGetComponent(out IGetHit hittedObject)) hittedObject.GetHit(damage,element);
+        foreach(BulletBuff bulletBuff in bulletBuffs) bulletBuff.ApplyBuff(collider , transform.position);
     }
     public virtual void ReturnToPool()
     {
