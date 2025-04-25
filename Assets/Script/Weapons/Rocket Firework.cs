@@ -9,8 +9,8 @@ public class RocketFirework : BaseWeapon
     }
     protected override void Update()
     {
-        timeToNextFire -= Time.deltaTime;
-        if(timeToNextFire >= 0)
+        base.Update();
+        if(timeToNextFire >= weaponData.FireRate(level))
         {
             spriteRenderer.enabled = false;
         }else{

@@ -1,7 +1,9 @@
+//using DG.Tweening;
+using DG.Tweening;
 using UnityEngine;
 public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
 {
-    public EnemyData enemyData;
+    [Sirenix.OdinInspector.InlineEditor] public EnemyData enemyData;
     [SerializeField] GameObject selectionCircle;
     Collider2D colliderEnemy;
     protected Transform target; // Giữ tạm vị trí để phòng khi đang tấn công thì ko thấy player và lỗi khi xoay về phía player
@@ -10,6 +12,7 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
     [HideInInspector] public MoveToStatus moveToStatus;
     [HideInInspector] public AttackMethodEnemy attackMethod;
     public event System.Action OnResetToOringin;
+    Tween flashTween;
     void Awake() // Lấy tham chiếu để gọi Init
     {
         moveToStatus = GetComponent<MoveToStatus>();
@@ -18,6 +21,9 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
         spriteEnemy = GetComponent<SpriteRenderer>();
         moveToStatus.SetSpeed(enemyData.speed); // Gọi sau Init để lấy được data
         moveToStatus.OnTarget += ResetToOringin; // Đăng ký sự kiện khi đến đích thì reset về origin sau đó trả về pool
+        flashTween = DOVirtual.DelayedCall(0.1f,()=> spriteEnemy.material = ObjectHolder.Instance.defaultMaterial )
+            .SetAutoKill(false)
+            .Pause();
     }
     public virtual int InitEnemy() // Sẽ được gọi trước Start
     {
@@ -32,17 +38,19 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
         if(currentHealth <=0)
         {
             StartCoroutine(DieIEnum());
+            flashTween.Pause();
             return;
         }
-        spriteEnemy.material = ObjectHolder.instance.flashMaterial;
-        DG.Tweening.DOVirtual.DelayedCall(0.05f,()=> spriteEnemy.material = ObjectHolder.instance.defaultMaterial );
+        spriteEnemy.material = ObjectHolder.Instance.flashMaterial;
+        flashTween.Rewind(); // Đưa tween về lại từ đầu
+        flashTween.Play();
     }
     protected virtual System.Collections.IEnumerator DieIEnum()
     {
         colliderEnemy.enabled = false; 
         moveToStatus.StopMove(); 
         attackMethod.StopAttack();
-        spriteEnemy.material = ObjectHolder.instance.flashMaterial;
+        spriteEnemy.material = ObjectHolder.Instance.flashMaterial;
         GetComponent<HandleEffectOnEnemy>().EndAllEffect();
         for( float timeDie =1f ; timeDie >0 ; timeDie -= Time.deltaTime)
         {
@@ -63,7 +71,7 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
         OnResetToOringin = null; // Khi trả về pool thì hủy đăng ký để trả lại trạng thái ban đầu
         moveToStatus.ContinueMove(); // trả lại trạng thái trước khi cho vào pool
         attackMethod.ContinueAttack(); // trả lại trạng thái trước khi cho vào pool
-        spriteEnemy.material = ObjectHolder.instance.defaultMaterial;
+        spriteEnemy.material = ObjectHolder.Instance.defaultMaterial;
         colliderEnemy.enabled = true; 
         GetComponent<HandleEffectOnEnemy>().EndAllEffect();
         ManageSpawnEnemy.instance.ReturnToPool(gameObject); // trả về pool

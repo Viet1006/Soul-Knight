@@ -12,14 +12,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a24b68dfc8a0b42b8f064c12599d77, type: 3}
   m_Name: Ak-47 used by Enemy
   m_EditorClassIdentifier: 
-  fireRate: 6
-  critChance: 0
-  energyCost: 0
-  inaccuracy: 20
-  rareColor: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statsPerLevel
+      Entry: 7
+      Data: 0|Unity.VisualScripting.FlexibleDictionary`2[[System.Int32, mscorlib],[WeaponStatsPerlevel,
+        Assembly-CSharp]], Unity.VisualScripting.Core
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 1
+    - Name: fireRate
+      Entry: 4
+      Data: 3
+    - Name: critChance
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   speed: 8
-  damage: 2
+  inaccuracy: 20
+  energyCost: 0
+  rareColor: 0
+  price: 0
   bulletPrefab: {fileID: 7876961994352399717, guid: 3f5c79fe9f3359f40a802c7fdaf27588, type: 3}
   element: 0
   bulletBuffs: []
-  price: 0

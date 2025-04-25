@@ -34,12 +34,12 @@ public class CoinController : MonoBehaviour
     }
     IEnumerator MoveToCoinText() // Di chuyển đến Ui chứa coin
     {
-        while (Vector2.Distance (transform.position,ManagerCoin.instance.transform.position)> 0.1f)
+        while (Vector2.Distance (transform.position,CoinManager.instance.transform.position)> 0.1f)
         {
-            transform.position = Vector2.MoveTowards(transform.position,ManagerCoin.instance.transform.position , 20 * Time.deltaTime); 
+            transform.position = Vector2.MoveTowards(transform.position,CoinManager.instance.transform.position , 20 * Time.deltaTime); 
             yield return null;
         }
-        ManagerCoin.instance.AddCoin(value);
+        CoinManager.instance.AddCoin(value);
         CoinPool.instance.ReturnToPool(gameObject);
     }
     void OnTriggerEnter2D()

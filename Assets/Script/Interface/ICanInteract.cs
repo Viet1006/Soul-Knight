@@ -1,4 +1,4 @@
 public interface ICanInteract : ICanSelect
 {
-    void Interact();
+    void Interact(); // Lấy tham chiếu tới ngưới mà ấn vào
 }

@@ -12,19 +12,99 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43098a16ced30f14ab591c04c0dc4b79, type: 3}
   m_Name: LightningTower
   m_EditorClassIdentifier: 
-  health: 0
-  radiusAttack: 10
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statsPerLevel
+      Entry: 7
+      Data: 0|Unity.VisualScripting.FlexibleDictionary`2[[System.Int32, mscorlib],[TowerStatsPerlevel,
+        Assembly-CSharp]], Unity.VisualScripting.Core
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|TowerStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 7
+    - Name: fireRate
+      Entry: 4
+      Data: 1
+    - Name: radiusAttack
+      Entry: 3
+      Data: 12
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: upgradePricePerLevel
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 4|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   fireRate: 0.5
-  bulletPrefab: {fileID: 2272537413232825149, guid: e5d5225ec0b33444d8118d0f4613678a, type: 3}
-  damage: 3
   speed: 6
-  critChance: 0
+  towerDescription: 
+  price: 0
+  bulletPrefab: {fileID: 2272537413232825149, guid: e5d5225ec0b33444d8118d0f4613678a, type: 3}
+  element: 3
   bulletBuffs:
   - bulletBuffType: 3
     effectDuration: 1
     effectAmount: 0
     chanceApply: 100
-  element: 3
-  towerPrefab: {fileID: 6423898919594744729, guid: 5c09164e88950dd4db0039d35ff37573, type: 3}
-  towerDescription: 
-  price: 0

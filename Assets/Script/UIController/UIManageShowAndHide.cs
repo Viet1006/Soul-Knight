@@ -1,8 +1,8 @@
 using UnityEngine;
 // Quản lý việc ẩn và hiện các Ui
-public class UIManageShowAndHide : MonoBehaviour
+public class UIManageShowAndHide
 {
-    public static UIManageShowAndHide instance;
+    static UIManageShowAndHide instance;
     public event System.Action OnPauseGame;
     public event System.Action OnResumeGame;
     public event System.Action OnOpenShop;
@@ -12,4 +12,9 @@ public class UIManageShowAndHide : MonoBehaviour
     public void ResumeGame() => OnResumeGame?.Invoke(); // Gọi sự kiện tiếp tục game
     public void OpenShop() => OnOpenShop?.Invoke(); // Gọi sự kiện mở shop
     public void CloseShop() => OnCloseShop?.Invoke(); // Gọi sự kiện mở shop
+    public static UIManageShowAndHide Instance()
+    {
+        instance ??= new UIManageShowAndHide();
+        return instance; 
+    }
 }

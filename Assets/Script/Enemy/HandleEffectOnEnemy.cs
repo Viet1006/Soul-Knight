@@ -75,7 +75,7 @@ public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable , ICanPoison
     public virtual IEnumerator StunCoroutine()
     {
         GameObject newIcon = IconEffectPool.instance.GetIconEffect(new Vector2(0,1.2f),BulletElement.Lightning,transform);
-        while (stunTime >=0)
+        while (stunTime >0)
         {
             stunTime -= Time.deltaTime;
             enemyController.moveToStatus.StopMove();

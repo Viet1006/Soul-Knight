@@ -6,6 +6,6 @@ public class LightningTower : BaseTower
     {
         BulletPool.instance.GetBullet(towerData.bulletPrefab , spawnPoint.transform.position)
             .GetComponent<Cloud>()
-            .SetCloud(towerData.speed,towerData.damage, 0 ,towerData.element,towerData.bulletBuffs , target);
+            .SetCloud(towerData.speed,towerData.Damage(level), 0 ,towerData.element,towerData.bulletBuffs , target);
     }
 }

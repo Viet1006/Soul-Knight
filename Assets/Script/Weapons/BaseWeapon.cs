@@ -1,21 +1,20 @@
 using UnityEngine;
+using Sirenix.OdinInspector;
 public class BaseWeapon : MonoBehaviour
 {
+    [InlineEditor]
     public WeaponData weaponData;
     [SerializeField] protected Transform spawnBulletPos;
-    public float timeToNextFire;
+    [HideInEditorMode] public float timeToNextFire;
+    [HideInEditorMode] public int level;
     public virtual void Attack(Transform target)
     {
         if(timeToNextFire <= 0)
         {
-            BulletPool.instance
-                .GetBullet(weaponData.bulletPrefab,spawnBulletPos.position,transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy)))
-                .GetComponent<BaseBullet>()
-                .SetBullet(weaponData.speed,weaponData.damage,weaponData.critChance,weaponData.element,weaponData.bulletBuffs,3);
-                // Tạo đạn
+            CreateBullet(target);
             spawnBulletPos.gameObject.SetActive(true);
             DG.Tweening.DOVirtual.DelayedCall(0.05f,() => spawnBulletPos.gameObject.SetActive(false));
-            timeToNextFire = 1/weaponData.fireRate;
+            timeToNextFire = 1/weaponData.FireRate(level);
         }
     }
     public virtual void StopAttack() {}
@@ -41,5 +40,23 @@ public class BaseWeapon : MonoBehaviour
     public virtual void ResetToOringin() // Đặt lại trạng thái ban đầu cho vũ khí
     {
         WeaponPool.instance.ReturnWeapon(gameObject);
+    }
+    public virtual void CreateBullet(Transform target)
+    {
+        BulletPool.instance
+                .GetBullet(weaponData.bulletPrefab
+                    ,spawnBulletPos.position // truyền vị trí spawn cho pool
+                    ,transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy)))
+                .GetComponent<BaseBullet>() // Lấy baseBUllet từ bullet vừa tạo 
+                .SetBullet(weaponData.speed // Set các giá trị
+                    ,weaponData.Damage(level)
+                    ,weaponData.CritChance(level)
+                    ,weaponData.element
+                    ,weaponData.bulletBuffs,3);
+                // Tạo đạn
+    }
+    public void Upgrade()
+    {
+        level+=1;
     }
 }

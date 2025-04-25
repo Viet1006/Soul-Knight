@@ -2,5 +2,13 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    int level;
+    BaseWeapon baseWeapon;
+    void Awake()
+    {
+        baseWeapon = GetComponent<BaseWeapon>();
+    }
+    public void Upgrade()
+    {
+        baseWeapon.level += 1;
+    }
 }

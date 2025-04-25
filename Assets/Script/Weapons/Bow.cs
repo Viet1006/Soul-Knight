@@ -41,14 +41,18 @@ public class Bow : BaseWeapon
         if(!isCharging) return;
         isCharging = false;
         if(!playerBow) chargeCount =0; // Nếu được dùng bởi Enemy
-        currentArrow.SetBullet(weaponData.speed,weaponData.damage + chargeCount,weaponData.critChance,weaponData.element,weaponData.bulletBuffs,3);
+        currentArrow.SetBullet(weaponData.speed,weaponData.Damage(level) + chargeCount
+            ,weaponData.CritChance(level)
+            ,weaponData.element
+            ,weaponData.bulletBuffs
+            ,3);
         currentArrow.transform.SetParent(null); // Tách arrow ra khỏi cung
         currentArrow.bulletCollider.enabled = true; // bật collider để xác định va chạm
         currentArrow = null;
         chargeCount = 0;
         if(playerBow) playerBow.ResetAllSquare();
         animator.SetTrigger(Parameters.endAttack);
-        timeToNextFire = 1/weaponData.fireRate;
+        timeToNextFire = 1/weaponData.FireRate(level);
         transform.localRotation = Quaternion.identity;
     }
     public override void RotateToTarget(Transform target)

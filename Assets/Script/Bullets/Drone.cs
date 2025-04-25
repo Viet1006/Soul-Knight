@@ -15,7 +15,7 @@ public class Drone : FollowTargetBullet
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        revealMat = new Material(ObjectHolder.instance.revealVerticalMat); // Tạo 1 mat mới
+        revealMat = new Material(ObjectHolder.Instance.revealVerticalMat); // Tạo 1 mat mới
         spriteRenderer.material = revealMat;
         revealMat.SetFloat("_RevealProgress",1f);
     }
@@ -28,7 +28,7 @@ public class Drone : FollowTargetBullet
             shawdow.SetActive(true);
             airForcePos = transform.position; // Lưu vị trí nơi tạo Drone bắt đầu
         });
-        revealMat.DOFloat(0f , "_RevealProgress" , 0.3f).OnComplete(()=> spriteRenderer.material = ObjectHolder.instance.defaultMaterial); // Tạo hiệu ứng reveal
+        revealMat.DOFloat(0f , "_RevealProgress" , 0.3f).OnComplete(()=> spriteRenderer.material = ObjectHolder.Instance.defaultMaterial); // Tạo hiệu ứng reveal
         this.airForce = airForce; // Đặt nơi tạo ta Drone
     }
     System.Collections.IEnumerator MoveToTarget()

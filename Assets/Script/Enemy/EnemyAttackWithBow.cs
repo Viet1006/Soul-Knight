@@ -12,6 +12,7 @@ public class EnemyAttackWithBow : EnemyWithWeapon
     }
     protected override void StartAttack()
     {
+        weapon.timeToNextFire = 0;
         StartCoroutine(AttackIEnum());
     }
     public IEnumerator AttackIEnum()

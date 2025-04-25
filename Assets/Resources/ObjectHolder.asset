@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73b369ba169e487408b82ca4a26586c9, type: 3}
+  m_Name: ObjectHolder
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: -5663974789534609588, guid: f335c3f426bb74941a4c06e9e0d0db2c, type: 3}
+    - {fileID: 4026490273263277655, guid: f0eca1cd1224c80489ce5e4e140dab24, type: 3}
+    - {fileID: -8688379684893322842, guid: b595f9e06ac78174aa1df7791cc79088, type: 3}
+    - {fileID: -8460375634865296567, guid: e51a2c2c8444ec748b18b223e635cc19, type: 3}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: elementIcon
+      Entry: 7
+      Data: 0|Unity.VisualScripting.FlexibleDictionary`2[[BulletElement, Assembly-CSharp],[UnityEngine.Sprite,
+        UnityEngine.CoreModule]], Unity.VisualScripting.Core
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[BulletElement, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  flashMaterial: {fileID: 2100000, guid: 3d7b1790b5666da41a93f1cfa12eb778, type: 2}
+  defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  revealMaterial: {fileID: 2100000, guid: abbedbbf29a43a140844d96805283786, type: 2}
+  revealVerticalMat: {fileID: 2100000, guid: 620aa208223b356459c7c54d0c0a5eca, type: 2}
+  Fire: {fileID: 210567677721991438, guid: edf93dd35fc90c04396ec04fa78a3728, type: 3}
+  FireZone: {fileID: 5434624163421582931, guid: 46607cecc48e4104bbadd7b44d596a21, type: 3}

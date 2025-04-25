@@ -19,7 +19,7 @@ public class TextDamePool : MonoBehaviour
             newTextDamage = textDamePool.Dequeue();
             newTextDamage.SetActive(true);
         }else newTextDamage = Instantiate(textDamePrefab);
-        newTextDamage.GetComponent<TextDamage>().SetText(damage,SetColor.SetElementColor(bulletElement),GetIcon(bulletElement));
+        newTextDamage.GetComponent<TextDamage>().SetText(damage,SetColor.SetElementColor(bulletElement),IconElement.GetIcon(bulletElement));
         newTextDamage.transform.position = Pos;
         return newTextDamage;
     }
@@ -27,16 +27,5 @@ public class TextDamePool : MonoBehaviour
     {
         obj.SetActive(false);
         textDamePool.Enqueue(obj);
-    }
-    Sprite GetIcon(BulletElement bulletElements)
-    {
-        return bulletElements switch
-        {
-            BulletElement.Fire => iconImage[0],
-            BulletElement.Frozen=> iconImage[1],
-            BulletElement.Lightning => iconImage[2],
-            BulletElement.Poison => iconImage[3],
-            _ => null,
-        };
     }
 }

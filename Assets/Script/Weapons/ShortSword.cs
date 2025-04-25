@@ -9,27 +9,26 @@ public class ShortSword : MeleeWeapon
         {
             if(currentAttack == 1)
             {
-                timeToNextFire = 1/weaponData.fireRate;
                 animator.SetTrigger(Parameters.attack + "1");
                 currentAttack += 1;
             }else if(currentAttack == 2)
             {
-                timeToNextFire = 1/weaponData.fireRate;
                 animator.SetTrigger(Parameters.attack + "2");
                 currentAttack = 1;
             }
+            timeToNextFire = 1/weaponData.FireRate(level);
         }
     }
     public void CreateAttackZone1()
     {
         BulletPool.instance.GetBullet(weaponData.bulletPrefab,spawnBulletPos.position,transform.rotation)
             .GetComponent<BaseBullet>()
-                .SetBullet(0,weaponData.damage,weaponData.critChance,weaponData.element,weaponData.bulletBuffs,0.2f);
+                .SetBullet(0,weaponData.Damage(level),weaponData.CritChance(level),weaponData.element,weaponData.bulletBuffs,0.2f);
     }
     public void CreateAttackZone2()
     {
         BulletPool.instance.GetBullet(weaponData.bulletPrefab,spawnBulletPos.position,transform.rotation * Quaternion.Euler(180,0,0))
             .GetComponent<BaseBullet>()
-            .SetBullet(0,weaponData.damage,weaponData.critChance,weaponData.element,weaponData.bulletBuffs,0.2f);
+            .SetBullet(0,weaponData.Damage(level),weaponData.CritChance(level),weaponData.element,weaponData.bulletBuffs,0.2f);
     }
 }

@@ -12,13 +12,304 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a24b68dfc8a0b42b8f064c12599d77, type: 3}
   m_Name: BadPistol
   m_EditorClassIdentifier: 
-  fireRate: 3
-  critChance: 12
-  energyCost: 0
-  inaccuracy: 5
-  rareColor: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statsPerLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[WeaponStatsPerlevel,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 11
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 4
+    - Name: fireRate
+      Entry: 4
+      Data: 2.5
+    - Name: critChance
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 3|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 4
+    - Name: fireRate
+      Entry: 4
+      Data: 2.7
+    - Name: critChance
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 4|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 4
+    - Name: fireRate
+      Entry: 4
+      Data: 2.7
+    - Name: critChance
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 5|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 4
+    - Name: fireRate
+      Entry: 4
+      Data: 2.92
+    - Name: critChance
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 6|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 4
+    - Name: fireRate
+      Entry: 4
+      Data: 2.92
+    - Name: critChance
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 7|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 5
+    - Name: fireRate
+      Entry: 4
+      Data: 2.92
+    - Name: critChance
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 6
+    - Name: $v
+      Entry: 7
+      Data: 8|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 5
+    - Name: fireRate
+      Entry: 4
+      Data: 3.16
+    - Name: critChance
+      Entry: 3
+      Data: 16
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 7
+    - Name: $v
+      Entry: 7
+      Data: 9|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 5
+    - Name: fireRate
+      Entry: 4
+      Data: 3.2
+    - Name: critChance
+      Entry: 3
+      Data: 22
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 8
+    - Name: $v
+      Entry: 7
+      Data: 10|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 5
+    - Name: fireRate
+      Entry: 4
+      Data: 3.5
+    - Name: critChance
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 9
+    - Name: $v
+      Entry: 7
+      Data: 11|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 5
+    - Name: fireRate
+      Entry: 4
+      Data: 3.7
+    - Name: critChance
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 10
+    - Name: $v
+      Entry: 7
+      Data: 12|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 5
+    - Name: fireRate
+      Entry: 4
+      Data: 4
+    - Name: critChance
+      Entry: 3
+      Data: 25
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   speed: 25
-  damage: 1
+  inaccuracy: 5
+  energyCost: 0
+  rareColor: 0
+  price: 50
   bulletPrefab: {fileID: 3914658589996339777, guid: 02aba1c042b01244593806258c42de56, type: 3}
   element: 0
   bulletBuffs:
@@ -26,4 +317,3 @@ MonoBehaviour:
     effectDuration: 0
     effectAmount: 0.5
     chanceApply: 100
-  price: 0

@@ -44,7 +44,7 @@ public class BulletBuff
             }
             case BulletBuffType.FireZone:
             {
-                BulletPool.instance.GetBullet(ObjectHolder.instance.FireZone,bulletPos);
+                BulletPool.instance.GetBullet(ObjectHolder.Instance.FireZone,bulletPos);
                 break;
             } 
         }

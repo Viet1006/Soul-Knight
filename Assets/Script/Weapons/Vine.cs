@@ -7,7 +7,7 @@ public class Vine : MeleeWeapon
     {
         if(timeToNextFire<=0)
         {
-            timeToNextFire = 1/weaponData.fireRate;
+            timeToNextFire = 1/weaponData.FireRate(level);
             animator.SetTrigger(Parameters.attack);
             Invoke(nameof(CreateAttackZone),delayTime);
             isAttacking = true;
@@ -17,7 +17,12 @@ public class Vine : MeleeWeapon
     {
         BulletPool.instance.GetBullet(weaponData.bulletPrefab,spawnBulletPos.position,transform.rotation)
             .GetComponent<BaseBullet>()
-            .SetBullet(weaponData.speed , weaponData.damage , weaponData.critChance , weaponData.element , weaponData.bulletBuffs , 0.2f);
+            .SetBullet(weaponData.speed
+                ,weaponData.Damage(level)
+                ,weaponData.CritChance(level)
+                ,weaponData.element
+                ,weaponData.bulletBuffs
+                ,0.2f);
         isAttacking = false;
     }
 }

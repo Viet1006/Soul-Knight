@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-[DefaultExecutionOrder(-100)]
+[DefaultExecutionOrder(-100)] // Script này sẽ chạy đầu tiên
 public class PlayerBehaviour : MonoBehaviour
 {
-    public BaseWeapon currentWeapon; // Vũ khí đang sử dụng
+    [HideInInspector] public BaseWeapon currentWeapon; // Vũ khí đang sử dụng
     public Transform target; // Target để điều hướng súng
     [SerializeField] float findRadius; // Bán kính tìm quái
     [SerializeField] float getItemRadius; // Bán kính nhặt các item
@@ -35,13 +35,12 @@ public class PlayerBehaviour : MonoBehaviour
     }
     void Start()
     {
+        currentWeapon = GetComponentInChildren<BaseWeapon>();
         playerMovement = GetComponent<PlayerMovement>();
-        InventoryController.instance.usingWeapon = currentWeapon.gameObject;
-        WeaponShop.instance.DeleteSlot(currentWeapon.gameObject.name);
-        InventoryController.instance.OnWeaponEquipped += newWeaponPrefab => { // Sự kiện khi thay đổi trang bị
-            Destroy(currentWeapon.gameObject);
-            GameObject newWeapon = Instantiate(newWeaponPrefab,transform);
-            newWeapon.transform.localPosition = Vector2.zero;
+        WeaponInventoryManager.instance.usingWeapon = currentWeapon;
+        WeaponInventoryManager.instance.OnWeaponEquipped += newWeapon => { // Sự kiện khi thay đổi trang bị
+            newWeapon.transform.SetParent(transform); // Đem vũ khí về Player
+            newWeapon.transform.SetLocalPositionAndRotation(Vector2.zero, Quaternion.identity);
             currentWeapon = newWeapon.GetComponent<BaseWeapon>();
         };
     }

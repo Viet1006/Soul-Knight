@@ -53,9 +53,9 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
     IEnumerator Blink()
     {
         playerCollider.contactCaptureLayers -= LayerMask.GetMask("Enemy Bullet"); // xóa Enemy Bullet khỏi callback
-        spritePlayer.material = ObjectHolder.instance.flashMaterial; // Làm trắng
+        spritePlayer.material = ObjectHolder.Instance.flashMaterial; // Làm trắng
         yield return new WaitForSeconds(0.2f);
-        spritePlayer.material = ObjectHolder.instance.defaultMaterial; // Trả về bình thường
+        spritePlayer.material = ObjectHolder.Instance.defaultMaterial; // Trả về bình thường
         playerCollider.contactCaptureLayers += LayerMask.GetMask("Enemy Bullet"); // Thêm Enemy Bullet callback
     }
     public void StartPush(Vector2 direction, float distance)

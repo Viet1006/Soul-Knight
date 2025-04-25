@@ -12,14 +12,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3a24b68dfc8a0b42b8f064c12599d77, type: 3}
   m_Name: Vine
   m_EditorClassIdentifier: 
-  fireRate: 1
-  critChance: 0
-  energyCost: 0
-  inaccuracy: 0
-  rareColor: 0
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statsPerLevel
+      Entry: 7
+      Data: 0|Unity.VisualScripting.FlexibleDictionary`2[[System.Int32, mscorlib],[WeaponStatsPerlevel,
+        Assembly-CSharp]], Unity.VisualScripting.Core
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   speed: 0
-  damage: 5
+  inaccuracy: 0
+  energyCost: 0
+  rareColor: 0
+  price: 20
   bulletPrefab: {fileID: 373595814231110869, guid: 7b319efa903f57a459b70780bd3ff40e, type: 3}
   element: 0
   bulletBuffs: []
-  price: 20

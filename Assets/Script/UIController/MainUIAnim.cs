@@ -8,10 +8,10 @@ public class MainUIAnim : MonoBehaviour
     Tween hideTween;
     void Start()
     {
-        UIManageShowAndHide.instance.OnPauseGame += HideBorder; // Đăng ký sự kiện tạm dừng game
-        UIManageShowAndHide.instance.OnResumeGame += ShowBorder; // Đăng ký sự kiện tiếp tục game
-        UIManageShowAndHide.instance.OnOpenShop += HideBorder;
-        UIManageShowAndHide.instance.OnCloseShop += ShowOpenShopBorder;
+        UIManageShowAndHide.Instance().OnPauseGame += HideBorder; // Đăng ký sự kiện tạm dừng game
+        UIManageShowAndHide.Instance().OnResumeGame += ShowBorder; // Đăng ký sự kiện tiếp tục game
+        UIManageShowAndHide.Instance().OnOpenShop += HideBorder;
+        UIManageShowAndHide.Instance().OnCloseShop += ShowOpenShopBorder;
         RectTransform rectTransform = GetComponent<RectTransform>(); // Lấy RectTransform của đối tượng
         hideTween = rectTransform.DOAnchorPos(-rectTransform.anchoredPosition,0.5f)
             .SetEase(Ease.InBack)
@@ -32,7 +32,7 @@ public class MainUIAnim : MonoBehaviour
     }
     void OnDestroy()
     {
-        UIManageShowAndHide.instance.OnPauseGame -= HideBorder;
-        UIManageShowAndHide.instance.OnResumeGame -= ShowBorder;
+        UIManageShowAndHide.Instance().OnPauseGame -= HideBorder;
+        UIManageShowAndHide.Instance().OnResumeGame -= ShowBorder;
     }
 }

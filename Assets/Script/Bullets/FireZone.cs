@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 
 public class FireZone : MonoBehaviour
@@ -12,19 +13,21 @@ public class FireZone : MonoBehaviour
         int count = Random.Range(7,9);
         for(int i = 0 ; i< count;i++)
         {
-            fireEffect.Add(Instantiate(ObjectHolder.instance.Fire,transform));
+            fireEffect.Add(Instantiate(ObjectHolder.Instance.Fire,transform));
         }
         OnEnable();
+        
     }
     void OnEnable()
     {
-        foreach(GameObject fire in fireEffect)
+        foreach(GameObject fire in fireEffect) // Random lại các đốm lửa
         {
             int angle = Random.Range(0,360);
             fire.transform.localPosition = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * Random.Range(0,radius);
         }
-        burnRate = 0.5f;
         timeLife = 3f;
+        transform.localScale = Vector2.zero;
+        transform.DOScale(Vector2.one , 0.4f);
     }
     void Update()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 public class AirForce : BaseTower
 {
     Animator animator;
-    int droneCount = 1;
+    int droneCount = 3;
     float openTime = 0;
     void Awake()
     {
@@ -22,7 +22,7 @@ public class AirForce : BaseTower
             BulletPool.instance
                 .GetBullet(towerData.bulletPrefab , spawnPoint.transform.position) 
                 .GetComponent<Drone>()
-                .SetDrone(towerData.speed,towerData.damage,towerData.critChance ,towerData.element, towerData.bulletBuffs, target , this);
+                .SetDrone(towerData.speed,towerData.Damage(level),0 ,towerData.element, towerData.bulletBuffs, target , this);
         }).SetLoops(droneCount , LoopType.Incremental);
     }
     public void GetDrone() // Mở cửa đón Drone về
