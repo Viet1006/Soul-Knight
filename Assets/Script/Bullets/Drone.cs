@@ -89,7 +89,7 @@ public class Drone : FollowTargetBullet
     }
     void DropBomb()
     {
-        BulletPool.instance.GetBullet(bombPrefab , transform.position).GetComponent<Bomb>().SetBomb(0,damage,critChance,element,bulletBuffs);
+        BulletPool.Instance.GetBullet(bombPrefab , transform.position).GetComponent<Bomb>().SetBomb(damage,critChance,element,bulletBuffs);
     }
     void Move(float speed , Vector2 direction , Vector2 target)
     {

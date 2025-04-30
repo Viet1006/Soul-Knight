@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6169756709816322838}
   - component: {fileID: 8178063264747503503}
   - component: {fileID: 7767470284888152197}
-  - component: {fileID: 1694840777603711467}
   - component: {fileID: 2521383832033012488}
   m_Layer: 7
   m_Name: Bomb
@@ -101,31 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ea13b076316904fad23244bdb28dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletElement: 0
-  critMultiplier: 1
   bulletCollider: {fileID: 0}
---- !u!95 &1694840777603711467
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5155276384846356573}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 35a71ae7aa140d349bbae53634ec3938, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &2521383832033012488
 CircleCollider2D:
   m_ObjectHideFlags: 0

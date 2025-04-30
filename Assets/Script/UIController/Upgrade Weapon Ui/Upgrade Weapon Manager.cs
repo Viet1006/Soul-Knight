@@ -27,8 +27,8 @@ public class UpgradeWeaponManager : MonoBehaviour , ICanInteract
         boardShopAnim.ShowBoardShop();
         DOVirtual.DelayedCall(0.1f,() => panel.enabled = true); // Bật panel sau 0,1s
         selectedWeapon = WeaponInventoryManager.instance.usingWeapon;
-        currentWeapon.SetWeaponStats(selectedWeapon.weaponData,selectedWeapon.level,selectedWeapon.name); // Set chỉ số cho vũ khí hiện tại
-        upgradedWeapon.SetWeaponStats(selectedWeapon.weaponData,selectedWeapon.level+1,selectedWeapon.name); // Set chỉ số cho vũ khí sau khi nâng cấp
+        currentWeapon.SetWeaponStats(selectedWeapon,selectedWeapon.name); // Set chỉ số cho vũ khí hiện tại
+        upgradedWeapon.SetWeaponStats(selectedWeapon,selectedWeapon.name); // Set chỉ số cho vũ khí sau khi nâng cấp
         int upgradePrice = UpgradePrice.GetUpgradePrice(selectedWeapon.weaponData.rareColor,selectedWeapon.level);
         if(upgradePrice == -1) // Vũ khí đã hết cấp độ nâng cấp
         {

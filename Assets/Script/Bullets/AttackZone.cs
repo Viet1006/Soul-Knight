@@ -5,7 +5,8 @@ public class AttackZone : BaseBullet
     {
         if(collider.CompareTag("EnemyBullet"))
         {
-            collider.gameObject.GetComponent<BaseBullet>().HandleCollisionEffect(collider);
+            collider.gameObject.GetComponent<BaseBullet>().ReturnToPool(); // Xóa các đạn
+            return; // Nếu là đạn thì không cần xử lý trên đạn nữa
         }
         HandleOnObject(collider);
     }

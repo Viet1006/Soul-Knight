@@ -15,7 +15,7 @@ public class Vine : MeleeWeapon
     }
     public void CreateAttackZone()
     {
-        BulletPool.instance.GetBullet(weaponData.bulletPrefab,spawnBulletPos.position,transform.rotation)
+        BulletPool.Instance.GetBullet(weaponData.bulletPrefab,spawnBulletPos.position,transform.rotation)
             .GetComponent<BaseBullet>()
             .SetBullet(weaponData.speed
                 ,weaponData.Damage(level)

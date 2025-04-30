@@ -6,9 +6,9 @@ public class WeaponShopStats : WeaponStats
         base.Awake();
         price = transform.Find("Cost Line").GetComponentInChildren<TMPro.TextMeshProUGUI>();
     }
-    public override void SetWeaponStats(WeaponData weaponData , int level)
+    public override void SetWeaponStats(BaseWeapon baseWeapon)
     {
-        base.SetWeaponStats(weaponData, level);
-        price.text = weaponData.price.ToString();
+        base.SetWeaponStats(baseWeapon);
+        price.text = baseWeapon.weaponData.price.ToString();
     }
 }

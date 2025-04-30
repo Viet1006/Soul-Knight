@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 public class Arrow : BulletPierceAndBounce
 {
@@ -16,8 +17,8 @@ public class Arrow : BulletPierceAndBounce
     public override void ReturnToPool()
     {
         spriteRenderer.sortingOrder = 0;
-        if(IsInvoking(nameof(ReturnToPool))) CancelInvoke(nameof(ReturnToPool)); // tắt các invoke thực hiện hàm này
-        BulletPool.instance.ReturnBullet(gameObject);
+        lifeTimer.Kill();
+        BulletPool.Instance.ReturnBullet(gameObject);
         speed=0;
         bulletCollider.enabled = false;
     }

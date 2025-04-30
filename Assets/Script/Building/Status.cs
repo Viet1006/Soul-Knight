@@ -1,8 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-
-
+[DefaultExecutionOrder(-50)]
 public class Status : MonoBehaviour , ICanInteract
 {
     public static Status instance;
@@ -25,7 +24,8 @@ public class Status : MonoBehaviour , ICanInteract
         slider.value = health;
         OnGetDamage?.Invoke();
         blinkPanel.SetActive(true);
-        blinkMaterial.DOFloat(0.7f,"_EdgeSmooth",0.2f).SetLoops(2,LoopType.Yoyo).OnComplete(() => blinkPanel.SetActive(false));
+        blinkMaterial.DOFloat(0.7f,"_EdgeSmooth",0.2f).SetLoops(2,LoopType.Yoyo).OnComplete(() => blinkPanel.SetActive(false)); // Nháy đỏ
+        ShakeCamera.Instance.ShakeCam(transform.position,1.5f,  1, 1f , false); // Rung camera kể cả nơi tạo rung ko trong camera
         if(health <= 0)
         {
             health =0;

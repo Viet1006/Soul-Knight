@@ -1,14 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponPool : MonoBehaviour
+public class WeaponPool
 {
-    public static WeaponPool instance;
-    Dictionary<string, Queue<GameObject>> poolDictionary = new Dictionary<string, Queue<GameObject>>();
-    void Awake()
+    static WeaponPool instance;
+    public static WeaponPool Instance
     {
-        instance = this;
+        get
+        {
+            instance ??= new WeaponPool();
+            return instance;
+        }
     }
+    Dictionary<string, Queue<GameObject>> poolDictionary = new();
     private void AddNewPool(GameObject newWeapon)
     {
         if (poolDictionary.ContainsKey(newWeapon.name)) return; // Đã có pool này
@@ -27,7 +31,7 @@ public class WeaponPool : MonoBehaviour
             weapon = poolDictionary[newWeapon.name].Dequeue();
             weapon.SetActive(true);
         }
-        else weapon= Instantiate(newWeapon);
+        else weapon= Object.Instantiate(newWeapon);
         weapon.transform.SetParent(parent);
         weapon.transform.localPosition = Vector2.zero;
         return weapon;

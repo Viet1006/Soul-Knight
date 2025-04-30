@@ -49,3 +49,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 373595814231110869, guid: 7b319efa903f57a459b70780bd3ff40e, type: 3}
   element: 0
   bulletBuffs: []
+  icon: {fileID: 21300000, guid: bc6d4283126de9744ae05cb8df36f26a, type: 3}

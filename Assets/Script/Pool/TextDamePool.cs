@@ -1,26 +1,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextDamePool : MonoBehaviour
+public class TextDamePool
 {
-    public static TextDamePool instance;
-    void Awake()
+    static TextDamePool instance;
+    public static TextDamePool Instance
     {
-        instance = this;
+        get
+        {
+            instance ??= new TextDamePool();
+            return instance;
+        }
     }
     Queue<GameObject> textDamePool = new();
-    [SerializeField] List<Sprite> iconImage;
-    [SerializeField] private GameObject textDamePrefab;
-    public GameObject GetTextDamage(Vector2 Pos,BulletElement bulletElement,int damage)
+    public GameObject GetTextDamage(Vector2 pos,BulletElement bulletElement,int damage)
     {
         GameObject newTextDamage;
         if(textDamePool.Count >0)
         {
             newTextDamage = textDamePool.Dequeue();
             newTextDamage.SetActive(true);
-        }else newTextDamage = Instantiate(textDamePrefab);
+        }else newTextDamage = Object.Instantiate(ObjectHolder.Instance.textDamePrefab);
         newTextDamage.GetComponent<TextDamage>().SetText(damage,SetColor.SetElementColor(bulletElement),IconElement.GetIcon(bulletElement));
-        newTextDamage.transform.position = Pos;
+        newTextDamage.transform.position = pos;
         return newTextDamage;
     }
     public void ReturnToPool(GameObject obj)

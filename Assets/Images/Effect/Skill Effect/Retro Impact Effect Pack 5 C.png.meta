@@ -1,0 +1,2450 @@
+fileFormatVersion: 2
+guid: c3eb3db9e0d32de4d9248621364d51dd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6258280419206080884
+    second: Retro Impact Effect Pack 5 C_0
+  - first:
+      213: -6539725939276351822
+    second: Retro Impact Effect Pack 5 C_1
+  - first:
+      213: -7216414825579737664
+    second: Retro Impact Effect Pack 5 C_2
+  - first:
+      213: 1749926281617588242
+    second: Retro Impact Effect Pack 5 C_3
+  - first:
+      213: -7549639007537862553
+    second: Retro Impact Effect Pack 5 C_4
+  - first:
+      213: -503811562735315429
+    second: Retro Impact Effect Pack 5 C_5
+  - first:
+      213: -6118027903573543091
+    second: Retro Impact Effect Pack 5 C_6
+  - first:
+      213: -7689904715781437198
+    second: Retro Impact Effect Pack 5 C_7
+  - first:
+      213: 1346284973970454626
+    second: Retro Impact Effect Pack 5 C_8
+  - first:
+      213: -1388371279925871382
+    second: Retro Impact Effect Pack 5 C_9
+  - first:
+      213: 2928918830880505295
+    second: Retro Impact Effect Pack 5 C_10
+  - first:
+      213: -1770694499707200768
+    second: Retro Impact Effect Pack 5 C_11
+  - first:
+      213: -6546186317062141422
+    second: Retro Impact Effect Pack 5 C_12
+  - first:
+      213: 7389194487595245574
+    second: Retro Impact Effect Pack 5 C_13
+  - first:
+      213: -3378714870875790172
+    second: Retro Impact Effect Pack 5 C_14
+  - first:
+      213: -1047861141260990616
+    second: Retro Impact Effect Pack 5 C_15
+  - first:
+      213: -7593051926881695548
+    second: Retro Impact Effect Pack 5 C_16
+  - first:
+      213: -4039671727209158849
+    second: Retro Impact Effect Pack 5 C_17
+  - first:
+      213: -7116984512207707281
+    second: Retro Impact Effect Pack 5 C_18
+  - first:
+      213: 8677268117700327071
+    second: Retro Impact Effect Pack 5 C_19
+  - first:
+      213: -2697488614053627766
+    second: Retro Impact Effect Pack 5 C_20
+  - first:
+      213: 3241774378928995870
+    second: Retro Impact Effect Pack 5 C_21
+  - first:
+      213: 7120899309561824759
+    second: Retro Impact Effect Pack 5 C_22
+  - first:
+      213: -2920168340223126654
+    second: Retro Impact Effect Pack 5 C_23
+  - first:
+      213: 973490912349626674
+    second: Retro Impact Effect Pack 5 C_24
+  - first:
+      213: -5179426304860482735
+    second: Retro Impact Effect Pack 5 C_25
+  - first:
+      213: -1514284003725202674
+    second: Retro Impact Effect Pack 5 C_26
+  - first:
+      213: 15496962123658213
+    second: Retro Impact Effect Pack 5 C_27
+  - first:
+      213: -7374955432401856573
+    second: Retro Impact Effect Pack 5 C_28
+  - first:
+      213: 3506694620901757953
+    second: Retro Impact Effect Pack 5 C_29
+  - first:
+      213: 1256222382673602047
+    second: Retro Impact Effect Pack 5 C_30
+  - first:
+      213: -3544615610671633562
+    second: Retro Impact Effect Pack 5 C_31
+  - first:
+      213: -3222046539859807444
+    second: Retro Impact Effect Pack 5 C_32
+  - first:
+      213: 3973003599281147744
+    second: Retro Impact Effect Pack 5 C_33
+  - first:
+      213: -3596422165573337315
+    second: Retro Impact Effect Pack 5 C_34
+  - first:
+      213: -1821273658163982975
+    second: Retro Impact Effect Pack 5 C_35
+  - first:
+      213: -6951956326639712974
+    second: Retro Impact Effect Pack 5 C_36
+  - first:
+      213: -8379499287139632616
+    second: Retro Impact Effect Pack 5 C_37
+  - first:
+      213: -2959091508823750009
+    second: Retro Impact Effect Pack 5 C_38
+  - first:
+      213: 7696217219471705539
+    second: Retro Impact Effect Pack 5 C_39
+  - first:
+      213: 6455655689863002664
+    second: Retro Impact Effect Pack 5 C_40
+  - first:
+      213: -6926181633436708537
+    second: Retro Impact Effect Pack 5 C_41
+  - first:
+      213: -8777598718599096567
+    second: Retro Impact Effect Pack 5 C_42
+  - first:
+      213: 347744298479484241
+    second: Retro Impact Effect Pack 5 C_43
+  - first:
+      213: -3148991497055153019
+    second: Retro Impact Effect Pack 5 C_44
+  - first:
+      213: -6700809046098640623
+    second: Retro Impact Effect Pack 5 C_45
+  - first:
+      213: 2231580406229410788
+    second: Retro Impact Effect Pack 5 C_46
+  - first:
+      213: -8926279518163820100
+    second: Retro Impact Effect Pack 5 C_47
+  - first:
+      213: -377815696444252274
+    second: Retro Impact Effect Pack 5 C_48
+  - first:
+      213: -7797643002111790535
+    second: Retro Impact Effect Pack 5 C_49
+  - first:
+      213: -2597477683433696100
+    second: Retro Impact Effect Pack 5 C_50
+  - first:
+      213: -6115778069065059347
+    second: Retro Impact Effect Pack 5 C_51
+  - first:
+      213: 1240875796135214433
+    second: Retro Impact Effect Pack 5 C_52
+  - first:
+      213: 6046706290848502598
+    second: Retro Impact Effect Pack 5 C_53
+  - first:
+      213: -2622144582956842390
+    second: Retro Impact Effect Pack 5 C_54
+  - first:
+      213: 2094816092210765511
+    second: Retro Impact Effect Pack 5 C_55
+  - first:
+      213: 5939369706195832894
+    second: Retro Impact Effect Pack 5 C_56
+  - first:
+      213: -5076023287991401142
+    second: Retro Impact Effect Pack 5 C_57
+  - first:
+      213: 1793230465678688134
+    second: Retro Impact Effect Pack 5 C_58
+  - first:
+      213: -3805756189746612270
+    second: Retro Impact Effect Pack 5 C_59
+  - first:
+      213: -6983158110859513071
+    second: Retro Impact Effect Pack 5 C_60
+  - first:
+      213: -2057073042897590881
+    second: Retro Impact Effect Pack 5 C_61
+  - first:
+      213: 4497612042115036520
+    second: Retro Impact Effect Pack 5 C_62
+  - first:
+      213: 981335377270623867
+    second: Retro Impact Effect Pack 5 C_63
+  - first:
+      213: -2674939308689259223
+    second: Retro Impact Effect Pack 5 C_64
+  - first:
+      213: 3756221708524808679
+    second: Retro Impact Effect Pack 5 C_65
+  - first:
+      213: 361792525904918773
+    second: Retro Impact Effect Pack 5 C_66
+  - first:
+      213: 7417199126428769838
+    second: Retro Impact Effect Pack 5 C_67
+  - first:
+      213: 8339357575178527698
+    second: Retro Impact Effect Pack 5 C_68
+  - first:
+      213: 6533135747099934759
+    second: Retro Impact Effect Pack 5 C_69
+  - first:
+      213: -236250808486514519
+    second: Retro Impact Effect Pack 5 C_70
+  - first:
+      213: -6601138142730383248
+    second: Retro Impact Effect Pack 5 C_71
+  - first:
+      213: -5092927034233610831
+    second: Retro Impact Effect Pack 5 C_72
+  - first:
+      213: -3158753401482384216
+    second: Retro Impact Effect Pack 5 C_73
+  - first:
+      213: -2173450706122257342
+    second: Retro Impact Effect Pack 5 C_74
+  - first:
+      213: 5167052474224253961
+    second: Retro Impact Effect Pack 5 C_75
+  - first:
+      213: 7336228078236947496
+    second: Retro Impact Effect Pack 5 C_76
+  - first:
+      213: 8795474135167649194
+    second: Retro Impact Effect Pack 5 C_77
+  - first:
+      213: 4389934055348143947
+    second: Retro Impact Effect Pack 5 C_78
+  - first:
+      213: 3297277386345351111
+    second: Retro Impact Effect Pack 5 C_79
+  - first:
+      213: -772632849040702811
+    second: Retro Impact Effect Pack 5 C_80
+  - first:
+      213: -7288883735395184274
+    second: Retro Impact Effect Pack 5 C_81
+  - first:
+      213: 3545668222369422344
+    second: Retro Impact Effect Pack 5 C_82
+  - first:
+      213: 5255844557974158200
+    second: Retro Impact Effect Pack 5 C_83
+  - first:
+      213: 7235514726110506706
+    second: Retro Impact Effect Pack 5 C_84
+  - first:
+      213: 276327011481411889
+    second: Retro Impact Effect Pack 5 C_85
+  - first:
+      213: 5878881113576350227
+    second: Retro Impact Effect Pack 5 C_86
+  - first:
+      213: -4504747534121652769
+    second: Retro Impact Effect Pack 5 C_87
+  - first:
+      213: -4557145040926214837
+    second: Retro Impact Effect Pack 5 C_88
+  - first:
+      213: -7906420367253192106
+    second: Retro Impact Effect Pack 5 C_89
+  - first:
+      213: 1315050939271774003
+    second: Retro Impact Effect Pack 5 C_90
+  - first:
+      213: 6663695606610820986
+    second: Retro Impact Effect Pack 5 C_91
+  - first:
+      213: 4866210972928552221
+    second: Retro Impact Effect Pack 5 C_92
+  - first:
+      213: 2621070343487584813
+    second: Retro Impact Effect Pack 5 C_93
+  - first:
+      213: 3814201606942255204
+    second: Retro Impact Effect Pack 5 C_94
+  - first:
+      213: 4319584686349091397
+    second: Retro Impact Effect Pack 5 C_95
+  - first:
+      213: 3612820325577988562
+    second: Retro Impact Effect Pack 5 C_96
+  - first:
+      213: 4695882249184486364
+    second: Retro Impact Effect Pack 5 C_97
+  - first:
+      213: -4920900203351571314
+    second: Retro Impact Effect Pack 5 C_98
+  - first:
+      213: -2281766464663795555
+    second: Retro Impact Effect Pack 5 C_99
+  - first:
+      213: 6769585304926653237
+    second: Retro Impact Effect Pack 5 C_100
+  - first:
+      213: 7819342647588665893
+    second: Retro Impact Effect Pack 5 C_101
+  - first:
+      213: 8486902388821410711
+    second: Retro Impact Effect Pack 5 C_102
+  - first:
+      213: 5027146350952929150
+    second: Retro Impact Effect Pack 5 C_103
+  - first:
+      213: 2815973294592887274
+    second: Retro Impact Effect Pack 5 C_104
+  - first:
+      213: 5712115188788513704
+    second: Retro Impact Effect Pack 5 C_105
+  - first:
+      213: 7893498870156928175
+    second: Retro Impact Effect Pack 5 C_106
+  - first:
+      213: -8654434305872298821
+    second: Retro Impact Effect Pack 5 C_107
+  - first:
+      213: 7293917451155407910
+    second: Retro Impact Effect Pack 5 C_108
+  - first:
+      213: -2756380502042022581
+    second: Retro Impact Effect Pack 5 C_109
+  - first:
+      213: -9162113444209065028
+    second: Retro Impact Effect Pack 5 C_110
+  - first:
+      213: -986620421439974930
+    second: Retro Impact Effect Pack 5 C_111
+  - first:
+      213: 8920460178374665724
+    second: Retro Impact Effect Pack 5 C_112
+  - first:
+      213: -4170980056746067125
+    second: Retro Impact Effect Pack 5 C_113
+  - first:
+      213: 8311496419644640721
+    second: Retro Impact Effect Pack 5 C_114
+  - first:
+      213: 3162344547685043228
+    second: Retro Impact Effect Pack 5 C_115
+  - first:
+      213: 2113696700147810095
+    second: Retro Impact Effect Pack 5 C_116
+  - first:
+      213: 3488708696885302195
+    second: Retro Impact Effect Pack 5 C_117
+  - first:
+      213: -6062423631678390301
+    second: Retro Impact Effect Pack 5 C_118
+  - first:
+      213: 3925231058007732546
+    second: Retro Impact Effect Pack 5 C_119
+  - first:
+      213: -7833794863935082783
+    second: Retro Impact Effect Pack 5 C_120
+  - first:
+      213: -6761138222719742533
+    second: Retro Impact Effect Pack 5 C_121
+  - first:
+      213: 4578933236932727340
+    second: Retro Impact Effect Pack 5 C_122
+  - first:
+      213: -6003445214772609559
+    second: Retro Impact Effect Pack 5 C_123
+  - first:
+      213: -1007194237984945162
+    second: Retro Impact Effect Pack 5 C_124
+  - first:
+      213: -6756096316891579067
+    second: Retro Impact Effect Pack 5 C_125
+  - first:
+      213: -8610484349962160774
+    second: Retro Impact Effect Pack 5 C_126
+  - first:
+      213: 1269780063518851270
+    second: Retro Impact Effect Pack 5 C_127
+  - first:
+      213: 1492223741320831325
+    second: Retro Impact Effect Pack 5 C_128
+  - first:
+      213: -2780508027237048209
+    second: Retro Impact Effect Pack 5 C_129
+  - first:
+      213: 4105302563520519299
+    second: Retro Impact Effect Pack 5 C_130
+  - first:
+      213: 8114354452072573808
+    second: Retro Impact Effect Pack 5 C_131
+  - first:
+      213: 620254699959779592
+    second: Retro Impact Effect Pack 5 C_132
+  - first:
+      213: -2548136629479849491
+    second: Retro Impact Effect Pack 5 C_133
+  - first:
+      213: 4158112955297867512
+    second: Retro Impact Effect Pack 5 C_134
+  - first:
+      213: 5374409945784607523
+    second: Retro Impact Effect Pack 5 C_135
+  - first:
+      213: -6053876456096731295
+    second: Retro Impact Effect Pack 5 C_136
+  - first:
+      213: 6331814020919057006
+    second: Retro Impact Effect Pack 5 C_137
+  - first:
+      213: -2622601839220626887
+    second: Retro Impact Effect Pack 5 C_138
+  - first:
+      213: -7978450623051061746
+    second: Retro Impact Effect Pack 5 C_139
+  - first:
+      213: -2472253397048475985
+    second: Retro Impact Effect Pack 5 C_140
+  - first:
+      213: 2663452978756712988
+    second: Retro Impact Effect Pack 5 C_141
+  - first:
+      213: -1890735175357608116
+    second: Retro Impact Effect Pack 5 C_142
+  - first:
+      213: 3669556914597553795
+    second: Retro Impact Effect Pack 5 C_143
+  - first:
+      213: 3658779722919394740
+    second: Retro Impact Effect Pack 5 C_144
+  - first:
+      213: 8078566925084218843
+    second: Retro Impact Effect Pack 5 C_145
+  - first:
+      213: 663044613805467014
+    second: Retro Impact Effect Pack 5 C_146
+  - first:
+      213: 9033514481201212975
+    second: Retro Impact Effect Pack 5 C_147
+  - first:
+      213: 9082191782473219886
+    second: Retro Impact Effect Pack 5 C_148
+  - first:
+      213: -8912734530804555574
+    second: Retro Impact Effect Pack 5 C_149
+  - first:
+      213: 9065009548494430879
+    second: Retro Impact Effect Pack 5 C_150
+  - first:
+      213: 2719630538706901940
+    second: Retro Impact Effect Pack 5 C_151
+  - first:
+      213: 3819474762124822617
+    second: Retro Impact Effect Pack 5 C_152
+  - first:
+      213: -3846366143987168733
+    second: Retro Impact Effect Pack 5 C_153
+  - first:
+      213: -3438023790537222843
+    second: Retro Impact Effect Pack 5 C_154
+  - first:
+      213: -3502365393140655005
+    second: Retro Impact Effect Pack 5 C_155
+  - first:
+      213: -2068132366005438635
+    second: Retro Impact Effect Pack 5 C_156
+  - first:
+      213: -1755115351237948846
+    second: Retro Impact Effect Pack 5 C_157
+  - first:
+      213: 4423658211125197055
+    second: Retro Impact Effect Pack 5 C_158
+  - first:
+      213: -5700492828737083528
+    second: Retro Impact Effect Pack 5 C_159
+  - first:
+      213: 6081513563380984660
+    second: Retro Impact Effect Pack 5 C_160
+  - first:
+      213: 6250756594049129074
+    second: Retro Impact Effect Pack 5 C_161
+  - first:
+      213: -5576728182178134392
+    second: Retro Impact Effect Pack 5 C_162
+  - first:
+      213: 17900136099204761
+    second: Retro Impact Effect Pack 5 C_163
+  - first:
+      213: -3691029581312457811
+    second: Retro Impact Effect Pack 5 C_164
+  - first:
+      213: 6316782222852798713
+    second: Retro Impact Effect Pack 5 C_165
+  - first:
+      213: 5751467239624651612
+    second: Retro Impact Effect Pack 5 C_166
+  - first:
+      213: -8618834271927704248
+    second: Retro Impact Effect Pack 5 C_167
+  - first:
+      213: 2935610070227175661
+    second: Retro Impact Effect Pack 5 C_168
+  - first:
+      213: 8464512142173685234
+    second: Retro Impact Effect Pack 5 C_169
+  - first:
+      213: -4358791336019270677
+    second: Retro Impact Effect Pack 5 C_170
+  - first:
+      213: -6948734839652517713
+    second: Retro Impact Effect Pack 5 C_171
+  - first:
+      213: -2243688553365505597
+    second: Retro Impact Effect Pack 5 C_172
+  - first:
+      213: 6857043042640751017
+    second: Retro Impact Effect Pack 5 C_173
+  - first:
+      213: 1535481721503425785
+    second: Retro Impact Effect Pack 5 C_174
+  - first:
+      213: 138949853769919502
+    second: Retro Impact Effect Pack 5 C_175
+  - first:
+      213: 3172989839750098870
+    second: Retro Impact Effect Pack 5 C_176
+  - first:
+      213: -1852586781094162626
+    second: Retro Impact Effect Pack 5 C_177
+  - first:
+      213: -1867377370239177736
+    second: Retro Impact Effect Pack 5 C_178
+  - first:
+      213: 1821783479586856453
+    second: Retro Impact Effect Pack 5 C_179
+  - first:
+      213: 3079492114616416923
+    second: Retro Impact Effect Pack 5 C_180
+  - first:
+      213: 6553534771021481486
+    second: Retro Impact Effect Pack 5 C_181
+  - first:
+      213: -7336251421103373361
+    second: Retro Impact Effect Pack 5 C_182
+  - first:
+      213: 8163850389884469295
+    second: Retro Impact Effect Pack 5 C_183
+  - first:
+      213: -1806083234794136333
+    second: Retro Impact Effect Pack 5 C_184
+  - first:
+      213: -96673746277752267
+    second: Retro Impact Effect Pack 5 C_185
+  - first:
+      213: 3023633443638371914
+    second: Retro Impact Effect Pack 5 C_186
+  - first:
+      213: -6674706582093862281
+    second: Retro Impact Effect Pack 5 C_187
+  - first:
+      213: 2625914063827147687
+    second: Retro Impact Effect Pack 5 C_188
+  - first:
+      213: 5592411666422473509
+    second: Retro Impact Effect Pack 5 C_189
+  - first:
+      213: -393352826249271590
+    second: Retro Impact Effect Pack 5 C_190
+  - first:
+      213: -2970898430682666699
+    second: Retro Impact Effect Pack 5 C_191
+  - first:
+      213: -7780901569735417368
+    second: Retro Impact Effect Pack 5 C_192
+  - first:
+      213: 1763224779954480976
+    second: Retro Impact Effect Pack 5 C_193
+  - first:
+      213: -489931822519740988
+    second: Retro Impact Effect Pack 5 C_194
+  - first:
+      213: -6493372969256453988
+    second: Retro Impact Effect Pack 5 C_195
+  - first:
+      213: -7824967527506042933
+    second: Retro Impact Effect Pack 5 C_196
+  - first:
+      213: 2149451323197749649
+    second: Retro Impact Effect Pack 5 C_197
+  - first:
+      213: -1676829615034093656
+    second: Retro Impact Effect Pack 5 C_198
+  - first:
+      213: -3588255011395465124
+    second: Retro Impact Effect Pack 5 C_199
+  - first:
+      213: 5396226954954030754
+    second: Retro Impact Effect Pack 5 C_200
+  - first:
+      213: 8442014910936679766
+    second: Retro Impact Effect Pack 5 C_201
+  - first:
+      213: -4809473447670745931
+    second: Retro Impact Effect Pack 5 C_202
+  - first:
+      213: -1353054030136851383
+    second: Retro Impact Effect Pack 5 C_203
+  - first:
+      213: -5412707723847188285
+    second: Retro Impact Effect Pack 5 C_204
+  - first:
+      213: 2484982410871307825
+    second: Retro Impact Effect Pack 5 C_205
+  - first:
+      213: 5245982009047414633
+    second: Retro Impact Effect Pack 5 C_206
+  - first:
+      213: 3549570741635157637
+    second: Retro Impact Effect Pack 5 C_207
+  - first:
+      213: 127310319850763812
+    second: Retro Impact Effect Pack 5 C_208
+  - first:
+      213: 3013479468297630470
+    second: Retro Impact Effect Pack 5 C_209
+  - first:
+      213: 1848084879516972752
+    second: Retro Impact Effect Pack 5 C_210
+  - first:
+      213: -2789903881392226442
+    second: Retro Impact Effect Pack 5 C_211
+  - first:
+      213: 7310850183555798035
+    second: Retro Impact Effect Pack 5 C_212
+  - first:
+      213: -2138512393998593887
+    second: Retro Impact Effect Pack 5 C_213
+  - first:
+      213: -2747303871779081456
+    second: Retro Impact Effect Pack 5 C_214
+  - first:
+      213: 769664348964414356
+    second: Retro Impact Effect Pack 5 C_215
+  - first:
+      213: -6049843414530837250
+    second: Retro Impact Effect Pack 5 C_216
+  - first:
+      213: 387813200659836445
+    second: Retro Impact Effect Pack 5 C_217
+  - first:
+      213: 4392355236371245654
+    second: Retro Impact Effect Pack 5 C_218
+  - first:
+      213: -5837548072681673292
+    second: Retro Impact Effect Pack 5 C_219
+  - first:
+      213: -3873296637708638763
+    second: Retro Impact Effect Pack 5 C_220
+  - first:
+      213: 4074002199657538888
+    second: Retro Impact Effect Pack 5 C_221
+  - first:
+      213: -4115313865516353391
+    second: Retro Impact Effect Pack 5 C_222
+  - first:
+      213: 7781983344757825577
+    second: Retro Impact Effect Pack 5 C_223
+  - first:
+      213: -7520217891339804091
+    second: Retro Impact Effect Pack 5 C_224
+  - first:
+      213: -3949577421525378821
+    second: Retro Impact Effect Pack 5 C_225
+  - first:
+      213: 8021420920140695157
+    second: Retro Impact Effect Pack 5 C_226
+  - first:
+      213: -7164890017383626269
+    second: Retro Impact Effect Pack 5 C_227
+  - first:
+      213: -1028444107679062527
+    second: Retro Impact Effect Pack 5 C_228
+  - first:
+      213: 3186663593291697150
+    second: Retro Impact Effect Pack 5 C_229
+  - first:
+      213: 6238735482878143625
+    second: Retro Impact Effect Pack 5 C_230
+  - first:
+      213: -3080586593767044569
+    second: Retro Impact Effect Pack 5 C_231
+  - first:
+      213: 4324210375336021240
+    second: Retro Impact Effect Pack 5 C_232
+  - first:
+      213: 7236008085347830726
+    second: Retro Impact Effect Pack 5 C_233
+  - first:
+      213: 2220631616345525116
+    second: Retro Impact Effect Pack 5 C_234
+  - first:
+      213: 151714292762489560
+    second: Retro Impact Effect Pack 5 C_235
+  - first:
+      213: -7018019450391969853
+    second: Retro Impact Effect Pack 5 C_236
+  - first:
+      213: 7530871395942154836
+    second: Retro Impact Effect Pack 5 C_237
+  - first:
+      213: -4899944416091405270
+    second: Retro Impact Effect Pack 5 C_238
+  - first:
+      213: 8734708620609473521
+    second: Retro Impact Effect Pack 5 C_239
+  - first:
+      213: 7524283692529475382
+    second: Retro Impact Effect Pack 5 C_240
+  - first:
+      213: 940308465431427539
+    second: Retro Impact Effect Pack 5 C_241
+  - first:
+      213: -4429594380497090314
+    second: Retro Impact Effect Pack 5 C_242
+  - first:
+      213: -340882386754328071
+    second: Retro Impact Effect Pack 5 C_243
+  - first:
+      213: 8544691353725652607
+    second: Retro Impact Effect Pack 5 C_244
+  - first:
+      213: 4110947893266149497
+    second: Retro Impact Effect Pack 5 C_245
+  - first:
+      213: -9196204320993992511
+    second: Retro Impact Effect Pack 5 C_246
+  - first:
+      213: 1427599102920413610
+    second: Retro Impact Effect Pack 5 C_247
+  - first:
+      213: 8475215093223034051
+    second: Retro Impact Effect Pack 5 C_248
+  - first:
+      213: 3329047010271512099
+    second: Retro Impact Effect Pack 5 C_249
+  - first:
+      213: -2249783292059818924
+    second: Retro Impact Effect Pack 5 C_250
+  - first:
+      213: -6675855090732765057
+    second: Retro Impact Effect Pack 5 C_251
+  - first:
+      213: 6430947169921583511
+    second: Retro Impact Effect Pack 5 C_252
+  - first:
+      213: -2157683543576220197
+    second: Retro Impact Effect Pack 5 C_253
+  - first:
+      213: -9080862188463353926
+    second: Retro Impact Effect Pack 5 C_254
+  - first:
+      213: 4878390474787549945
+    second: Retro Impact Effect Pack 5 C_255
+  - first:
+      213: 4022109132790105354
+    second: Retro Impact Effect Pack 5 C_256
+  - first:
+      213: 5326948191586634973
+    second: Retro Impact Effect Pack 5 C_257
+  - first:
+      213: -6114441106698857990
+    second: Retro Impact Effect Pack 5 C_258
+  - first:
+      213: 1112876031278348585
+    second: Retro Impact Effect Pack 5 C_259
+  - first:
+      213: 2098043765889615286
+    second: Retro Impact Effect Pack 5 C_260
+  - first:
+      213: -6448928989529937182
+    second: Retro Impact Effect Pack 5 C_261
+  - first:
+      213: 2319013931462487049
+    second: Retro Impact Effect Pack 5 C_262
+  - first:
+      213: 3085888983875515406
+    second: Retro Impact Effect Pack 5 C_263
+  - first:
+      213: -1223849109252473840
+    second: Retro Impact Effect Pack 5 C_264
+  - first:
+      213: -4234253854944303215
+    second: Retro Impact Effect Pack 5 C_265
+  - first:
+      213: -4068489661312659352
+    second: Retro Impact Effect Pack 5 C_266
+  - first:
+      213: 2063001298403050678
+    second: Retro Impact Effect Pack 5 C_267
+  - first:
+      213: 1823906639293072630
+    second: Retro Impact Effect Pack 5 C_268
+  - first:
+      213: 185963154085532644
+    second: Retro Impact Effect Pack 5 C_269
+  - first:
+      213: 2111568455741690704
+    second: Retro Impact Effect Pack 5 C_270
+  - first:
+      213: 8476038722665742094
+    second: Retro Impact Effect Pack 5 C_271
+  - first:
+      213: 7468690069501335107
+    second: Retro Impact Effect Pack 5 C_272
+  - first:
+      213: 8873603340062508686
+    second: Retro Impact Effect Pack 5 C_273
+  - first:
+      213: -2578830189610738430
+    second: Retro Impact Effect Pack 5 C_274
+  - first:
+      213: 5385074771142632775
+    second: Retro Impact Effect Pack 5 C_275
+  - first:
+      213: -5381732642216222505
+    second: Retro Impact Effect Pack 5 C_276
+  - first:
+      213: -4606879570842571043
+    second: Retro Impact Effect Pack 5 C_277
+  - first:
+      213: 7619782796272545703
+    second: Retro Impact Effect Pack 5 C_278
+  - first:
+      213: 8589210159631517337
+    second: Retro Impact Effect Pack 5 C_279
+  - first:
+      213: 6126288631458595603
+    second: Retro Impact Effect Pack 5 C_280
+  - first:
+      213: -2226160884058966290
+    second: Retro Impact Effect Pack 5 C_281
+  - first:
+      213: -9179257905897877093
+    second: Retro Impact Effect Pack 5 C_282
+  - first:
+      213: -4135922305546351165
+    second: Retro Impact Effect Pack 5 C_283
+  - first:
+      213: 1393021453124929648
+    second: Retro Impact Effect Pack 5 C_284
+  - first:
+      213: -4918250876219267044
+    second: Retro Impact Effect Pack 5 C_285
+  - first:
+      213: 2109089505657782964
+    second: Retro Impact Effect Pack 5 C_286
+  - first:
+      213: -2794013127280457942
+    second: Retro Impact Effect Pack 5 C_287
+  - first:
+      213: 2147303815797337602
+    second: Retro Impact Effect Pack 5 C_288
+  - first:
+      213: 9006962314986245916
+    second: Retro Impact Effect Pack 5 C_289
+  - first:
+      213: 118410869950312895
+    second: Retro Impact Effect Pack 5 C_290
+  - first:
+      213: 1644817438796369769
+    second: Retro Impact Effect Pack 5 C_291
+  - first:
+      213: 4109984976432142484
+    second: Retro Impact Effect Pack 5 C_292
+  - first:
+      213: -8563756054950084968
+    second: Retro Impact Effect Pack 5 C_293
+  - first:
+      213: 2429016998869521760
+    second: Retro Impact Effect Pack 5 C_294
+  - first:
+      213: 8491093196947941521
+    second: Retro Impact Effect Pack 5 C_295
+  - first:
+      213: 8006431179625983155
+    second: Retro Impact Effect Pack 5 C_296
+  - first:
+      213: 6941738917198048593
+    second: Retro Impact Effect Pack 5 C_297
+  - first:
+      213: -2153867758831087752
+    second: Retro Impact Effect Pack 5 C_298
+  - first:
+      213: -6855552403260309313
+    second: Retro Impact Effect Pack 5 C_299
+  - first:
+      213: -597315795209892308
+    second: Retro Impact Effect Pack 5 C_300
+  - first:
+      213: 165199375714435352
+    second: Retro Impact Effect Pack 5 C_301
+  - first:
+      213: 2983386427571533389
+    second: Retro Impact Effect Pack 5 C_302
+  - first:
+      213: -1771830475094331144
+    second: Retro Impact Effect Pack 5 C_303
+  - first:
+      213: -3991037833740978849
+    second: Retro Impact Effect Pack 5 C_304
+  - first:
+      213: 6126375572457996674
+    second: Retro Impact Effect Pack 5 C_305
+  - first:
+      213: -73592231649840533
+    second: Retro Impact Effect Pack 5 C_306
+  - first:
+      213: -7772662070072373999
+    second: Retro Impact Effect Pack 5 C_307
+  - first:
+      213: -315648887510104282
+    second: Retro Impact Effect Pack 5 C_308
+  - first:
+      213: 2753015403455199214
+    second: Retro Impact Effect Pack 5 C_309
+  - first:
+      213: -3095879412332123482
+    second: Retro Impact Effect Pack 5 C_310
+  - first:
+      213: 8882842609025716086
+    second: Retro Impact Effect Pack 5 C_311
+  - first:
+      213: -7398868230810892237
+    second: Retro Impact Effect Pack 5 C_312
+  - first:
+      213: 3179052724274125878
+    second: Retro Impact Effect Pack 5 C_313
+  - first:
+      213: -784781394922455511
+    second: Retro Impact Effect Pack 5 C_314
+  - first:
+      213: -3996310504644551023
+    second: Retro Impact Effect Pack 5 C_315
+  - first:
+      213: -3124600410430927830
+    second: Retro Impact Effect Pack 5 C_316
+  - first:
+      213: 1912224715969135319
+    second: Retro Impact Effect Pack 5 C_317
+  - first:
+      213: 2004056659061991733
+    second: Retro Impact Effect Pack 5 C_318
+  - first:
+      213: 8295130738466549108
+    second: Retro Impact Effect Pack 5 C_319
+  - first:
+      213: -6750107837873480729
+    second: Retro Impact Effect Pack 5 C_320
+  - first:
+      213: -4457854815368380435
+    second: Retro Impact Effect Pack 5 C_321
+  - first:
+      213: -1711198304289611600
+    second: Retro Impact Effect Pack 5 C_322
+  - first:
+      213: -2290195103264999894
+    second: Retro Impact Effect Pack 5 C_323
+  - first:
+      213: -4492354644225466062
+    second: Retro Impact Effect Pack 5 C_324
+  - first:
+      213: -883682679741363800
+    second: Retro Impact Effect Pack 5 C_325
+  - first:
+      213: -7599098762979657175
+    second: Retro Impact Effect Pack 5 C_326
+  - first:
+      213: 3127648382667322788
+    second: Retro Impact Effect Pack 5 C_327
+  - first:
+      213: -8730449240688238927
+    second: Retro Impact Effect Pack 5 C_328
+  - first:
+      213: 4142739885668681107
+    second: Retro Impact Effect Pack 5 C_329
+  - first:
+      213: 7677823447538973209
+    second: Retro Impact Effect Pack 5 C_330
+  - first:
+      213: -3998630535027877529
+    second: Retro Impact Effect Pack 5 C_331
+  - first:
+      213: -3767906790015144076
+    second: Retro Impact Effect Pack 5 C_332
+  - first:
+      213: -5772898149369902678
+    second: Retro Impact Effect Pack 5 C_333
+  - first:
+      213: -2539642656253520890
+    second: Retro Impact Effect Pack 5 C_334
+  - first:
+      213: -1297265621408835424
+    second: Retro Impact Effect Pack 5 C_335
+  - first:
+      213: -607311331756600300
+    second: Retro Impact Effect Pack 5 C_336
+  - first:
+      213: 7072905696797476450
+    second: Retro Impact Effect Pack 5 C_337
+  - first:
+      213: 3717387780867992704
+    second: Retro Impact Effect Pack 5 C_338
+  - first:
+      213: 8646669299435774273
+    second: Retro Impact Effect Pack 5 C_339
+  - first:
+      213: 4227338008173538672
+    second: Retro Impact Effect Pack 5 C_340
+  - first:
+      213: 3754017238084440701
+    second: Retro Impact Effect Pack 5 C_341
+  - first:
+      213: 6642027577693001752
+    second: Retro Impact Effect Pack 5 C_342
+  - first:
+      213: -5593289931600747781
+    second: Retro Impact Effect Pack 5 C_343
+  - first:
+      213: -7810896829322560402
+    second: Retro Impact Effect Pack 5 C_344
+  - first:
+      213: -6240462326452117456
+    second: Retro Impact Effect Pack 5 C_345
+  - first:
+      213: 8577622426042871705
+    second: Retro Impact Effect Pack 5 C_346
+  - first:
+      213: -4649456907444241109
+    second: Retro Impact Effect Pack 5 C_347
+  - first:
+      213: 1228096082338355903
+    second: Retro Impact Effect Pack 5 C_348
+  - first:
+      213: 671673786636123462
+    second: Retro Impact Effect Pack 5 C_349
+  - first:
+      213: -7079280039427408951
+    second: Retro Impact Effect Pack 5 C_350
+  - first:
+      213: -2069784074862564106
+    second: Retro Impact Effect Pack 5 C_351
+  - first:
+      213: 7631732238668400998
+    second: Retro Impact Effect Pack 5 C_352
+  - first:
+      213: -6223128760126858560
+    second: Retro Impact Effect Pack 5 C_353
+  - first:
+      213: -4668109428279718450
+    second: Retro Impact Effect Pack 5 C_354
+  - first:
+      213: 8628783649816270268
+    second: Retro Impact Effect Pack 5 C_355
+  - first:
+      213: -1984112415632382414
+    second: Retro Impact Effect Pack 5 C_356
+  - first:
+      213: -4165961051159564029
+    second: Retro Impact Effect Pack 5 C_357
+  - first:
+      213: -1038258027653802932
+    second: Retro Impact Effect Pack 5 C_358
+  - first:
+      213: -4957836220898952760
+    second: Retro Impact Effect Pack 5 C_359
+  - first:
+      213: 2131780625272463749
+    second: Retro Impact Effect Pack 5 C_360
+  - first:
+      213: -6551962609856559496
+    second: Retro Impact Effect Pack 5 C_361
+  - first:
+      213: 9138815452047545644
+    second: Retro Impact Effect Pack 5 C_362
+  - first:
+      213: 2463169454678179863
+    second: Retro Impact Effect Pack 5 C_363
+  - first:
+      213: 4419480845593571355
+    second: Retro Impact Effect Pack 5 C_364
+  - first:
+      213: -7233098029125657308
+    second: Retro Impact Effect Pack 5 C_365
+  - first:
+      213: -7208850149296065618
+    second: Retro Impact Effect Pack 5 C_366
+  - first:
+      213: 5333746722591817507
+    second: Retro Impact Effect Pack 5 C_367
+  - first:
+      213: -7748727166789606410
+    second: Retro Impact Effect Pack 5 C_368
+  - first:
+      213: -6529166649363507232
+    second: Retro Impact Effect Pack 5 C_369
+  - first:
+      213: 256734294251033396
+    second: Retro Impact Effect Pack 5 C_370
+  - first:
+      213: -2142360151891355077
+    second: Retro Impact Effect Pack 5 C_371
+  - first:
+      213: -6175647365981805635
+    second: Retro Impact Effect Pack 5 C_372
+  - first:
+      213: 931475236680665593
+    second: Retro Impact Effect Pack 5 C_373
+  - first:
+      213: -7437340211103880222
+    second: Retro Impact Effect Pack 5 C_374
+  - first:
+      213: 861539178984087343
+    second: Retro Impact Effect Pack 5 C_375
+  - first:
+      213: 1160058478512744817
+    second: Retro Impact Effect Pack 5 C_376
+  - first:
+      213: 5462766871537447989
+    second: Retro Impact Effect Pack 5 C_377
+  - first:
+      213: -4061078956106166431
+    second: Retro Impact Effect Pack 5 C_378
+  - first:
+      213: -929915897587248300
+    second: Retro Impact Effect Pack 5 C_379
+  - first:
+      213: -845962432927270931
+    second: Retro Impact Effect Pack 5 C_380
+  - first:
+      213: 2107099777346643273
+    second: Retro Impact Effect Pack 5 C_381
+  - first:
+      213: -7324768380935844245
+    second: Retro Impact Effect Pack 5 C_382
+  - first:
+      213: -37498616355365566
+    second: Retro Impact Effect Pack 5 C_383
+  - first:
+      213: 1660773495680373963
+    second: Retro Impact Effect Pack 5 C_384
+  - first:
+      213: -8266084733431165632
+    second: Retro Impact Effect Pack 5 C_385
+  - first:
+      213: 8177431775188510338
+    second: Retro Impact Effect Pack 5 C_386
+  - first:
+      213: 7019583349242157871
+    second: Retro Impact Effect Pack 5 C_387
+  - first:
+      213: -6530464861804541879
+    second: Retro Impact Effect Pack 5 C_388
+  - first:
+      213: 4072824560151962382
+    second: Retro Impact Effect Pack 5 C_389
+  - first:
+      213: -8603764002965547557
+    second: Retro Impact Effect Pack 5 C_390
+  - first:
+      213: 7747030837667520487
+    second: Retro Impact Effect Pack 5 C_391
+  - first:
+      213: 7258979120458520329
+    second: Retro Impact Effect Pack 5 C_392
+  - first:
+      213: -3756081742373081953
+    second: Retro Impact Effect Pack 5 C_393
+  - first:
+      213: -4138798722049726404
+    second: Retro Impact Effect Pack 5 C_394
+  - first:
+      213: 3606487315153711657
+    second: Retro Impact Effect Pack 5 C_395
+  - first:
+      213: -4708207009917845505
+    second: Retro Impact Effect Pack 5 C_396
+  - first:
+      213: 6458698381214370252
+    second: Retro Impact Effect Pack 5 C_397
+  - first:
+      213: 902356562366066232
+    second: Retro Impact Effect Pack 5 C_398
+  - first:
+      213: -2047857488762069127
+    second: Retro Impact Effect Pack 5 C_399
+  - first:
+      213: -5802604409535289474
+    second: Retro Impact Effect Pack 5 C_400
+  - first:
+      213: 3234723701044768122
+    second: Retro Impact Effect Pack 5 C_401
+  - first:
+      213: 6388552806512059086
+    second: Retro Impact Effect Pack 5 C_402
+  - first:
+      213: -8102048329941758859
+    second: Retro Impact Effect Pack 5 C_403
+  - first:
+      213: 9116246629492063723
+    second: Retro Impact Effect Pack 5 C_404
+  - first:
+      213: 2616628580853955095
+    second: Retro Impact Effect Pack 5 C_405
+  - first:
+      213: -3862364194873415558
+    second: Retro Impact Effect Pack 5 C_406
+  - first:
+      213: -8950438396880472883
+    second: Retro Impact Effect Pack 5 C_407
+  - first:
+      213: -960112665228505555
+    second: Retro Impact Effect Pack 5 C_408
+  - first:
+      213: -5541433508081618318
+    second: Retro Impact Effect Pack 5 C_409
+  - first:
+      213: 610286092205301151
+    second: Retro Impact Effect Pack 5 C_410
+  - first:
+      213: -5078287322727875327
+    second: Retro Impact Effect Pack 5 C_411
+  - first:
+      213: 3526677690816701284
+    second: Retro Impact Effect Pack 5 C_412
+  - first:
+      213: -2024548679200163810
+    second: Retro Impact Effect Pack 5 C_413
+  - first:
+      213: 1747204939153964509
+    second: Retro Impact Effect Pack 5 C_414
+  - first:
+      213: -427805079162556302
+    second: Retro Impact Effect Pack 5 C_415
+  - first:
+      213: -6953100950070650513
+    second: Retro Impact Effect Pack 5 C_416
+  - first:
+      213: -8767133955794879405
+    second: Retro Impact Effect Pack 5 C_417
+  - first:
+      213: -1495448440009699121
+    second: Retro Impact Effect Pack 5 C_418
+  - first:
+      213: -3219141737846349658
+    second: Retro Impact Effect Pack 5 C_419
+  - first:
+      213: 4178283017336038455
+    second: Retro Impact Effect Pack 5 C_420
+  - first:
+      213: 8924336144502972287
+    second: Retro Impact Effect Pack 5 C_421
+  - first:
+      213: -4298211046683691268
+    second: Retro Impact Effect Pack 5 C_422
+  - first:
+      213: 7306037537523761903
+    second: Retro Impact Effect Pack 5 C_423
+  - first:
+      213: -8005807139472586566
+    second: Retro Impact Effect Pack 5 C_424
+  - first:
+      213: 3403844664371320009
+    second: Retro Impact Effect Pack 5 C_425
+  - first:
+      213: 194000285746085583
+    second: Retro Impact Effect Pack 5 C_426
+  - first:
+      213: 6212055980847475126
+    second: Retro Impact Effect Pack 5 C_427
+  - first:
+      213: -3056617924581338230
+    second: Retro Impact Effect Pack 5 C_428
+  - first:
+      213: -2847859202768597543
+    second: Retro Impact Effect Pack 5 C_429
+  - first:
+      213: 2207584180373370350
+    second: Retro Impact Effect Pack 5 C_430
+  - first:
+      213: -7211706307565863441
+    second: Retro Impact Effect Pack 5 C_431
+  - first:
+      213: -7217034242709615592
+    second: Retro Impact Effect Pack 5 C_432
+  - first:
+      213: 6286318004668920401
+    second: Retro Impact Effect Pack 5 C_433
+  - first:
+      213: 884976876128972988
+    second: Retro Impact Effect Pack 5 C_434
+  - first:
+      213: -1104007507710970265
+    second: Retro Impact Effect Pack 5 C_435
+  - first:
+      213: -1202605413831261534
+    second: Retro Impact Effect Pack 5 C_436
+  - first:
+      213: -3412923243544681992
+    second: Retro Impact Effect Pack 5 C_437
+  - first:
+      213: 2520172515975738028
+    second: Retro Impact Effect Pack 5 C_438
+  - first:
+      213: -3800937400093787794
+    second: Retro Impact Effect Pack 5 C_439
+  - first:
+      213: 5867046280728534216
+    second: Retro Impact Effect Pack 5 C_440
+  - first:
+      213: 5835820154874920696
+    second: Retro Impact Effect Pack 5 C_441
+  - first:
+      213: 7966026660775886462
+    second: Retro Impact Effect Pack 5 C_442
+  - first:
+      213: 5136453232083070468
+    second: Retro Impact Effect Pack 5 C_443
+  - first:
+      213: 3076077587458567114
+    second: Retro Impact Effect Pack 5 C_444
+  - first:
+      213: -8612261956550378910
+    second: Retro Impact Effect Pack 5 C_445
+  - first:
+      213: -6152825720930030424
+    second: Retro Impact Effect Pack 5 C_446
+  - first:
+      213: 4137868802359365869
+    second: Retro Impact Effect Pack 5 C_447
+  - first:
+      213: 1644419753633912412
+    second: Retro Impact Effect Pack 5 C_448
+  - first:
+      213: 3392070942313637682
+    second: Retro Impact Effect Pack 5 C_449
+  - first:
+      213: 4672267367761378606
+    second: Retro Impact Effect Pack 5 C_450
+  - first:
+      213: 5223600035862066243
+    second: Retro Impact Effect Pack 5 C_451
+  - first:
+      213: -7756659811324069595
+    second: Retro Impact Effect Pack 5 C_452
+  - first:
+      213: -1724556492492167122
+    second: Retro Impact Effect Pack 5 C_453
+  - first:
+      213: -242253020824553126
+    second: Retro Impact Effect Pack 5 C_454
+  - first:
+      213: -6927208896510020806
+    second: Retro Impact Effect Pack 5 C_455
+  - first:
+      213: -8007287484739818360
+    second: Retro Impact Effect Pack 5 C_456
+  - first:
+      213: -7553461058052318186
+    second: Retro Impact Effect Pack 5 C_457
+  - first:
+      213: 6298132146511570254
+    second: Retro Impact Effect Pack 5 C_458
+  - first:
+      213: 460483428264746495
+    second: Retro Impact Effect Pack 5 C_459
+  - first:
+      213: -5834158341680950416
+    second: Retro Impact Effect Pack 5 C_460
+  - first:
+      213: 6464641508772046616
+    second: Retro Impact Effect Pack 5 C_461
+  - first:
+      213: 3250232860985437867
+    second: Retro Impact Effect Pack 5 C_462
+  - first:
+      213: -5658361647147275172
+    second: Retro Impact Effect Pack 5 C_463
+  - first:
+      213: 3475636044864105243
+    second: Retro Impact Effect Pack 5 C_464
+  - first:
+      213: 1706338780470082543
+    second: Retro Impact Effect Pack 5 C_465
+  - first:
+      213: -5876836410613564105
+    second: Retro Impact Effect Pack 5 C_466
+  - first:
+      213: -7684523178409289213
+    second: Retro Impact Effect Pack 5 C_467
+  - first:
+      213: -9047451461826727836
+    second: Retro Impact Effect Pack 5 C_468
+  - first:
+      213: 4862369522791676255
+    second: Retro Impact Effect Pack 5 C_469
+  - first:
+      213: 5271588882501493960
+    second: Retro Impact Effect Pack 5 C_470
+  - first:
+      213: -2660983765925609513
+    second: Retro Impact Effect Pack 5 C_471
+  - first:
+      213: -5882425192694656622
+    second: Retro Impact Effect Pack 5 C_472
+  - first:
+      213: 2383631801043730786
+    second: Retro Impact Effect Pack 5 C_473
+  - first:
+      213: 1910571226874457994
+    second: Retro Impact Effect Pack 5 C_474
+  - first:
+      213: 6694201783595573633
+    second: Retro Impact Effect Pack 5 C_475
+  - first:
+      213: 4159043955672709230
+    second: Retro Impact Effect Pack 5 C_476
+  - first:
+      213: 3121537509182338689
+    second: Retro Impact Effect Pack 5 C_477
+  - first:
+      213: -960921175977645356
+    second: Retro Impact Effect Pack 5 C_478
+  - first:
+      213: 3666143961393149146
+    second: Retro Impact Effect Pack 5 C_479
+  - first:
+      213: -1857211821980805666
+    second: Retro Impact Effect Pack 5 C_480
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1553
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 479af8b22e0e9d650800000000000000
+      internalID: 6258280419206080884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_1
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 1546
+        width: 42
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b6760d38e93e35a0800000000000000
+      internalID: -6539725939276351822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_2
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 1544
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cd057943f42adb90800000000000000
+      internalID: -7216414825579737664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_3
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 1542
+        width: 52
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 210cfee7eacf84810800000000000000
+      internalID: 1749926281617588242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_4
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 1540
+        width: 55
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 768e545825b4a3790800000000000000
+      internalID: -7549639007537862553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_5
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 1538
+        width: 60
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b165d619d0a1209f0800000000000000
+      internalID: -503811562735315429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_6
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 1434
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4732915906681ba0800000000000000
+      internalID: -6118027903573543091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_7
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 1427
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f80f336768f74590800000000000000
+      internalID: -7689904715781437198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_8
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 1421
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26874f70d07fea210800000000000000
+      internalID: 1346284973970454626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_9
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1418
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aecf9a34da38bbce0800000000000000
+      internalID: -1388371279925871382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_10
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 1417
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcdb59a982c95a820800000000000000
+      internalID: 2928918830880505295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_11
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 1416
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00bd63bebba3d67e0800000000000000
+      internalID: -1770694499707200768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_12
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1368
+        width: 44
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21a0df15a364725a0800000000000000
+      internalID: -6546186317062141422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_13
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 1365
+        width: 36
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 600a361ac31bb8660800000000000000
+      internalID: 7389194487595245574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_14
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 1367
+        width: 40
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a46e14e9b46c11d0800000000000000
+      internalID: -3378714870875790172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_15
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 1360
+        width: 44
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 867043508df3571f0800000000000000
+      internalID: -1047861141260990616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_16
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 1362
+        width: 37
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c80f11908f00a690800000000000000
+      internalID: -7593051926881695548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_17
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 1364
+        width: 41
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f37628a97f330f7c0800000000000000
+      internalID: -4039671727209158849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_18
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 464
+        width: 53
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6327e52b446b3d90800000000000000
+      internalID: -7116984512207707281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_19
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 464
+        width: 56
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f96b9500169db6870800000000000000
+      internalID: 8677268117700327071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_20
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 464
+        width: 56
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a883cadb568909ad0800000000000000
+      internalID: -2697488614053627766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_21
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 464
+        width: 58
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1e760a3f981dfc20800000000000000
+      internalID: 3241774378928995870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_22
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 464
+        width: 58
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f5c1c3a13482d260800000000000000
+      internalID: 7120899309561824759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_23
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 481
+        width: 5
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28398a4cd5a7977d0800000000000000
+      internalID: -2920168340223126654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_24
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 464
+        width: 29
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 231aba6b3d8828d00800000000000000
+      internalID: 973490912349626674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_25
+      rect:
+        serializedVersion: 2
+        x: 432
+        y: 481
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1531a7ea73bfe18b0800000000000000
+      internalID: -5179426304860482735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_26
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 482
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0b27ecb8be2cfae0800000000000000
+      internalID: -1514284003725202674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_27
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 464
+        width: 38
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e37a7aa76e073000800000000000000
+      internalID: 15496962123658213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_28
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 464
+        width: 49
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c79951cb15e6a990800000000000000
+      internalID: -7374955432401856573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_29
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 464
+        width: 30
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1045f9ead284aa030800000000000000
+      internalID: 3506694620901757953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_30
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 465
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff5a72ee99ffe6110800000000000000
+      internalID: 1256222382673602047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_31
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 465
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66bec9cd1eefecec0800000000000000
+      internalID: -3544615610671633562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_32
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 152
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2331ed3ebdf843d0800000000000000
+      internalID: -3222046539859807444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_33
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 0
+        width: 141
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f408249b1f22730800000000000000
+      internalID: 3973003599281147744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_34
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 152
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1ff8a65811f61ec0800000000000000
+      internalID: -3596422165573337315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_35
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 149
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18d0c56e14989b6e0800000000000000
+      internalID: -1821273658163982975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_36
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2354c90dd80b58f90800000000000000
+      internalID: -6951956326639712974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_37
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 142
+        width: 128
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81a376a7bc906bb80800000000000000
+      internalID: -8379499287139632616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_38
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 144
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78a8fae53f13fe6d0800000000000000
+      internalID: -2959091508823750009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Retro Impact Effect Pack 5 C_39
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 130
+        width: 26
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c50bd8e8c47eca60800000000000000
+      internalID: 7696217219471705539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: a275d6aeed29ba149bebaf274b7a8b0a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Retro Impact Effect Pack 5 C_0: 6258280419206080884
+      Retro Impact Effect Pack 5 C_1: -6539725939276351822
+      Retro Impact Effect Pack 5 C_10: 2928918830880505295
+      Retro Impact Effect Pack 5 C_11: -1770694499707200768
+      Retro Impact Effect Pack 5 C_12: -6546186317062141422
+      Retro Impact Effect Pack 5 C_13: 7389194487595245574
+      Retro Impact Effect Pack 5 C_14: -3378714870875790172
+      Retro Impact Effect Pack 5 C_15: -1047861141260990616
+      Retro Impact Effect Pack 5 C_16: -7593051926881695548
+      Retro Impact Effect Pack 5 C_17: -4039671727209158849
+      Retro Impact Effect Pack 5 C_18: -7116984512207707281
+      Retro Impact Effect Pack 5 C_19: 8677268117700327071
+      Retro Impact Effect Pack 5 C_2: -7216414825579737664
+      Retro Impact Effect Pack 5 C_20: -2697488614053627766
+      Retro Impact Effect Pack 5 C_21: 3241774378928995870
+      Retro Impact Effect Pack 5 C_22: 7120899309561824759
+      Retro Impact Effect Pack 5 C_23: -2920168340223126654
+      Retro Impact Effect Pack 5 C_24: 973490912349626674
+      Retro Impact Effect Pack 5 C_25: -5179426304860482735
+      Retro Impact Effect Pack 5 C_26: -1514284003725202674
+      Retro Impact Effect Pack 5 C_27: 15496962123658213
+      Retro Impact Effect Pack 5 C_28: -7374955432401856573
+      Retro Impact Effect Pack 5 C_29: 3506694620901757953
+      Retro Impact Effect Pack 5 C_3: 1749926281617588242
+      Retro Impact Effect Pack 5 C_30: 1256222382673602047
+      Retro Impact Effect Pack 5 C_31: -3544615610671633562
+      Retro Impact Effect Pack 5 C_32: -3222046539859807444
+      Retro Impact Effect Pack 5 C_33: 3973003599281147744
+      Retro Impact Effect Pack 5 C_34: -3596422165573337315
+      Retro Impact Effect Pack 5 C_35: -1821273658163982975
+      Retro Impact Effect Pack 5 C_36: -6951956326639712974
+      Retro Impact Effect Pack 5 C_37: -8379499287139632616
+      Retro Impact Effect Pack 5 C_38: -2959091508823750009
+      Retro Impact Effect Pack 5 C_39: 7696217219471705539
+      Retro Impact Effect Pack 5 C_4: -7549639007537862553
+      Retro Impact Effect Pack 5 C_5: -503811562735315429
+      Retro Impact Effect Pack 5 C_6: -6118027903573543091
+      Retro Impact Effect Pack 5 C_7: -7689904715781437198
+      Retro Impact Effect Pack 5 C_8: 1346284973970454626
+      Retro Impact Effect Pack 5 C_9: -1388371279925871382
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

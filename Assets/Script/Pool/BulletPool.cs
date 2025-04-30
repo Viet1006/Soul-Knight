@@ -1,13 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
-public class BulletPool : MonoBehaviour
+public class BulletPool
 {
-    public static BulletPool instance;
-    Dictionary<string, Queue<GameObject>> poolDictionary = new ();
-    void Awake()
+    static BulletPool instance;
+    public static BulletPool Instance
     {
-        instance = this;
+        get
+        {
+            instance ??= new BulletPool();
+            return instance;
+        }
     }
+    Dictionary<string, Queue<GameObject>> poolDictionary = new ();
     private void AddNewPool(GameObject newBullet)
     {
         if (poolDictionary.ContainsKey(newBullet.name)) return; // Đã có pool này
@@ -23,7 +27,7 @@ public class BulletPool : MonoBehaviour
             bullet = poolDictionary[newBullet.name].Dequeue();
             bullet.SetActive(true);
         }
-        else bullet = Instantiate(newBullet);
+        else bullet = Object.Instantiate(newBullet);
         bullet.transform.SetPositionAndRotation(pos, quaternion);
         return bullet;
     }
@@ -37,7 +41,7 @@ public class BulletPool : MonoBehaviour
             bullet.SetActive(true);
             
         }
-        else bullet = Instantiate(newBullet);
+        else bullet = Object.Instantiate(newBullet);
         bullet.transform.position = pos;
         bullet.transform.right = target-(Vector2)bullet.transform.position;
         return bullet;
@@ -51,7 +55,7 @@ public class BulletPool : MonoBehaviour
             bullet = poolDictionary[newBullet.name].Dequeue();
             bullet.SetActive(true);
         }
-        else bullet = Instantiate(newBullet);
+        else bullet = Object.Instantiate(newBullet);
         bullet.transform.position = pos;
         return bullet;
     }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerBow : PlayerWeapon
+public class PlayerBow : MonoBehaviour
 {
     public SpriteRenderer currentSquare;
     public void OnAttack()

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Sirenix.OdinInspector;
+using System.Collections.Generic;
 public class BaseWeapon : MonoBehaviour
 {
     [InlineEditor]
@@ -7,11 +8,15 @@ public class BaseWeapon : MonoBehaviour
     [SerializeField] protected Transform spawnBulletPos;
     [HideInEditorMode] public float timeToNextFire;
     [HideInEditorMode] public int level;
+    List<BulletBuff> addedBuff = new();
+    public event System.Action<List<BulletBuff>> OnAttack;
     public virtual void Attack(Transform target)
     {
         if(timeToNextFire <= 0)
         {
+            OnAttack?.Invoke(addedBuff);
             CreateBullet(target);
+            addedBuff = new();
             spawnBulletPos.gameObject.SetActive(true);
             DG.Tweening.DOVirtual.DelayedCall(0.05f,() => spawnBulletPos.gameObject.SetActive(false));
             timeToNextFire = 1/weaponData.FireRate(level);
@@ -39,11 +44,13 @@ public class BaseWeapon : MonoBehaviour
     }
     public virtual void ResetToOringin() // Đặt lại trạng thái ban đầu cho vũ khí
     {
-        WeaponPool.instance.ReturnWeapon(gameObject);
+        WeaponPool.Instance.ReturnWeapon(gameObject);
     }
     public virtual void CreateBullet(Transform target)
     {
-        BulletPool.instance
+        List <BulletBuff> finalBuffs = new(weaponData.bulletBuffs);
+        if(addedBuff != null) finalBuffs.AddRange( addedBuff) ;
+        BulletPool.Instance
                 .GetBullet(weaponData.bulletPrefab
                     ,spawnBulletPos.position // truyền vị trí spawn cho pool
                     ,transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy)))
@@ -52,7 +59,7 @@ public class BaseWeapon : MonoBehaviour
                     ,weaponData.Damage(level)
                     ,weaponData.CritChance(level)
                     ,weaponData.element
-                    ,weaponData.bulletBuffs,3);
+                    ,finalBuffs ,3);
                 // Tạo đạn
     }
     public void Upgrade()

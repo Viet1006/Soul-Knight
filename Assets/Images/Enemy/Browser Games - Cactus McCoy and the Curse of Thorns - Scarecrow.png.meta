@@ -1,0 +1,827 @@
+fileFormatVersion: 2
+guid: 9afb0ddd48dc426499377402e1dffe02
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 158172692048037151
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_0
+  - first:
+      213: -3639636915296172382
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_1
+  - first:
+      213: 6331007057716455566
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_2
+  - first:
+      213: -2970020483546320088
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_3
+  - first:
+      213: -4098625787004153655
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_4
+  - first:
+      213: -434265634204501531
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_5
+  - first:
+      213: -6183066531955560800
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_6
+  - first:
+      213: -3814732969778883097
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_7
+  - first:
+      213: -8504662567692575
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_8
+  - first:
+      213: -2498051542011011290
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_9
+  - first:
+      213: -5718104518325212147
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_10
+  - first:
+      213: -796913166665117731
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_11
+  - first:
+      213: -6461675428440794957
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_12
+  - first:
+      213: -7338720146161078133
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_13
+  - first:
+      213: 5824239223823629718
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_14
+  - first:
+      213: -5095590826845475431
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_15
+  - first:
+      213: 204485572493741928
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_16
+  - first:
+      213: -52391136451660946
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_17
+  - first:
+      213: -2630942054188585385
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_18
+  - first:
+      213: -478930422806619932
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_19
+  - first:
+      213: -3008314308258746980
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_20
+  - first:
+      213: -5326720581771260770
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_21
+  - first:
+      213: 5376212767538558100
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_22
+  - first:
+      213: -875803779425632109
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_23
+  - first:
+      213: 7547787455733694160
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_24
+  - first:
+      213: -564920108572685023
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_25
+  - first:
+      213: 819672081465320247
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_26
+  - first:
+      213: -303721508422348876
+    second: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 40
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 92
+        width: 92
+        height: 92
+      alignment: 9
+      pivot: {x: 0.42788202, y: 0.080813944}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99347dca76c761e4ab4b8addd19487ef
+      internalID: 1806508317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_1
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 92
+        width: 92
+        height: 92
+      alignment: 9
+      pivot: {x: 0.42655778, y: 0.07531257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54b9fdce9687e7b43bbcbd0ba0e35b7f
+      internalID: 379673397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_2
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 92
+        width: 92
+        height: 92
+      alignment: 9
+      pivot: {x: 0.43613717, y: 0.0657332}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0b3f30596c4bfe4da5138ca15f8f772
+      internalID: -1123404547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_3
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 92
+        width: 92
+        height: 92
+      alignment: 9
+      pivot: {x: 0.436137, y: 0.0657332}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9a091d0435690143b2ec8b1b3a48a02
+      internalID: -538189708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_4
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 92
+        width: 92
+        height: 92
+      alignment: 9
+      pivot: {x: 0.4329439, y: 0.07531257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fcfb2066358f72429383fbbf39b9a6e
+      internalID: 1713587504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_5
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 92
+        width: 92
+        height: 92
+      alignment: 9
+      pivot: {x: 0.43592736, y: 0.07895287}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e92a68d1b60858b42a465555445a16e2
+      internalID: 1574040683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_6
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 92
+        width: 92
+        height: 92
+      alignment: 9
+      pivot: {x: 0.43841088, y: 0.093514316}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ec33ed84343a8f41a619dc7c1c97537
+      internalID: 834880364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_7
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 92
+        width: 92
+        height: 92
+      alignment: 9
+      pivot: {x: 0.43225232, y: 0.111990884}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd5683019dc47fe45b0107412e004a4e
+      internalID: 804504214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_8
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 92
+        width: 92
+        height: 92
+      alignment: 9
+      pivot: {x: 0.42815036, y: 0.095844515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 392d470a623fc174ca31c996f94ae93e
+      internalID: 2033931234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_9
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 92
+        width: 92
+        height: 92
+      alignment: 9
+      pivot: {x: 0.41018742, y: 0.095844515}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fbcc7d1b4766ec46830f3874c6ceb63
+      internalID: -1149428533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_10
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 92
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 513abbab246a97942bdb3245c0c09a04
+      internalID: -488313011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_11
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 92
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5211d99baad69de42972e0672731bf49
+      internalID: 366691659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_12
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 92
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7ef7e33091c58345a45e79a8e291a74
+      internalID: -2141398371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_13
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 92
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 959c3195cce14b845b5193a63bc2b908
+      internalID: 407507379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f00fdd57f566e844782208e42f5b2d9e
+      internalID: -987616355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_15
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e73c9b3db7c787418c8a4c9b5b99b0a
+      internalID: -1172099831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_16
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43219cebd41126e4b9eacd86437c6337
+      internalID: 1824569922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_17
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f87acf9833ad5642becb1e70311218f
+      internalID: -1796981066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_18
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dd818357880cfc4e89d646ef51794e3
+      internalID: 1836736830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_19
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3f5083dbc58853408ccc0be02768b14
+      internalID: 2073546114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_20
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 411d383ad7df92847a911435bf7806e9
+      internalID: -1680480287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_21
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eae10f1c89e77904a9541643ab59de92
+      internalID: 459443910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_22
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3459b9c65d8c8fa4c97cbe6271841a47
+      internalID: 814652425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_23
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf9913b38ca79e49b751e50ce8865d9
+      internalID: 1451030826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_24
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c18e7efaa605094baaaf1dac0eaa22b
+      internalID: -1297688705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_25
+      rect:
+        serializedVersion: 2
+        x: 1012
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049f3b6327494a24ba8e125adeb4da36
+      internalID: -306996288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_26
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1ba675527687394e98b6d5d1759f951
+      internalID: -890746025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_27
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 0
+        width: 92
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c5797aa3848a04bb1e99a587dd621e
+      internalID: 60855340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: dd52c5e419499954b857fa58016ad475
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_0: 1806508317
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_1: 379673397
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_10: -488313011
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_11: 366691659
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_12: -2141398371
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_13: 407507379
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_14: -987616355
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_15: -1172099831
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_16: 1824569922
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_17: -1796981066
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_18: 1836736830
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_19: 2073546114
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_2: -1123404547
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_20: -1680480287
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_21: 459443910
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_22: 814652425
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_23: 1451030826
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_24: -1297688705
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_25: -306996288
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_26: -890746025
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_27: 60855340
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_3: -538189708
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_4: 1713587504
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_5: 1574040683
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_6: 834880364
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_7: 804504214
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_8: 2033931234
+      Browser Games - Cactus McCoy and the Curse of Thorns - Scarecrow_9: -1149428533
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

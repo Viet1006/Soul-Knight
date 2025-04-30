@@ -30,7 +30,7 @@ public class CoinController : MonoBehaviour
             transform.position = new Vector2(startPosition.x, startPosition.y + Mathf.Sin(Time.time * frequency) * amplitude); // tạo hiệu ứng float
             yield return null;
         }
-        CoinPool.instance.ReturnToPool(gameObject);
+        CoinPool.Instance.ReturnToPool(gameObject);
     }
     IEnumerator MoveToCoinText() // Di chuyển đến Ui chứa coin
     {
@@ -40,7 +40,7 @@ public class CoinController : MonoBehaviour
             yield return null;
         }
         CoinManager.instance.AddCoin(value);
-        CoinPool.instance.ReturnToPool(gameObject);
+        CoinPool.Instance.ReturnToPool(gameObject);
     }
     void OnTriggerEnter2D()
     {

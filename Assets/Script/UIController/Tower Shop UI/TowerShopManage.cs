@@ -27,8 +27,8 @@ public class TowerShopManage : ItemManagement
     public void ChoosePlatform(Vector2 mousePos) // Sự kiện chuột trái Click
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
-        GameObject selectedPlatform = FindTarget.GetNearestObject(mousePos , 0.1f, LayerMask.GetMask("Tower Platform")); // Tìm platform chọn được
-        if(!selectedPlatform) // Nếu không chọn trúng platform thì chuyển về vị trí ban đầu
+        GameObject selectedPlatform = FindTarget.GetNearestObject(mousePos , 0.1f, LayerMask.GetMask("Water")); // Tìm platform chọn được
+        if(!selectedPlatform || !selectedPlatform.CompareTag("Tower Platform")) // Nếu không chọn trúng platform thì chuyển về vị trí ban đầu
         {
             SetOrigin();
             placeTowerCamera.transform.DOMove(Status.instance.transform.position - new Vector3(0,0,10) , 0.4f) ;
@@ -49,9 +49,10 @@ public class TowerShopManage : ItemManagement
             }
         }
     }
-    public void SelectTower(BaseTower baseTower) // Hàm khi 1 tower trong bảng được chọn
+    public void SelectTower(BaseTower baseTower) // khi 1 tower trong content được chọn
     {
-        TempTower.instance.ShowTempTower(baseTower, currentPlatform.transform.position); // Hiện tower tạm 
+        if( !currentPlatform ) return; //currentPlatform null khi bảng đang đóng mà ấn vào tháp
+        TempTower.instance.ShowTempTower(baseTower, currentPlatform.transform.position); 
         GetMouseEvent(false);
         boardShopAnim.ShowBoardShop();
     }

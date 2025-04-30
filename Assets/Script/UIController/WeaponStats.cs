@@ -17,12 +17,15 @@ public abstract class WeaponStats : MonoBehaviour
         inaccuracy = transform.Find("Inaccuracy Line").GetComponentInChildren<TextMeshProUGUI>();
         energyCost = transform.Find("Energy Cost Line").GetComponentInChildren<TextMeshProUGUI>();
     }
-    public virtual void SetWeaponStats(WeaponData weaponData , int level)
+    public virtual void SetWeaponStats(BaseWeapon baseWeapon)
     {
+        WeaponData weaponData = baseWeapon.weaponData;
+        int level = baseWeapon.level;
         damage.text = weaponData.Damage(level).ToString();
         fireRate.text = weaponData.FireRate(level).ToString();
         critChance.text = weaponData.CritChance(level).ToString();
         inaccuracy.text = weaponData.inaccuracy.ToString();
         energyCost.text = weaponData.energyCost.ToString();
+        iconWeapon.sprite = baseWeapon.GetComponentInChildren<SpriteRenderer>().sprite;
     }
 }

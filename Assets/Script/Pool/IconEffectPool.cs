@@ -1,25 +1,26 @@
 using System.Collections.Generic;
 using UnityEngine;
-
-public class IconEffectPool : MonoBehaviour
+public class IconEffectPool
 {
-    public static IconEffectPool instance;
-    Queue<GameObject> iconPool = new();
-    [SerializeField] List<Sprite> iconSprite;
-    [SerializeField] private GameObject iconPrefab;
-    private void Awake()
+    static IconEffectPool instance;
+    public static IconEffectPool Instance
     {
-        instance = this;
+        get
+        {
+            instance ??= new();
+            return instance;
+        }
     }
-    public GameObject GetIconEffect(Vector2 Pos,BulletElement bulletElement, Transform parent)
+    Queue<GameObject> iconPool = new();
+    public GameObject GetIconEffect(Vector2 Pos,BulletBuffType buffType, Transform parent)
     {
         GameObject newIcon;
         if(iconPool.Count >0)
         {
             newIcon = iconPool.Dequeue();
             newIcon.SetActive(true);
-        }else newIcon = Instantiate(iconPrefab);
-        newIcon.GetComponent<SpriteRenderer>().sprite = GetIcon(bulletElement);
+        }else newIcon = Object.Instantiate(ObjectHolder.Instance.iconEffect);
+        newIcon.GetComponent<SpriteRenderer>().sprite = GetIcon(buffType);
         newIcon.transform.SetParent(parent);
         newIcon.transform.localPosition = Pos;
         return newIcon;
@@ -29,15 +30,5 @@ public class IconEffectPool : MonoBehaviour
         icon.SetActive(false);
         iconPool.Enqueue(icon);
     }
-    Sprite GetIcon(BulletElement bulletElements)
-    {
-        return bulletElements switch
-        {
-            BulletElement.Fire => iconSprite[0],
-            BulletElement.Frozen=> iconSprite[1],
-            BulletElement.Lightning=> iconSprite[2],
-            BulletElement.Poison=> iconSprite[3],
-            _ => null,
-        };
-    }
+    Sprite GetIcon(BulletBuffType buffType) => ObjectHolder.Instance.iconSprite[buffType];
 }

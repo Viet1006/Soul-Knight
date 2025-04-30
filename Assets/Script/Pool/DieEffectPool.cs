@@ -1,32 +1,31 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DieEffectPool : MonoBehaviour
+public class DieEffectPool 
 {
-    public static DieEffectPool instance;
-    [SerializeField] GameObject DieEffect;
-    Queue<GameObject> dieEffectPool = new();
-    void Awake()
+    static DieEffectPool instance;
+    public static DieEffectPool Instance
     {
-        instance = this;
+        get
+        {
+            instance ??= new DieEffectPool();
+            return instance;
+        }
     }
-    public void GetDieEffect(Vector2 Pos)
+    readonly Queue<GameObject> dieEffectPool = new();
+    public void GetDieEffect(Vector2 pos)
     {
-        GameObject newEffect;
-        if(dieEffectPool.Count >0) newEffect = dieEffectPool.Dequeue();
-        else newEffect = Instantiate(DieEffect);
-        newEffect.transform.position = Pos;
-        newEffect.GetComponent<ParticleSystem>().Play();
-        StartCoroutine(Counter(newEffect));
+        GameObject dieEffect;
+        if(dieEffectPool.Count >0) dieEffect = dieEffectPool.Dequeue();
+        else dieEffect = Object.Instantiate(ObjectHolder.Instance.dieEffect);
+        dieEffect.transform.position = pos;
+        dieEffect.SetActive(true);
+        dieEffect.GetComponent<ParticleSystem>().Play();
+        DG.Tweening.DOVirtual.DelayedCall(0.5f , ()=> ReturnToPool(dieEffect));
     }
-    IEnumerator Counter(GameObject dieEffect) // Đếm thời gian để trả về Pool
+    void ReturnToPool(GameObject dieEffect)
     {
-        yield return new WaitForSeconds(0.5f);
-        ReturnToPool(dieEffect);
-    }
-    public void ReturnToPool(GameObject dieEffect)
-    {
+        dieEffect.SetActive(false);
         dieEffectPool.Enqueue(dieEffect);
     }
 }

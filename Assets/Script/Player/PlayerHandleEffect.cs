@@ -1,27 +1,31 @@
 using System.Collections;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , ICanPoison , ICanFrozen
+public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , ICanPoison , ICanFrozen , ICanBurn
 {
     [SerializeField] PlayerBehaviour playerBehaviour;
     [SerializeField] PlayerMovement playerMovement;
+    [InlineEditor]
     public HeroData heroData;
-    public delegate void OnHealthChangeDelegate(int damage);
-    public event OnHealthChangeDelegate OnHealthChange;
+    public event System.Action<int> OnHealthChange;
     int currentHealth;
+    int moveBlock , attackBlock;
     SpriteRenderer spritePlayer;
     Collider2D playerCollider;
+    Tween frozenTween , stunTween , burnTween , poisonTween;
     public void Awake()
     {
-        GetComponent<Animator>().runtimeAnimatorController = heroData.animatorController;
         currentHealth = heroData.health;
         playerMovement.speed = heroData.speed;
         playerCollider = GetComponent<Collider2D>();
         spritePlayer = GetComponent<SpriteRenderer>();
+
     }
-    public void GetHit(int damage, BulletElement bulletElement)
+    public void GetHit(int damage, BulletElement bulletElement , bool notify =true)
     {
-        TextDamePool.instance.GetTextDamage( transform.position + new Vector3(0, 1f, 0),bulletElement,damage);
+        TextDamePool.Instance.GetTextDamage( transform.position + new Vector3(0, 1f, 0),bulletElement,damage);
         currentHealth -= damage;
         OnHealthChange?.Invoke(currentHealth);
         if(currentHealth <=0)
@@ -60,57 +64,52 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
     }
     public void StartPush(Vector2 direction, float distance)
     {
-        playerMovement.SetVelocity(distance*HeroData.acceleration*10/6 * direction);  // Đảm bảo đẩy đúng khoảng cách
+        playerMovement.SetVelocity(distance*HeroData.acceleration*10/6 * direction);  // Đảm bảo đẩy đúng khoảng cách , công thức được rút ra từ quá trình test
     }
-    public void StartFrozen(float frozenTime) => StartCoroutine(FrozenCoroutine(frozenTime));
-    IEnumerator FrozenCoroutine(float frozenTime)
+    public void StartFrozen(float frozenTime)
     {
-        GameObject newIcon = IconEffectPool.instance.GetIconEffect(Vector2.zero,BulletElement.Frozen,transform);
-        while (frozenTime >0)
-        {
-            frozenTime -= Time.deltaTime;
-            playerMovement.canMove = false;
-            playerBehaviour.enabled = false;
-            yield return null;
-        }
-        IconEffectPool.instance.ReTurnToPool(newIcon);
-        playerMovement.canMove = true;
-        playerBehaviour.enabled = true;
+        GameObject frozenIcon = IconEffectPool.Instance.GetIconEffect(Vector2.zero,BulletBuffType.Frozen,transform);
+        playerMovement.canMove = false; moveBlock += 1;
+        playerBehaviour.enabled = false; attackBlock += 1;
+        frozenTween.Kill();
+        frozenTween = DOVirtual.DelayedCall(frozenTime , () =>
+            {
+                moveBlock -= 1;
+                if(moveBlock <= 0)  playerMovement.canMove = true;
+                attackBlock -= 1;
+                if(attackBlock <= 0) playerBehaviour.enabled = true;
+                
+            }).OnKill(() => IconEffectPool.Instance.ReTurnToPool(frozenIcon));
     }
-    public void StartStun(float stunTime) => StartCoroutine(StunCoroutine(stunTime));
-    IEnumerator StunCoroutine(float stunTime)
+    public void StartStun(float stunTime)
     {
-        GameObject newIcon = IconEffectPool.instance.GetIconEffect(new Vector2(0,1.2f),BulletElement.Lightning,transform);
-        while (stunTime >0)
-        {
-            stunTime -= Time.deltaTime;
-            playerMovement.canMove = false;
-            playerBehaviour.enabled = false;
-            yield return null;
-        }
-        IconEffectPool.instance.ReTurnToPool(newIcon);
-        playerMovement.canMove = true;
-        playerBehaviour.enabled = true;
+        GameObject stunIcon = IconEffectPool.Instance.GetIconEffect(Vector2.zero,BulletBuffType.Stun,transform);
+        playerMovement.canMove = false; moveBlock += 1;
+        playerBehaviour.enabled = false; attackBlock += 1;
+        stunTween.Kill();
+        stunTween = DOVirtual.DelayedCall(stunTime , () =>
+            {
+                moveBlock -= 1;
+                if(moveBlock <= 0)  playerMovement.canMove = true;
+                attackBlock -= 1;
+                if(attackBlock <= 0) playerBehaviour.enabled = true;
+                
+            }).OnKill(() => IconEffectPool.Instance.ReTurnToPool(stunIcon));
     }
-    float poisonTime;
     public void StartPoison(int damagePerSecond, float poisonTime)
     {
-        if(this.poisonTime == 0)
-        {
-            this.poisonTime = poisonTime;
-            StartCoroutine(PoisonCoroutine(damagePerSecond));
-        }
-        this.poisonTime = poisonTime;
+        poisonTween.Kill();
+        GameObject poisonIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.2f), BulletBuffType.Poison, transform);
+        poisonTween = DOVirtual.DelayedCall(1, () => GetHit(damagePerSecond, BulletElement.Poison))
+            .SetLoops(Mathf.FloorToInt(poisonTime))
+            .OnKill(() => IconEffectPool.Instance.ReTurnToPool(poisonIcon));
     }
-    IEnumerator PoisonCoroutine(int damagePerSecond)
+    public void StartBurn(int damagePerSecond, float burnTime)
     {
-        GameObject newIcon = IconEffectPool.instance.GetIconEffect(new Vector2(0,1.2f),BulletElement.Poison,transform);
-        while (poisonTime >0)
-        {
-            yield return new WaitForSeconds(1);
-            poisonTime -= 1;
-            GetHit(damagePerSecond , BulletElement.Poison);
-        }
-        IconEffectPool.instance.ReTurnToPool(newIcon);
+        burnTween.Kill();
+        GameObject burnIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.2f), BulletBuffType.Burn, transform);
+        burnTween = DOVirtual.DelayedCall(1, () => GetHit(damagePerSecond, BulletElement.Fire))
+            .SetLoops(Mathf.FloorToInt(burnTime))
+            .OnKill(() => IconEffectPool.Instance.ReTurnToPool(burnIcon));
     }
 }

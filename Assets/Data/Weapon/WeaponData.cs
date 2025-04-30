@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
+
 using Sirenix.OdinInspector;
 using UnityEngine;
 [CreateAssetMenu(fileName = "NewWeapon", menuName = "Weapon Data")]
@@ -15,7 +15,7 @@ public class WeaponData : SerializedScriptableObject
     public int price;
     public GameObject bulletPrefab;
     public BulletElement element;
-    public  List<BulletBuff> bulletBuffs;
+    public  List<BulletBuff> bulletBuffs;   
     public int Damage(int level)
     {
         if(level <= -1) return 1;

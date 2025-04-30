@@ -4,9 +4,10 @@ using UnityEngine;
 public class UpgradeWeaponStats : WeaponStats
 {
     [SerializeField] TextMeshProUGUI weaponName;
-    public void SetWeaponStats(WeaponData weaponData , int level , string weaponName)
+    public void SetWeaponStats(BaseWeapon baseWeapon, string weaponName)
     {
-        base.SetWeaponStats(weaponData,level);
+        base.SetWeaponStats(baseWeapon);
         this.weaponName.text = weaponName;
+        this.weaponName.color = SetColor.SetRareColor(baseWeapon.weaponData.rareColor); // Đặt màu cho tên vũ khí
     }
 }

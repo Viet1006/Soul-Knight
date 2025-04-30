@@ -200,8 +200,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textMesh: {fileID: 5509384408881489039}
-  maxSpeed: {x: 2, y: 6}
-  minSpeed: {x: 4, y: 4}
-  acceleration: 13
+  maxSpeed: {x: 5, y: 9}
+  minSpeed: {x: 2, y: 5}
+  acceleration: 20
   spriteRenderer: {fileID: 2872185368813419262}
   timeLife: 0.6

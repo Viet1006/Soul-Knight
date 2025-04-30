@@ -7,7 +7,7 @@ class ManageSpawnEnemy : MonoBehaviour
 {
     public static ManageSpawnEnemy instance;
     int currentWave = -1; // Wave hiện tại theo index ở list
-    [SerializeField] List<Wave> waves; // Danh sách các wave
+    Wave[] waves; // Danh sách các wave
     [SerializeField] float timePerWave; // Thời gian cho mỗi wave
     public float timeWaveRemain; // Thời gian còn lại trước khi bắt đầu wave mới
     [SerializeField] TextMeshProUGUI timeText;
@@ -18,6 +18,7 @@ class ManageSpawnEnemy : MonoBehaviour
     {
         instance = this;
         timeWaveRemain = 0; // Lúc bắt đầu thì cho 10s để chuẩn bị
+        waves = Resources.LoadAll<Wave>("Wave Data");
     }
     void Update()
     {
@@ -25,7 +26,7 @@ class ManageSpawnEnemy : MonoBehaviour
         {
             timeWaveRemain = timePerWave;
             currentWave++; // Chuyển đến wave tiếp theo
-            NotificationSystem.instance.ShowNotification("Bắt đầu wave " +currentWave+1 ,2f); // Thông báo bắt đầu wave mới
+            NotificationSystem.instance.ShowNotification("Bắt đầu wave " +(currentWave+1) ,2f); // Thông báo bắt đầu wave mới
             StartCoroutine(SpawnEnemyCoroutine()); // Bắt đầu 1 coroutine để spawn quái
         }else
         {

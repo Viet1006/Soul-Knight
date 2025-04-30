@@ -28,6 +28,6 @@ public class TextDamage : MonoBehaviour
     }
     void ReturnToPool()
     {
-        TextDamePool.instance.ReturnToPool(gameObject);
+        TextDamePool.Instance.ReturnToPool(gameObject);
     }
 }

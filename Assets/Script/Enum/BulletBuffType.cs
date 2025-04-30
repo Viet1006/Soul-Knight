@@ -5,5 +5,9 @@ public enum BulletBuffType
     Poison,
     Stun, 
     Frozen,
-    FireZone
+    FireZone,
+    PoisonZone,
+    FrozenZone,
+    Vulnerability,
+    Explode
 }

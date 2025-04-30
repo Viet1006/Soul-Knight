@@ -46,7 +46,7 @@ MonoBehaviour:
       Data: 2|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 4
     - Name: fireRate
       Entry: 4
       Data: 2
@@ -70,7 +70,7 @@ MonoBehaviour:
       Data: 3|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 4
     - Name: fireRate
       Entry: 4
       Data: 2.2
@@ -94,7 +94,7 @@ MonoBehaviour:
       Data: 4|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 4
     - Name: fireRate
       Entry: 4
       Data: 2.2
@@ -118,7 +118,7 @@ MonoBehaviour:
       Data: 5|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 4
     - Name: fireRate
       Entry: 4
       Data: 2.42
@@ -142,7 +142,7 @@ MonoBehaviour:
       Data: 6|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 4
     - Name: fireRate
       Entry: 4
       Data: 2.42
@@ -166,7 +166,7 @@ MonoBehaviour:
       Data: 7|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 6
+      Data: 5
     - Name: fireRate
       Entry: 4
       Data: 2.42
@@ -190,7 +190,7 @@ MonoBehaviour:
       Data: 8|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 6
+      Data: 5
     - Name: fireRate
       Entry: 4
       Data: 2.64
@@ -214,7 +214,7 @@ MonoBehaviour:
       Data: 9|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 6
+      Data: 5
     - Name: fireRate
       Entry: 4
       Data: 2.64
@@ -238,7 +238,7 @@ MonoBehaviour:
       Data: 10|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 6
+      Data: 5
     - Name: fireRate
       Entry: 4
       Data: 2.64
@@ -262,7 +262,7 @@ MonoBehaviour:
       Data: 11|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 6
+      Data: 5
     - Name: fireRate
       Entry: 4
       Data: 3.1
@@ -286,7 +286,7 @@ MonoBehaviour:
       Data: 12|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 7
+      Data: 6
     - Name: fireRate
       Entry: 4
       Data: 2.7

@@ -107,12 +107,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3913600963764508770, guid: 514f9dbe01c0d0948b753d1f4071e7a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 514f9dbe01c0d0948b753d1f4071e7a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.04, y: 0.77}
+  m_Size: {x: 3.5, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -188,8 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: f13d8d10d534b5640b64cf1a9cc4d44e, type: 2}
   spawnBulletPos: {fileID: 3445879117823637247}
-  weaponCollider: {fileID: 0}
-  SelectedItemName: {fileID: 0}
-  sprite: {fileID: 0}
+  timeToNextFire: 0
+  level: 0
   animator: {fileID: 1659779456020444731}
   delayTime: 1

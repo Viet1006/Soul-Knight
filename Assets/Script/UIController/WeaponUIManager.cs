@@ -14,7 +14,7 @@ public abstract class WeaponUIManager : ItemManagement
     public virtual void SetSelectingSlot(BaseWeapon baseWeapon) // Set các thuộc tính cho ô đang chọn
     {
         weaponShopStats.gameObject.SetActive(true);
-        weaponShopStats.SetWeaponStats(baseWeapon.weaponData,baseWeapon.level);
+        weaponShopStats.SetWeaponStats(baseWeapon);
     }
     public override void Interact()
     {

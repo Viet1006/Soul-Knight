@@ -18,7 +18,7 @@ public class Bow : BaseWeapon
         if(timeToNextFire<0 && isCharging == false) // Kiểm tra xem có đạng nạp và tới thời gian chưa để bắn
         {
             isCharging = true;
-            currentArrow = BulletPool.instance.GetBullet(weaponData.bulletPrefab,spawnBulletPos.position,transform.rotation).GetComponent<Arrow>();
+            currentArrow = BulletPool.Instance.GetBullet(weaponData.bulletPrefab,spawnBulletPos.position,transform.rotation).GetComponent<Arrow>();
             currentArrow.transform.SetParent(transform.GetChild(0).transform);
             animator.SetTrigger(Parameters.charge);
             timeToNextLevelCharge = timeForEachLevelCharge;
@@ -64,7 +64,7 @@ public class Bow : BaseWeapon
     {
         if(currentArrow) 
         {
-            BulletPool.instance.ReturnBullet(currentArrow.gameObject);
+            BulletPool.Instance.ReturnBullet(currentArrow.gameObject);
             currentArrow = null;
         }
         isCharging = false;

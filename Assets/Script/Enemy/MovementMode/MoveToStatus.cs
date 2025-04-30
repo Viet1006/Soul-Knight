@@ -1,5 +1,6 @@
 using Pathfinding;
 using UnityEngine;
+[RequireComponent(typeof(AIDestinationSetter))]
 public class MoveToStatus : AIPath
 {
     protected AIDestinationSetter destinationSetter;

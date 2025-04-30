@@ -76,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3913600963764508770, guid: 514f9dbe01c0d0948b753d1f4071e7a2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 514f9dbe01c0d0948b753d1f4071e7a2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.04, y: 0.77}
+  m_Size: {x: 1.7833333, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -150,7 +150,6 @@ GameObject:
   m_Component:
   - component: {fileID: 619877241425343643}
   - component: {fileID: 4029480298123631749}
-  - component: {fileID: -2682532013788507180}
   m_Layer: 0
   m_Name: Vine
   m_TagString: Untagged
@@ -190,17 +189,6 @@ MonoBehaviour:
   weaponData: {fileID: 11400000, guid: 7291f51a4a851124d95c49a50df05bb4, type: 2}
   spawnBulletPos: {fileID: 5000869803415172152}
   timeToNextFire: 0
+  level: 0
   animator: {fileID: 1659779456020444731}
   delayTime: 0.05
---- !u!114 &-2682532013788507180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4809245682028138412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bdb7dd3f751d074b846481d910af441, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

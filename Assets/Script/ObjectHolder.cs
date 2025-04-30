@@ -9,13 +9,21 @@ public class ObjectHolder : SerializedScriptableObject
     [BoxGroup("Materials")] public Material defaultMaterial;
     [BoxGroup("Materials")] public Material revealMaterial;
     [BoxGroup("Materials")] public Material revealVerticalMat;
-    
-    [BoxGroup("Prefabs")] public GameObject Fire;
-    [BoxGroup("Prefabs")] public GameObject FireZone;
+
+
+    [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject elementZone;
+    [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject textDamePrefab;
+    [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject iconEffect;
+    [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject coinPrebfab;
+    [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject dieEffect;
+    [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject explodeEffectPrefab;
+
 
     [DictionaryDrawerSettings(KeyLabel = "Element Type" , ValueLabel = "Element Icon")]
     [BoxGroup("Sprite")] public Dictionary<BulletElement , Sprite> elementIcon;
 
+    [DictionaryDrawerSettings(KeyLabel = "Buff Type",ValueLabel = "Sprite Icon")]
+    [BoxGroup("Sprite")] public Dictionary<BulletBuffType,Sprite> iconSprite;
     private static ObjectHolder _instance;
     
     public static ObjectHolder Instance

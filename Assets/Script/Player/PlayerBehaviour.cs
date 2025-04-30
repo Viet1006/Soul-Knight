@@ -5,34 +5,15 @@ public class PlayerBehaviour : MonoBehaviour
 {
     [HideInInspector] public BaseWeapon currentWeapon; // Vũ khí đang sử dụng
     public Transform target; // Target để điều hướng súng
-    [SerializeField] float findRadius; // Bán kính tìm quái
-    [SerializeField] float getItemRadius; // Bán kính nhặt các item
-    [SerializeField] PlayerMovement playerMovement;
+    readonly float findRadius = 10; // Bán kính tìm quái
+    readonly float getItemRadius = 1.5f; // Bán kính nhặt các item
+    PlayerMovement playerMovement;
     GameObject nearestItem; // Item gần nhất
     GameObject selectingItem; // Item đang chọn để tắt object đang chọn của item đấy khi ko chọn nữa
     public GameObject nearestEnemy;
     GameObject selectingEnemy;
     bool isAttacking;
-    public void OnFire(InputAction.CallbackContext context)
-    {
-        if(context.performed) // Khi ấn nút bắn
-        {
-            if(nearestItem != null)
-            {
-                if(nearestItem.TryGetComponent(out ICanInteract iCanInteract))
-                {
-                    iCanInteract.Interact();
-                }
-            }else{ // Nếu ko có item gần đó thì bắn
-                isAttacking = true;
-            }
-        }
-        if(context.canceled) // Thả nút bắn
-        {
-            isAttacking = false;
-            if(currentWeapon != null) currentWeapon.StopAttack();
-        }
-    }
+    BaseSkill baseSkill;
     void Start()
     {
         currentWeapon = GetComponentInChildren<BaseWeapon>();
@@ -43,6 +24,7 @@ public class PlayerBehaviour : MonoBehaviour
             newWeapon.transform.SetLocalPositionAndRotation(Vector2.zero, Quaternion.identity);
             currentWeapon = newWeapon.GetComponent<BaseWeapon>();
         };
+        baseSkill = GetComponent<BaseSkill>();
     }
     void Update()
     {
@@ -92,5 +74,29 @@ public class PlayerBehaviour : MonoBehaviour
             }
         }
         selectingEnemy = nearestEnemy; // Đặt Enemy đang chọn là Enemy gần nhất
+    }
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if(context.performed) // Khi ấn nút bắn
+        {
+            if(nearestItem != null)
+            {
+                if(nearestItem.TryGetComponent(out ICanInteract iCanInteract))
+                {
+                    iCanInteract.Interact();
+                }
+            }else{ // Nếu ko có item gần đó thì bắn
+                isAttacking = true;
+            }
+        }
+        if(context.canceled) // Thả nút bắn
+        {
+            isAttacking = false;
+            if(currentWeapon != null) currentWeapon.StopAttack();
+        }
+    }
+    public void OnActiveSkill(InputAction.CallbackContext context)
+    {
+        if(context.performed) baseSkill.UseSkill();
     }
 }

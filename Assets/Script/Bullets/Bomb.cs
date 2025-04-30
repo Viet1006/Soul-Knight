@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Bomb : BaseBullet
 {
-    public void SetBomb(float speed, int damage,int critChance ,BulletElement element, List<BulletBuff> bulletBuffs  ,float timeLife = 0)
+    public void SetBomb(int damage,int critChance ,BulletElement element, List<BulletBuff> bulletBuffs  ,float timeLife = 0)
     {
-        base.SetBullet(speed, damage, critChance,element,bulletBuffs, timeLife);
+        base.SetBullet(0, damage, critChance,element,bulletBuffs, timeLife);
         transform.DOMoveY(transform.position.y -3f, 0.2f)
             .SetEase(Ease.InQuad)
             .OnComplete( Explode);;
@@ -14,8 +14,10 @@ public class Bomb : BaseBullet
     }
     void Explode()
     {
-        animator.SetTrigger(Parameters.explode);
         bulletCollider.enabled = true;
+        
+        ExplodeEffectPool.Instance.GetExplodeEffect(transform.position);
+        DOVirtual.DelayedCall(0.1f, () => ReturnToPool()); // Delay để có thời gian Ontrigger
     }
     void OnTriggerEnter2D(Collider2D collider)
     {

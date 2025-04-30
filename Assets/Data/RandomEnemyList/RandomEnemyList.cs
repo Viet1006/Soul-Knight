@@ -54,7 +54,7 @@ public class AttackMethod
     }
     public GameObject GetRandomWeapon(Transform parent) // Lấy random 1 vũ khí trong loại này
     {
-        GameObject newWeapom = WeaponPool.instance.GetWeapon(weaponList[Random.Range(0, weaponList.Count)],parent);
+        GameObject newWeapom = WeaponPool.Instance.GetWeapon(weaponList[Random.Range(0, weaponList.Count)],parent);
         newWeapom.transform.localRotation = Quaternion.identity; // Đặt lại góc quay
         return newWeapom;
     }

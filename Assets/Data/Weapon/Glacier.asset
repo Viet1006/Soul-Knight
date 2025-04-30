@@ -293,3 +293,4 @@ MonoBehaviour:
     effectDuration: 1
     effectAmount: 0
     chanceApply: 50
+  icon: {fileID: 21300000, guid: 74010d44850d7b14090a236203caa27e, type: 3}

@@ -20,6 +20,10 @@ MonoBehaviour:
     - {fileID: 4026490273263277655, guid: f0eca1cd1224c80489ce5e4e140dab24, type: 3}
     - {fileID: -8688379684893322842, guid: b595f9e06ac78174aa1df7791cc79088, type: 3}
     - {fileID: -8460375634865296567, guid: e51a2c2c8444ec748b18b223e635cc19, type: 3}
+    - {fileID: 9200212935519152823, guid: ef9257d418c782f45b6117a00a1037a9, type: 3}
+    - {fileID: -3702225122687137540, guid: 24d79818029173146890b172a8e5f3dd, type: 3}
+    - {fileID: -4609090382200493899, guid: 079887c30e49f304eab98a89cd68611f, type: 3}
+    - {fileID: -7910468428046753298, guid: 6c0ddc84f71070f4ebbb85aaccf5dc54, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -99,9 +103,99 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: iconSprite
+      Entry: 7
+      Data: 2|Unity.VisualScripting.FlexibleDictionary`2[[BulletBuffType, Assembly-CSharp],[UnityEngine.Sprite,
+        UnityEngine.CoreModule]], Unity.VisualScripting.Core
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[BulletBuffType,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 5
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 8
+    - Name: $v
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   flashMaterial: {fileID: 2100000, guid: 3d7b1790b5666da41a93f1cfa12eb778, type: 2}
   defaultMaterial: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   revealMaterial: {fileID: 2100000, guid: abbedbbf29a43a140844d96805283786, type: 2}
   revealVerticalMat: {fileID: 2100000, guid: 620aa208223b356459c7c54d0c0a5eca, type: 2}
-  Fire: {fileID: 210567677721991438, guid: edf93dd35fc90c04396ec04fa78a3728, type: 3}
-  FireZone: {fileID: 5434624163421582931, guid: 46607cecc48e4104bbadd7b44d596a21, type: 3}
+  elementZone: {fileID: 6257663348909676304, guid: 7d1d227f44c7dbe4886b550fe6fa0f64, type: 3}
+  textDamePrefab: {fileID: 3445322831368300233, guid: 2599c36ea0c86e549a6ea0305de99e56, type: 3}
+  iconEffect: {fileID: 4652578631376984911, guid: 489d5ec97ce4ceb45b58e1afe407aea0, type: 3}
+  coinPrebfab: {fileID: 5730318393038536566, guid: 080e9a6f48defb743abed804466bcbfc, type: 3}
+  dieEffect: {fileID: 7221552511194379134, guid: 58d546b77a667224f9bb91a2bff96409, type: 3}
+  explodeEffectPrefab: {fileID: 2221445577771516000, guid: 25deb6b6f233dbc4a92cd6d82149857b, type: 3}
