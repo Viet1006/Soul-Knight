@@ -52,7 +52,7 @@ public class Drone : FollowTargetBullet
             yield return null;
         } // Đã đến đích thả bom và quay về
 
-        DropBomb();
+        DropBomb(); // Thả bomb
         // Bắt đầu quay về
         Vector2 targetDirection = (airForcePos - (Vector2)transform.position).normalized; // Tính hướng quay về
         float targetAngle = GetAngle(targetDirection); // Tính góc cần quay về
@@ -78,7 +78,7 @@ public class Drone : FollowTargetBullet
         }
         // Đã về vị trí ban đầu
         shawdow.SetActive(false);
-        airForce.GetDrone();
+        airForce.GetDrone(); // Gọi air force mở cửa
         transform.DOMoveY(transform.position.y - 3 ,0.4f).SetEase(Ease.InSine).OnComplete(() =>
         {
             ReturnToPool();
@@ -89,7 +89,10 @@ public class Drone : FollowTargetBullet
     }
     void DropBomb()
     {
-        BulletPool.Instance.GetBullet(bombPrefab , transform.position).GetComponent<Bomb>().SetBomb(damage,critChance,element,bulletBuffs);
+        BulletPool.Instance
+            .GetBullet(bombPrefab , transform.position)
+            .GetComponent<Bomb>()
+            .SetBomb(damage,critChance,element,bulletBuffs);
     }
     void Move(float speed , Vector2 direction , Vector2 target)
     {

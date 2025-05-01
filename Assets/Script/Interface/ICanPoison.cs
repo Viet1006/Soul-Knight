@@ -1,4 +1,4 @@
 interface ICanPoison
 {
-   void StartPoison(int damagePerSecond,float poisonTime);
+   void StartPoison(int damageHalfSecond,float poisonTime);
 }

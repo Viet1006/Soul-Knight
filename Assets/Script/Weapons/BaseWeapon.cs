@@ -10,13 +10,15 @@ public class BaseWeapon : MonoBehaviour
     [HideInEditorMode] public int level;
     List<BulletBuff> addedBuff = new();
     public event System.Action<List<BulletBuff>> OnAttack;
+    [SerializeReference , SerializeField]
+    protected List<IBulletBuff> BulletBuffs = new();
     public virtual void Attack(Transform target)
     {
         if(timeToNextFire <= 0)
         {
-            OnAttack?.Invoke(addedBuff);
-            CreateBullet(target);
-            addedBuff = new();
+            OnAttack?.Invoke(addedBuff); //Thông báo vũ khí vừa được bắn
+            CreateBullet(target); // Tạo đạn
+            addedBuff = new(); // Làm mới buff được thêm sau khi bắn
             spawnBulletPos.gameObject.SetActive(true);
             DG.Tweening.DOVirtual.DelayedCall(0.05f,() => spawnBulletPos.gameObject.SetActive(false));
             timeToNextFire = 1/weaponData.FireRate(level);

@@ -1,4 +1,4 @@
 interface ICanBurn
 {
-    void StartBurn(int damagePerSecond,float burnTime);
+    void StartBurn(int damageHalfSecond,float burnTime);
 }

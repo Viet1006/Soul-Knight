@@ -103,4 +103,8 @@ MonoBehaviour:
   price: 0
   bulletPrefab: {fileID: 1723209756676236948, guid: f70d6dbac4a6e9d42aa0dbb7fc4118e0, type: 3}
   element: 1
-  bulletBuffs: []
+  bulletBuffs:
+  - bulletBuffType: 5
+    effectDuration: 3
+    effectAmount: 3
+    chanceApply: 20

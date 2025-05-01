@@ -65,7 +65,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  speed: 8
+  speed: 7
   inaccuracy: 20
   energyCost: 0
   rareColor: 0

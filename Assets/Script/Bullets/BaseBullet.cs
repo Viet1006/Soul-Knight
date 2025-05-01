@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-public class BaseBullet : MonoBehaviour
+public class BaseBullet : MonoBehaviour 
 {
     protected BulletElement element;
     protected float speed;
@@ -12,6 +12,7 @@ public class BaseBullet : MonoBehaviour
     protected List<BulletBuff> bulletBuffs;
     protected ParticleSystem explodeEffect;
     protected Tween lifeTimer ; // Đếm thời gian để hủy đạn
+    List<IBulletBuff> BulletBuffs;
     void Awake()
     {
         bulletCollider = GetComponent<Collider2D>();
@@ -37,8 +38,16 @@ public class BaseBullet : MonoBehaviour
     {
         // Apply buff trước vì nếu chết thì gọi gethit sau và trong gethit có hủy các icon mà buff sinh ra 
         // Nếu gọi sau lúc chết sẽ hủy icon effect mà sau đó apply sẽ bị hiện lại
-        foreach(BulletBuff bulletBuff in bulletBuffs) bulletBuff.ApplyBuff(collider , transform.position);
+        foreach(IBulletBuff bulletBuff in BulletBuffs)
+        {
+            bulletBuff.HandleOnObject();
+        }
+        ApplyAllBuff(collider);
         if (collider.TryGetComponent(out IGetHit hittedObject)) hittedObject.GetHit(damage,element);
+    }
+    protected void ApplyAllBuff(Collider2D collider)
+    {
+        foreach(BulletBuff bulletBuff in bulletBuffs) bulletBuff.ApplyBuff(collider , transform.position);
     }
     public virtual void ReturnToPool()
     {

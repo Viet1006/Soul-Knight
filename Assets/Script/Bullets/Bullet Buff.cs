@@ -21,37 +21,37 @@ public class BulletBuff
         {
             case BulletBuffType.PushBack:
             {
-                if(collider.TryGetComponent( out IPushable iPushable))
+                if(collider && collider.TryGetComponent( out IPushable iPushable))
                     iPushable.StartPush(((Vector2)collider.transform.position-bulletPos).normalized,effectAmount); // Đẩy với dựa trên vị trí đạn và object trúng đạn
                 break;
             } 
             case BulletBuffType.Burn:
             {
-                if(collider.TryGetComponent( out ICanBurn iCanBurn))
+                if(collider && collider.TryGetComponent( out ICanBurn iCanBurn))
                     iCanBurn.StartBurn((int)effectAmount,effectDuration);
                 break;
             } 
             case BulletBuffType.Poison:
             {
-                if(collider.TryGetComponent( out ICanPoison iCanPoison))
+                if(collider && collider.TryGetComponent( out ICanPoison iCanPoison))
                     iCanPoison.StartPoison((int)effectAmount,effectDuration);
                 break;
             } 
             case BulletBuffType.Stun:
             {
-                if(collider.TryGetComponent( out ICanStun iCanStun))
+                if(collider && collider.TryGetComponent( out ICanStun iCanStun))
                     iCanStun.StartStun(effectDuration);
                 break;
             }
             case BulletBuffType.Frozen:
             {
-                if(collider.TryGetComponent( out ICanFrozen iCanFrozen))
+                if(collider && collider.TryGetComponent( out ICanFrozen iCanFrozen))
                     iCanFrozen.StartFrozen(effectDuration);
                 break;
             }
             case BulletBuffType.Vulnerability:
             {
-                if(collider.TryGetComponent( out ICanVulnerability iCanVulnerability))
+                if(collider && collider.TryGetComponent( out ICanVulnerability iCanVulnerability))
                     iCanVulnerability.StartVulnerability((int)effectAmount,effectDuration);
                 break;
             }
@@ -78,7 +78,7 @@ public class BulletBuff
             }
             case BulletBuffType.Explode:
             {
-                Collider2D[] hittedObjects = Physics2D.OverlapCircleAll(bulletPos,2 );
+                Collider2D[] hittedObjects = Physics2D.OverlapCircleAll(bulletPos,2.5f );
                 ExplodeEffectPool.Instance.GetExplodeEffect(bulletPos);
                 ShakeCamera.Instance.ShakeCam(bulletPos,1,1,0.5f);
                 foreach (Collider2D hittedObject in hittedObjects)

@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-
+using DG.Tweening;
 public class CoinController : MonoBehaviour
 {
     public float amplitude = 0.5f; // Height of the oscillation
@@ -32,20 +32,20 @@ public class CoinController : MonoBehaviour
         }
         CoinPool.Instance.ReturnToPool(gameObject);
     }
-    IEnumerator MoveToCoinText() // Di chuyển đến Ui chứa coin
+    void MoveToCoinText() // Di chuyển đến Ui chứa coin
     {
-        while (Vector2.Distance (transform.position,CoinManager.instance.transform.position)> 0.1f)
-        {
-            transform.position = Vector2.MoveTowards(transform.position,CoinManager.instance.transform.position , 20 * Time.deltaTime); 
-            yield return null;
-        }
-        CoinManager.instance.AddCoin(value);
-        CoinPool.Instance.ReturnToPool(gameObject);
+        transform.DOMove(CoinManager.instance.transform.position ,0.5f)
+            .SetEase(Ease.Linear)
+            .OnComplete(()=>{
+                CoinManager.instance.AddCoin(value);
+                CoinPool.Instance.ReturnToPool(gameObject);
+            });
+        
     }
     void OnTriggerEnter2D()
     {
         StopAllCoroutines(); // Dừng tất cả coroutine để bay đến Ui
         GetComponent<Collider2D>().enabled= false;
-        StartCoroutine(MoveToCoinText());
+        MoveToCoinText();
     }
 }
