@@ -8,15 +8,16 @@ public class PauseBorder : MonoBehaviour
     [SerializeField] Image pausePanel;
     [SerializeField] RectTransform pauseBorder;
     readonly float delayShowTime = 0.3f;
-    readonly float delayHideTime = 0.6f;
+    readonly float delayHideTime = 0.5f;
     void Start()
     {
-        UIManageShowAndHide.Instance().OnPauseGame += ShowBorder; // Đăng ký sự kiện tạm dừng game
-        UIManageShowAndHide.Instance().OnResumeGame += HideBorder; // Đăng ký sự kiện tiếp tục game
+        //UIManageShowAndHide.Instance.OnPauseGame += ShowBorder; // Đăng ký sự kiện tạm dừng game
+        UIManageShowAndHide.Instance.OnResumeGame += HideBorder; // Đăng ký sự kiện tiếp tục game
         pauseBorder.gameObject.SetActive(true);
         appearTween = pauseBorder.DOAnchorPosX(pauseBorder.anchoredPosition.x,0.5f)
             .SetEase(Ease.OutBack)
             .SetAutoKill(false)
+            .SetUpdate(true)
             .Pause(); // Tạo tween cho border
         pauseBorder.anchoredPosition = new Vector2(-pauseBorder.anchoredPosition.x, pauseBorder.anchoredPosition.y); // Đặt vị trí ban đầu của border
     }
@@ -26,7 +27,7 @@ public class PauseBorder : MonoBehaviour
         {
             appearTween.PlayForward();
             pausePanel.enabled =true ;
-        });
+        }).SetUpdate(true);
     }
     void HideBorder() // Ẩn border khi game tiếp tục
     {
@@ -34,11 +35,20 @@ public class PauseBorder : MonoBehaviour
         {
             appearTween.PlayBackwards();
             DOVirtual.DelayedCall(0.3f, () => pausePanel.enabled = false); // Ẩn panel sau khi border đã chạy được 1 đoạn
-        });
+        }).SetUpdate(true);
     }
     void OnDestroy()
     {
-        UIManageShowAndHide.Instance().OnPauseGame -= ShowBorder;
-        UIManageShowAndHide.Instance().OnResumeGame -= HideBorder;
+        UIManageShowAndHide.Instance.OnPauseGame -= ShowBorder;
+        UIManageShowAndHide.Instance.OnResumeGame -= HideBorder;
+    }
+    public void PauseGame()
+    {
+        UIManageShowAndHide.Instance.PauseGame();
+        ShowBorder();
+    }
+    public void ContinueGame()
+    {
+        UIManageShowAndHide.Instance.ResumeGame();
     }
 }

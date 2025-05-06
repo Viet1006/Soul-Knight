@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ddca26cc38333478c25ba9cdaefc5f, type: 3}
+  m_Name: Melee Pirate
+  m_EditorClassIdentifier: 
+  health: 30
+  speed: 5
+  AttackRate: 0.33
+  cost: 3
+  bulletPrefab: {fileID: 373595814231110869, guid: e68fc6acc3c67b54e9a02759d107e4a4, type: 3}
+  bulletSpeed: 0
+  damage: 3
+  bulletBuffs: []
+  element: 0
+  bulletTimeLife: 0.25
+  references:
+    version: 2
+    RefIds: []

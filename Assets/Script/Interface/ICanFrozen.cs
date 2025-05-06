@@ -1,4 +1,4 @@
 interface ICanFrozen
 {
-    void StartFrozen(float frozenTime);
+    void StartFrozen(float frozenDuration);
 }

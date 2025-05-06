@@ -16,8 +16,8 @@ public class YellowButton : MonoBehaviour
         mat = new Material(ObjectHolder.Instance.revealMaterial); // tạo copy từ material gốc
         imageText.material = mat; // gán bản copy cho mỗi instance của imageText
         gameObject.SetActive(false); // Ẩn nút khi bắt đầu
-        UIManageShowAndHide.Instance().OnPauseGame += ShowButton;
-        UIManageShowAndHide.Instance().OnResumeGame += HideButton;
+        UIManageShowAndHide.Instance.OnPauseGame += ShowButton;
+        UIManageShowAndHide.Instance.OnResumeGame += HideButton;
         mat.SetFloat("_RevealProgress" , 1); // Đặt giá trị ban đầu là 1 để ẩn đi
     }
     void ShowButton()
@@ -26,21 +26,21 @@ public class YellowButton : MonoBehaviour
         {
             gameObject.SetActive(true);
             anim.SetTrigger(Parameters.showButton);
-            mat.DOFloat(0, "_RevealProgress", effectTime); // Thay đổi ảnh hiện dần trong effectTime
-        });
+            mat.DOFloat(0, "_RevealProgress", effectTime).SetUpdate(true); // Thay đổi ảnh hiện dần trong effectTime
+        }).SetUpdate(true);
     }
     void HideButton()
     {
         DOVirtual.DelayedCall(delayHideTime, () =>
         {
             anim.SetTrigger(Parameters.hideButton);
-            mat.DOFloat(1, "_RevealProgress", effectTime).OnComplete(()=> gameObject.SetActive(false)); // Thay đổi ảnh đóng dần trong effectTime
-        });
+            mat.DOFloat(1, "_RevealProgress", effectTime).OnComplete(()=> gameObject.SetActive(false)).SetUpdate(true); // Thay đổi ảnh đóng dần trong effectTime
+        }).SetUpdate(true);
     }
     void OnDestroy()
     {
-        UIManageShowAndHide.Instance().OnPauseGame -= ShowButton;
-        UIManageShowAndHide.Instance().OnResumeGame -= HideButton;
+        UIManageShowAndHide.Instance.OnPauseGame -= ShowButton;
+        UIManageShowAndHide.Instance.OnResumeGame -= HideButton;
         Destroy(mat);
     }
 }

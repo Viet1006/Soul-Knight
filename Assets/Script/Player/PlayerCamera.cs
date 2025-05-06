@@ -1,14 +1,23 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public Transform playerTracker;
-    void Start()
+    Transform target;
+    public static PlayerCamera instance;
+    public Cinemachine.CinemachineVirtualCamera playerCam;
+    void Awake()
     {
-        playerTracker = GameObject.Find("PlayerTracker").transform;
+        instance = this;
     }
     void Update()
     {
-        playerTracker.position = transform.position; // Nếu ko có target thì camera được điều chỉnh bên Playerbehaviour
+        if(target)
+        transform.position = target.position; // Nếu ko có target thì camera được điều chỉnh bên Playerbehaviour
+    }
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+        playerCam.Follow = transform;
     }
 }

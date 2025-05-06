@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class Cloud : FollowTargetBullet
 {
+    Animator animator;
+    void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     public void SetCloud(float speed , int damage , int critChance , BulletElement element , List<BulletBuff> bulletBuffs,Transform target)
     {
         base.SetTargetBullet(speed , damage, critChance , element, bulletBuffs , target);

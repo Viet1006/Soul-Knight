@@ -9,13 +9,14 @@ public class WeaponData : SerializedScriptableObject
     public Dictionary<int , WeaponStatsPerlevel> statsPerLevel = new();
     public float speed;
     public float inaccuracy;
-    public float energyCost;
     [Tooltip("Độ lệch của đạn theo độ")]
     public RareColor rareColor;
     public int price;
     public GameObject bulletPrefab;
     public BulletElement element;
-    public  List<BulletBuff> bulletBuffs;   
+    [SerializeReference]
+    public  List<BulletBuff> bulletBuffs = new();
+    public float bulletTimeLife;
     public int Damage(int level)
     {
         if(level <= -1) return 1;

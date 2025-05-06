@@ -97,14 +97,33 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: bulletBuffs
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[BulletBuff, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|StunBuff, Assembly-CSharp
+    - Name: applyChance
+      Entry: 3
+      Data: 100
+    - Name: stunDuration
+      Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   fireRate: 0.5
   speed: 6
   towerDescription: 
   price: 0
   bulletPrefab: {fileID: 2272537413232825149, guid: e5d5225ec0b33444d8118d0f4613678a, type: 3}
   element: 3
-  bulletBuffs:
-  - bulletBuffType: 3
-    effectDuration: 1
-    effectAmount: 0
-    chanceApply: 100

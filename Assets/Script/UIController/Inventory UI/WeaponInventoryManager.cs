@@ -1,19 +1,25 @@
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class WeaponInventoryManager : WeaponUIManager
+public class WeaponInventoryManager : ItemManagement
 {
     public static WeaponInventoryManager instance;
     [HideInInspector] public BaseWeapon usingWeapon; // Vũ khí đang được sử dụng
     [SerializeField] Button equipButton;
     public event System.Action<GameObject> OnWeaponEquipped;
+    [SerializeField] Image panel;
+    [SerializeField] WeaponShopStats weaponShopStats;
+    protected BaseWeapon selectedWeapon;
     protected void Awake()
     {
         instance = this;
+        panel.gameObject.SetActive(true);
     }
-    public override void SetSelectingSlot(BaseWeapon baseWeapon)
+    public void SetSelectingSlot(BaseWeapon baseWeapon) // Được gọi khi có vũ khí được chọn từ content
     {
-        base.SetSelectingSlot(baseWeapon);
+        weaponShopStats.gameObject.SetActive(true);
+        weaponShopStats.SetWeaponStats(baseWeapon);
         selectedWeapon = baseWeapon; // Đặt vũ khí đang được chọn
         equipButton.interactable = true;
     }
@@ -32,20 +38,30 @@ public class WeaponInventoryManager : WeaponUIManager
         {
             if (child.GetComponent<WeaponInventorySlot>().itemName.text == baseWeapon.name + " +" + baseWeapon.level)
             {
-                Destroy(child.gameObject);
+                Object.Destroy(child.gameObject);
                 break;
             }
         }
     }
-    public override void Interact()
+    public void Interact()
     {
         equipButton.interactable = false;
-        base.Interact();
+        boardShopAnim.ShowBoardShop();
+        //UIManageShowAndHide.Instance.OpenShop();
+        UIManageShowAndHide.Instance.PauseGame();
+        DOVirtual.DelayedCall(0.1f,() => panel.enabled = true); // Bật panel sau 0,3s
+        SetInterractButtons( true); // bật tất cả các button
+        weaponShopStats.gameObject.SetActive(false);
     }
     public void StoreWeapon(GameObject weponObject) // Lưu vũ khí vào kho
     {
-        weponObject.transform.SetParent(transform); // Đặt cha là Inventory table
         weponObject.SetActive(false); // tắt gameObject
-        Instantiate(itemBorder,content).GetComponent<WeaponInventorySlot>().SetWeaponSlot(weponObject.GetComponent<BaseWeapon>(),this); // Tạo slot cho vũ khí mới này
+        Object.Instantiate(itemBorder,content).GetComponent<WeaponInventorySlot>().SetWeaponSlot(weponObject.GetComponent<BaseWeapon>(),this); // Tạo slot cho vũ khí mới này
+    }
+    public void Close() // Đóng inventory
+    {
+        boardShopAnim.HideBoardShop();
+        DOVirtual.DelayedCall(0.4f,()=> panel.enabled = false); // Tắt panel sau 0.4s
+        UIManageShowAndHide.Instance.CloseShop();
     }
 }

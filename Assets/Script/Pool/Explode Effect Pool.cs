@@ -9,30 +9,32 @@ public class ExplodeEffectPool
         get
         {
             instance ??= new ExplodeEffectPool();
-            instance.explodeEffectPrefab = ObjectHolder.Instance.explodeEffectPrefab;
             return instance;
         }
     }
-    readonly Queue<GameObject> explodeEffectPool = new();
-    GameObject explodeEffectPrefab;
-    public void GetExplodeEffect(Vector2 pos)
+    Dictionary<string, Queue<GameObject>> poolDictionary = new ();
+    private void AddNewPool(GameObject newEffect)
     {
-        GameObject explodeEffect;
-        if(explodeEffectPool.Count >0)
+        if (poolDictionary.ContainsKey(newEffect.name)) return; // Đã có pool này
+        Queue<GameObject> newPools = new (); // Chưa có pool
+        poolDictionary.Add(newEffect.name,newPools);
+    }
+    public void GetExplodeEffect(GameObject explodePrefab, Vector2 pos , float timeLife = 0.25f) 
+    {
+        if (!poolDictionary.ContainsKey(explodePrefab.name)) AddNewPool(explodePrefab);
+        GameObject explode;
+        if(poolDictionary[explodePrefab.name].Count > 0)
         {
-            explodeEffect = explodeEffectPool.Dequeue();
-        } 
-        else
-        {
-            explodeEffect = Object.Instantiate(explodeEffectPrefab) ;
-        } 
-        explodeEffect.transform.position = pos;
-        explodeEffect.SetActive(true);
-        DG.Tweening.DOVirtual.DelayedCall(10 , ()=> ReturnToPool(explodeEffect));
+            explode = poolDictionary[explodePrefab.name].Dequeue();
+            explode.SetActive(true);
+        }else explode = Object.Instantiate(explodePrefab);
+        explode.transform.position =pos;
+        
+        DG.Tweening.DOVirtual.DelayedCall(timeLife , ()=> ReturnToPool(explode));
     }
     void ReturnToPool(GameObject effectController)
     {
         effectController.SetActive(false);
-        explodeEffectPool.Enqueue(effectController);
+        poolDictionary[effectController.name.Replace("(Clone)", "").Trim()].Enqueue(effectController);
     }
 }

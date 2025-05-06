@@ -1,14 +1,16 @@
 using DG.Tweening;
 using UnityEngine;
-public class Arrow : BulletPierceAndBounce
+public class Arrow : StraightBullet
 {
     SpriteRenderer spriteRenderer;
+    public Collider2D bulletCollider;
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    public override void HandleCollisionEffect(Collider2D collider)
+    public override void HandleCollision(Collider2D collider)
     {
+        base.HandleCollision(collider); 
         bulletCollider.enabled = false;
         transform.SetParent(collider.transform);
         spriteRenderer.sortingOrder = -19;
@@ -18,8 +20,12 @@ public class Arrow : BulletPierceAndBounce
     {
         spriteRenderer.sortingOrder = 0;
         lifeTimer.Kill();
-        BulletPool.Instance.ReturnBullet(gameObject);
+        DOVirtual.DelayedCall(5,() => BulletPool.Instance.ReturnBullet(this));
         speed=0;
         bulletCollider.enabled = false;
+    }
+    void OnEnable()
+    {
+        bulletCollider.enabled = true;
     }
 }

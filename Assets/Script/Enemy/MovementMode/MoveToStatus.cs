@@ -6,6 +6,7 @@ public class MoveToStatus : AIPath
     protected AIDestinationSetter destinationSetter;
     Animator animator;
     public event System.Action OnTarget;
+    int blockCount; // Đếm các lệnh block move
     protected override void Awake()
     {
         base.Awake();
@@ -19,13 +20,18 @@ public class MoveToStatus : AIPath
     }
     public void StopMove()
     {
+        blockCount += 1;
         canMove = false; // Dừng di chuyển
         if(animator)animator.speed = 0; // Dừng animation
     }
     public void ContinueMove()
     {
-        canMove = true;
-        if(animator)animator.speed = 1;
+        blockCount -= 1;
+        if(blockCount == 0)
+        {
+            canMove = true;
+            if(animator)animator.speed = 1;
+        }
     }
     public override void OnTargetReached()
     {
@@ -34,5 +40,12 @@ public class MoveToStatus : AIPath
             Status.instance.GetDamage(1);
             OnTarget?.Invoke();
         }
+    }
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        if(animator)animator.speed = 1;
+        canMove = true;
+        blockCount = 0;
     }
 }

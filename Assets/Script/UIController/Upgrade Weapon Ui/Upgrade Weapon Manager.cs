@@ -2,12 +2,11 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeWeaponManager : MonoBehaviour , ICanInteract
+public class UpgradeWeaponManager : MonoBehaviour
 {
     public static UpgradeWeaponManager instance;
     [SerializeField] Image panel;
     BoardShopAnim boardShopAnim;
-    GameObject selectedName;
     [SerializeField] UpgradeWeaponStats currentWeapon;
     [SerializeField] UpgradeWeaponStats upgradedWeapon;
     [SerializeField] TMPro.TextMeshProUGUI priceText;
@@ -17,18 +16,18 @@ public class UpgradeWeaponManager : MonoBehaviour , ICanInteract
     {
         instance = this;
         boardShopAnim = panel.GetComponentInChildren<BoardShopAnim>(true);
-        boardShopAnim.gameObject.SetActive(true);
-        selectedName = transform.GetChild(0).gameObject;
-        upgradeButton = boardShopAnim.GetComponentInChildren<Button>();
+        upgradeButton = boardShopAnim.GetComponentInChildren<Button>(true);
+        panel.gameObject.SetActive(true);
     }
     public void Interact()
     {
-        UIManageShowAndHide.Instance().OpenShop();
+        //UIManageShowAndHide.Instance.OpenShop();
+        UIManageShowAndHide.Instance.PauseGame();
         boardShopAnim.ShowBoardShop();
         DOVirtual.DelayedCall(0.1f,() => panel.enabled = true); // Bật panel sau 0,1s
         selectedWeapon = WeaponInventoryManager.instance.usingWeapon;
-        currentWeapon.SetWeaponStats(selectedWeapon,selectedWeapon.name); // Set chỉ số cho vũ khí hiện tại
-        upgradedWeapon.SetWeaponStats(selectedWeapon,selectedWeapon.name); // Set chỉ số cho vũ khí sau khi nâng cấp
+        currentWeapon.SetWeaponStats(selectedWeapon,selectedWeapon.name,selectedWeapon.level); // Set chỉ số cho vũ khí hiện tại
+        upgradedWeapon.SetWeaponStats(selectedWeapon,selectedWeapon.name,selectedWeapon.level+1); // Set chỉ số cho vũ khí sau khi nâng cấp
         int upgradePrice = UpgradePrice.GetUpgradePrice(selectedWeapon.weaponData.rareColor,selectedWeapon.level);
         if(upgradePrice == -1) // Vũ khí đã hết cấp độ nâng cấp
         {
@@ -58,8 +57,6 @@ public class UpgradeWeaponManager : MonoBehaviour , ICanInteract
     {
         boardShopAnim.HideBoardShop();
         DOVirtual.DelayedCall(0.4f,()=> panel.enabled = false); // Tắt panel sau 0.4s
-        UIManageShowAndHide.Instance().CloseShop();
+        UIManageShowAndHide.Instance.CloseShop();
     }
-    public virtual void HideSelectObject() => selectedName.SetActive(false);
-    public virtual void ShowSelectObject() => selectedName.SetActive(true);
 }

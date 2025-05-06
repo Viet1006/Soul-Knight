@@ -1,23 +1,20 @@
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
-
 public class WitchSkill : BaseSkill
 {
     PlayerBehaviour playerBehaviour;
-    [SerializeField] GameObject effect;
-    [SerializeField] GameObject strike;
-    [SerializeField] BulletBuff bulletBuff;
+    [SerializeField] GameObject skillEffect;
+    [SerializeReference] BulletBuff strikeBuff;
     Animator strikeAnim;
+    [SerializeField] GameObject strikePrefab;
     GameObject target;
     public int damage;
-    void Awake()
+    protected override void Awake()
     {
-        strike = Instantiate(strike);
+        base.Awake();
         playerBehaviour = GetComponent<PlayerBehaviour>();
-        strikeAnim=strike.GetComponent<Animator>();
-        strike.SetActive(false);
-        
+        strikeAnim = Instantiate(strikePrefab).GetComponent<Animator>();
+        strikeAnim.gameObject.SetActive(false);
     }
     public override void UseSkill()
     {
@@ -26,19 +23,19 @@ public class WitchSkill : BaseSkill
     }
     protected override void PerformSkill()
     {
-        effect.SetActive(true);
-        strike.SetActive(true);
-        effect.transform.rotation = Quaternion.identity;
-        effect.transform.DORotate(new Vector3(0,0,-180), skillDuration)
+        skillEffect.SetActive(true);
+        strikeAnim.gameObject.SetActive(true);
+        strikeAnim.transform.position = target.transform.position;
+        strikeAnim.SetTrigger("Strike");
+        skillEffect.transform.rotation = Quaternion.identity;
+        skillEffect.transform.DORotate(new Vector3(0,0,-180), skillDuration)
             .SetEase(Ease.OutCubic)
             .OnComplete(()=> 
                 {
-                    effect.SetActive(false);
-                    strike.SetActive(false);
+                    skillEffect.SetActive(false);
+                    strikeAnim.gameObject.SetActive(false);
                 });
-        strike.transform.position = target.transform.position;
-        strikeAnim.SetTrigger("Strike");
         target.GetComponent<EnemyController>().GetHit(damage , BulletElement.Lightning);
-        bulletBuff.ApplyBuff(target.GetComponent<Collider2D>() , transform.position);
+        strikeBuff.TryHandleOnObject(target.GetComponent<Collider2D>() , transform.position);
     }
 }

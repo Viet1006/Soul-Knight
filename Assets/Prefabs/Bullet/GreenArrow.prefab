@@ -96,7 +96,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8732064480031709227}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -147,9 +147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5e97ef23298fb641a1e8730617b3450, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explodeEffect: {fileID: 0}
   bulletCollider: {fileID: 7010806607827960431}
-  pierceCount: 0
-  bounceCount: 0
 --- !u!114 &776507478745876903
 MonoBehaviour:
   m_ObjectHideFlags: 0

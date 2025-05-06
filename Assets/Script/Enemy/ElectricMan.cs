@@ -1,10 +1,12 @@
-public class ElectricMan : EnemyWithoutWeapon
+public class ElectricMan : AttackMethodEnemy
 {
+    HandleEffectOnEnemy handleEffect;
     protected override void StartAttack()
     {
-        BulletPool.Instance.GetBullet(bulletData.bulletPrefab, transform.position , target.position)
-            .GetComponent<BaseBullet>()
-            .SetBullet(bulletData.speed, bulletData.damage,0,BulletElement.Lightning,bulletData.bulletBuffs,3); // Timelife là 3 và ko có chí mạng
+        if(!handleEffect) handleEffect = GetComponent<HandleEffectOnEnemy>();
+        handleEffect.StartPush((transform.position - target.position).normalized,1);
+        BulletPool.Instance.GetBullet<BaseBullet>(enemyData.bulletPrefab, transform.position , target.position)
+            .SetBullet(enemyData.bulletSpeed, enemyData.damage,0,BulletElement.Lightning,enemyData.bulletBuffs,enemyData.bulletTimeLife); // Timelife là 3 và ko có chí mạng
         ResetTimeToAttack();
     }
 }

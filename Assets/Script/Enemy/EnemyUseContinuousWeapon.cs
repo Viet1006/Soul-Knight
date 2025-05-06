@@ -1,23 +1,39 @@
-using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 // Để cho những enemy sử dụng vũ khí tấn công nhiều lần trong 1 đợt tấn công
 public class EnemyUseContinuousWeapon : EnemyWithWeapon
 {
-    float timeAttack = 1;
-    float timeAttackRemain;
+    [SerializeField]float timeAttack = 1;
+    [SerializeField] float fireRate;
+    [SerializeField] protected float inaccuracy;
+    Tween attackTween;
     protected override void StartAttack()
     {
-        timeAttackRemain = timeAttack;
-        StartCoroutine(AttackIEnum());
+        attackTween = DOVirtual.DelayedCall(1/fireRate ,()=> {
+            CreateBullet();
+        }).SetLoops((int)(fireRate * timeAttack))
+        .OnComplete(ResetTimeToAttack);
     }
-    IEnumerator AttackIEnum()
+    public override void CreateBullet()
     {
-        while (timeAttackRemain > 0)
-        {
-            weapon.Attack(target);
-            timeAttackRemain -= Time.deltaTime;
-            yield return null;
-        }
-        ResetTimeToAttack();
+        BulletPool.Instance
+            .GetBullet<BaseBullet>(enemyData.bulletPrefab
+                ,spawnBulletPos.position // truyền vị trí spawn cho pool
+                ,weapon.rotation * Quaternion.Euler(0,0,Random.Range(-inaccuracy,inaccuracy)))
+            .SetBullet(enemyData.bulletSpeed // Set các giá trị
+                ,enemyData.damage
+                ,critChance: 0
+                ,enemyData.element
+                ,enemyData.bulletBuffs ,enemyData.bulletTimeLife);
+    }
+    public override void StopAttack()
+    {
+        base.StopAttack();
+        attackTween.Kill(false);
+    }
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        attackTween.Kill(false);
     }
 }

@@ -12,22 +12,21 @@ public class TextDamePool
             return instance;
         }
     }
-    Queue<GameObject> textDamePool = new();
-    public GameObject GetTextDamage(Vector2 pos,BulletElement bulletElement,int damage)
+    Queue<TextDamage> textDamePool = new();
+    public void GetTextDamage(Vector2 pos,BulletElement bulletElement,int damage)
     {
-        GameObject newTextDamage;
+        TextDamage newTextDamage;
         if(textDamePool.Count >0)
         {
             newTextDamage = textDamePool.Dequeue();
-            newTextDamage.SetActive(true);
-        }else newTextDamage = Object.Instantiate(ObjectHolder.Instance.textDamePrefab);
-        newTextDamage.GetComponent<TextDamage>().SetText(damage,SetColor.SetElementColor(bulletElement),IconElement.GetIcon(bulletElement));
+            newTextDamage.gameObject.SetActive(true);
+        }else newTextDamage = Object.Instantiate(ObjectHolder.Instance.textDamePrefab).GetComponent<TextDamage>();
+        newTextDamage.SetText(damage,SetColor.SetElementColor(bulletElement),IconElement.GetIcon(bulletElement));
         newTextDamage.transform.position = pos;
-        return newTextDamage;
     }
-    public void ReturnToPool(GameObject obj)
+    public void ReturnToPool(TextDamage obj)
     {
-        obj.SetActive(false);
+        obj.gameObject.SetActive(false);
         textDamePool.Enqueue(obj);
     }
 }

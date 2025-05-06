@@ -21,15 +21,16 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
         playerMovement.speed = heroData.speed;
         playerCollider = GetComponent<Collider2D>();
         spritePlayer = GetComponent<SpriteRenderer>();
-
-    }
+}
     public void GetHit(int damage, BulletElement bulletElement , bool notify =true)
     {
         TextDamePool.Instance.GetTextDamage( transform.position + new Vector3(0, 1f, 0),bulletElement,damage);
         currentHealth -= damage;
         OnHealthChange?.Invoke(currentHealth);
+        HealthBar.instance.SetHealth(currentHealth);
         if(currentHealth <=0)
         {
+            HealthBar.instance.SetHealth(0);
             playerCollider.enabled = false;
             playerMovement.canMove = false;
             playerBehaviour.enabled = false;
@@ -62,44 +63,34 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
         spritePlayer.material = ObjectHolder.Instance.defaultMaterial; // Trả về bình thường
         playerCollider.contactCaptureLayers += LayerMask.GetMask("Enemy Bullet"); // Thêm Enemy Bullet callback
     }
-    public void StartPush(Vector2 direction, float distance)
+    public void StartPush(Vector2 direction, float forcePush)
     {
-        playerMovement.SetVelocity(distance*HeroData.acceleration*10/6 * direction);  // Đảm bảo đẩy đúng khoảng cách , công thức được rút ra từ quá trình test
+        playerMovement.SetVelocity(forcePush*HeroData.acceleration*10/6 * direction);  // Đảm bảo đẩy đúng khoảng cách , công thức được rút ra từ quá trình test
     }
     public void StartFrozen(float frozenTime)
     {
-        GameObject frozenIcon = IconEffectPool.Instance.GetIconEffect(Vector2.zero,BulletBuffType.Frozen,transform);
-        playerMovement.canMove = false; moveBlock += 1;
-        playerBehaviour.enabled = false; attackBlock += 1;
+        SpriteRenderer frozenIcon = IconEffectPool.Instance.GetIconEffect(Vector2.zero,BuffIconEnum.Frozen,transform);
+        BlockMove(); BlockAttack();
         frozenTween.Kill();
         frozenTween = DOVirtual.DelayedCall(frozenTime , () =>
             {
-                moveBlock -= 1;
-                if(moveBlock <= 0)  playerMovement.canMove = true;
-                attackBlock -= 1;
-                if(attackBlock <= 0) playerBehaviour.enabled = true;
-                
+                UnBlockMove(); UnBlockAttack();
             }).OnKill(() => IconEffectPool.Instance.ReTurnToPool(frozenIcon));
     }
     public void StartStun(float stunTime)
     {
-        GameObject stunIcon = IconEffectPool.Instance.GetIconEffect(Vector2.zero,BulletBuffType.Stun,transform);
-        playerMovement.canMove = false; moveBlock += 1;
-        playerBehaviour.enabled = false; attackBlock += 1;
+        SpriteRenderer stunIcon = IconEffectPool.Instance.GetIconEffect(Vector2.zero,BuffIconEnum.Stun,transform);
+        BlockMove(); BlockAttack();
         stunTween.Kill();
         stunTween = DOVirtual.DelayedCall(stunTime , () =>
             {
-                moveBlock -= 1;
-                if(moveBlock <= 0)  playerMovement.canMove = true;
-                attackBlock -= 1;
-                if(attackBlock <= 0) playerBehaviour.enabled = true;
-                
+                UnBlockMove(); UnBlockAttack();
             }).OnKill(() => IconEffectPool.Instance.ReTurnToPool(stunIcon));
     }
     public void StartPoison(int damagePerSecond, float poisonTime)
     {
         poisonTween.Kill();
-        GameObject poisonIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.2f), BulletBuffType.Poison, transform);
+        SpriteRenderer poisonIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.2f), BuffIconEnum.Poison, transform);
         poisonTween = DOVirtual.DelayedCall(1, () => GetHit(damagePerSecond, BulletElement.Poison))
             .SetLoops(Mathf.FloorToInt(poisonTime))
             .OnKill(() => IconEffectPool.Instance.ReTurnToPool(poisonIcon));
@@ -107,9 +98,28 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
     public void StartBurn(int damagePerSecond, float burnTime)
     {
         burnTween.Kill();
-        GameObject burnIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.2f), BulletBuffType.Burn, transform);
+        SpriteRenderer burnIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.2f), BuffIconEnum.Burn, transform);
         burnTween = DOVirtual.DelayedCall(1, () => GetHit(damagePerSecond, BulletElement.Fire))
             .SetLoops(Mathf.FloorToInt(burnTime))
             .OnKill(() => IconEffectPool.Instance.ReTurnToPool(burnIcon));
+    }
+    void BlockAttack()
+    {
+        playerBehaviour.StopAttack(); attackBlock += 1;
+        playerBehaviour.enabled = false;
+    }
+    void BlockMove()
+    {
+        playerMovement.canMove = false; moveBlock += 1;
+    }
+    void UnBlockMove()
+    {
+        moveBlock -= 1;
+        if(moveBlock <= 0)  playerMovement.canMove = true;
+    }
+    void UnBlockAttack()
+    {
+        attackBlock -= 1;
+        if(attackBlock <= 0) playerBehaviour.enabled = true;
     }
 }

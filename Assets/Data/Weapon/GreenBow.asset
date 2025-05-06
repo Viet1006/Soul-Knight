@@ -305,15 +305,17 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  speed: 45
+  speed: 35
   inaccuracy: 0
-  energyCost: 2
   rareColor: 1
   price: 100
   bulletPrefab: {fileID: 8732064480031709227, guid: e60fdfc43883b0e46aa7508581b051b0, type: 3}
   element: 4
   bulletBuffs:
-  - bulletBuffType: 2
-    effectDuration: 3
-    effectAmount: 1
-    chanceApply: 0
+  - rid: -2
+  bulletTimeLife: 3
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

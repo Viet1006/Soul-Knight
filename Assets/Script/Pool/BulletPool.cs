@@ -11,57 +11,48 @@ public class BulletPool
             return instance;
         }
     }
-    Dictionary<string, Queue<GameObject>> poolDictionary = new ();
+    Dictionary<string, Queue<MonoBehaviour>> poolDictionary = new ();
     private void AddNewPool(GameObject newBullet)
     {
         if (poolDictionary.ContainsKey(newBullet.name)) return; // Đã có pool này
-        Queue<GameObject> newPools = new ();
+        Queue<MonoBehaviour> newPools = new (); // Chưa có pool
         poolDictionary.Add(newBullet.name,newPools);
     }
-    public GameObject GetBullet(GameObject newBullet,Vector2 pos,Quaternion quaternion)
+    public T GetBullet<T>(GameObject bulletPrefab, Vector2 pos,Quaternion quaternion = default) where T : MonoBehaviour
     {
-        if (!poolDictionary.ContainsKey(newBullet.name)) AddNewPool(newBullet);
-        GameObject bullet;
-        if (poolDictionary[newBullet.name].Count > 0)
+        if (!poolDictionary.ContainsKey(bulletPrefab.name)) AddNewPool(bulletPrefab);
+        T bullet;
+        if(poolDictionary[bulletPrefab.name].Count > 0)
         {
-            bullet = poolDictionary[newBullet.name].Dequeue();
-            bullet.SetActive(true);
-        }
-        else bullet = Object.Instantiate(newBullet);
+            bullet = (T)poolDictionary[bulletPrefab.name].Dequeue();
+            bullet.gameObject.SetActive(true);
+        }else bullet = Object.Instantiate(bulletPrefab).GetComponent<T>();
         bullet.transform.SetPositionAndRotation(pos, quaternion);
         return bullet;
     }
-    public GameObject GetBullet(GameObject newBullet,Vector2 pos,Vector2 target)
+    public T GetBullet<T>(GameObject bulletPrefab, Vector2 pos,Vector2 scale , Quaternion quaternion = default) where T : MonoBehaviour
     {
-        if (!poolDictionary.ContainsKey(newBullet.name)) AddNewPool(newBullet);
-        GameObject bullet;
-        if (poolDictionary[newBullet.name].Count > 0)
+        if (!poolDictionary.ContainsKey(bulletPrefab.name)) AddNewPool(bulletPrefab);
+        T bullet;
+        if(poolDictionary[bulletPrefab.name].Count > 0)
         {
-            bullet = poolDictionary[newBullet.name].Dequeue();
-            bullet.SetActive(true);
-            
-        }
-        else bullet = Object.Instantiate(newBullet);
-        bullet.transform.position = pos;
-        bullet.transform.right = target-(Vector2)bullet.transform.position;
+            bullet = (T)poolDictionary[bulletPrefab.name].Dequeue();
+            bullet.gameObject.SetActive(true);
+        }else bullet = Object.Instantiate(bulletPrefab).GetComponent<T>();
+        bullet.transform.SetPositionAndRotation(pos, quaternion);
+        bullet.transform.localScale = scale;
         return bullet;
     }
-    public GameObject GetBullet(GameObject newBullet,Vector2 pos)
+    public T GetBullet<T>(GameObject bulletPrefab, Vector2 pos,Vector2 target) where T : MonoBehaviour
     {
-        if (!poolDictionary.ContainsKey(newBullet.name)) AddNewPool(newBullet);
-        GameObject bullet;
-        if (poolDictionary[newBullet.name].Count > 0)
-        {
-            bullet = poolDictionary[newBullet.name].Dequeue();
-            bullet.SetActive(true);
-        }
-        else bullet = Object.Instantiate(newBullet);
-        bullet.transform.position = pos;
-        return bullet;
+        T newbullet = GetBullet<T>(bulletPrefab, pos);
+        newbullet.transform.right = target-(Vector2)newbullet.transform.position;
+        return newbullet;
     }
-    public void ReturnBullet(GameObject bullet)
+    public void ReturnBullet(MonoBehaviour bullet)
     {
-        bullet.SetActive(false);
+        bullet.gameObject.SetActive(false);
         poolDictionary[bullet.name.Replace("(Clone)", "").Trim()].Enqueue(bullet);
     }
+    
 }

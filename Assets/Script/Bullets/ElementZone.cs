@@ -18,28 +18,31 @@ public class ElementZone : SerializedMonoBehaviour
     {
         sprite = GetComponent<SpriteRenderer>();
     }
-    public void SetElementZone(int damagePerHalfSeconder , float durationEffect , BulletElement element)
+    public void SetElementZone(int damagePerHalfSeconder , float durationEffect , BulletElement element,LayerMask hitLayer)
     {
+        if(!zones.ContainsKey(element)) // Nếu thuộc tính ko có thì ko set mà trả về pool luôn
+        {
+            BulletPool.Instance.ReturnBullet(this);
+            return;
+        } 
         sprite.color = zones[element].colorZone;
         transform.localScale = Vector2.zero;
         transform.DOScale(2 * radius * Vector2.one  , 0.3f ) //  hình ảnh ban đầu bán kính chỉ có 0.5 nên cần * 2   
             .OnComplete( () =>
                 {
                     zones[element].effect.gameObject.SetActive(true);
-                    zones[element].effect.Stop();
-                    zones[element].effect.Play();
                 });
-        DOVirtual.DelayedCall(0.5f , () => Burn(damagePerHalfSeconder , element))
+        DOVirtual.DelayedCall(0.5f , () => Burn(damagePerHalfSeconder , element , hitLayer))
             .SetLoops((int)(durationEffect * 2)) 
             .OnKill(() =>
                 {
-                    BulletPool.Instance.ReturnBullet(gameObject);
                     zones[element].effect.gameObject.SetActive(false);
+                    BulletPool.Instance.ReturnBullet(this);
                 });
     }
-    void Burn(int damage , BulletElement element)
+    void Burn(int damage , BulletElement element , LayerMask hitLayer)
     {
-        Collider2D[] hittedObjects = Physics2D.OverlapCircleAll(transform.position,radius );
+        Collider2D[] hittedObjects = Physics2D.OverlapCircleAll(transform.position,radius ,hitLayer);
         foreach (Collider2D hittedObject in hittedObjects)
         {
             if(hittedObject.TryGetComponent(out IGetHit getHit)) getHit.GetHit(damage,element,false); 

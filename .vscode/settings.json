@@ -65,7 +65,6 @@
         "Assets/Images": true,
         "Assets/Palette": true,
         "Packages": true,
-        "Assets/Resources": true,
         "UIElementsSchema": true,
         "Assets/Tile Palette": true,
         "Assets/Plugins" : true,

@@ -13,7 +13,7 @@ public abstract class FollowTargetBullet : BaseBullet // viên đạn có khả 
         isTargetDie = false;
         base.SetBullet(speed,damage,critChance,element,bulletBuffs,timeLife);
         this.target = target;
-        target.GetComponent<EnemyController>().OnResetToOringin += OnTargetDie; // Đăng ký xem mục tiêu có chết không
+        target.GetComponent<EnemyController>().OnReset += OnTargetDie; // Đăng ký xem mục tiêu có chết không
     }
     protected void OnTargetDie()
     {

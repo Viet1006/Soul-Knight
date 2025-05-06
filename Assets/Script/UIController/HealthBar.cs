@@ -3,13 +3,12 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] Slider slider;
-    [SerializeField] PlayerHandleEffect playerHandleEffect;
-    void Start()
+    public static HealthBar instance;
+    void Awake()
     {
-        playerHandleEffect.OnHealthChange += SetHealth;
-        SetMaxValue(playerHandleEffect.heroData.health);
+        instance =this;
     }
+    [SerializeField] Slider slider;
     public void SetHealth(int health)
     {
         slider.value = health;
@@ -18,9 +17,5 @@ public class HealthBar : MonoBehaviour
     {
         slider.maxValue = maxHealth;
         slider.value = maxHealth;
-    }
-    void OnDestroy()
-    {
-        playerHandleEffect.OnHealthChange -= SetHealth;
     }
 }

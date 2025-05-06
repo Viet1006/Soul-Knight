@@ -19,6 +19,7 @@ class ManageSpawnEnemy : MonoBehaviour
         instance = this;
         timeWaveRemain = 0; // Lúc bắt đầu thì cho 10s để chuẩn bị
         waves = Resources.LoadAll<Wave>("Wave Data");
+        timeText.gameObject.SetActive(true);
     }
     void Update()
     {

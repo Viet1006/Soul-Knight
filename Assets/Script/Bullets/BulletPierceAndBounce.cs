@@ -7,11 +7,11 @@ public class BulletPierceAndBounce : StraightBullet
     public int bounceCount;
     int pierceCountTemp;
     int bounceCountTemp;
-    public override void SetBullet(float speed, int damage, int critChance, BulletElement element, List<BulletBuff> bulletBuffs, float timeLife = 0)
+    public override BaseBullet SetBullet(float speed, int damage, int critChance, BulletElement element, List<BulletBuff> bulletBuffs, float timeLife = 0)
     {
         pierceCountTemp = pierceCount;
         bounceCountTemp = bounceCount;
-        base.SetBullet(speed, damage, critChance, element, bulletBuffs, timeLife);
+        return base.SetBullet(speed, damage, critChance, element, bulletBuffs, timeLife);
     }
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
@@ -32,7 +32,7 @@ public class BulletPierceAndBounce : StraightBullet
                 return;
             }
         }
-        HandleCollisionEffect(collider);
+        HandleCollision(collider);
     }
     void Bounce(Collider2D collider) // Đổi hướng đạn
     {

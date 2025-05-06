@@ -12,8 +12,8 @@ public class LineOption : MonoBehaviour
     {
         mat = new Material(ObjectHolder.Instance.revealMaterial); // tạo copy từ material gốc
         imageText.material = mat; // gán bản copy cho mỗi instance của imageText
-        UIManageShowAndHide.Instance().OnPauseGame += ShowLine;
-        UIManageShowAndHide.Instance().OnResumeGame += HideLine;
+        UIManageShowAndHide.Instance.OnPauseGame += ShowLine;
+        UIManageShowAndHide.Instance.OnResumeGame += HideLine;
         mat.SetFloat("_RevealProgress" , 1); // Đặt giá trị ban đầu là 1 để ẩn đi
     }
     void ShowLine()
@@ -22,16 +22,16 @@ public class LineOption : MonoBehaviour
         {
             gameObject.SetActive(true);
             mat.DOFloat(0, "_RevealProgress", effectTime); // Thay đổi ảnh hiện dần ra trong effectTime
-        });
+        }).SetUpdate(true);
     }
     void HideLine()
     {
-        mat.DOFloat(1, "_RevealProgress", effectTime); // Thay đổi ảnh đóng dần lại trong effectTime
+        mat.DOFloat(1, "_RevealProgress", effectTime).SetUpdate(true); // Thay đổi ảnh đóng dần lại trong effectTime
     }
     void OnDestroy()
     {
-        UIManageShowAndHide.Instance().OnPauseGame -= ShowLine;
-        UIManageShowAndHide.Instance().OnResumeGame -= HideLine;
+        UIManageShowAndHide.Instance.OnPauseGame -= ShowLine;
+        UIManageShowAndHide.Instance.OnResumeGame -= HideLine;
         Destroy(mat);
     }
 }

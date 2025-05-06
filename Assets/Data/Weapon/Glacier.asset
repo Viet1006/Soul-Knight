@@ -283,14 +283,15 @@ MonoBehaviour:
       Data: 
   speed: 35
   inaccuracy: 2
-  energyCost: 0
   rareColor: 2
   price: 120
   bulletPrefab: {fileID: 8716283894238101725, guid: fb2ef81544b2bb5439cf80bf934b9606, type: 3}
   element: 2
   bulletBuffs:
-  - bulletBuffType: 4
-    effectDuration: 1
-    effectAmount: 0
-    chanceApply: 50
-  icon: {fileID: 21300000, guid: 74010d44850d7b14090a236203caa27e, type: 3}
+  - rid: -2
+  bulletTimeLife: 3
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

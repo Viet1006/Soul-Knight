@@ -123,7 +123,6 @@ GameObject:
   - component: {fileID: 4589665595346275890}
   - component: {fileID: 2781522186625624718}
   - component: {fileID: 8761223471244086814}
-  - component: {fileID: 1747842072115729106}
   - component: {fileID: -4815727494196195050}
   - component: {fileID: 3016167820830352093}
   - component: {fileID: 896155295315495339}
@@ -274,7 +273,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5547690137407080960}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -345,19 +344,6 @@ MonoBehaviour:
   m_DefaultActionMap: Default Map
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1747842072115729106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5547690137407080960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccb8f192fa304ca4fa3a65019134f9e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerTracker: {fileID: 0}
 --- !u!95 &-4815727494196195050
 Animator:
   serializedVersion: 7
@@ -496,46 +482,93 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f11502d61ea404a9471a33cf6c9d21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillCoolDown: 15
-  skillDuration: 20
+  skillDuration: 8
   skillEffect: {fileID: 4186892190499970422}
   randomBuffs:
-  - bulletBuffType: 1
-    effectDuration: 2
-    effectAmount: 3
-    chanceApply: 100
-  - bulletBuffType: 2
-    effectDuration: 3
-    effectAmount: 2
-    chanceApply: 100
-  - bulletBuffType: 4
-    effectDuration: 2
-    effectAmount: 0
-    chanceApply: 100
-  - bulletBuffType: 3
-    effectDuration: 2
-    effectAmount: 0
-    chanceApply: 100
-  - bulletBuffType: 8
-    effectDuration: 3
-    effectAmount: 2
-    chanceApply: 100
-  - bulletBuffType: 5
-    effectDuration: 3
-    effectAmount: 2
-    chanceApply: 100
-  - bulletBuffType: 6
-    effectDuration: 3
-    effectAmount: 2
-    chanceApply: 100
-  - bulletBuffType: 7
-    effectDuration: 3
-    effectAmount: 2
-    chanceApply: 100
-  - bulletBuffType: 9
-    effectDuration: 0
-    effectAmount: 3
-    chanceApply: 100
+  - rid: 3179476492266766604
+  - rid: 3179476492266766611
+  - rid: 3179476492266766613
+  - rid: 3179476492266766614
+  - rid: 3179476492266766605
+  - rid: 3179476492266766607
+  - rid: 3179476492266766608
+  - rid: 3179476492266766609
+  - rid: 3179476492266766610
+  - rid: 3179476492266766612
+  references:
+    version: 2
+    RefIds:
+    - rid: 3179476492266766604
+      type: {class: BurnBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 100
+        damageHalfSecond: 3
+        burnDuration: 2
+    - rid: 3179476492266766605
+      type: {class: ElementZoneBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 100
+        damageHalfSecond: 2
+        timeLife: 2
+        bulletElement: 1
+        hitLayer:
+          serializedVersion: 2
+          m_Bits: 64
+    - rid: 3179476492266766607
+      type: {class: ElementZoneBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 100
+        damageHalfSecond: 2
+        timeLife: 2
+        bulletElement: 2
+        hitLayer:
+          serializedVersion: 2
+          m_Bits: 64
+    - rid: 3179476492266766608
+      type: {class: ElementZoneBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 100
+        damageHalfSecond: 2
+        timeLife: 2
+        bulletElement: 4
+        hitLayer:
+          serializedVersion: 2
+          m_Bits: 64
+    - rid: 3179476492266766609
+      type: {class: ExplosiveBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 100
+        damage: 4
+        hitLayer:
+          serializedVersion: 2
+          m_Bits: 64
+    - rid: 3179476492266766610
+      type: {class: PushBackBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 98
+        forcePush: 1
+    - rid: 3179476492266766611
+      type: {class: StunBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 100
+        stunDuration: 2
+    - rid: 3179476492266766612
+      type: {class: VulnerabilityBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 100
+        damageAddition: 2
+        effectDuration: 3
+    - rid: 3179476492266766613
+      type: {class: FrozenBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 100
+        forzenDuration: 2
+    - rid: 3179476492266766614
+      type: {class: PoisonBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 100
+        damageHalfSecond: 2
+        poisonDuration: 3
 --- !u!1 &8095919072540105618
 GameObject:
   m_ObjectHideFlags: 0

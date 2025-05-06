@@ -23,7 +23,7 @@ public class ObjectHolder : SerializedScriptableObject
     [BoxGroup("Sprite")] public Dictionary<BulletElement , Sprite> elementIcon;
 
     [DictionaryDrawerSettings(KeyLabel = "Buff Type",ValueLabel = "Sprite Icon")]
-    [BoxGroup("Sprite")] public Dictionary<BulletBuffType,Sprite> iconSprite;
+    [BoxGroup("Sprite")] public Dictionary<BuffIconEnum,Sprite> iconSprite;
     private static ObjectHolder _instance;
     
     public static ObjectHolder Instance

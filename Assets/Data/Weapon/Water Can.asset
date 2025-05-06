@@ -307,9 +307,12 @@ MonoBehaviour:
       Data: 
   speed: 30
   inaccuracy: 5
-  energyCost: 0
   rareColor: 0
   price: 10
   bulletPrefab: {fileID: 639383819589707901, guid: 587646da29cb05a4ca798b7b53c3542c, type: 3}
   element: 0
   bulletBuffs: []
+  bulletTimeLife: 3
+  references:
+    version: 2
+    RefIds: []

@@ -5,10 +5,12 @@ public class KnightSkill : BaseSkill
 {
     PlayerBehaviour playerBehaviour;
     [SerializeField] GameObject skillEffect;
+    [SerializeReference]
     public List<BulletBuff> randomBuffs = new();
     System.Action<List<BulletBuff>> _buffAction;
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         playerBehaviour = GetComponent<PlayerBehaviour>();
         _buffAction = RandomBuffs;
     }

@@ -9,7 +9,17 @@ public class CoinManager : MonoBehaviour
     public int targetValue;
     Tween changeValueTween;
     [SerializeField] TextMeshProUGUI coinText;
-    void Awake() => instance = this;
+    void Awake()
+    {
+        instance = this;
+        targetValue = 100000; // Tạo giá trị ban đầu để mua súng
+        coinText.text = "100000";
+        UIManageShowAndHide.Instance.OnSelectMapComplete += () => 
+        {
+            targetValue = 0;
+            coinText.text = "0";
+        };
+    }
     public void AddCoin(int changeValue)
     {
         targetValue += changeValue;

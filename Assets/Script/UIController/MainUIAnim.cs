@@ -5,34 +5,50 @@ public class MainUIAnim : MonoBehaviour
 {   
     readonly float delayShowTime = 0.7f; // Thời gian delay trước khi hiện border
     readonly float delayOpenShop = 0.3f; // Delay trước khi mở Shop
-    Tween hideTween;
+    readonly float delayCompleteChooseHero = 0.3f;
+    Tween showTween;
+    RectTransform rectTransform;
     void Start()
     {
-        UIManageShowAndHide.Instance().OnPauseGame += HideBorder; // Đăng ký sự kiện tạm dừng game
-        UIManageShowAndHide.Instance().OnResumeGame += ShowBorder; // Đăng ký sự kiện tiếp tục game
-        UIManageShowAndHide.Instance().OnOpenShop += HideBorder;
-        UIManageShowAndHide.Instance().OnCloseShop += ShowOpenShopBorder;
-        RectTransform rectTransform = GetComponent<RectTransform>(); // Lấy RectTransform của đối tượng
-        hideTween = rectTransform.DOAnchorPos(-rectTransform.anchoredPosition,0.5f)
-            .SetEase(Ease.InBack)
+        UIManageShowAndHide.Instance.OnPauseGame += HideBorder; // Đăng ký sự kiện tạm dừng game
+        UIManageShowAndHide.Instance.OnResumeGame += ShowBorder; // Đăng ký sự kiện tiếp tục game
+        //UIManageShowAndHide.Instance.OnOpenShop += HideBorder;
+        UIManageShowAndHide.Instance.OnCloseShop += ShowOpenShopBorder;
+        UIManageShowAndHide.Instance.OnCompleteChoose += ShowCompleteChooseHero;
+        UIManageShowAndHide.Instance.OnSelectMap += HideBorder; // Đăng ký sự kiện tạm dừng game
+        UIManageShowAndHide.Instance.OnCloseMap += ShowBorder; // Đăng ký sự kiện tiếp tục game
+        UIManageShowAndHide.Instance.OnSelectMapComplete += ()=> showTween.PlayForward();
+        rectTransform = GetComponent<RectTransform>(); // Lấy RectTransform của đối tượng
+        rectTransform.anchoredPosition = - rectTransform.anchoredPosition;
+        showTween = rectTransform.DOAnchorPos(-rectTransform.anchoredPosition,0.5f)
+            .SetEase(Ease.OutBack)
             .SetAutoKill(false)
             .Pause(); // Tạo tween cho border
     }
     void ShowBorder() // Hiện border khi game chạy
     {
-        DOVirtual.DelayedCall(delayShowTime, () => hideTween.PlayBackwards() ); // Delay chờ PauseBorder ẩn đi
+        DOVirtual.DelayedCall(delayShowTime, () => showTween.PlayForward() ); // Delay chờ PauseBorder ẩn đi
     }
     void ShowOpenShopBorder() // Hiện border khi đóng shop
     {
-        DOVirtual.DelayedCall(delayOpenShop, () => hideTween.PlayBackwards() ); // Delay chờ PauseBorder ẩn đi
+        DOVirtual.DelayedCall(delayOpenShop, () => showTween.PlayForward() );
+    }
+    void ShowCompleteChooseHero() // Hiện border khi chọn hero xong
+    {
+        DOVirtual.DelayedCall(delayCompleteChooseHero, () => showTween.PlayForward() );
     }
     void HideBorder() // Ẩn border khi game dừng hoặc mở Shop
     {
-        hideTween.PlayForward();
+        showTween.PlayBackwards();
     }
     void OnDestroy()
     {
-        UIManageShowAndHide.Instance().OnPauseGame -= HideBorder;
-        UIManageShowAndHide.Instance().OnResumeGame -= ShowBorder;
+        UIManageShowAndHide.Instance.OnPauseGame -= HideBorder;
+        UIManageShowAndHide.Instance.OnResumeGame -= ShowBorder;
+        //UIManageShowAndHide.Instance.OnOpenShop -= HideBorder;
+        UIManageShowAndHide.Instance.OnCloseShop -= ShowOpenShopBorder;
+        UIManageShowAndHide.Instance.OnCompleteChoose -= ShowCompleteChooseHero;
+        UIManageShowAndHide.Instance.OnSelectMap -= HideBorder; // Đăng ký sự kiện tạm dừng game
+        UIManageShowAndHide.Instance.OnCloseMap -= ShowBorder; // Đăng ký sự kiện tiếp tục game
     }
 }

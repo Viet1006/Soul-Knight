@@ -104,6 +104,9 @@ MonoBehaviour:
   spawnBulletPos: {fileID: 5416271624851840167}
   timeToNextFire: 0
   level: 0
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &6857214613499305008
 GameObject:
   m_ObjectHideFlags: 0

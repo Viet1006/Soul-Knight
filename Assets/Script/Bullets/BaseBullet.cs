@@ -7,19 +7,10 @@ public class BaseBullet : MonoBehaviour
     protected float speed;
     protected int damage;
     protected int critChance;
-    protected Animator animator;
-    [HideInInspector] public Collider2D bulletCollider;
-    protected List<BulletBuff> bulletBuffs;
-    protected ParticleSystem explodeEffect;
     protected Tween lifeTimer ; // Đếm thời gian để hủy đạn
-    List<IBulletBuff> BulletBuffs;
-    void Awake()
-    {
-        bulletCollider = GetComponent<Collider2D>();
-        animator = GetComponent<Animator>();
-        explodeEffect = GetComponentInChildren<ParticleSystem>();
-    }
-    public virtual void SetBullet(float speed, int damage,int critChance,BulletElement element ,List<BulletBuff> bulletBuffs,float timeLife = 0)
+    protected List<BulletBuff> bulletBuffs;
+    [SerializeField] protected GameObject explodeEffect;
+    public virtual BaseBullet SetBullet(float speed, int damage,int critChance,BulletElement element ,List<BulletBuff> bulletBuffs,float timeLife = 0)
     {
         this.speed = speed;
         this.critChance = critChance;
@@ -27,32 +18,37 @@ public class BaseBullet : MonoBehaviour
         if(timeLife >0) StartLifeTimer(timeLife);
         this.bulletBuffs = bulletBuffs;
         this.element = element;
+        return this;
     }
     public void StartLifeTimer(float timeLife) // Bắt đầu đếm để trả đạn về pool
     {
         lifeTimer.Kill();
         lifeTimer = DOVirtual.DelayedCall(timeLife , ReturnToPool);
     }
-    public virtual void HandleCollisionEffect(Collider2D collider){}
+    public virtual void HandleCollision(Collider2D collider)
+    {
+        if(bulletBuffs == null) return;
+        foreach(BulletBuff bulletBuff in bulletBuffs)
+        {
+            bulletBuff?.TryHandleCollision(collider , transform.position);
+        }
+    }
     public virtual void HandleOnObject(Collider2D collider) //Gây sát thương cho object
     {
         // Apply buff trước vì nếu chết thì gọi gethit sau và trong gethit có hủy các icon mà buff sinh ra 
         // Nếu gọi sau lúc chết sẽ hủy icon effect mà sau đó apply sẽ bị hiện lại
-        foreach(IBulletBuff bulletBuff in BulletBuffs)
+        if(bulletBuffs != null)
         {
-            bulletBuff.HandleOnObject();
+            foreach(BulletBuff bulletBuff in bulletBuffs)
+            {
+                bulletBuff?.TryHandleOnObject(collider , transform.position);
+            }
         }
-        ApplyAllBuff(collider);
         if (collider.TryGetComponent(out IGetHit hittedObject)) hittedObject.GetHit(damage,element);
-    }
-    protected void ApplyAllBuff(Collider2D collider)
-    {
-        foreach(BulletBuff bulletBuff in bulletBuffs) bulletBuff.ApplyBuff(collider , transform.position);
     }
     public virtual void ReturnToPool()
     {
         lifeTimer.Kill();
-        if(bulletCollider) bulletCollider.enabled = true;
-        BulletPool.Instance.ReturnBullet(gameObject);
+        BulletPool.Instance.ReturnBullet(this);
     }
 }

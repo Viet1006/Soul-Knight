@@ -11,4 +11,5 @@ public class Parameters
     public const string hideButton = "HideButton";
     public const string openDoor = "Open Door";
     public const string closeDoor = "Close Door";
+    public const string prepareAttack = "Prepare Attack";
 }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bb2762eb0a85844d9bb03d566eafc1f, type: 3}
+  m_Name: Wave 8
+  m_EditorClassIdentifier: 
+  enemies:
+  - enemyWeight: 1
+    enemyPrefab: {fileID: 1926595480736889479, guid: dd9c2c63128d78a49b407ec2ecdd236c, type: 3}
+  - enemyWeight: 1
+    enemyPrefab: {fileID: 1926595480736889479, guid: d34c6e537160cae49b1a7e0510d51b98, type: 3}
+  - enemyWeight: 1
+    enemyPrefab: {fileID: 5097492414053586777, guid: 3642bf8c367e4224da913b849cec6106, type: 3}
+  spawnAreas:
+  - {fileID: 11400000, guid: 23a535b29d47e9f4f9ffb51f939d33bb, type: 2}
+  - {fileID: 11400000, guid: a84635d62dea98f439c2c72b0d53f532, type: 2}
+  - {fileID: 11400000, guid: 60208f0aff251e14bbb15653cbe07c1c, type: 2}
+  cost: 150
+  spawnRate: 1.2

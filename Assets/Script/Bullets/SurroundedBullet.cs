@@ -8,8 +8,7 @@ public class SurroundedBullet : StraightBullet // Empty object được bao quan
         for(int i=0 ; i < numberOfBullet;i++)
         {
             BulletPool.Instance
-            .GetBullet(childBullet,transform.position,Quaternion.Euler(0,0,360/numberOfBullet*i))
-                .GetComponent<StraightBullet>()
+            .GetBullet<StraightBullet>(childBullet,transform.position,Quaternion.Euler(0,0,360/numberOfBullet*i))
                 .SetBullet(childSpeed,damage,critChance,element,bulletBuffs,timeLife);
         }
         StartLifeTimer(timeLife);

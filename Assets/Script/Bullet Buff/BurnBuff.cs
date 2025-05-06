@@ -1,23 +1,18 @@
 
 using UnityEngine;
 [System.Serializable]
-public class BurnBuff : IBulletBuff
+public class BurnBuff : BulletBuff
 {
     [SerializeField] int damageHalfSecond;
-    [SerializeField] int effectDuration;
-    public BurnBuff() { }
-    public BurnBuff(int damageHalfSecond , int effectDuration , int critChance = 100)
+    [SerializeField] float burnDuration;
+    public BurnBuff(){ } // Phải có constructor mặc định để unity có thể tạo đối tượng
+    public BurnBuff(int damageHalfSecond , float burnDuration , int applyChance = 100) : base(applyChance)
     {
         this.damageHalfSecond = damageHalfSecond;
-        this.effectDuration = effectDuration;
+        this.burnDuration = burnDuration;
     }
-    public override void HandleOnObject()
+    protected override void HandleOnObject(Collider2D collider , Vector2 bulletPos)
     {
-        Debug.Log("Â");
-    }
-
-    public override void HandleCollision()
-    {
-        Debug.Log("B");
+        if(collider.TryGetComponent(out ICanBurn iCanBurn)) iCanBurn.StartBurn(damageHalfSecond,burnDuration);
     }
 }

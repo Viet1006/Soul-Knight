@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2601648203458374880}
   - component: {fileID: 3182798543585423668}
-  - component: {fileID: 4622403737127356317}
   - component: {fileID: 1939634458189511740}
   - component: {fileID: 3593878250088501703}
   - component: {fileID: 6056680716526893665}
@@ -90,28 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4622403737127356317
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7876961994352399717}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 77236840a9587c046b66a0223bf68cc7, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!58 &1939634458189511740
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletCollider: {fileID: 0}
+  effectExplode: {fileID: 7876961994352399717}
 --- !u!114 &6056680716526893665
 MonoBehaviour:
   m_ObjectHideFlags: 0

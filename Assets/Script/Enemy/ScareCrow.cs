@@ -1,4 +1,4 @@
-public class ScareCrow : EnemyWithoutWeapon
+public class ScareCrow : AttackMethodEnemy
 {
     protected override void StartAttack()
     {

@@ -2,7 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 [DefaultExecutionOrder(-50)]
-public class Status : MonoBehaviour , ICanInteract
+public class Status : MonoBehaviour
 {
     public static Status instance;
     int health = 50;
@@ -40,9 +40,4 @@ public class Status : MonoBehaviour , ICanInteract
             ManageSpawnEnemy.instance.timeWaveRemain = 0;
         }
     }
-    public void ShowSelectObject()
-    {
-        if(ManageSpawnEnemy.instance.IsFinishWave()) textSelect.SetActive(true);
-    }
-    public void HideSelectObject() => textSelect.SetActive(false);
 }

@@ -5,30 +5,30 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
 {
     [Sirenix.OdinInspector.InlineEditor] public EnemyData enemyData;
     [SerializeField] GameObject selectionCircle;
-    Collider2D colliderEnemy;
     int currentHealth;
     SpriteRenderer spriteEnemy;
     [HideInInspector] public MoveToStatus moveToStatus;
     [HideInInspector] public AttackMethodEnemy attackMethod;
-    public event System.Action OnResetToOringin;
+    public event System.Action OnReset;
     public event System.Action OnGetHit;
     Tween flashTween;
     void Awake() // Lấy tham chiếu để gọi Init
     {
         moveToStatus = GetComponent<MoveToStatus>();
         attackMethod = GetComponent<AttackMethodEnemy>(); // nếu RandomWeapon sẽ được gán ở InitEnemy
-        colliderEnemy = GetComponent<Collider2D>();
         spriteEnemy = GetComponent<SpriteRenderer>();
         currentHealth = enemyData.health;
-        moveToStatus.SetSpeed(enemyData.speed); // Gọi sau Init để lấy được data
-        moveToStatus.OnTarget += ResetToOringin; // Đăng ký sự kiện khi đến đích thì reset về origin sau đó trả về pool
+        if(moveToStatus)
+        {
+            moveToStatus.SetSpeed(enemyData.speed);
+            moveToStatus.OnTarget += ResetToOringin; // Đăng ký sự kiện khi đến đích thì reset về origin sau đó trả về pool
+        }
         flashTween = DOVirtual.DelayedCall(0.1f,()=> spriteEnemy.material = ObjectHolder.Instance.defaultMaterial )
             .SetAutoKill(false)
             .Pause();
     }
     public virtual int InitEnemy() // Sẽ được gọi trước Start
     {
-        attackMethod.OnInit();
         currentHealth = enemyData.health;
         return enemyData.cost;
     }
@@ -55,13 +55,9 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
     }
     public virtual void ResetToOringin()
     {
-        OnResetToOringin?.Invoke();
-        OnResetToOringin = null; // Khi trả về pool thì hủy đăng ký để trả lại trạng thái ban đầu
-        moveToStatus.ContinueMove(); // trả lại trạng thái trước khi cho vào pool
-        attackMethod.ContinueAttack(); // trả lại trạng thái trước khi cho vào pool
+        OnReset?.Invoke();
+        OnReset = null; // Khi trả về pool thì hủy đăng ký để trả lại trạng thái ban đầu
         spriteEnemy.material = ObjectHolder.Instance.defaultMaterial;
-        colliderEnemy.enabled = true; 
-        GetComponent<HandleEffectOnEnemy>().EndAllEffect();
         ManageSpawnEnemy.instance.ReturnToPool(gameObject); // trả về pool
         OnGetHit = null;
     }

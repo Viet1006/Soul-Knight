@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2126687043934950748}
   - component: {fileID: 4966326748124011132}
   - component: {fileID: 3740652756706049387}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: 'Gun Platform '
   m_TagString: Tower Platform
   m_Icon: {fileID: 0}

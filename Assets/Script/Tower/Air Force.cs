@@ -20,8 +20,7 @@ public class AirForce : BaseTower
         DOVirtual.DelayedCall(0.4f , () => {
             GetDrone();
             BulletPool.Instance
-                .GetBullet(towerData.bulletPrefab , spawnPoint.transform.position) 
-                .GetComponent<Drone>()
+                .GetBullet<Drone>(towerData.bulletPrefab , spawnPoint.transform.position)
                 .SetDrone(towerData.speed,towerData.Damage(level),0 ,towerData.element, towerData.bulletBuffs, target , this);
         }).SetLoops(droneCount , LoopType.Incremental);
     }

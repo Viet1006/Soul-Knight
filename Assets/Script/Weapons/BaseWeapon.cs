@@ -8,15 +8,13 @@ public class BaseWeapon : MonoBehaviour
     [SerializeField] protected Transform spawnBulletPos;
     [HideInEditorMode] public float timeToNextFire;
     [HideInEditorMode] public int level;
-    List<BulletBuff> addedBuff = new();
+    protected List<BulletBuff> addedBuff = new();
     public event System.Action<List<BulletBuff>> OnAttack;
-    [SerializeReference , SerializeField]
-    protected List<IBulletBuff> BulletBuffs = new();
     public virtual void Attack(Transform target)
     {
         if(timeToNextFire <= 0)
         {
-            OnAttack?.Invoke(addedBuff); //Thông báo vũ khí vừa được bắn
+            NotifyAttack();
             CreateBullet(target); // Tạo đạn
             addedBuff = new(); // Làm mới buff được thêm sau khi bắn
             spawnBulletPos.gameObject.SetActive(true);
@@ -25,7 +23,7 @@ public class BaseWeapon : MonoBehaviour
         }
     }
     public virtual void StopAttack() {}
-    public virtual void RotateToTarget(Transform target) // quay vũ khí vào target, clientId là Id người quay
+    public virtual void RotateToTarget(Transform target) // quay vũ khí vào target
     {
         Vector2 direction = (Vector2)target.position - (Vector2)transform.position;
         // trả về góc từ 0 -> 90 với vector thuộc góc phần tư 1,3 và từ -90 -> 0 với góc phần tư 2,4
@@ -44,28 +42,27 @@ public class BaseWeapon : MonoBehaviour
     {
         timeToNextFire -= Time.deltaTime;
     }
-    public virtual void ResetToOringin() // Đặt lại trạng thái ban đầu cho vũ khí
-    {
-        WeaponPool.Instance.ReturnWeapon(gameObject);
-    }
-    public virtual void CreateBullet(Transform target)
+    public virtual BaseBullet CreateBullet(Transform target)
     {
         List <BulletBuff> finalBuffs = new(weaponData.bulletBuffs);
         if(addedBuff != null) finalBuffs.AddRange( addedBuff) ;
-        BulletPool.Instance
-                .GetBullet(weaponData.bulletPrefab
-                    ,spawnBulletPos.position // truyền vị trí spawn cho pool
-                    ,transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy)))
-                .GetComponent<BaseBullet>() // Lấy baseBUllet từ bullet vừa tạo 
-                .SetBullet(weaponData.speed // Set các giá trị
-                    ,weaponData.Damage(level)
-                    ,weaponData.CritChance(level)
-                    ,weaponData.element
-                    ,finalBuffs ,3);
-                // Tạo đạn
+        return BulletPool.Instance
+            .GetBullet<BaseBullet>(weaponData.bulletPrefab
+                ,spawnBulletPos.position // truyền vị trí spawn cho pool
+                ,transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy)))
+            .SetBullet(weaponData.speed // Set các giá trị
+                ,weaponData.Damage(level)
+                ,weaponData.CritChance(level)
+                ,weaponData.element
+                ,finalBuffs ,weaponData.bulletTimeLife);
+            // Tạo đạn
     }
     public void Upgrade()
     {
         level+=1;
+    }
+    protected void NotifyAttack()
+    {
+        OnAttack?.Invoke(addedBuff);
     }
 }

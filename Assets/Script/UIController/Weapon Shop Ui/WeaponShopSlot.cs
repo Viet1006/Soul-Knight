@@ -2,7 +2,7 @@ using UnityEngine;
 public class WeaponShopSlot : SlotUI
 {
     public TMPro.TextMeshProUGUI itemPrice;
-    public void SetWeaponSlot(BaseWeapon weapon,WeaponUIManager uIManager) // WeaponUIManage l là WeaponShop hoặc InventoryController
+    public void SetWeaponSlot(BaseWeapon weapon,WeaponShopManager uIManager) // UI manager l là nơi quản lý object này
     {
         itemName.text = weapon.name; // Lấy tên để display lên UI
         uIManager.buttons.Add(button); // Thêm vào danh sách các buttons của Ui đang quản lý weaponSlot này

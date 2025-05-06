@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,9 +13,8 @@ public class TowerShopManage : ItemManagement
         instance = this;
         towers = Resources.LoadAll<GameObject>("Towers");
     }
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         placeTowerCamera.transform.position = Status.instance.transform.position - new Vector3(0,0,10);
         boardShopAnim = content.transform.parent.GetComponent<BoardShopAnim>();
         for(int i=0;i< towers.Length;i++)
@@ -62,19 +60,20 @@ public class TowerShopManage : ItemManagement
         boardShopAnim.HideBoardShop(); // Tắt bảng chọn tháp
         currentPlatform = null;
     }
-    public override void Interact()
+    public void Interact()
     {
         CloseTowerShopButotn.instance.ShowButton();
         placeTowerCamera.Priority = 22;
         GetMouseEvent(true);
-        UIManageShowAndHide.Instance().OpenShop();
+        //UIManageShowAndHide.Instance.OpenShop();
+        UIManageShowAndHide.Instance.PauseGame();
     }
     public void CloseShop()
     {
         CloseTowerShopButotn.instance.HideButton();
         placeTowerCamera.Priority = 2;
         GetMouseEvent(false);
-        UIManageShowAndHide.Instance().CloseShop();
+        UIManageShowAndHide.Instance.CloseShop();
         SetOrigin();
     }
     public void GetMouseEvent(bool isGet)

@@ -19,7 +19,7 @@ public class Drone : FollowTargetBullet
         spriteRenderer.material = revealMat;
         revealMat.SetFloat("_RevealProgress",1f);
     }
-    public void SetDrone(float speed , int damage, int critChance,BulletElement element,List<BulletBuff> bulletBuffs, Transform target , AirForce airForce)
+    public void SetDrone(float speed,int damage, int critChance,BulletElement element,List<BulletBuff> bulletBuffs, Transform target , AirForce airForce )
     {
         base.SetTargetBullet(speed, damage ,critChance ,element,bulletBuffs, target);
         transform.DOMoveY(transform.position.y + 3 ,0.4f).SetEase(Ease.InSine).OnComplete(() => // 0.4 là thời gian sản xuất mỗi Drone 
@@ -90,8 +90,7 @@ public class Drone : FollowTargetBullet
     void DropBomb()
     {
         BulletPool.Instance
-            .GetBullet(bombPrefab , transform.position)
-            .GetComponent<Bomb>()
+            .GetBullet<Bomb>(bombPrefab , transform.position)
             .SetBomb(damage,critChance,element,bulletBuffs);
     }
     void Move(float speed , Vector2 direction , Vector2 target)

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86f23a27315fc54f8fc9b200429a64e, type: 3}
   m_Name: Knight
   m_EditorClassIdentifier: 
-  health: 10
+  health: 18
   speed: 10
-  animatorController: {fileID: 9100000, guid: 7f272c3e656a200438cec6f2f8138b8f, type: 2}
-  heroName: 0
-  skillCoolDown: 20
-  skillDuration: 10
+  skillCoolDown: 15
+  skillDescription: "Nh\u1EADn 1 hi\u1EC7u \u1EE9ng ng\u1EABu nhi\xEAn cho m\u1ED7i
+    l\u1EA7n b\u1EAFn"
+  skillIcon: {fileID: -2174650884518867830, guid: 0f67de8c87fabd249bc6cfec2ecc579a, type: 3}

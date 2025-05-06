@@ -6,6 +6,8 @@ public class SkillButton : MonoBehaviour
 {
     public static SkillButton instance;
     Image skilButton;
+    Tween durationTween;
+    Tween cooldownTween;
     void Awake()
     {
         instance = this;
@@ -16,7 +18,8 @@ public class SkillButton : MonoBehaviour
         skilButton.fillMethod = Image.FillMethod.Vertical; // Cooldown từ trên xuống
             skilButton.color = new Color(skilButton.color.r, skilButton.color.g, skilButton.color.b, 0.5f); // Làm mờ
             skilButton.DOFillAmount(0 , skillDuration)
-                .SetEase(Ease.Linear);
+                .SetEase(Ease.Linear)
+                .OnComplete(() => skilButton.fillAmount = 1);
     }
     public void StartCoolDown(float skillCoolDown)
     {
@@ -29,5 +32,10 @@ public class SkillButton : MonoBehaviour
                     skilButton.color = Color.white; // Làm mờ
                     skilButton.fillAmount = 1;
                 });
+    }
+    public void ResetButton()
+    {
+        durationTween.Kill();
+        cooldownTween.Kill();
     }
 }

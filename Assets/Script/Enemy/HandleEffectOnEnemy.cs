@@ -4,7 +4,6 @@ using UnityEngine;
 public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable , ICanPoison , ICanFrozen , ICanBurn , ICanVulnerability
 {
     Tween burnTween , poisonTween , frozenTween , stunTween , vulnerabilityTween;
-    int moveBlock , attackBlock;
     EnemyController enemyController;
     void Awake()
     {
@@ -13,26 +12,29 @@ public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable , ICanPoison
     // bắt đầu đẩy
     public void StartPush(Vector2 direction,float distance)
     {
+        if(enemyController.moveToStatus) enemyController.moveToStatus.StopMove();
         DOVirtual.DelayedCall(0.02f , () => 
             {
-                if(!Physics2D.Raycast(transform.position,direction,distance/5,LayerMask.GetMask("Wall")+LayerMask.GetMask("Water") ))
-                    transform.position += distance/5 * (Vector3)direction.normalized;
-            }).SetLoops(5);
+                if(!Physics2D.Raycast(transform.position,direction,distance/5,LayerMask.GetMask("Wall")+LayerMask.GetMask("Water")))
+                    transform.position += distance/5 * (Vector3)direction;
+            }).SetLoops(5)
+            .OnKill(() => 
+            {
+                if(enemyController.moveToStatus) enemyController.moveToStatus.ContinueMove();
+            });
     }
     // Bắt đầu chạy Stun
     public void StartStun(float stunTime)
     {
         stunTween.Kill();
-        GameObject effectIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.5f),BulletBuffType.Stun,transform);
-        enemyController.moveToStatus.StopMove();  moveBlock += 1;
-        enemyController.attackMethod.StopAttack(); attackBlock += 1;
-        stunTween = DOVirtual.DelayedCall(stunTime , () =>{  })
+        SpriteRenderer effectIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.5f),BuffIconEnum.Stun,transform);
+        if(enemyController.moveToStatus) enemyController.moveToStatus.StopMove();
+        if(enemyController.attackMethod) enemyController.attackMethod.StopAttack();
+        stunTween = DOVirtual.DelayedCall(stunTime , () =>{})
             .OnKill(() => 
                 {
-                    moveBlock -= 1;
-                    if(moveBlock <= 0) enemyController.moveToStatus.ContinueMove();
-                    attackBlock -= 1;
-                    if(attackBlock <= 0) enemyController.attackMethod.ContinueAttack();
+                    if(enemyController.moveToStatus) enemyController.moveToStatus.ContinueMove();
+                    if(enemyController.attackMethod) enemyController.attackMethod.ContinueAttack();
                     IconEffectPool.Instance.ReTurnToPool(effectIcon);
                 });
     }
@@ -40,16 +42,14 @@ public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable , ICanPoison
     public void StartFrozen(float frozenTime) 
     {
         frozenTween.Kill();
-        GameObject effectIcon = IconEffectPool.Instance.GetIconEffect(Vector2.zero,BulletBuffType.Frozen,transform);
-        enemyController.moveToStatus.StopMove();  moveBlock += 1;
-        enemyController.attackMethod.StopAttack(); attackBlock += 1;
+        SpriteRenderer effectIcon = IconEffectPool.Instance.GetIconEffect(Vector2.zero,BuffIconEnum.Frozen,transform);
+        if(enemyController.moveToStatus) enemyController.moveToStatus.StopMove();
+        if(enemyController.attackMethod) enemyController.attackMethod.StopAttack();
         frozenTween = DOVirtual.DelayedCall(frozenTime , () =>{})
             .OnKill(() => 
                 {
-                    moveBlock -= 1;
-                    if(moveBlock <= 0) enemyController.moveToStatus.ContinueMove();
-                    attackBlock -= 1;
-                    if(attackBlock <= 0 ) enemyController.attackMethod.ContinueAttack();
+                    if(enemyController.moveToStatus) enemyController.moveToStatus.ContinueMove();
+                    if(enemyController.attackMethod) enemyController.attackMethod.ContinueAttack();
                     IconEffectPool.Instance.ReTurnToPool(effectIcon);
                 });
     }
@@ -57,7 +57,7 @@ public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable , ICanPoison
     public void StartPoison(int damageHalfSecond, float poisonTime)
     {
         poisonTween.Kill();
-        GameObject effectIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.5f), BulletBuffType.Poison, transform);
+        SpriteRenderer effectIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.5f), BuffIconEnum.Poison, transform);
         poisonTween = DOVirtual.DelayedCall(0.5f, () => enemyController.GetHit(damageHalfSecond, BulletElement.Poison,false))
             .SetLoops(Mathf.FloorToInt(poisonTime *2 ))
             .OnKill(() => IconEffectPool.Instance.ReTurnToPool(effectIcon));
@@ -66,7 +66,7 @@ public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable , ICanPoison
     public void StartBurn(int damageHalfSecond, float burnTime)
     {
         burnTween.Kill();
-        GameObject effectIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.5f), BulletBuffType.Burn, transform);
+        SpriteRenderer effectIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.5f), BuffIconEnum.Burn, transform);
         burnTween = DOVirtual.DelayedCall(0.5f, () => enemyController.GetHit(damageHalfSecond, BulletElement.Fire,false))
             .SetLoops(Mathf.FloorToInt(burnTime*2))
             .OnKill(() => IconEffectPool.Instance.ReTurnToPool(effectIcon));
@@ -75,29 +75,21 @@ public class HandleEffectOnEnemy : MonoBehaviour,ICanStun,IPushable , ICanPoison
     {
         vulnerabilityTween.Kill();
         void action() => enemyController.GetHit(additionDamage, BulletElement.Lightning, false);
-        GameObject effectIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.5f), BulletBuffType.Vulnerability, transform);
+        SpriteRenderer effectIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.5f), BuffIconEnum.Vulnerability, transform);
         enemyController.OnGetHit += action;
-        enemyController.moveToStatus.StopMove();  moveBlock += 1;
-        enemyController.attackMethod.StopAttack(); attackBlock += 1;
         vulnerabilityTween = DOVirtual.DelayedCall(effectDuration, () => {})
             .OnKill(() => 
                 {
                     IconEffectPool.Instance.ReTurnToPool(effectIcon);
-                    moveBlock -= 1;
-                    if(moveBlock <= 0) enemyController.moveToStatus.ContinueMove();
-                    attackBlock -= 1;
-                    if(attackBlock <= 0) enemyController.attackMethod.ContinueAttack();
                     enemyController.OnGetHit -= action;
                 });
     }
-    public void EndAllEffect()
+    protected virtual void OnDisable()
     {
         burnTween.Kill();
         poisonTween.Kill();
         frozenTween.Kill();
         stunTween.Kill();
         vulnerabilityTween.Kill();
-        moveBlock = 0;
-        attackBlock = 0;
     }
 }

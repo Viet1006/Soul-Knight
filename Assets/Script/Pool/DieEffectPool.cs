@@ -13,15 +13,15 @@ public class DieEffectPool
         }
     }
     readonly Queue<GameObject> dieEffectPool = new();
+    
     public void GetDieEffect(Vector2 pos)
     {
-        GameObject dieEffect;
-        if(dieEffectPool.Count >0) dieEffect = dieEffectPool.Dequeue();
-        else dieEffect = Object.Instantiate(ObjectHolder.Instance.dieEffect);
-        dieEffect.transform.position = pos;
-        dieEffect.SetActive(true);
-        dieEffect.GetComponent<ParticleSystem>().Play();
-        DG.Tweening.DOVirtual.DelayedCall(0.5f , ()=> ReturnToPool(dieEffect));
+        GameObject dieEffect; // Tạo 1 tham chiếu tới particle
+        if(dieEffectPool.Count >0) dieEffect = dieEffectPool.Dequeue(); // Lấy tham chiếu nếu đang có
+        else dieEffect = Object.Instantiate(ObjectHolder.Instance.dieEffect); // Chưa có thì tạo vào lấy tham chiếu
+        dieEffect.transform.position = pos; // Sửa vị trí
+        dieEffect.SetActive(true); 
+        DG.Tweening.DOVirtual.DelayedCall(0.5f , ()=> ReturnToPool(dieEffect)); // Trả về pool sau 0.5f
     }
     void ReturnToPool(GameObject dieEffect)
     {
