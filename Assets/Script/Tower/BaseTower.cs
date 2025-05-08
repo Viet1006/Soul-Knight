@@ -15,7 +15,7 @@ public abstract class BaseTower : MonoBehaviour
         if(timeToNextFire < 0 && nearestEnemy != null)
         {
             Attack(nearestEnemy);
-            timeToNextFire = 1/towerData.fireRate;
+            timeToNextFire = 1/towerData.FireRate(level);
         }
     }
     protected abstract void Attack(Transform target);

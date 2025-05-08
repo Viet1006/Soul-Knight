@@ -13,8 +13,16 @@ public class TextDamePool
         }
     }
     Queue<TextDamage> textDamePool = new();
-    public void GetTextDamage(Vector2 pos,BulletElement bulletElement,int damage)
+    Queue<CritTextControl> critTextPool = new();
+    public void GetTextDamage(Vector2 pos,BulletElement bulletElement,int damage , bool isCrit = false)
     {
+        if(isCrit)
+        {
+            CritTextControl critText;
+            if(critTextPool.Count >0) critText = critTextPool.Dequeue();
+            else critText = Object.Instantiate(ObjectHolder.Instance.critTextPrefab).GetComponent<CritTextControl>();
+            critText.SetCritText(pos);
+        }
         TextDamage newTextDamage;
         if(textDamePool.Count >0)
         {
@@ -28,5 +36,10 @@ public class TextDamePool
     {
         obj.gameObject.SetActive(false);
         textDamePool.Enqueue(obj);
+    }
+    public void ReturnCritText(CritTextControl obj)
+    {
+        obj.gameObject.SetActive(false);
+        critTextPool.Enqueue(obj);
     }
 }

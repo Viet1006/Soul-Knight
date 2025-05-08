@@ -199,3 +199,5 @@ MonoBehaviour:
   coinPrebfab: {fileID: 5730318393038536566, guid: 080e9a6f48defb743abed804466bcbfc, type: 3}
   dieEffect: {fileID: 7221552511194379134, guid: 58d546b77a667224f9bb91a2bff96409, type: 3}
   explodeEffectPrefab: {fileID: 2221445577771516000, guid: 25deb6b6f233dbc4a92cd6d82149857b, type: 3}
+  miniExplode: {fileID: 2221445577771516000, guid: 52a1ce77cb706a74aa3ee7c7581495b5, type: 3}
+  critTextPrefab: {fileID: 5129042170526779610, guid: be71b07c372ff2c4784080c3ecdf6722, type: 3}

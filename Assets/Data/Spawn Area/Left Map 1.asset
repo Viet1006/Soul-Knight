@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29a6c4335669fc44abc3c33cecffe1b6, type: 3}
   m_Name: Left Map 1
   m_EditorClassIdentifier: 
-  topLeft: {x: -69, y: 55}
-  bottomRight: {x: -60, y: 48}
+  topLeft: {x: -67, y: 53}
+  bottomRight: {x: -59, y: 49}

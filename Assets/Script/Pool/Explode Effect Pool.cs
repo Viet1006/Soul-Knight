@@ -30,7 +30,7 @@ public class ExplodeEffectPool
         }else explode = Object.Instantiate(explodePrefab);
         explode.transform.position =pos;
         
-        DG.Tweening.DOVirtual.DelayedCall(timeLife , ()=> ReturnToPool(explode));
+        DG.Tweening.DOVirtual.DelayedCall(timeLife , ()=> ReturnToPool(explode) , false);
     }
     void ReturnToPool(GameObject effectController)
     {

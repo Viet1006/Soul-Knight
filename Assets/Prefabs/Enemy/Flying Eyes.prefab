@@ -263,8 +263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e1786707a07f5b4fb9cbcb0c23e6145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRange: 15
   childBullet: {fileID: 7876961994352399717, guid: 3f5c79fe9f3359f40a802c7fdaf27588, type: 3}
-  childBulletSpeed: 6
+  childBulletSpeed: 4
   numberOfBullet: 10
 --- !u!50 &8280657292128586585
 Rigidbody2D:

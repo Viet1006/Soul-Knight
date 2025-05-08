@@ -10,7 +10,7 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
     [InlineEditor]
     public HeroData heroData;
     public event System.Action<int> OnHealthChange;
-    int currentHealth;
+    public int currentHealth;
     int moveBlock , attackBlock;
     SpriteRenderer spritePlayer;
     Collider2D playerCollider;
@@ -22,9 +22,9 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
         playerCollider = GetComponent<Collider2D>();
         spritePlayer = GetComponent<SpriteRenderer>();
 }
-    public void GetHit(int damage, BulletElement bulletElement , bool notify =true)
+    public void GetHit(int damage, BulletElement bulletElement , bool isCrit = false, bool notify =true)
     {
-        TextDamePool.Instance.GetTextDamage( transform.position + new Vector3(0, 1f, 0),bulletElement,damage);
+        TextDamePool.Instance.GetTextDamage( transform.position + new Vector3(0, 1f, 0),bulletElement,damage , isCrit);
         currentHealth -= damage;
         OnHealthChange?.Invoke(currentHealth);
         HealthBar.instance.SetHealth(currentHealth);
@@ -34,26 +34,11 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
             playerCollider.enabled = false;
             playerMovement.canMove = false;
             playerBehaviour.enabled = false;
-            StartCoroutine(DieEffect());
             playerMovement.animator.SetTrigger(Parameters.die);
+            Status.instance.GetDamage(30); // thua games
             return;
         }
         StartCoroutine(Blink());
-    }
-    IEnumerator DieEffect()
-    {
-        float distanceUp = 0.5f;
-        Vector2 targetPos = (Vector2)transform.position + new Vector2(0,distanceUp);
-        while (Vector2.Distance(transform.position,targetPos) > 0.1f)
-        {
-            transform.position += 2 * Time.deltaTime * Vector3.up;
-            yield return null;
-        }
-        while (Vector2.Distance(transform.position,targetPos-new Vector2(0,distanceUp)) > 0.1f)
-        {
-            transform.position -= 2 * Time.deltaTime * Vector3.up;
-            yield return null;
-        }
     }
     IEnumerator Blink()
     {
@@ -75,7 +60,7 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
         frozenTween = DOVirtual.DelayedCall(frozenTime , () =>
             {
                 UnBlockMove(); UnBlockAttack();
-            }).OnKill(() => IconEffectPool.Instance.ReTurnToPool(frozenIcon));
+            },false).OnKill(() => IconEffectPool.Instance.ReTurnToPool(frozenIcon));
     }
     public void StartStun(float stunTime)
     {
@@ -85,13 +70,13 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
         stunTween = DOVirtual.DelayedCall(stunTime , () =>
             {
                 UnBlockMove(); UnBlockAttack();
-            }).OnKill(() => IconEffectPool.Instance.ReTurnToPool(stunIcon));
+            },false).OnKill(() => IconEffectPool.Instance.ReTurnToPool(stunIcon));
     }
     public void StartPoison(int damagePerSecond, float poisonTime)
     {
         poisonTween.Kill();
         SpriteRenderer poisonIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.2f), BuffIconEnum.Poison, transform);
-        poisonTween = DOVirtual.DelayedCall(1, () => GetHit(damagePerSecond, BulletElement.Poison))
+        poisonTween = DOVirtual.DelayedCall(1, () => GetHit(damagePerSecond, BulletElement.Poison),false)
             .SetLoops(Mathf.FloorToInt(poisonTime))
             .OnKill(() => IconEffectPool.Instance.ReTurnToPool(poisonIcon));
     }
@@ -99,7 +84,7 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
     {
         burnTween.Kill();
         SpriteRenderer burnIcon = IconEffectPool.Instance.GetIconEffect(new Vector2(0, 1.2f), BuffIconEnum.Burn, transform);
-        burnTween = DOVirtual.DelayedCall(1, () => GetHit(damagePerSecond, BulletElement.Fire))
+        burnTween = DOVirtual.DelayedCall(1, () => GetHit(damagePerSecond, BulletElement.Fire),false)
             .SetLoops(Mathf.FloorToInt(burnTime))
             .OnKill(() => IconEffectPool.Instance.ReTurnToPool(burnIcon));
     }

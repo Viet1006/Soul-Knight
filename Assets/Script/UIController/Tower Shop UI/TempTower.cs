@@ -67,7 +67,7 @@ public class TempTower : MonoBehaviour
         {
             Instantiate(currentTower.gameObject , TowerShopManage.instance.currentPlatform.transform).transform.localPosition = Vector2.zero;
         }else{
-            NotificationSystem.instance.ShowNotification("Không đủ tiền" , 2);
+            NotificationSystem.Instance.ShowNotification("Không đủ tiền" , 2);
         }
         OnUnConfirm();
     }
@@ -87,7 +87,7 @@ public class TempTower : MonoBehaviour
             Instantiate(upgradeEffect,transform.position,upgradeEffect.transform.rotation);
         }else
         {
-            NotificationSystem.instance.ShowNotification("Không đủ tiền" , 2);
+            NotificationSystem.Instance.ShowNotification("Không đủ tiền" , 2);
         }
         upgradeButton.GetChild(0).GetComponent<Image>().sprite = tempSprite;
         isPress = false;
@@ -110,6 +110,6 @@ public class TempTower : MonoBehaviour
         rectTransform.DOKill();
         rectTransform.gameObject.SetActive(true);
         rectTransform.anchoredPosition = Vector2.zero;
-        rectTransform.DOAnchorPos(startPoints[rectTransform] , 0.5f).SetEase(Ease.OutCubic);
+        rectTransform.DOAnchorPos(startPoints[rectTransform] , 0.5f).SetEase(Ease.OutCubic).SetUpdate(true); // Bật nút lên
     }
 }

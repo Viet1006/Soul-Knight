@@ -18,6 +18,20 @@ public class BulletPool
         Queue<MonoBehaviour> newPools = new (); // Chưa có pool
         poolDictionary.Add(newBullet.name,newPools);
     }
+    public T GetBullet<T>(GameObject bulletPrefab, Vector2 pos, Transform parent ,Quaternion quaternion = default ) where T : MonoBehaviour
+    {
+        if (!poolDictionary.ContainsKey(bulletPrefab.name)) AddNewPool(bulletPrefab);
+        T bullet;
+        if(poolDictionary[bulletPrefab.name].Count > 0)
+        {
+            bullet = (T)poolDictionary[bulletPrefab.name].Dequeue();
+            bullet.gameObject.SetActive(true);
+        }else bullet = Object.Instantiate(bulletPrefab).GetComponent<T>();
+        bullet.transform.SetPositionAndRotation(pos, quaternion);
+        bullet.transform.SetParent(parent);
+        bullet.transform.localScale = Vector2.one;
+        return bullet;
+    }
     public T GetBullet<T>(GameObject bulletPrefab, Vector2 pos,Quaternion quaternion = default) where T : MonoBehaviour
     {
         if (!poolDictionary.ContainsKey(bulletPrefab.name)) AddNewPool(bulletPrefab);
@@ -28,6 +42,7 @@ public class BulletPool
             bullet.gameObject.SetActive(true);
         }else bullet = Object.Instantiate(bulletPrefab).GetComponent<T>();
         bullet.transform.SetPositionAndRotation(pos, quaternion);
+        bullet.transform.localScale = Vector2.one;
         return bullet;
     }
     public T GetBullet<T>(GameObject bulletPrefab, Vector2 pos,Vector2 scale , Quaternion quaternion = default) where T : MonoBehaviour
@@ -47,6 +62,7 @@ public class BulletPool
     {
         T newbullet = GetBullet<T>(bulletPrefab, pos);
         newbullet.transform.right = target-(Vector2)newbullet.transform.position;
+        newbullet.transform.localScale = Vector2.one;
         return newbullet;
     }
     public void ReturnBullet(MonoBehaviour bullet)

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-[DefaultExecutionOrder(-100)] // Script này sẽ chạy đầu tiên
 public class PlayerBehaviour : MonoBehaviour
 {
     [HideInInspector] public BaseWeapon currentWeapon; // Vũ khí đang sử dụng
@@ -11,11 +10,13 @@ public class PlayerBehaviour : MonoBehaviour
     GameObject selectingEnemy;
     bool isAttacking;
     BaseSkill baseSkill;
+    HeroData heroData;
     void Start()
     {
         currentWeapon = GetComponentInChildren<BaseWeapon>();
         playerMovement = GetComponent<PlayerMovement>();
         baseSkill = GetComponent<BaseSkill>();
+        heroData = GetComponent<PlayerHandleEffect>().heroData;
     }
     void Update()
     {
@@ -75,14 +76,26 @@ public class PlayerBehaviour : MonoBehaviour
     }
     public void OnSelected() // khi hero được chọn
     {
-        WeaponInventoryManager.instance.usingWeapon = currentWeapon; // Thêm vũ khí đang dùng cho inventory quản lý
-        WeaponShopManager.instance.DeleteSlot(WeaponInventoryManager.instance.usingWeapon); // Xóa vũ khí đang dùng ra khỏi Shop
-        WeaponInventoryManager.instance.OnWeaponEquipped += newWeapon => { // Sự kiện khi thay đổi trang bị
-            newWeapon.transform.SetParent(transform); // Đem vũ khí về Player
-            newWeapon.transform.SetLocalPositionAndRotation(Vector2.zero, Quaternion.identity);
-            currentWeapon = newWeapon.GetComponent<BaseWeapon>();
-        };
+        InventoryManager.instance.usingWeapon = currentWeapon; // Thêm vũ khí đang dùng cho inventory quản lý
+        WeaponShopManager.instance.DeleteSlot(InventoryManager.instance.usingWeapon); // Xóa vũ khí đang dùng ra khỏi Shop
+        InventoryManager.instance.OnWeaponEquipped += EquipWeapon;
         UIManageShowAndHide.Instance.OnSelectMapComplete += () => transform.position = new Vector2(0,46);
-        transform.SetParent(null);
+        transform.SetParent(null); // đem ra khỏi gameobejct start map\
+        InventoryManager.instance.weapons.Add(currentWeapon.gameObject);
+        UIManageShowAndHide.Instance.OnSelectMapComplete += OnSelectMapComplete; // Khi chọn map thì thực hiện hàm này
+    }
+    void OnSelectMapComplete()
+    {
+        GameObject weapon = Instantiate(heroData.initWeapon);
+        weapon.name = heroData.initWeapon.name;
+        EquipWeapon(weapon);
+        InventoryManager.instance.usingWeapon = currentWeapon; // Thêm vũ khí đang dùng cho inventory quản lý
+        HealthController.player = GetComponent<PlayerHandleEffect>();
+    }
+    void EquipWeapon(GameObject weapon)
+    {
+        weapon.transform.SetParent(transform); // Đem vũ khí về Player
+        weapon.transform.SetLocalPositionAndRotation(Vector2.zero, Quaternion.identity);
+        currentWeapon = weapon.GetComponent<BaseWeapon>();
     }
 }

@@ -14,7 +14,7 @@ public class EnemyUseMeleeWeapon : EnemyWithWeapon
                 CreateBullet();
                 animator.SetTrigger(Parameters.attack);
                 ResetTimeToAttack();
-            });
+            },false);
     }
     public override void OnDisable()
     {

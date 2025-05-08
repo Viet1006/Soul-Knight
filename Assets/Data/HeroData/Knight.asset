@@ -18,3 +18,4 @@ MonoBehaviour:
   skillDescription: "Nh\u1EADn 1 hi\u1EC7u \u1EE9ng ng\u1EABu nhi\xEAn cho m\u1ED7i
     l\u1EA7n b\u1EAFn"
   skillIcon: {fileID: -2174650884518867830, guid: 0f67de8c87fabd249bc6cfec2ecc579a, type: 3}
+  initWeapon: {fileID: 1845756739144285591, guid: fa83dedd91489dd4d8b9085700e1e30a, type: 3}

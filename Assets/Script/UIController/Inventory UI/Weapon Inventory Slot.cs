@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class WeaponInventorySlot : SlotUI
 {
-    public void SetWeaponSlot(BaseWeapon weapon,WeaponInventoryManager uIManager) // ui manager là nơi quản lý slot này
+    public void SetWeaponSlot(BaseWeapon weapon,InventoryManager uIManager) // ui manager là nơi quản lý slot này
     {
         itemName.text = (weapon.name + " +" + + weapon.level).Replace("(Clone)", "").Trim(); // Lấy tên để display lên UI
         uIManager.buttons.Add(button); // Thêm vào danh sách các buttons của Ui đang quản lý weaponSlot này

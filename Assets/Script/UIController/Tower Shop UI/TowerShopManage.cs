@@ -29,20 +29,22 @@ public class TowerShopManage : ItemManagement
         if(!selectedPlatform || !selectedPlatform.CompareTag("Tower Platform")) // Nếu không chọn trúng platform thì chuyển về vị trí ban đầu
         {
             SetOrigin();
-            placeTowerCamera.transform.DOMove(Status.instance.transform.position - new Vector3(0,0,10) , 0.4f) ;
+            placeTowerCamera.transform.DOMove(Status.instance.transform.position - new Vector3(0,0,10) , 0.4f).SetUpdate(true) ;
         } else if(selectedPlatform != currentPlatform) // chọn trúng thì kiểm tra xem platform vừa chọn được có khác platform đang chọn ko
         {
             currentPlatform = selectedPlatform; // Gán plarForm hiện tại 
-            placeTowerCamera.transform.DOMove(selectedPlatform.transform.position - new Vector3(0,0,10),0.4f); // Di chuyển camera đến
+            placeTowerCamera.transform.DOMove(selectedPlatform.transform.position - new Vector3(0,0,10),0.4f).SetUpdate(true); // Di chuyển camera đến
             SetInterractButtons(true);
             BaseTower selectedTower = currentPlatform.GetComponentInChildren<BaseTower>();
             if(!selectedTower) // Nếu platform được chọn không chứa tháp
             {
                 boardShopAnim.ShowBoardShop(); // Hiện bảng chọn tháp
+                CloseTowerShopButton.instance.HideButton();
             }else // Nếu platform được chọn đang chứa tháp
             {
                 boardShopAnim.HideBoardShop(); // Tắt bảng chọn tháp
                 TempTower.instance.ShowTowerInfo(selectedTower,currentPlatform.transform.position);
+                CloseTowerShopButton.instance.HideButton();
                 GetMouseEvent(false);
             }
         }
@@ -58,19 +60,19 @@ public class TowerShopManage : ItemManagement
     {
         SetInterractButtons(true); // bật lại tát cả nút tower trong bảng
         boardShopAnim.HideBoardShop(); // Tắt bảng chọn tháp
+        CloseTowerShopButton.instance.ShowButton();
         currentPlatform = null;
     }
     public void Interact()
     {
-        CloseTowerShopButotn.instance.ShowButton();
+        CloseTowerShopButton.instance.ShowButton();
         placeTowerCamera.Priority = 22;
         GetMouseEvent(true);
-        //UIManageShowAndHide.Instance.OpenShop();
         UIManageShowAndHide.Instance.PauseGame();
     }
     public void CloseShop()
     {
-        CloseTowerShopButotn.instance.HideButton();
+        CloseTowerShopButton.instance.HideButton();
         placeTowerCamera.Priority = 2;
         GetMouseEvent(false);
         UIManageShowAndHide.Instance.CloseShop();

@@ -17,7 +17,7 @@ public abstract class BulletBuff
     public void TryHandleCollision(Collider2D collider , Vector2 bulletPos)
     {
         if( !RandomChance.RollChance(applyChance)) return; // Nếu apply ko được thì return
-        HandleCollision(collider , bulletPos);
+        HandleCollision(collider , bulletPos );
     }
     protected virtual void HandleOnObject(Collider2D collider , Vector2 bulletPos){}  // Xử lý trên object
     protected virtual void HandleCollision(Collider2D collider , Vector2 bulletPos){} // Xử lý khi va chạm

@@ -29,7 +29,7 @@ public class ShakeCamera
         {
             ApplyShake(amplitude, frequency);
             stopTimer?.Kill(); // Dùng null-conditional operator thay vì kiểm tra null
-            stopTimer = DOVirtual.DelayedCall(duration, StopShakeCam);
+            stopTimer = DOVirtual.DelayedCall(duration, StopShakeCam,false);
         }
     }
 

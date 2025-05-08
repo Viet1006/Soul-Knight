@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 
 public class Firework : StraightBullet
@@ -12,13 +11,12 @@ public class Firework : StraightBullet
     }
     protected override void OnTriggerEnter2D(Collider2D collider)
     {
-        new ExplosiveBuff(damage,hitLayer).TryHandleCollision(collider , transform.position);
-        base.OnTriggerEnter2D(collider);
-        ReturnToPool();
-    }
-    public override void ReturnToPool()
-    {
-        lifeTimer.Kill();
-        BulletPool.Instance.ReturnBullet(this);
+        if(RandomChance.RollChance(critChance))
+        {
+            new ExplosiveBuff(damage * 2,hitLayer,100, true).TryHandleCollision(collider , transform.position );
+        } else new ExplosiveBuff(damage,hitLayer).TryHandleCollision(collider , transform.position );
+        
+        HandleCollision(collider);
+        ApplyBuffOnObject(collider);
     }
 }

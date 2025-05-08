@@ -1,19 +1,12 @@
-Font: Shovel Knight (Extended)  Style: Regular
+Font: Minecraft  Style: Medium
 Point Size: 50   Padding: -1073741824   SP/PD Ratio: -2147484000.0%
 
-Characters included: 89/99
-Missing characters: 10
+Characters included: 96/99
+Missing characters: 3
 Excluded characters: 0
 
 Characters missing from font file:
 ----------------------------------------
-ID: 64	Hex: 40	Char [@]
-ID: 94	Hex: 5E	Char [^]
-ID: 96	Hex: 60	Char [`]
-ID: 123	Hex: 7B	Char [{]
-ID: 124	Hex: 7C	Char [|]
-ID: 125	Hex: 7D	Char [}]
-ID: 160	Hex: A0	Char [ ]
 ID: 8203	Hex: 200B	Char [​]
 ID: 8230	Hex: 2026	Char […]
 ID: 9633	Hex: 25A1	Char [□]

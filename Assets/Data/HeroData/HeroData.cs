@@ -8,4 +8,5 @@ public class HeroData : ScriptableObject
     public float skillCoolDown;
     public string skillDescription;
     public Sprite skillIcon;
+    public GameObject initWeapon;
 }

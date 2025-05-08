@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b68e51c2a6a1e441a39ac083174e7cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRange: 13
   weapon: {fileID: 3469346110697790144}
   spawnBulletPos: {fileID: 3469346110697790144}
   hitLayer:

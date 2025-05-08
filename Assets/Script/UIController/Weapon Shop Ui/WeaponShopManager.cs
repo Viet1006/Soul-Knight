@@ -1,7 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-[DefaultExecutionOrder(-99)] // Setup cho các shop sẽ chạy thứ 2 sau player behaviour
 public class WeaponShopManager : ItemManagement
 {
     public static WeaponShopManager instance;
@@ -14,6 +13,7 @@ public class WeaponShopManager : ItemManagement
     {
         instance = this;
         allWeaponPrefab = Resources.LoadAll<GameObject>("Player Weapon");
+        UIManageShowAndHide.Instance.OnSelectMapComplete += ResetShop;
     }
     protected void Start()
     {
@@ -36,22 +36,22 @@ public class WeaponShopManager : ItemManagement
         int price = selectedWeapon.weaponData.price;
         if(! CoinManager.instance.TryBuy(price)) // Kiểm tra xem đủ tiền không
         {
-            NotificationSystem.instance.ShowNotification("Not engough coin",1f);
+            NotificationSystem.Instance.ShowNotification("Not engough coin",1f);
             return;
         }
         DeleteSlot(selectedWeapon); // Mua xong thì xóa weapon slot
-        GameObject boughtWeapon =  Object.Instantiate(selectedWeapon.gameObject); // Tạo instante cho vũ khí vừa được mua
+        GameObject boughtWeapon =  Instantiate(selectedWeapon.gameObject); // Tạo instante cho vũ khí vừa được mua
         boughtWeapon.name = selectedWeapon.name; // Chỉnh về đúng tên
-        WeaponInventoryManager.instance.StoreWeapon(boughtWeapon); // Tạo 1 wepon mới từ prefab đang chọn và thêm vào inventry
+        InventoryManager.instance.StoreWeapon(boughtWeapon); // Tạo 1 wepon mới từ prefab đang chọn và thêm vào inventry
         buyButton.interactable = false; // Mua xong thì tắt tương tác với nút mua
+        NotificationSystem.Instance.ShowNotification("Mua thành công " + boughtWeapon.name,1f);
         Close();
     }
     public void Interact()
     {
         boardShopAnim.ShowBoardShop();
-        //UIManageShowAndHide.Instance.OpenShop();
         UIManageShowAndHide.Instance.PauseGame();
-        DOVirtual.DelayedCall(0.1f,() => panel.enabled = true); // Bật panel sau 0,1s
+        DOVirtual.DelayedCall(0.1f,() => panel.enabled = true).SetUpdate(true); // Bật panel sau 0,1s
         SetInterractButtons( true); // bật tất cả các button
         weaponShopStats.gameObject.SetActive(false);
         buyButton.interactable = false; // Không cho ấn nút khi mới bật UI
@@ -74,7 +74,15 @@ public class WeaponShopManager : ItemManagement
     public void Close()
     {
         boardShopAnim.HideBoardShop();
-        DOVirtual.DelayedCall(0.4f,()=> panel.enabled = false); // Tắt panel sau 0.4s
+        DOVirtual.DelayedCall(0.4f,()=> panel.enabled = false).SetUpdate(true); // Tắt panel sau 0.4s
         UIManageShowAndHide.Instance.CloseShop();
+    }
+    void ResetShop()
+    {
+        foreach(Transform child in content)
+        {
+            Destroy(child.gameObject);
+        }
+        Start();
     }
 }

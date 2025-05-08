@@ -34,7 +34,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 6
     - Name: 
       Entry: 7
       Data: 
@@ -46,13 +46,133 @@ MonoBehaviour:
       Data: 2|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
+      Data: 3
+    - Name: fireRate
+      Entry: 4
+      Data: 2
+    - Name: radiusAttack
+      Entry: 3
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
       Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 3|TowerStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 3
+    - Name: fireRate
+      Entry: 4
+      Data: 2.4
+    - Name: radiusAttack
+      Entry: 3
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 4|TowerStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 3
+    - Name: fireRate
+      Entry: 4
+      Data: 2.8
+    - Name: radiusAttack
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 5|TowerStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 4
+    - Name: fireRate
+      Entry: 4
+      Data: 2.8
+    - Name: radiusAttack
+      Entry: 3
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 6|TowerStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 5
+    - Name: fireRate
+      Entry: 4
+      Data: 3
+    - Name: radiusAttack
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 7|TowerStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 5
     - Name: fireRate
       Entry: 4
       Data: 4
     - Name: radiusAttack
       Entry: 3
-      Data: 10
+      Data: 11
     - Name: 
       Entry: 8
       Data: 
@@ -67,18 +187,18 @@ MonoBehaviour:
       Data: 
     - Name: upgradePricePerLevel
       Entry: 7
-      Data: 3|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[System.Int32,
+      Data: 8|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[System.Int32,
         mscorlib]], mscorlib
     - Name: comparer
       Entry: 7
-      Data: 4|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+      Data: 9|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
         mscorlib]], mscorlib
     - Name: 
       Entry: 8
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 5
     - Name: 
       Entry: 7
       Data: 
@@ -87,7 +207,55 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 50
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 3
+      Data: 24
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 3
+      Data: 29
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 3
+      Data: 37
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 3
+      Data: 45
     - Name: 
       Entry: 8
       Data: 
@@ -97,10 +265,10 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  fireRate: 5
-  speed: 50
-  towerDescription: 
-  price: 0
+    - Name: bulletBuffs
+      Entry: 6
+      Data: 
+  speed: 40
+  price: 30
   bulletPrefab: {fileID: 4276463718859721219, guid: 45d354b3a57268a4096b01e543f051bf, type: 3}
   element: 0
-  bulletBuffs: []

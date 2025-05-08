@@ -35,7 +35,7 @@ public class WitchSkill : BaseSkill
                     skillEffect.SetActive(false);
                     strikeAnim.gameObject.SetActive(false);
                 });
-        target.GetComponent<EnemyController>().GetHit(damage , BulletElement.Lightning);
+        target.GetComponent<EnemyController>().GetHit(damage , BulletElement.Lightning,false);
         strikeBuff.TryHandleOnObject(target.GetComponent<Collider2D>() , transform.position);
     }
 }

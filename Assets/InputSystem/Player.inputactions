@@ -132,6 +132,17 @@
                     "action": "ActiveSkill",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "68e0878f-bba7-41b4-9f0a-c6c76e0c79d0",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ActiveSkill",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

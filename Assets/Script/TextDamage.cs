@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 public class TextDamage : MonoBehaviour
@@ -21,7 +22,7 @@ public class TextDamage : MonoBehaviour
         else direction = -1;
         initialSpeed.x = Random.Range(minSpeed.x,maxSpeed.x) * direction;
         initialSpeed.y = Random.Range(minSpeed.y,maxSpeed.y);
-        Invoke(nameof(ReturnToPool),0.6f);
+        DOVirtual.DelayedCall(timeLife, ReturnToPool , false);
         textMesh.text = damage.ToString();
         textMesh.color = color;
         spriteRenderer.sprite = icon;

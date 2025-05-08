@@ -45,10 +45,16 @@ public class PauseBorder : MonoBehaviour
     public void PauseGame()
     {
         UIManageShowAndHide.Instance.PauseGame();
+        UIManageShowAndHide.Instance.ShowPausePanel(); // Gọi sự kiện hiện pause panel
         ShowBorder();
     }
     public void ContinueGame()
     {
         UIManageShowAndHide.Instance.ResumeGame();
+    }
+    public void ExitGame()
+    {
+        Time.timeScale = 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("SampleScene");
     }
 }

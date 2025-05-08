@@ -8,6 +8,7 @@ public class KnightSkill : BaseSkill
     [SerializeReference]
     public List<BulletBuff> randomBuffs = new();
     System.Action<List<BulletBuff>> _buffAction;
+    BaseWeapon currentWeapon;
     protected override void Awake()
     {
         base.Awake();
@@ -16,14 +17,16 @@ public class KnightSkill : BaseSkill
     }
     protected override void PerformSkill()
     {
-        playerBehaviour.currentWeapon.OnAttack += _buffAction;
+        currentWeapon = playerBehaviour.currentWeapon;
+        currentWeapon.OnAttack += _buffAction;
         skillEffect.SetActive(true);
     }
     protected override void UnActiveSkill(float skillCoolDown)
     {
         base.UnActiveSkill(skillCoolDown);
         skillEffect.SetActive(false);
-        playerBehaviour.currentWeapon.OnAttack -= _buffAction;
+        if(currentWeapon) currentWeapon.OnAttack -= _buffAction;
+        
     }
     void RandomBuffs(List<BulletBuff> addedBuffs)
     {

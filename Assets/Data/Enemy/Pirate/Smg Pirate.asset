@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3ddca26cc38333478c25ba9cdaefc5f, type: 3}
+  m_Name: Smg Pirate
+  m_EditorClassIdentifier: 
+  health: 25
+  speed: 4
+  AttackRate: 0.6
+  cost: 4
+  bulletPrefab: {fileID: 7876961994352399717, guid: 3f5c79fe9f3359f40a802c7fdaf27588, type: 3}
+  bulletSpeed: 8
+  damage: 1
+  bulletBuffs: []
+  element: 0
+  bulletTimeLife: 3
+  references:
+    version: 2
+    RefIds: []

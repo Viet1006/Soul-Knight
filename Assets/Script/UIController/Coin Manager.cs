@@ -22,6 +22,10 @@ public class CoinManager : MonoBehaviour
     }
     public void AddCoin(int changeValue)
     {
+        if(changeValue > 0)
+        {
+            TotalStats.Instance.coin += changeValue;
+        }
         targetValue += changeValue;
         changeValueTween.Kill();
         changeValueTween = DOVirtual.Int(currentValue, targetValue, 0.5f, value =>
@@ -35,12 +39,5 @@ public class CoinManager : MonoBehaviour
         if(cost > targetValue) return false;
         AddCoin(-cost);
         return true;
-    }
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            CoinPool.Instance.GetCoin(new Vector2(-23,59),9999);
-        }
     }
 }

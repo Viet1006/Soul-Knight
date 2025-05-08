@@ -14,17 +14,20 @@ public class ElementZone : SerializedMonoBehaviour
     [SerializeField] Dictionary<BulletElement,Zone> zones = new();
     readonly float radius = 2f;
     SpriteRenderer sprite;
+    [SerializeField] GameObject enemyZone;
     void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
     }
-    public void SetElementZone(int damagePerHalfSeconder , float durationEffect , BulletElement element,LayerMask hitLayer)
+    public void SetElementZone(int damagePerHalfSeconder , float durationEffect , BulletElement element,LayerMask hitLayer , bool isEnemyZone = false)
     {
         if(!zones.ContainsKey(element)) // Nếu thuộc tính ko có thì ko set mà trả về pool luôn
         {
             BulletPool.Instance.ReturnBullet(this);
             return;
         } 
+        if(isEnemyZone) enemyZone.SetActive(true); // Nếu là zone của enemy thì bật zone lên
+        else enemyZone.SetActive(false);
         sprite.color = zones[element].colorZone;
         transform.localScale = Vector2.zero;
         transform.DOScale(2 * radius * Vector2.one  , 0.3f ) //  hình ảnh ban đầu bán kính chỉ có 0.5 nên cần * 2   
@@ -32,7 +35,7 @@ public class ElementZone : SerializedMonoBehaviour
                 {
                     zones[element].effect.gameObject.SetActive(true);
                 });
-        DOVirtual.DelayedCall(0.5f , () => Burn(damagePerHalfSeconder , element , hitLayer))
+        DOVirtual.DelayedCall(0.5f , () => Burn(damagePerHalfSeconder , element , hitLayer),false)
             .SetLoops((int)(durationEffect * 2)) 
             .OnKill(() =>
                 {
@@ -45,7 +48,7 @@ public class ElementZone : SerializedMonoBehaviour
         Collider2D[] hittedObjects = Physics2D.OverlapCircleAll(transform.position,radius ,hitLayer);
         foreach (Collider2D hittedObject in hittedObjects)
         {
-            if(hittedObject.TryGetComponent(out IGetHit getHit)) getHit.GetHit(damage,element,false); 
+            if(hittedObject.TryGetComponent(out IGetHit getHit)) getHit.GetHit(damage,element,false,false); 
         }
     }
     private void OnDrawGizmos()

@@ -11,7 +11,7 @@ public class EnemyUseContinuousWeapon : EnemyWithWeapon
     {
         attackTween = DOVirtual.DelayedCall(1/fireRate ,()=> {
             CreateBullet();
-        }).SetLoops((int)(fireRate * timeAttack))
+        },false).SetLoops((int)(fireRate * timeAttack))
         .OnComplete(ResetTimeToAttack);
     }
     public override void CreateBullet()

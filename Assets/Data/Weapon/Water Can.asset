@@ -46,7 +46,7 @@ MonoBehaviour:
       Data: 2|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 4
+      Data: 5
     - Name: fireRate
       Entry: 4
       Data: 2
@@ -70,10 +70,10 @@ MonoBehaviour:
       Data: 3|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 4
+      Data: 6
     - Name: fireRate
       Entry: 4
-      Data: 2.2
+      Data: 2
     - Name: critChance
       Entry: 3
       Data: 5
@@ -94,13 +94,13 @@ MonoBehaviour:
       Data: 4|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 4
+      Data: 6
     - Name: fireRate
       Entry: 4
       Data: 2.2
     - Name: critChance
       Entry: 3
-      Data: 8
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -118,10 +118,10 @@ MonoBehaviour:
       Data: 5|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 4
+      Data: 7
     - Name: fireRate
       Entry: 4
-      Data: 2.42
+      Data: 2.4
     - Name: critChance
       Entry: 3
       Data: 8
@@ -142,13 +142,13 @@ MonoBehaviour:
       Data: 6|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 4
+      Data: 8
     - Name: fireRate
       Entry: 4
-      Data: 2.42
+      Data: 2.52
     - Name: critChance
       Entry: 3
-      Data: 13
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -166,13 +166,13 @@ MonoBehaviour:
       Data: 7|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 8
     - Name: fireRate
       Entry: 4
-      Data: 2.42
+      Data: 2.9
     - Name: critChance
       Entry: 3
-      Data: 13
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
@@ -190,13 +190,13 @@ MonoBehaviour:
       Data: 8|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 9
     - Name: fireRate
       Entry: 4
-      Data: 2.64
+      Data: 3
     - Name: critChance
       Entry: 3
-      Data: 13
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
@@ -214,13 +214,13 @@ MonoBehaviour:
       Data: 9|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 10
     - Name: fireRate
       Entry: 4
-      Data: 2.64
+      Data: 3.2
     - Name: critChance
       Entry: 3
-      Data: 19
+      Data: 17
     - Name: 
       Entry: 8
       Data: 
@@ -238,10 +238,10 @@ MonoBehaviour:
       Data: 10|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 12
     - Name: fireRate
       Entry: 4
-      Data: 2.64
+      Data: 3.2
     - Name: critChance
       Entry: 3
       Data: 19
@@ -262,13 +262,13 @@ MonoBehaviour:
       Data: 11|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 14
     - Name: fireRate
       Entry: 4
-      Data: 3.1
+      Data: 3.3
     - Name: critChance
       Entry: 3
-      Data: 25
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -286,13 +286,13 @@ MonoBehaviour:
       Data: 12|WeaponStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 6
+      Data: 15
     - Name: fireRate
       Entry: 4
-      Data: 2.7
+      Data: 3.96
     - Name: critChance
       Entry: 3
-      Data: 25
+      Data: 20
     - Name: 
       Entry: 8
       Data: 

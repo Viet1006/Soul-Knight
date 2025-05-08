@@ -138,7 +138,7 @@ MonoBehaviour:
   animator: {fileID: 1989652851206079011}
   timeToNextLevelCharge: 0
   timeForEachLevelCharge: 0.5
-  damagePerCount: 0
+  damagePerCount: 3
 --- !u!1 &2534799103050311936
 GameObject:
   m_ObjectHideFlags: 0

@@ -21,11 +21,10 @@ public class UpgradeWeaponManager : MonoBehaviour
     }
     public void Interact()
     {
-        //UIManageShowAndHide.Instance.OpenShop();
         UIManageShowAndHide.Instance.PauseGame();
         boardShopAnim.ShowBoardShop();
-        DOVirtual.DelayedCall(0.1f,() => panel.enabled = true); // Bật panel sau 0,1s
-        selectedWeapon = WeaponInventoryManager.instance.usingWeapon;
+        DOVirtual.DelayedCall(0.1f,() => panel.enabled = true).SetUpdate(true); // Bật panel sau 0,1s
+        selectedWeapon = InventoryManager.instance.usingWeapon;
         currentWeapon.SetWeaponStats(selectedWeapon,selectedWeapon.name,selectedWeapon.level); // Set chỉ số cho vũ khí hiện tại
         upgradedWeapon.SetWeaponStats(selectedWeapon,selectedWeapon.name,selectedWeapon.level+1); // Set chỉ số cho vũ khí sau khi nâng cấp
         int upgradePrice = UpgradePrice.GetUpgradePrice(selectedWeapon.weaponData.rareColor,selectedWeapon.level);
@@ -48,15 +47,15 @@ public class UpgradeWeaponManager : MonoBehaviour
         {
             selectedWeapon.Upgrade();
             Close();
-            NotificationSystem.instance.ShowNotification("Nâng cấp "+ selectedWeapon.name + " lên +" + selectedWeapon.level +" thành công",1);
+            NotificationSystem.Instance.ShowNotification("Nâng cấp "+ selectedWeapon.name + " lên +" + selectedWeapon.level +" thành công",1);
         }else{
-            NotificationSystem.instance.ShowNotification("Không đủ tiền",1);
+            NotificationSystem.Instance.ShowNotification("Không đủ tiền",1);
         }
     }
     public void Close()
     {
         boardShopAnim.HideBoardShop();
-        DOVirtual.DelayedCall(0.4f,()=> panel.enabled = false); // Tắt panel sau 0.4s
+        DOVirtual.DelayedCall(0.4f,()=> panel.enabled = false).SetUpdate(true); // Tắt panel sau 0.4s
         UIManageShowAndHide.Instance.CloseShop();
     }
 }

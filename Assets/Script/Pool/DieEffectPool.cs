@@ -21,7 +21,7 @@ public class DieEffectPool
         else dieEffect = Object.Instantiate(ObjectHolder.Instance.dieEffect); // Chưa có thì tạo vào lấy tham chiếu
         dieEffect.transform.position = pos; // Sửa vị trí
         dieEffect.SetActive(true); 
-        DG.Tweening.DOVirtual.DelayedCall(0.5f , ()=> ReturnToPool(dieEffect)); // Trả về pool sau 0.5f
+        DG.Tweening.DOVirtual.DelayedCall(0.5f , ()=> ReturnToPool(dieEffect) , false); // Trả về pool sau 0.5f
     }
     void ReturnToPool(GameObject dieEffect)
     {

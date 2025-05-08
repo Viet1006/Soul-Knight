@@ -35,8 +35,7 @@ public class ChooseHeroController : MonoBehaviour
             MouseEvent.instance.OnLeftMousePerformed -= CheckChooseHero;
             playerTracker.transform.position = selectedHero.transform.position;  
             UIManageShowAndHide.Instance.ChooseHero();
-            SetHeroStats(selectedHero.GetComponent<PlayerHandleEffect>().heroData
-                , selectedHero.GetComponentInChildren<BaseWeapon>());
+            SetHeroStats(selectedHero.GetComponent<PlayerHandleEffect>().heroData);
             overCam.Priority = 0; // Chuyển sang chiếu trên player cam
             PlayerCamera.instance.playerCam.transform.position = selectedHero.transform.position + Vector3.back * 10; // đưa play cam về nhân vật chọn
         }
@@ -46,7 +45,7 @@ public class ChooseHeroController : MonoBehaviour
         MouseEvent.instance.OnLeftMousePerformed += CheckChooseHero;
         overCam.Priority = 10;
     }
-    void SetHeroStats(HeroData heroData ,BaseWeapon initWeapon)
+    void SetHeroStats(HeroData heroData)
     {
         skillDescription.text = heroData.skillDescription;
         skillCoolDown.text = heroData.skillCoolDown.ToString();
@@ -54,7 +53,7 @@ public class ChooseHeroController : MonoBehaviour
         speed.text = heroData.speed.ToString();
         skillIcon.sprite = heroData.skillIcon;
         skillButton.sprite = heroData.skillIcon;
-        this.initWeapon.sprite = initWeapon.GetComponent<SpriteRenderer>().sprite;
+        initWeapon.sprite = heroData.initWeapon.GetComponent<SpriteRenderer>().sprite;
     }
     public void OnStartButton()
     {

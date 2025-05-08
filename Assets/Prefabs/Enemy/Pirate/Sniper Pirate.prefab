@@ -306,11 +306,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09c881a3cb3932c4da6d82b8c63a6f57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 15
+  attackRange: 18
   weapon: {fileID: 7665241005504533740}
   spawnBulletPos: {fileID: 129763195307152744}
   aimLine: {fileID: 3836360093131866439}
-  canRotate: 1
 --- !u!1 &2178233441519500289
 GameObject:
   m_ObjectHideFlags: 0

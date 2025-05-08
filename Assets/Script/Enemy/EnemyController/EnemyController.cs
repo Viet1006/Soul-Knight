@@ -23,7 +23,7 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
             moveToStatus.SetSpeed(enemyData.speed);
             moveToStatus.OnTarget += ResetToOringin; // Đăng ký sự kiện khi đến đích thì reset về origin sau đó trả về pool
         }
-        flashTween = DOVirtual.DelayedCall(0.1f,()=> spriteEnemy.material = ObjectHolder.Instance.defaultMaterial )
+        flashTween = DOVirtual.DelayedCall(0.1f,()=> spriteEnemy.material = ObjectHolder.Instance.defaultMaterial , false )
             .SetAutoKill(false)
             .Pause();
     }
@@ -32,9 +32,9 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
         currentHealth = enemyData.health;
         return enemyData.cost;
     }
-    public void GetHit(int damage, BulletElement bulletElements , bool notify = true) // Sát thương nhận thêm từ đạn
+    public void GetHit(int damage, BulletElement bulletElements , bool isCrit, bool notify = true ) // Sát thương nhận thêm từ đạn
     {
-        TextDamePool.Instance.GetTextDamage( transform.position + new Vector3(0, 1f, 0),bulletElements,damage);
+        TextDamePool.Instance.GetTextDamage( transform.position + new Vector3(0, 1f, 0),bulletElements,damage , isCrit);
         currentHealth -= damage;
         if(currentHealth <=0)
         {

@@ -19,18 +19,18 @@ public abstract class BaseSkill : MonoBehaviour
             PerformSkill();
             canActiveSkill = false;
             SkillButton.instance.StartDuration(skillDuration);
-            DOVirtual.DelayedCall(skillDuration , () => UnActiveSkill(skillCoolDown)).OnKill(() => UnActiveSkill(skillCoolDown));
+            DOVirtual.DelayedCall(skillDuration , () => UnActiveSkill(skillCoolDown),false).OnKill(() => UnActiveSkill(skillCoolDown));
         } 
     }
     protected abstract void PerformSkill();
     protected virtual void UnActiveSkill(float skillCoolDown)
     {
         SkillButton.instance.StartCoolDown(skillCoolDown);
-        DOVirtual.DelayedCall(skillCoolDown,()=> canActiveSkill = true);
+        DOVirtual.DelayedCall(skillCoolDown,()=> canActiveSkill = true,false);
     }
-    void ResetSKill()
+    protected virtual void ResetSKill()
     {
         canActiveSkill = true;
-        SkillButton.instance.ResetButton();
+        UnActiveSkill(0);
     }
 }

@@ -1,0 +1,313 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a24b68dfc8a0b42b8f064c12599d77, type: 3}
+  m_Name: Dragon Poison
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: statsPerLevel
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.Int32, mscorlib],[WeaponStatsPerlevel,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.Int32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 10
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 7
+      Data: 2|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 13
+    - Name: fireRate
+      Entry: 4
+      Data: 3
+    - Name: critChance
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 3|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 15
+    - Name: fireRate
+      Entry: 4
+      Data: 3.2
+    - Name: critChance
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 4|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 17
+    - Name: fireRate
+      Entry: 4
+      Data: 3.3
+    - Name: critChance
+      Entry: 3
+      Data: 10
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 7
+      Data: 5|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 20
+    - Name: fireRate
+      Entry: 4
+      Data: 3.3
+    - Name: critChance
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 6|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 24
+    - Name: fireRate
+      Entry: 4
+      Data: 3.3
+    - Name: critChance
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 7
+      Data: 7|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 27
+    - Name: fireRate
+      Entry: 4
+      Data: 3.5
+    - Name: critChance
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 6
+    - Name: $v
+      Entry: 7
+      Data: 8|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 30
+    - Name: fireRate
+      Entry: 4
+      Data: 3.78
+    - Name: critChance
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 7
+    - Name: $v
+      Entry: 7
+      Data: 9|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 34
+    - Name: fireRate
+      Entry: 4
+      Data: 4
+    - Name: critChance
+      Entry: 3
+      Data: 15
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 9
+    - Name: $v
+      Entry: 7
+      Data: 10|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 38
+    - Name: fireRate
+      Entry: 4
+      Data: 4.2
+    - Name: critChance
+      Entry: 3
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 10
+    - Name: $v
+      Entry: 7
+      Data: 11|WeaponStatsPerlevel, Assembly-CSharp
+    - Name: damage
+      Entry: 3
+      Data: 41
+    - Name: fireRate
+      Entry: 4
+      Data: 4.56
+    - Name: critChance
+      Entry: 3
+      Data: 25
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  speed: 35
+  inaccuracy: 2
+  rareColor: 3
+  price: 180
+  bulletPrefab: {fileID: 8716283894238101725, guid: 6737227242cddde4bae9e079eff61a02, type: 3}
+  element: 4
+  bulletBuffs:
+  - rid: 3179476650399629472
+  - rid: 3179476650399629473
+  bulletTimeLife: 3
+  references:
+    version: 2
+    RefIds:
+    - rid: 3179476650399629472
+      type: {class: PoisonBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 30
+        damageHalfSecond: 40
+        poisonDuration: 3
+    - rid: 3179476650399629473
+      type: {class: ElementZoneBuff, ns: , asm: Assembly-CSharp}
+      data:
+        applyChance: 10
+        damageHalfSecond: 3
+        timeLife: 3
+        bulletElement: 4
+        hitLayer:
+          serializedVersion: 2
+          m_Bits: 64
+        isEnemy: 0

@@ -250,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 554b81a85c93ad7458fdc9b0816b66ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRange: 15
 --- !u!114 &295843090825606546
 MonoBehaviour:
   m_ObjectHideFlags: 0

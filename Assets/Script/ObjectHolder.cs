@@ -17,6 +17,8 @@ public class ObjectHolder : SerializedScriptableObject
     [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject coinPrebfab;
     [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject dieEffect;
     [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject explodeEffectPrefab;
+    [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject miniExplode;
+    [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject critTextPrefab;
 
 
     [DictionaryDrawerSettings(KeyLabel = "Element Type" , ValueLabel = "Element Icon")]

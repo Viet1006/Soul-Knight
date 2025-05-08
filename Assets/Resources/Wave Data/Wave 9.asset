@@ -16,14 +16,16 @@ MonoBehaviour:
   - enemyWeight: 1
     enemyPrefab: {fileID: 1926595480736889479, guid: dd9c2c63128d78a49b407ec2ecdd236c, type: 3}
   - enemyWeight: 1
-    enemyPrefab: {fileID: 1926595480736889479, guid: d34c6e537160cae49b1a7e0510d51b98, type: 3}
-  - enemyWeight: 1
     enemyPrefab: {fileID: 5097492414053586777, guid: 3642bf8c367e4224da913b849cec6106, type: 3}
-  - enemyWeight: 0
-    enemyPrefab: {fileID: 697992453004028493, guid: ed97687b28f03cd46af8ef50a3a29ff9, type: 3}
+  - enemyWeight: 1
+    enemyPrefab: {fileID: 1926595480736889479, guid: 7c1122f5ea1ebf946bbbbe3bf391c2be, type: 3}
+  - enemyWeight: 1
+    enemyPrefab: {fileID: 5097492414053586777, guid: 2b37377b3708ead46a87f064a5e46780, type: 3}
+  - enemyWeight: 1
+    enemyPrefab: {fileID: 5097492414053586777, guid: c0c8abcb707d9954382a5304744048e9, type: 3}
   spawnAreas:
   - {fileID: 11400000, guid: 23a535b29d47e9f4f9ffb51f939d33bb, type: 2}
   - {fileID: 11400000, guid: a84635d62dea98f439c2c72b0d53f532, type: 2}
   - {fileID: 11400000, guid: 60208f0aff251e14bbb15653cbe07c1c, type: 2}
-  cost: 200
-  spawnRate: 1.2
+  cost: 218
+  spawnRate: 1.9

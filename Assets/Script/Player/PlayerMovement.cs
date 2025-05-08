@@ -7,6 +7,11 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public bool canMove = true;
     public Vector2 moveInputValue;
+    void Start()
+    {
+        UIManageShowAndHide.Instance.OnCloseShop += () => moveInputValue = Vector2.zero;
+        UIManageShowAndHide.Instance.OnResumeGame += () => moveInputValue = Vector2.zero;
+    }
     private void FixedUpdate()
     {
         // Áp dụng gia tốc , V new = V current + (V target - V current) * accleration * time
@@ -25,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void OnMove(InputAction.CallbackContext context)
     {
-        if(!canMove) return;
+        if(!canMove || Time.timeScale == 0) return;
         moveInputValue = context.ReadValue<Vector2>();
         animator.SetInteger(Parameters.state, 1);
     }

@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
+using Sirenix.Utilities;
 using TMPro;
 using UnityEngine;
 
@@ -7,19 +9,30 @@ class ManageSpawnEnemy : MonoBehaviour
 {
     public static ManageSpawnEnemy instance;
     int currentWave = -1; // Wave hiện tại theo index ở list
-    Wave[] waves; // Danh sách các wave
+    List<Wave> waves = new(); // Danh sách các wave
     [SerializeField] float timePerWave; // Thời gian cho mỗi wave
     public float timeWaveRemain; // Thời gian còn lại trước khi bắt đầu wave mới
     [SerializeField] TextMeshProUGUI timeText;
     private readonly Dictionary<string, Queue<GameObject>> enemyPool = new();
     int spawnerCount; // Số lượng coroutine đang Spawn
     int enemyRemain; // Số lượng quái trong wave
+    [SerializeField] MainUIAnim MainUIAnim;
     void Awake()
     {
         instance = this;
-        timeWaveRemain = 0; // Lúc bắt đầu thì cho 10s để chuẩn bị
-        waves = Resources.LoadAll<Wave>("Wave Data");
+        timeWaveRemain = 10; // Lúc bắt đầu thì cho 10s để chuẩn bị
+        NotificationSystem.Instance.ShowNotification("Hãy cố gắng bảo vệ tháp của bạn khỏi quái vật" , 3f);
+        for (int i = 1; i <= 15; i++)
+        {
+            string waveName = "Wave " + i;
+            Wave wavePrefab = Resources.Load<Wave>("Wave Data/" +waveName);
+            if (wavePrefab != null)
+            {
+                waves.Add(wavePrefab);
+            }
+        }
         timeText.gameObject.SetActive(true);
+        MainUIAnim.ShowOpenShopBorder();
     }
     void Update()
     {
@@ -27,11 +40,12 @@ class ManageSpawnEnemy : MonoBehaviour
         {
             timeWaveRemain = timePerWave;
             currentWave++; // Chuyển đến wave tiếp theo
-            NotificationSystem.instance.ShowNotification("Bắt đầu wave " +(currentWave+1) ,2f); // Thông báo bắt đầu wave mới
+            NotificationSystem.Instance.ShowNotification("Bắt đầu wave " +(currentWave+1) ,1f); // Thông báo bắt đầu wave mới
             StartCoroutine(SpawnEnemyCoroutine()); // Bắt đầu 1 coroutine để spawn quái
         }else
         {
             timeWaveRemain -= Time.deltaTime;
+            TotalStats.Instance.time += Time.deltaTime;
             timeText.text = "Thời gian còn lại: " + Mathf.Round(timeWaveRemain).ToString();
         }
     }
@@ -41,7 +55,7 @@ class ManageSpawnEnemy : MonoBehaviour
         int costWave = waves[currentWave].cost;
         while (costWave > 0)
         {
-            yield return new WaitForSeconds(1/waves[currentWave].spawnRate); // Lặp lại sau 2 giây
+            yield return new WaitForSeconds(1/waves[currentWave].spawnRate); 
             costWave -= SpawnEnemy(waves[currentWave].GetRandomEnemy(), waves[currentWave].GetRandomSpawnArea().GetRandomPosition());
         }
         spawnerCount--;
@@ -67,11 +81,31 @@ class ManageSpawnEnemy : MonoBehaviour
     public void ReturnToPool(GameObject enemy)
     {
         enemy.SetActive(false);
+        TotalStats.Instance.kill++;
         enemyPool[enemy.name.Replace("(Clone)", "")].Enqueue(enemy);
         enemyRemain --;
         if(enemyRemain ==0 && spawnerCount == 0) // Nếu không còn quái nào trong wave và không còn coroutine nào đang spawn
         {
-            NotificationSystem.instance.ShowNotification("Wave " + (currentWave + 1) + " đã hoàn thành", 2f); // Thông báo hoàn thành wave
+            if(currentWave == waves.Count - 1) // Nếu đã hoàn thành tất cả các wave
+            {
+                timeText.gameObject.SetActive(false); // Ẩn text thời gian
+                NotificationSystem.Instance.ShowNotification("Hoàn thành tất cả các wave", 2f); // Thông báo hoàn thành tất cả các wave
+                UIManageShowAndHide.Instance.PauseGame();
+                DOVirtual.DelayedCall(3, () => DOVirtual.DelayedCall(1,() =>
+                {
+                    DOTween.KillAll(); // Dừng tất cả tween đang chạy
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Total Scene");
+                }));
+            }
+            else
+            {
+                NotificationSystem.Instance.ShowNotification("Wave " + (currentWave + 1) + " đã hoàn thành", 1f); // Thông báo hoàn thành wave
+                if(timeWaveRemain > 10) // Nếu thời gian còn lại ít hơn 10 giây thì đặt lại thời gian
+                {
+                    timeWaveRemain = 10; // Đặt lại thời gian cho wave mới
+                }
+            } 
+            
         }
     }
     public bool IsFinishWave() => enemyRemain == 0 && spawnerCount == 0;

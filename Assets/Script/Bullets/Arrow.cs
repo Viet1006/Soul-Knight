@@ -20,7 +20,7 @@ public class Arrow : StraightBullet
     {
         spriteRenderer.sortingOrder = 0;
         lifeTimer.Kill();
-        DOVirtual.DelayedCall(5,() => BulletPool.Instance.ReturnBullet(this));
+        DOVirtual.DelayedCall(5,() => BulletPool.Instance.ReturnBullet(this),false);
         speed=0;
         bulletCollider.enabled = false;
     }

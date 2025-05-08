@@ -1,21 +1,48 @@
 using DG.Tweening;
 using UnityEngine;
 
-public class CloseTowerShopButotn : MonoBehaviour
+public class CloseTowerShopButton : MonoBehaviour
 {
     Tween appearTween;
-    public static CloseTowerShopButotn instance;
-    void Awake() => instance = this;
+    Tween hideTween;
+    public static CloseTowerShopButton instance;
+    
+    [SerializeField] Vector2 hiddenPosition; // Vị trí khi ẩn
+    [SerializeField] Vector2 shownPosition; // Vị trí khi hiện
+    RectTransform rectTransform;
+
+    void Awake() 
+    {
+        instance = this;
+        rectTransform = GetComponent<RectTransform>();
+    }
+
     void Start()
     {
-
-        RectTransform rectTransform = GetComponent<RectTransform>(); // Lấy RectTransform của đối tượng
-        rectTransform.anchoredPosition = -rectTransform.anchoredPosition; // Đặt vị trí ban đầu cho nút
-        appearTween = rectTransform.DOAnchorPos(-rectTransform.anchoredPosition,0.5f) // khi nút xuất hiện
+        rectTransform.anchoredPosition = hiddenPosition;
+        
+        appearTween = rectTransform.DOAnchorPos(shownPosition, 0.5f)
             .SetEase(Ease.InCubic)
             .SetAutoKill(false)
-            .Pause(); // Tạo tween cho border
+            .Pause()
+            .SetUpdate(true);
+            
+        hideTween = rectTransform.DOAnchorPos(hiddenPosition, 0.5f)
+            .SetEase(Ease.OutCubic)
+            .SetAutoKill(false)
+            .Pause()
+            .SetUpdate(true);
     }
-    public void ShowButton() => appearTween.PlayForward();
-    public void HideButton() => appearTween.PlayBackwards();
+
+    public void ShowButton() 
+    {
+        if(rectTransform.anchoredPosition != hiddenPosition) rectTransform.anchoredPosition = hiddenPosition;
+        appearTween.Restart(); // Bắt đầu lại tween hiện
+    }
+    
+    public void HideButton() 
+    {
+        if(rectTransform.anchoredPosition != shownPosition) rectTransform.anchoredPosition = shownPosition;
+        hideTween.Restart(); // Bắt đầu lại tween ẩn
+    }
 }

@@ -12,30 +12,28 @@ public class MainUIAnim : MonoBehaviour
     {
         UIManageShowAndHide.Instance.OnPauseGame += HideBorder; // Đăng ký sự kiện tạm dừng game
         UIManageShowAndHide.Instance.OnResumeGame += ShowBorder; // Đăng ký sự kiện tiếp tục game
-        //UIManageShowAndHide.Instance.OnOpenShop += HideBorder;
         UIManageShowAndHide.Instance.OnCloseShop += ShowOpenShopBorder;
         UIManageShowAndHide.Instance.OnCompleteChoose += ShowCompleteChooseHero;
-        UIManageShowAndHide.Instance.OnSelectMap += HideBorder; // Đăng ký sự kiện tạm dừng game
-        UIManageShowAndHide.Instance.OnCloseMap += ShowBorder; // Đăng ký sự kiện tiếp tục game
         UIManageShowAndHide.Instance.OnSelectMapComplete += ()=> showTween.PlayForward();
         rectTransform = GetComponent<RectTransform>(); // Lấy RectTransform của đối tượng
         rectTransform.anchoredPosition = - rectTransform.anchoredPosition;
         showTween = rectTransform.DOAnchorPos(-rectTransform.anchoredPosition,0.5f)
             .SetEase(Ease.OutBack)
             .SetAutoKill(false)
-            .Pause(); // Tạo tween cho border
+            .Pause()
+            .SetUpdate(true); // Tạo tween cho border
     }
     void ShowBorder() // Hiện border khi game chạy
     {
-        DOVirtual.DelayedCall(delayShowTime, () => showTween.PlayForward() ); // Delay chờ PauseBorder ẩn đi
+        DOVirtual.DelayedCall(delayShowTime, () => showTween.PlayForward() ).SetUpdate(true); // Delay chờ PauseBorder ẩn đi
     }
-    void ShowOpenShopBorder() // Hiện border khi đóng shop
+    public void ShowOpenShopBorder() // Hiện border khi đóng shop
     {
-        DOVirtual.DelayedCall(delayOpenShop, () => showTween.PlayForward() );
+        DOVirtual.DelayedCall(delayOpenShop, () => showTween.PlayForward() ).SetUpdate(true);
     }
     void ShowCompleteChooseHero() // Hiện border khi chọn hero xong
     {
-        DOVirtual.DelayedCall(delayCompleteChooseHero, () => showTween.PlayForward() );
+        DOVirtual.DelayedCall(delayCompleteChooseHero, () => showTween.PlayForward() ).SetUpdate(true);
     }
     void HideBorder() // Ẩn border khi game dừng hoặc mở Shop
     {
@@ -45,10 +43,7 @@ public class MainUIAnim : MonoBehaviour
     {
         UIManageShowAndHide.Instance.OnPauseGame -= HideBorder;
         UIManageShowAndHide.Instance.OnResumeGame -= ShowBorder;
-        //UIManageShowAndHide.Instance.OnOpenShop -= HideBorder;
         UIManageShowAndHide.Instance.OnCloseShop -= ShowOpenShopBorder;
         UIManageShowAndHide.Instance.OnCompleteChoose -= ShowCompleteChooseHero;
-        UIManageShowAndHide.Instance.OnSelectMap -= HideBorder; // Đăng ký sự kiện tạm dừng game
-        UIManageShowAndHide.Instance.OnCloseMap -= ShowBorder; // Đăng ký sự kiện tiếp tục game
     }
 }

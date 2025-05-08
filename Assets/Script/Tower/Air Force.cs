@@ -22,7 +22,7 @@ public class AirForce : BaseTower
             BulletPool.Instance
                 .GetBullet<Drone>(towerData.bulletPrefab , spawnPoint.transform.position)
                 .SetDrone(towerData.speed,towerData.Damage(level),0 ,towerData.element, towerData.bulletBuffs, target , this);
-        }).SetLoops(droneCount , LoopType.Incremental);
+        },false).SetLoops(droneCount , LoopType.Incremental);
     }
     public void GetDrone() // Mở cửa đón Drone về
     {

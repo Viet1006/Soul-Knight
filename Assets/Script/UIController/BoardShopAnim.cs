@@ -8,10 +8,11 @@ public class BoardShopAnim : MonoBehaviour
     public void Awake()
     {
         boardShop = GetComponent<RectTransform>();
-        appearTween = boardShop.DOAnchorPos(boardShop.anchoredPosition,0.7f)
+        appearTween = boardShop.DOAnchorPos(boardShop.anchoredPosition,0.6f)
             .SetEase(Ease.OutBack)
             .SetAutoKill(false)
-            .Pause(); // Tạo tween cho board
+            .Pause()
+            .SetUpdate(true); // Tạo tween cho board
         boardShop.anchoredPosition = new Vector2(-boardShop.anchoredPosition.x,-boardShop.anchoredPosition.y); // Đặt vị trí ban đầu của boardShop
     }
     public void ShowBoardShop()

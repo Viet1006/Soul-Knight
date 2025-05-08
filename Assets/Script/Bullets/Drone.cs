@@ -85,7 +85,7 @@ public class Drone : FollowTargetBullet
         });
         transform.rotation = Quaternion.identity;
         spriteRenderer.material = revealMat;
-        DOVirtual.DelayedCall(0.3f,() => revealMat.DOFloat(1f , "_RevealProgress" , 0.1f));
+        DOVirtual.DelayedCall(0.3f,() => revealMat.DOFloat(1f , "_RevealProgress" , 0.1f),false);
     }
     void DropBomb()
     {
@@ -103,7 +103,7 @@ public class Drone : FollowTargetBullet
             transform.rotation = Quaternion.Euler(0,-180,0);
         }
     }
-    public float GetAngle(Vector2 vector) //Đổi vector sang góc từ 0-360 độ
+    float GetAngle(Vector2 vector) //Đổi vector sang góc từ 0-360 độ
     {
         float angle = Mathf.Atan2(vector.y,vector.x) * Mathf.Rad2Deg;
         if(angle < 0) angle += 360;

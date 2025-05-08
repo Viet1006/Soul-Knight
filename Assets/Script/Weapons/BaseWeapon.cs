@@ -18,7 +18,7 @@ public class BaseWeapon : MonoBehaviour
             CreateBullet(target); // Tạo đạn
             addedBuff = new(); // Làm mới buff được thêm sau khi bắn
             spawnBulletPos.gameObject.SetActive(true);
-            DG.Tweening.DOVirtual.DelayedCall(0.05f,() => spawnBulletPos.gameObject.SetActive(false));
+            DG.Tweening.DOVirtual.DelayedCall(0.05f,() => spawnBulletPos.gameObject.SetActive(false),false);
             timeToNextFire = 1/weaponData.FireRate(level);
         }
     }

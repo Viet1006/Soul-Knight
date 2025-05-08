@@ -8,7 +8,7 @@ public class EnemySniperWeapon : EnemyWithWeapon
     readonly float prepareTime = 0.5f; // Delay trước khi bắn
     public LineRenderer aimLine;
     Vector2 endPos;
-    public bool canRotate = true;
+    bool canRotate = true;
     Tween attackTween;
     Tween prepareTween;
     void Start()
@@ -51,7 +51,7 @@ public class EnemySniperWeapon : EnemyWithWeapon
     }
     public void Aiming() // Ngắm 
     {
-        endPos = Physics2D.Raycast(spawnBulletPos.position,weapon.right , LayerMask.GetMask("Wall")).point;
+        endPos = Physics2D.Raycast(spawnBulletPos.position,weapon.right , float.MaxValue,  LayerMask.GetMask("Wall")).point;
         aimLine.SetPosition(0,spawnBulletPos.position);
         aimLine.SetPosition(1,endPos);
     }

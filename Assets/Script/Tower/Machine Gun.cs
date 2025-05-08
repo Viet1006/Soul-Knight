@@ -19,6 +19,6 @@ public class MachineGun : BaseTower
 
         gun.DOMove(-0.1f*gun.right+gun.position, 0.05f).SetLoops(2, LoopType.Yoyo);
         spawnPoint.SetActive(true);
-        DOVirtual.DelayedCall(0.05f, () => spawnPoint.SetActive(false) );
+        DOVirtual.DelayedCall(0.05f, () => spawnPoint.SetActive(false) ,false);
     }
 }

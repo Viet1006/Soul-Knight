@@ -5,16 +5,16 @@ public class UpgradePrice
 {
     static readonly Dictionary<int,PriceEachColor> upgradePrice = new()
     {
-        { 0, new PriceEachColor(20, 30, 35, 40) },    // Level 0
-        { 1, new PriceEachColor(22, 34, 39, 47) },    // Level 1
-        { 2, new PriceEachColor(25, 38, 44, 55) },    // Level 2
-        { 3, new PriceEachColor(28, 43, 50, 64) },    // Level 3
-        { 4, new PriceEachColor(32, 49, 57, 74) },    // Level 4
-        { 5, new PriceEachColor(36, 56, 65, 85) },    // Level 5
-        { 6, new PriceEachColor(41, 64, 74, 98) },    // Level 6
-        { 7, new PriceEachColor(47, 73, 84, 113) },   // Level 7
-        { 8, new PriceEachColor(54, 83, 96, 130) },   // Level 8
-        { 9, new PriceEachColor(62, 95, 110, 150) }, // Level 9
+        { 0, new PriceEachColor(20, 30, 45, 68) },    // Level 0
+        { 1, new PriceEachColor(24, 36, 54, 81) },    // Level 1
+        { 2, new PriceEachColor(29, 44, 65, 98) },    // Level 2
+        { 3, new PriceEachColor(35, 53, 79, 118) },    // Level 3
+        { 4, new PriceEachColor(41, 62, 92, 138) },    // Level 4
+        { 5, new PriceEachColor(50, 75, 113, 169) },    // Level 5
+        { 6, new PriceEachColor(59, 88, 132, 198) },    // Level 6
+        { 7, new PriceEachColor(71, 107, 160, 240) },   // Level 7
+        { 8, new PriceEachColor(86, 129, 194, 289) },   // Level 8
+        { 9, new PriceEachColor(103, 154, 231, 346) }, // Level 9
     };
     public static int GetUpgradePrice(RareColor rareColor , int level)
     {

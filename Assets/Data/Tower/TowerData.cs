@@ -11,10 +11,7 @@ public class TowerData : SerializedScriptableObject
 
     [DictionaryDrawerSettings(KeyLabel = "Level", ValueLabel = "Upgrade Price")]
     [SerializeField] Dictionary<int, int> upgradePricePerLevel = new();
-    
-    public float fireRate;
     public float speed;
-    public string towerDescription;
     public int price;
     public GameObject bulletPrefab;
     public BulletElement element;

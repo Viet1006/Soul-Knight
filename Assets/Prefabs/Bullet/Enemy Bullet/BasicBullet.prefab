@@ -137,8 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e184b14936cf5a4996d958bb123aa9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletCollider: {fileID: 0}
-  effectExplode: {fileID: 7876961994352399717}
+  explodeEffect: {fileID: 7876961994352399717, guid: 93021223c4aedec42a9624cf0445603e, type: 3}
 --- !u!114 &6056680716526893665
 MonoBehaviour:
   m_ObjectHideFlags: 0
