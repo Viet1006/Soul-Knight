@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bomb : BaseBullet
 {
+    [SerializeField] LayerMask hitLayer;
     public void SetBomb(int damage,int critChance ,BulletElement element, List<BulletBuff> bulletBuffs)
     {
         base.SetBullet(0, damage, critChance,element,bulletBuffs);
@@ -13,7 +14,7 @@ public class Bomb : BaseBullet
     }
     void Explode()
     {
-        new ExplosiveBuff(damage , LayerMask.GetMask("Enemy")).TryHandleCollision(null , transform.position);
+        new ExplosiveBuff(damage ,hitLayer).TryHandleCollision(null , transform.position);
         ReturnToPool();
     }
 }

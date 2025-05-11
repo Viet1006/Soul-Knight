@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86f23a27315fc54f8fc9b200429a64e, type: 3}
   m_Name: Witch
   m_EditorClassIdentifier: 
-  health: 15
+  health: 150000
   speed: 9
   skillCoolDown: 5
   skillDescription: "Tri\u1EC7u h\u1ED3i 1 tia s\xE9t \u0111\xE1nh m\u1EE5c ti\xEAu

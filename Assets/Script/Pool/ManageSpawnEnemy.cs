@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
-using Sirenix.Utilities;
 using TMPro;
 using UnityEngine;
 
@@ -10,7 +9,7 @@ class ManageSpawnEnemy : MonoBehaviour
     public static ManageSpawnEnemy instance;
     int currentWave = -1; // Wave hiện tại theo index ở list
     List<Wave> waves = new(); // Danh sách các wave
-    [SerializeField] float timePerWave; // Thời gian cho mỗi wave
+    readonly float timePerWave = 75; // Thời gian cho mỗi wave
     public float timeWaveRemain; // Thời gian còn lại trước khi bắt đầu wave mới
     [SerializeField] TextMeshProUGUI timeText;
     private readonly Dictionary<string, Queue<GameObject>> enemyPool = new();
@@ -20,9 +19,9 @@ class ManageSpawnEnemy : MonoBehaviour
     void Awake()
     {
         instance = this;
-        timeWaveRemain = 10; // Lúc bắt đầu thì cho 10s để chuẩn bị
+        timeWaveRemain = 0; // Lúc bắt đầu thì cho 10s để chuẩn bị
         NotificationSystem.Instance.ShowNotification("Hãy cố gắng bảo vệ tháp của bạn khỏi quái vật" , 3f);
-        for (int i = 1; i <= 15; i++)
+        for (int i = 1; i <= 13; i++)
         {
             string waveName = "Wave " + i;
             Wave wavePrefab = Resources.Load<Wave>("Wave Data/" +waveName);
@@ -38,11 +37,16 @@ class ManageSpawnEnemy : MonoBehaviour
     {
         if(timeWaveRemain <0)
         {
+            currentWave++;
+            if(currentWave == waves.Count) // Đến wave cuối đánh boss
+            {
+                timeText.gameObject.SetActive(false);
+            }
             timeWaveRemain = timePerWave;
-            currentWave++; // Chuyển đến wave tiếp theo
+             // Chuyển đến wave tiếp theo
             NotificationSystem.Instance.ShowNotification("Bắt đầu wave " +(currentWave+1) ,1f); // Thông báo bắt đầu wave mới
             StartCoroutine(SpawnEnemyCoroutine()); // Bắt đầu 1 coroutine để spawn quái
-        }else
+        }else if(currentWave != waves.Count)
         {
             timeWaveRemain -= Time.deltaTime;
             TotalStats.Instance.time += Time.deltaTime;
@@ -60,7 +64,7 @@ class ManageSpawnEnemy : MonoBehaviour
         }
         spawnerCount--;
     }
-    int SpawnEnemy(GameObject newEnemy,Vector2 pos) // Lấy quái từ pool 
+    public int SpawnEnemy(GameObject newEnemy,Vector2 pos) // Lấy quái từ pool 
     {
         if(!enemyPool.ContainsKey(newEnemy.name)) // Kiểm tra quái này đã có queue chưa
         {
@@ -84,8 +88,9 @@ class ManageSpawnEnemy : MonoBehaviour
         TotalStats.Instance.kill++;
         enemyPool[enemy.name.Replace("(Clone)", "")].Enqueue(enemy);
         enemyRemain --;
-        if(enemyRemain ==0 && spawnerCount == 0) // Nếu không còn quái nào trong wave và không còn coroutine nào đang spawn
+        if(enemyRemain <=0 && spawnerCount <= 0) // Nếu không còn quái nào trong wave và không còn coroutine nào đang spawn
         {
+            enemyRemain = 0;
             if(currentWave == waves.Count - 1) // Nếu đã hoàn thành tất cả các wave
             {
                 timeText.gameObject.SetActive(false); // Ẩn text thời gian
@@ -100,13 +105,8 @@ class ManageSpawnEnemy : MonoBehaviour
             else
             {
                 NotificationSystem.Instance.ShowNotification("Wave " + (currentWave + 1) + " đã hoàn thành", 1f); // Thông báo hoàn thành wave
-                if(timeWaveRemain > 10) // Nếu thời gian còn lại ít hơn 10 giây thì đặt lại thời gian
-                {
-                    timeWaveRemain = 10; // Đặt lại thời gian cho wave mới
-                }
+                timeWaveRemain = 5; // Đặt lại thời gian cho wave mới
             } 
-            
         }
     }
-    public bool IsFinishWave() => enemyRemain == 0 && spawnerCount == 0;
 }

@@ -8,6 +8,6 @@ public class UpgradeEffect : MonoBehaviour
     public void Awake()
     {
         transform.DOMoveY(transform.position.y + height , timeLife)
-            .OnComplete(()=> Destroy(gameObject));
+            .OnComplete(()=> Destroy(gameObject)).SetUpdate(true    );
     }
 }

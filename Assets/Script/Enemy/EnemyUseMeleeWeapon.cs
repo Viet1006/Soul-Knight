@@ -16,7 +16,7 @@ public class EnemyUseMeleeWeapon : EnemyWithWeapon
                 ResetTimeToAttack();
             },false);
     }
-    public override void OnDisable()
+    protected override void OnDisable()
     {
         animator.Rebind();
         attackTween.Kill(false);

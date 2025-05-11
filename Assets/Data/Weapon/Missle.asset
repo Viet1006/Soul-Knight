@@ -308,7 +308,7 @@ MonoBehaviour:
   speed: 25
   inaccuracy: 0
   rareColor: 3
-  price: 180
+  price: 240
   bulletPrefab: {fileID: 3914658589996339777, guid: d652ef0456bca2f4494db3ed1d61c1dd, type: 3}
   element: 1
   bulletBuffs:

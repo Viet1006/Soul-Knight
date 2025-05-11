@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
@@ -17,14 +18,16 @@ public class BossWave10 : MonoBehaviour
     [SerializeField] GameObject lineHolder;
     Tween bounceTween;
     Tween spawnTween;
+    bool isAttack;
     void Awake()
     {
-        bounceTween = DOVirtual.DelayedCall(bounceCooldown  , UseBounceBullet , false).SetLoops(-1);
+        bounceTween = DOVirtual.DelayedCall(bounceCooldown  ,() => StartCoroutine(UseBounceBullet()) , false).SetLoops(-1);
         moveToStatus = GetComponent<MoveToStatus>();
-        spawnTween = DOVirtual.DelayedCall(spawnCooldown  , UseSpawnBullet , false).SetLoops(-1);
+        spawnTween = DOVirtual.DelayedCall(spawnCooldown  , () => StartCoroutine(UseSpawnBullet()) , false).SetLoops(-1);
     }
-    void UseBounceBullet()
+    IEnumerator UseBounceBullet()
     {
+        yield return new WaitUntil(() => !isAttack);
         float randomAngle = Random.Range(0,360/6);
         for (int i = 0; i < 6; i++)
         {
@@ -38,26 +41,35 @@ public class BossWave10 : MonoBehaviour
                 .SetBullet(bounceSpeed , bounceDamage , 0 , BulletElement.NoElement , null , 15);
         }
     }
-    void UseSpawnBullet()
+    IEnumerator UseSpawnBullet()
     {
+        yield return new WaitUntil(() => !isAttack);
+        isAttack = true;
         lineHolder.SetActive(true);
-        lineHolder.transform.rotation = Quaternion.Euler(0,0,Random.Range(0,360));
-        for (int i = 0; i < lineRenderers.Count; i++)
+        moveToStatus.StopMove(); // Dừng lại
+        float rollTime = Random.Range(1.5f ,2); // Thời gian quay
+        while(rollTime > 0)
         {
-            lineRenderers[i].SetPosition(0, lineRenderers[i].transform.position);
-            lineRenderers[i].SetPosition(1, Physics2D.Raycast(lineRenderers[i].transform.position,lineRenderers[i].transform.right , float.MaxValue,  LayerMask.GetMask("Wall")).point);
-        }
-        moveToStatus.StopMove();
-        DOVirtual.DelayedCall(1 , () => 
-        {
+            rollTime -= Time.deltaTime;
+            lineHolder.transform.Rotate(Vector3.forward, 180 * Time.deltaTime );
             for (int i = 0; i < lineRenderers.Count; i++)
             {
-                BulletPool.Instance.GetBullet<BulletPierceAndBounce>(spawnPrefab, lineRenderers[i].transform.position,lineRenderers[i].transform.rotation)
-                    .SetBullet(spawnSpeed , spawnDamage , 0 , BulletElement.NoElement , null , 15);
+                lineRenderers[i].SetPosition(0, lineRenderers[i].transform.position);
+                lineRenderers[i].SetPosition(1, Physics2D.Raycast(lineRenderers[i].transform.position,lineRenderers[i].transform.right , float.MaxValue,  LayerMask.GetMask("Wall")).point);
             }
-            lineHolder.SetActive(false);
-            moveToStatus.ContinueMove();
-        });
+            yield return null;
+        }
+        DOVirtual.DelayedCall(1 , () => 
+            {
+                for (int i = 0; i < lineRenderers.Count; i++)
+                {
+                    BulletPool.Instance.GetBullet<BulletPierceAndBounce>(spawnPrefab, lineRenderers[i].transform.position,lineRenderers[i].transform.rotation)
+                        .SetBullet(spawnSpeed , spawnDamage , 0 , BulletElement.NoElement , null , 15);
+                }
+                lineHolder.SetActive(false);
+                moveToStatus.ContinueMove();
+                isAttack = false;
+            },false);
     }
     void OnDisable()
     {

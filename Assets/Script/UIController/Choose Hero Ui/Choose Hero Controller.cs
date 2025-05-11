@@ -60,7 +60,7 @@ public class ChooseHeroController : MonoBehaviour
         selectedHero.GetComponent<PlayerInput>().enabled = true;
         UIManageShowAndHide.Instance.CompleteChoose();
         HealthBar.instance.SetMaxValue(selectedHero.GetComponent<PlayerHandleEffect>().heroData.health);
-        PlayerCamera.instance.SetTarget(selectedHero.transform);
+        PlayerCamera.instance.SetTarget();
         selectedHero.GetComponent<PlayerBehaviour>().OnSelected();
     }
     public void OnBack()

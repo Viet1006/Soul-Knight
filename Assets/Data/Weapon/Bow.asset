@@ -305,7 +305,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  speed: 35
+  speed: 30
   inaccuracy: 0
   rareColor: 0
   price: 20

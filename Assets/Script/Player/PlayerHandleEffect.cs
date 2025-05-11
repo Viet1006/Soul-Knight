@@ -56,21 +56,28 @@ public class PlayerHandleEffect : MonoBehaviour, IPushable, ICanStun, IGetHit , 
     {
         SpriteRenderer frozenIcon = IconEffectPool.Instance.GetIconEffect(Vector2.zero,BuffIconEnum.Frozen,transform);
         BlockMove(); BlockAttack();
+        playerCollider.contactCaptureLayers -= LayerMask.GetMask("Enemy Bullet"); // xóa Enemy Bullet khỏi callback
         frozenTween.Kill();
-        frozenTween = DOVirtual.DelayedCall(frozenTime , () =>
+        frozenTween = DOVirtual.DelayedCall(frozenTime , () => {},false).OnKill(() =>
             {
                 UnBlockMove(); UnBlockAttack();
-            },false).OnKill(() => IconEffectPool.Instance.ReTurnToPool(frozenIcon));
+                playerCollider.contactCaptureLayers += LayerMask.GetMask("Enemy Bullet"); // Thêm Enemy Bullet callback
+                IconEffectPool.Instance.ReTurnToPool(frozenIcon);
+            });
     }
     public void StartStun(float stunTime)
     {
         SpriteRenderer stunIcon = IconEffectPool.Instance.GetIconEffect(Vector2.zero,BuffIconEnum.Stun,transform);
         BlockMove(); BlockAttack();
+        playerCollider.contactCaptureLayers -= LayerMask.GetMask("Enemy Bullet"); // xóa Enemy Bullet khỏi callback
         stunTween.Kill();
-        stunTween = DOVirtual.DelayedCall(stunTime , () =>
+        stunTween = DOVirtual.DelayedCall(stunTime , () =>{},false).OnKill(() =>
             {
-                UnBlockMove(); UnBlockAttack();
-            },false).OnKill(() => IconEffectPool.Instance.ReTurnToPool(stunIcon));
+                UnBlockMove();
+                UnBlockAttack();
+                playerCollider.contactCaptureLayers += LayerMask.GetMask("Enemy Bullet"); // Thêm Enemy Bullet callback
+                IconEffectPool.Instance.ReTurnToPool(stunIcon);
+            } );
     }
     public void StartPoison(int damagePerSecond, float poisonTime)
     {

@@ -11,7 +11,6 @@ public class TempTower : MonoBehaviour
     [SerializeField] RectTransform confirmButton;
     [SerializeField] RectTransform unConfirmButton;
     [SerializeField] RectTransform upgradeButton;
-    [SerializeField] RectTransform sellButton;
     Dictionary<RectTransform , Vector2> startPoints = new();
     BaseTower currentTower;
     [SerializeField] Transform indicatorRadius; // Lấy transform để Scale bán kính theo tầm bắn
@@ -20,8 +19,10 @@ public class TempTower : MonoBehaviour
     BoardShopAnim statsAnim;
     TextMeshProUGUI upgradePriceText;
     [SerializeField] GameObject upgradeEffect;
+    [SerializeField] List<GameObject> star;
+    Image upgradeImage;
     bool isPress; // Dùng cho các nút cần xác nhận 2 lần
-    Sprite tempSprite; // Lưu sprite để đổi sang confirm
+    Sprite upgradeIcon; // Lưu sprite để đổi sang confirm
     void Awake() 
     {
         instance = this;
@@ -30,22 +31,23 @@ public class TempTower : MonoBehaviour
         startPoints.Add(confirmButton , confirmButton.anchoredPosition); // lấy các vị trí ban đầu của nút
         startPoints.Add(unConfirmButton , unConfirmButton.anchoredPosition);
         startPoints.Add(upgradeButton , upgradeButton.anchoredPosition);
-        startPoints.Add(sellButton , sellButton.anchoredPosition);
         statsAnim = towerStats.GetComponent<BoardShopAnim>();
         upgradePriceText = upgradeButton.GetComponentInChildren<TextMeshProUGUI>(true);
+        upgradeImage = upgradeButton.GetChild(0).GetComponent<Image>(); // Lấy tham chiếu tới upgrade icon
+        upgradeIcon = upgradeImage.sprite; // Lưu tham chiếu trỏ đến upgrde icon
     } 
     public void ShowTempTower(BaseTower baseTower , Vector2 pos) // hiện TempTower
     {
         spriteRenderer.sprite = baseTower.GetComponent<SpriteRenderer>().sprite; // Thay hình ảnh để hiện
         spriteRenderer.enabled = true;
-        upgradeButton.gameObject.SetActive(false); unConfirmButton.gameObject.SetActive(false); sellButton.gameObject.SetActive(false); 
+        upgradeButton.gameObject.SetActive(false); unConfirmButton.gameObject.SetActive(false);
         StartTween(confirmButton); StartTween(unConfirmButton); // Bắt đầu anim 2 nút
-        SetTempTower(baseTower,pos);  
+        SetTempTower(baseTower,pos);
     } 
     public void ShowTowerInfo(BaseTower baseTower , Vector2 pos) // Dùng để hiện thông tin tháp đang chọn (tháp đã được đặt trên paltform)
     {
         confirmButton.gameObject.SetActive(false); unConfirmButton.gameObject.SetActive(false);
-        StartTween(upgradeButton); StartTween(unConfirmButton); StartTween(sellButton);
+        StartTween(upgradeButton); StartTween(unConfirmButton);
         spriteRenderer.enabled = false; // Tắt hình ảnh vì hiển thị theo tower đang chọn   
         SetTempTower(baseTower,pos);
         int upgradePrice = currentTower.towerData.UpgradePrice(baseTower.level);
@@ -60,6 +62,7 @@ public class TempTower : MonoBehaviour
         indicatorRadius.localScale = 2 * currentTower.towerData.RadiusAttack(currentTower.level) * Vector2.one; // Scale tầm bắn theo towerData
         transform.position = pos; // Đặt vị trí tháp tạm
         statsAnim.ShowBoardShop();
+        ShowStar(baseTower.level);
     }
     public void OnConfirm() // Khi ấn nút confirm đặt tháp
     {
@@ -75,9 +78,11 @@ public class TempTower : MonoBehaviour
     {
         if(!isPress)
         {
-            Image upgradeImage = upgradeButton.GetChild(0).GetComponent<Image>(); // Lấy tham chiếu tới upgrade icon
-            tempSprite = upgradeImage.sprite; // Lưu tham chiếu trỏ đến upgrde icon
-            upgradeImage.sprite = confirmIcon; // Thay đôi upgrade icon thành confirm
+            upgradeImage.sprite = confirmIcon;
+            upgradeImage.sprite = confirmIcon; // Thay đổi upgrade icon thành confirm
+            towerStats.SetTowerStats(currentTower.towerData,currentTower.level+1);
+            indicatorRadius.localScale = 2 * currentTower.towerData.RadiusAttack(currentTower.level+1) * Vector2.one; // Scale tầm bắn theo towerData
+            ShowStar(currentTower.level+1);
             isPress = true; // xác nhận đã được ấn
             return;
         }
@@ -89,12 +94,7 @@ public class TempTower : MonoBehaviour
         {
             NotificationSystem.Instance.ShowNotification("Không đủ tiền" , 2);
         }
-        upgradeButton.GetChild(0).GetComponent<Image>().sprite = tempSprite;
-        isPress = false;
-        OnUnConfirm();
-    }
-    public void OnSell()
-    {
+        upgradeImage.sprite = upgradeIcon;
         OnUnConfirm();
     }
     public void OnUnConfirm()
@@ -104,6 +104,8 @@ public class TempTower : MonoBehaviour
         TowerShopManage.instance.GetMouseEvent(true); // Nhận sự kiện
         gameObject.SetActive(false); // tắt gameobject
         statsAnim.HideBoardShop(); // ẩn stats
+        upgradeButton.GetChild(0).GetComponent<Image>().sprite = upgradeIcon;
+        isPress = false;
     }
     void StartTween(RectTransform rectTransform) // animation của button
     {
@@ -111,5 +113,16 @@ public class TempTower : MonoBehaviour
         rectTransform.gameObject.SetActive(true);
         rectTransform.anchoredPosition = Vector2.zero;
         rectTransform.DOAnchorPos(startPoints[rectTransform] , 0.5f).SetEase(Ease.OutCubic).SetUpdate(true); // Bật nút lên
+    }
+    void ShowStar(int level)
+    {
+        foreach (GameObject starObj in star)
+        {
+            starObj.SetActive(false);
+        }
+        for (int i = 0; i < level; i++)
+        {
+            star[i].SetActive(true);
+        }
     }
 }

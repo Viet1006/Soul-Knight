@@ -26,6 +26,13 @@ public class BulletPierceAndBounce : StraightBullet
         }else
         {
             HandleOnObject(collider);
+            if(bulletBuffs != null)
+            {
+                foreach(BulletBuff bulletBuff in bulletBuffs)
+                {
+                    bulletBuff?.TryHandleCollision(collider , transform.position);
+                }
+            }
             if(pierceCountTemp >0 || pierceCountTemp <= -1) // Đặt -1 nếu muốn xuyên vô hạn 
             {
                 pierceCountTemp -=1;

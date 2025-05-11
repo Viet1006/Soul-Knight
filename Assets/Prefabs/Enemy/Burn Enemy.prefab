@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35a2dd7ca9dcea649a59cba657c08628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 12
+  attackRange: 20
 --- !u!1001 &7678462416434797875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -295,6 +295,10 @@ PrefabInstance:
     - target: {fileID: 2842065506312520696, guid: 8dc2779919a8d94409f0fe2762292ccb, type: 3}
       propertyPath: m_Name
       value: selectedCircle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842065506312520696, guid: 8dc2779919a8d94409f0fe2762292ccb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4209291695163023182, guid: 8dc2779919a8d94409f0fe2762292ccb, type: 3}
       propertyPath: m_LocalPosition.x

@@ -1,5 +1,6 @@
 
-public class TotalStats {
+public class TotalStats
+{
     static TotalStats instance;
     public static TotalStats Instance
     {

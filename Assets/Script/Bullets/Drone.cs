@@ -2,33 +2,24 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 
-public class Drone : FollowTargetBullet
+public class Drone : FollowBullet
 {
     [SerializeField] GameObject shawdow;
-    Material revealMat;
     Vector2 airForcePos ; // Nơi tạo ra Drone
     readonly float acceleration = 10f;
     readonly float rotateSpeed = 240; // Tốc độ quay
     AirForce airForce; // Nơi tạo ra Drone
-    SpriteRenderer spriteRenderer;
     [SerializeField] GameObject bombPrefab;
-    void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        revealMat = new Material(ObjectHolder.Instance.revealVerticalMat); // Tạo 1 mat mới
-        spriteRenderer.material = revealMat;
-        revealMat.SetFloat("_RevealProgress",1f);
-    }
     public void SetDrone(float speed,int damage, int critChance,BulletElement element,List<BulletBuff> bulletBuffs, Transform target , AirForce airForce )
     {
-        base.SetTargetBullet(speed, damage ,critChance ,element,bulletBuffs, target);
-        transform.DOMoveY(transform.position.y + 3 ,0.4f).SetEase(Ease.InSine).OnComplete(() => // 0.4 là thời gian sản xuất mỗi Drone 
+        base.SetFollowBullet(speed, damage ,critChance ,element,bulletBuffs, target);
+        useUpdate = false;
+        transform.DOMoveY(transform.position.y + 3 ,0.3f).SetEase(Ease.InSine).OnComplete(() => // 0.3 là thời gian sản xuất mỗi Drone 
         {
             StartCoroutine (MoveToTarget());
             shawdow.SetActive(true);
             airForcePos = transform.position; // Lưu vị trí nơi tạo Drone bắt đầu
         });
-        revealMat.DOFloat(0f , "_RevealProgress" , 0.3f).OnComplete(()=> spriteRenderer.material = ObjectHolder.Instance.defaultMaterial); // Tạo hiệu ứng reveal
         this.airForce = airForce; // Đặt nơi tạo ta Drone
     }
     System.Collections.IEnumerator MoveToTarget()
@@ -79,13 +70,11 @@ public class Drone : FollowTargetBullet
         // Đã về vị trí ban đầu
         shawdow.SetActive(false);
         airForce.GetDrone(); // Gọi air force mở cửa
-        transform.DOMoveY(transform.position.y - 3 ,0.4f).SetEase(Ease.InSine).OnComplete(() =>
+        transform.DOMoveY(transform.position.y - 3 ,0.3f).SetEase(Ease.InSine).OnComplete(() =>
         {
             ReturnToPool();
         });
         transform.rotation = Quaternion.identity;
-        spriteRenderer.material = revealMat;
-        DOVirtual.DelayedCall(0.3f,() => revealMat.DOFloat(1f , "_RevealProgress" , 0.1f),false);
     }
     void DropBomb()
     {
@@ -102,11 +91,5 @@ public class Drone : FollowTargetBullet
         }else if(target.x<transform.position.x){
             transform.rotation = Quaternion.Euler(0,-180,0);
         }
-    }
-    float GetAngle(Vector2 vector) //Đổi vector sang góc từ 0-360 độ
-    {
-        float angle = Mathf.Atan2(vector.y,vector.x) * Mathf.Rad2Deg;
-        if(angle < 0) angle += 360;
-        return angle;
     }
 }

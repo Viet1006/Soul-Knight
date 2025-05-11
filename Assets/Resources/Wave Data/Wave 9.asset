@@ -13,19 +13,22 @@ MonoBehaviour:
   m_Name: Wave 9
   m_EditorClassIdentifier: 
   enemies:
+  - enemyWeight: 7
+    enemyPrefab: {fileID: 1926595480736889479, guid: cb43b87ee1c9a3c43bccf0d0f8821895, type: 3}
+  - enemyWeight: 7
+    enemyPrefab: {fileID: 1926595480736889479, guid: 83c0a9abca5654f4dbf2e7ffea646f58, type: 3}
+  - enemyWeight: 7
+    enemyPrefab: {fileID: 697992453004028493, guid: ed97687b28f03cd46af8ef50a3a29ff9, type: 3}
+  - enemyWeight: 7
+    enemyPrefab: {fileID: 5097492414053586777, guid: 979f4f1fb79184647998f84d30abd1fe, type: 3}
+  - enemyWeight: 7
+    enemyPrefab: {fileID: 5097492414053586777, guid: 4ea4148e5a767c24aac0105a7304e38f, type: 3}
   - enemyWeight: 1
-    enemyPrefab: {fileID: 1926595480736889479, guid: dd9c2c63128d78a49b407ec2ecdd236c, type: 3}
-  - enemyWeight: 1
-    enemyPrefab: {fileID: 5097492414053586777, guid: 3642bf8c367e4224da913b849cec6106, type: 3}
-  - enemyWeight: 1
-    enemyPrefab: {fileID: 1926595480736889479, guid: 7c1122f5ea1ebf946bbbbe3bf391c2be, type: 3}
-  - enemyWeight: 1
-    enemyPrefab: {fileID: 5097492414053586777, guid: 2b37377b3708ead46a87f064a5e46780, type: 3}
-  - enemyWeight: 1
-    enemyPrefab: {fileID: 5097492414053586777, guid: c0c8abcb707d9954382a5304744048e9, type: 3}
+    enemyPrefab: {fileID: 6010469746282580337, guid: c3d016af0a4a6ef4584f97c837341044, type: 3}
   spawnAreas:
   - {fileID: 11400000, guid: 23a535b29d47e9f4f9ffb51f939d33bb, type: 2}
   - {fileID: 11400000, guid: a84635d62dea98f439c2c72b0d53f532, type: 2}
   - {fileID: 11400000, guid: 60208f0aff251e14bbb15653cbe07c1c, type: 2}
-  cost: 218
-  spawnRate: 1.9
+  - {fileID: 11400000, guid: 298a8947886422c43864728d78e52770, type: 2}
+  cost: 600
+  spawnRate: 4

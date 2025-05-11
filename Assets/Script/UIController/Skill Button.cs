@@ -17,7 +17,6 @@ public class SkillButton : MonoBehaviour
     public void StartDuration(float skillDuration)
     {
         skilButton.fillMethod = Image.FillMethod.Vertical; // Cooldown từ trên xuống
-        skilButton.color = new Color(skilButton.color.r, skilButton.color.g, skilButton.color.b, 0.5f); // Làm mờ
         durationTween.Kill();
         durationTween =skilButton.DOFillAmount(0 , skillDuration)
             .SetEase(Ease.Linear)
@@ -32,7 +31,6 @@ public class SkillButton : MonoBehaviour
         cooldownTween = skilButton.DOFillAmount(0 , skillCoolDown)
             .SetEase(Ease.Linear)
             .OnKill(()=>{
-                    skilButton.color = Color.white; // Làm mờ
                     skilButton.fillAmount = 1;
                 });
     }

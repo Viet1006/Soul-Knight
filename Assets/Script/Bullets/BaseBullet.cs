@@ -30,7 +30,11 @@ public class BaseBullet : MonoBehaviour
     public void StartLifeTimer(float timeLife) // Bắt đầu đếm để trả đạn về pool
     {
         lifeTimer.Kill();
-        lifeTimer = DOVirtual.DelayedCall(timeLife , ReturnToPool  ,false);
+        lifeTimer = DOVirtual.DelayedCall(timeLife , OutOfTime  ,false);
+    }
+    protected virtual void OutOfTime()
+    {
+        ReturnToPool();
     }
     public virtual void HandleCollision(Collider2D collider)
     {
@@ -68,5 +72,6 @@ public class BaseBullet : MonoBehaviour
     {
         lifeTimer.Kill();
         BulletPool.Instance.ReturnBullet(this);
+        transform.SetParent(null);
     }
 }

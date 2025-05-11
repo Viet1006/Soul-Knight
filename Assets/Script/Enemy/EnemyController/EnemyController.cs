@@ -5,14 +5,15 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
 {
     [Sirenix.OdinInspector.InlineEditor] public EnemyData enemyData;
     [SerializeField] GameObject selectionCircle;
-    int currentHealth;
+    protected int currentHealth;
     SpriteRenderer spriteEnemy;
     [HideInInspector] public MoveToStatus moveToStatus;
     [HideInInspector] public AttackMethodEnemy attackMethod;
     public event System.Action OnReset;
     public event System.Action OnGetHit;
     Tween flashTween;
-    void Awake() // Lấy tham chiếu để gọi Init
+    bool isDie;
+    protected virtual void Awake() // Lấy tham chiếu để gọi Init
     {
         moveToStatus = GetComponent<MoveToStatus>();
         attackMethod = GetComponent<AttackMethodEnemy>(); // nếu RandomWeapon sẽ được gán ở InitEnemy
@@ -30,13 +31,14 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
     public virtual int InitEnemy() // Sẽ được gọi trước Start
     {
         currentHealth = enemyData.health;
+        isDie = false;
         return enemyData.cost;
     }
-    public void GetHit(int damage, BulletElement bulletElements , bool isCrit, bool notify = true ) // Sát thương nhận thêm từ đạn
+    public virtual void GetHit(int damage, BulletElement bulletElements , bool isCrit, bool notify = true ) // Sát thương nhận thêm từ đạn
     {
         TextDamePool.Instance.GetTextDamage( transform.position + new Vector3(0, 1f, 0),bulletElements,damage , isCrit);
         currentHealth -= damage;
-        if(currentHealth <=0)
+        if(currentHealth <=0 && !isDie )
         {
             Die();
             flashTween.Pause();
@@ -50,7 +52,7 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
     void Die()
     {
         DieEffectPool.Instance.GetDieEffect(transform.position); // Tạo die effect
-        CoinPool.Instance.GetCoin(transform.position,(int)(Random.Range(0.8f,1.2f)*enemyData.cost )); // Tạo coin rơi ra giá trị ngẫu nhiên
+        CoinPool.Instance.GetCoin(transform.position,Mathf.CeilToInt(1.5f * enemyData.cost)); // Tạo coin rơi ra giá trị ngẫu nhiên
         ResetToOringin();
     }
     public virtual void ResetToOringin()
@@ -58,6 +60,7 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
         OnReset?.Invoke();
         OnReset = null; // Khi trả về pool thì hủy đăng ký để trả lại trạng thái ban đầu
         spriteEnemy.material = ObjectHolder.Instance.defaultMaterial;
+        isDie = true;
         ManageSpawnEnemy.instance.ReturnToPool(gameObject); // trả về pool
         OnGetHit = null;
     }

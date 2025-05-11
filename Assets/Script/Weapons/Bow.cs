@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Bow : BaseWeapon
@@ -37,7 +38,18 @@ public class Bow : BaseWeapon
         if(!isCharging) return;
         isCharging = false;
         NotifyAttack();
-        base.CreateBullet(null);
+        List <BulletBuff> finalBuffs = new(weaponData.bulletBuffs);
+        if(addedBuff != null) finalBuffs.AddRange( addedBuff) ;
+        BulletPool.Instance
+            .GetBullet<BaseBullet>(weaponData.bulletPrefab
+                ,spawnBulletPos.position // truyền vị trí spawn cho pool
+                ,transform.rotation * Quaternion.Euler(0,0,Random.Range(-weaponData.inaccuracy,weaponData.inaccuracy)))
+            .SetBullet(weaponData.speed // Set các giá trị
+                ,weaponData.Damage(level) + chargeCount * damagePerCount // tăng damage theo số lần nạp
+                ,weaponData.CritChance(level)
+                ,weaponData.element
+                ,finalBuffs ,weaponData.bulletTimeLife);
+            // Tạo đạn
         chargeCount = 0;
         ChargingBar.instance.Hide();
         animator.SetTrigger(Parameters.endAttack);

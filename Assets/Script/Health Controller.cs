@@ -27,6 +27,10 @@ public class HealthController : MonoBehaviour
         transform.position = player.transform.position;
         HealthBar.instance.AddValue(value);
         player.currentHealth += value;
+        if(player.currentHealth > player.heroData.health)
+        {
+            player.currentHealth = player.heroData.health;
+        }
         BulletPool.Instance.ReturnBullet(this);
     }
 }

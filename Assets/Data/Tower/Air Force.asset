@@ -46,10 +46,10 @@ MonoBehaviour:
       Data: 2|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 10
     - Name: fireRate
       Entry: 4
-      Data: 1
+      Data: 0.2
     - Name: radiusAttack
       Entry: 3
       Data: 10
@@ -70,10 +70,10 @@ MonoBehaviour:
       Data: 3|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 6
+      Data: 13
     - Name: fireRate
       Entry: 4
-      Data: 1
+      Data: 0.2
     - Name: radiusAttack
       Entry: 3
       Data: 11
@@ -94,10 +94,10 @@ MonoBehaviour:
       Data: 4|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 7
+      Data: 16
     - Name: fireRate
       Entry: 4
-      Data: 1.1
+      Data: 0.2
     - Name: radiusAttack
       Entry: 3
       Data: 12
@@ -118,10 +118,10 @@ MonoBehaviour:
       Data: 5|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 8
+      Data: 20
     - Name: fireRate
       Entry: 4
-      Data: 1.2
+      Data: 0.25
     - Name: radiusAttack
       Entry: 3
       Data: 13
@@ -142,10 +142,10 @@ MonoBehaviour:
       Data: 6|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 9
+      Data: 27
     - Name: fireRate
       Entry: 4
-      Data: 1.22
+      Data: 0.3
     - Name: radiusAttack
       Entry: 3
       Data: 14
@@ -166,10 +166,10 @@ MonoBehaviour:
       Data: 7|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 10
+      Data: 30
     - Name: fireRate
       Entry: 4
-      Data: 1.31
+      Data: 0.35
     - Name: radiusAttack
       Entry: 3
       Data: 14
@@ -207,7 +207,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 10
+      Data: 30
     - Name: 
       Entry: 8
       Data: 
@@ -219,7 +219,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 3
-      Data: 12
+      Data: 42
     - Name: 
       Entry: 8
       Data: 
@@ -231,7 +231,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 3
-      Data: 15
+      Data: 55
     - Name: 
       Entry: 8
       Data: 
@@ -243,7 +243,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 3
-      Data: 20
+      Data: 80
     - Name: 
       Entry: 8
       Data: 
@@ -255,7 +255,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 3
-      Data: 27
+      Data: 120
     - Name: 
       Entry: 8
       Data: 

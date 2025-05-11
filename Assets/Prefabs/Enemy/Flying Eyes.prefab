@@ -265,7 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackRange: 15
   childBullet: {fileID: 7876961994352399717, guid: 3f5c79fe9f3359f40a802c7fdaf27588, type: 3}
-  childBulletSpeed: 4
+  childBulletSpeed: 3.5
   numberOfBullet: 10
 --- !u!50 &8280657292128586585
 Rigidbody2D:
@@ -407,6 +407,10 @@ PrefabInstance:
     - target: {fileID: 2842065506312520696, guid: 8dc2779919a8d94409f0fe2762292ccb, type: 3}
       propertyPath: m_Name
       value: selectedCircle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842065506312520696, guid: 8dc2779919a8d94409f0fe2762292ccb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4209291695163023182, guid: 8dc2779919a8d94409f0fe2762292ccb, type: 3}
       propertyPath: m_LocalPosition.x

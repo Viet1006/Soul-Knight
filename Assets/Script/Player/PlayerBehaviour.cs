@@ -11,6 +11,7 @@ public class PlayerBehaviour : MonoBehaviour
     bool isAttacking;
     BaseSkill baseSkill;
     HeroData heroData;
+    Transform playerDirect;
     void Start()
     {
         currentWeapon = GetComponentInChildren<BaseWeapon>();
@@ -24,10 +25,11 @@ public class PlayerBehaviour : MonoBehaviour
         if(nearestEnemy != null)
         {
             target.position = nearestEnemy.transform.position;
-        }else{
+             }else{
             if(playerMovement.moveInputValue != Vector2.zero)
             target.position = (Vector2)transform.position + playerMovement.moveInputValue; // Ko có target thì quay theo hướng di chuyển player
         }
+        if(playerDirect ) playerDirect.position = transform.position + (target.position-transform.position).normalized*2;
         if(isAttacking && currentWeapon != null) currentWeapon.Attack(target);
         FlipToTarget();
         HandleSelectEnemy();
@@ -83,6 +85,7 @@ public class PlayerBehaviour : MonoBehaviour
         transform.SetParent(null); // đem ra khỏi gameobejct start map\
         InventoryManager.instance.weapons.Add(currentWeapon.gameObject);
         UIManageShowAndHide.Instance.OnSelectMapComplete += OnSelectMapComplete; // Khi chọn map thì thực hiện hàm này
+        playerDirect = PlayerCamera.instance.transform; // Lấy player Camera
     }
     void OnSelectMapComplete()
     {

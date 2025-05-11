@@ -492,9 +492,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6840506996417129599}
     m_Modifications:
+    - target: {fileID: 1851972503646141987, guid: 8dc2779919a8d94409f0fe2762292ccb, type: 3}
+      propertyPath: m_SortingOrder
+      value: -6
+      objectReference: {fileID: 0}
     - target: {fileID: 2842065506312520696, guid: 8dc2779919a8d94409f0fe2762292ccb, type: 3}
       propertyPath: m_Name
       value: selectedCircle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2842065506312520696, guid: 8dc2779919a8d94409f0fe2762292ccb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4209291695163023182, guid: 8dc2779919a8d94409f0fe2762292ccb, type: 3}
       propertyPath: m_LocalPosition.x

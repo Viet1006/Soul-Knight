@@ -3,20 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cloud : FollowTargetBullet
+public class Cloud : FollowBullet
 {
     Animator animator;
     void Awake()
     {
         animator = GetComponent<Animator>();
     }
-    public void SetCloud(float speed , int damage , int critChance , BulletElement element , List<BulletBuff> bulletBuffs,Transform target)
+    public override BaseBullet SetFollowBullet(float speed, int damage, int critChance, BulletElement element, List<BulletBuff> bulletBuffs, Transform target, float timeLife = 0)
     {
-        base.SetTargetBullet(speed , damage, critChance , element, bulletBuffs , target);
         StartCoroutine(MoveToTarget());
+        useUpdate =  false;
+        return base.SetFollowBullet(speed, damage, critChance, element, bulletBuffs, target, timeLife);
     }
     IEnumerator MoveToTarget()
     {
+        yield return new WaitUntil(() => target != null);
         while((Vector2.Distance(transform.position , target.position + Vector3.up * 2) > 0.1f && !isTargetDie) // Nếu target chưa chết thì kiểm tra theo transform
         || (Vector2.Distance(transform.position , targetPos + Vector2.up *2) > 0.1f && isTargetDie)) // Nếu chết r thì kiểm tra theo pos
         {

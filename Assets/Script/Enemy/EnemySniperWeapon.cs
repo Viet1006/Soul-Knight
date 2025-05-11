@@ -55,7 +55,7 @@ public class EnemySniperWeapon : EnemyWithWeapon
         aimLine.SetPosition(0,spawnBulletPos.position);
         aimLine.SetPosition(1,endPos);
     }
-    public override void OnDisable() // Được gọi khi mới được tạo
+    protected override void OnDisable() // Được gọi khi mới được tạo
     {
         base.OnDisable();
         canRotate = true;

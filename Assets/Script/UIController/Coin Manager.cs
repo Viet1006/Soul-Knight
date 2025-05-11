@@ -16,8 +16,8 @@ public class CoinManager : MonoBehaviour
         coinText.text = "100000";
         UIManageShowAndHide.Instance.OnSelectMapComplete += () => 
         {
-            targetValue = 0;
-            coinText.text = "0";
+            targetValue = 1000;
+            coinText.text = targetValue.ToString();
         };
     }
     public void AddCoin(int changeValue)

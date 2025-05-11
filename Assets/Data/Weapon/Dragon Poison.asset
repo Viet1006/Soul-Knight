@@ -148,7 +148,7 @@ MonoBehaviour:
       Data: 3.3
     - Name: critChance
       Entry: 3
-      Data: 15
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -172,7 +172,7 @@ MonoBehaviour:
       Data: 3.5
     - Name: critChance
       Entry: 3
-      Data: 15
+      Data: 20
     - Name: 
       Entry: 8
       Data: 
@@ -196,7 +196,7 @@ MonoBehaviour:
       Data: 3.78
     - Name: critChance
       Entry: 3
-      Data: 15
+      Data: 27
     - Name: 
       Entry: 8
       Data: 
@@ -220,7 +220,7 @@ MonoBehaviour:
       Data: 4
     - Name: critChance
       Entry: 3
-      Data: 15
+      Data: 27
     - Name: 
       Entry: 8
       Data: 
@@ -244,7 +244,7 @@ MonoBehaviour:
       Data: 4.2
     - Name: critChance
       Entry: 3
-      Data: 20
+      Data: 34
     - Name: 
       Entry: 8
       Data: 
@@ -268,7 +268,7 @@ MonoBehaviour:
       Data: 4.56
     - Name: critChance
       Entry: 3
-      Data: 25
+      Data: 40
     - Name: 
       Entry: 8
       Data: 
@@ -284,7 +284,7 @@ MonoBehaviour:
   speed: 35
   inaccuracy: 2
   rareColor: 3
-  price: 180
+  price: 270
   bulletPrefab: {fileID: 8716283894238101725, guid: 6737227242cddde4bae9e079eff61a02, type: 3}
   element: 4
   bulletBuffs:
@@ -298,13 +298,13 @@ MonoBehaviour:
       type: {class: PoisonBuff, ns: , asm: Assembly-CSharp}
       data:
         applyChance: 30
-        damageHalfSecond: 40
+        damageHalfSecond: 12
         poisonDuration: 3
     - rid: 3179476650399629473
       type: {class: ElementZoneBuff, ns: , asm: Assembly-CSharp}
       data:
-        applyChance: 10
-        damageHalfSecond: 3
+        applyChance: 15
+        damageHalfSecond: 10
         timeLife: 3
         bulletElement: 4
         hitLayer:

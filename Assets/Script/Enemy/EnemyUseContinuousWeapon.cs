@@ -31,7 +31,7 @@ public class EnemyUseContinuousWeapon : EnemyWithWeapon
         base.StopAttack();
         attackTween.Kill(false);
     }
-    public override void OnDisable()
+    protected override void OnDisable()
     {
         base.OnDisable();
         attackTween.Kill(false);

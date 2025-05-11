@@ -8,7 +8,6 @@ public class ObjectHolder : SerializedScriptableObject
     [BoxGroup("Materials")] public Material flashMaterial;
     [BoxGroup("Materials")] public Material defaultMaterial;
     [BoxGroup("Materials")] public Material revealMaterial;
-    [BoxGroup("Materials")] public Material revealVerticalMat;
 
 
     [BoxGroup("Prefabs")] [PreviewField (Height = 70)] public GameObject elementZone;

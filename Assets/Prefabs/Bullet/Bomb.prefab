@@ -99,4 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ea13b076316904fad23244bdb28dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletCollider: {fileID: 0}
+  explodeEffect: {fileID: 0}
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 64

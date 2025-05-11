@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 620aa208223b356459c7c54d0c0a5eca, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,9 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314a58ee9b9697f449641d486b03b01d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletElement: 0
-  critMultiplier: 1
-  bulletCollider: {fileID: 0}
+  explodeEffect: {fileID: 0}
   shawdow: {fileID: 4821810494977028114}
   bombPrefab: {fileID: 5155276384846356573, guid: 82371b3e544421e44b0da3215fbc0e17, type: 3}
 --- !u!1 &4821810494977028114

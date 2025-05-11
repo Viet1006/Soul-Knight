@@ -62,7 +62,7 @@ public abstract class AttackMethodEnemy : MonoBehaviour
             isAttacking = false; // trường hợp đang tấn công mà bị dừng Coroutine thì phải tắt để có thể bắt đầu tấn công lại
         }
     }
-    public virtual void OnDisable() // Khi enemy trả về pool sẽ gọi hàm này
+    protected virtual void OnDisable() // Khi enemy trả về pool sẽ gọi hàm này
     {
         blockCount = 0;
         enabled = true;
