@@ -306,11 +306,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397ff6079dcea8e4c8dbbd1c35ba0b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 15
+  attackRange: 12
   weapon: {fileID: 4224670172207665085}
   spawnBulletPos: {fileID: 4224670172207665085}
-  timeAttack: 2.5
-  fireRate: 3.6
+  timeAttack: 2
+  fireRate: 3
   inaccuracy: 30
 --- !u!1 &6499596555964105972
 GameObject:

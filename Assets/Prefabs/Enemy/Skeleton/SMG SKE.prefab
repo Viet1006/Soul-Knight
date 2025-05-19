@@ -309,8 +309,8 @@ MonoBehaviour:
   attackRange: 15
   weapon: {fileID: 7206538008535140204}
   spawnBulletPos: {fileID: 7206538008535140204}
-  timeAttack: 4
-  fireRate: 4
+  timeAttack: 3
+  fireRate: 3.3
   inaccuracy: 45
 --- !u!1 &4146276297833748681
 GameObject:

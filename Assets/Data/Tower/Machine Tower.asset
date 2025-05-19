@@ -70,7 +70,7 @@ MonoBehaviour:
       Data: 3|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 2
+      Data: 3
     - Name: fireRate
       Entry: 4
       Data: 4.8
@@ -94,7 +94,7 @@ MonoBehaviour:
       Data: 4|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 3
+      Data: 4
     - Name: fireRate
       Entry: 4
       Data: 4.8
@@ -118,7 +118,7 @@ MonoBehaviour:
       Data: 5|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 4
+      Data: 5
     - Name: fireRate
       Entry: 4
       Data: 5
@@ -142,7 +142,7 @@ MonoBehaviour:
       Data: 6|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 5
+      Data: 6
     - Name: fireRate
       Entry: 4
       Data: 5.5
@@ -166,7 +166,7 @@ MonoBehaviour:
       Data: 7|TowerStatsPerlevel, Assembly-CSharp
     - Name: damage
       Entry: 3
-      Data: 6
+      Data: 7
     - Name: fireRate
       Entry: 4
       Data: 6

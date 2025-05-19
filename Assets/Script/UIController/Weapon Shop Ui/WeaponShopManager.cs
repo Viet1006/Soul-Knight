@@ -36,7 +36,7 @@ public class WeaponShopManager : ItemManagement
         int price = selectedWeapon.weaponData.price;
         if(! CoinManager.instance.TryBuy(price)) // Kiểm tra xem đủ tiền không
         {
-            NotificationSystem.Instance.ShowNotification("Not engough coin",1f);
+            NotificationSystem.Instance.ShowNotification("Không đủ tiền",1f);
             return;
         }
         DeleteSlot(selectedWeapon); // Mua xong thì xóa weapon slot

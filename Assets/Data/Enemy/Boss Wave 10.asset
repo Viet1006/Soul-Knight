@@ -15,7 +15,7 @@ MonoBehaviour:
   health: 4000
   speed: 3
   AttackRate: 1
-  cost: 170
+  cost: 240
   bulletPrefab: {fileID: 0}
   bulletSpeed: 0
   damage: 0

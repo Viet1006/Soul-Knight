@@ -9,7 +9,7 @@ public class NotificationSystem : MonoBehaviour
         Instance = this;
         textMeshPro = GetComponent<TMPro.TextMeshProUGUI>(); // Lấy TextMeshPro từ GameObject này
         gameObject.SetActive(false);
-        ShowNotification("Welcome to my game! Choose your hero!", 2f); // Hiển thị thông báo chào mừng
+        ShowNotification("Chào mừng bạn tới game của tôi! Ấn vào anh hùng để xem thông tin", 2f); // Hiển thị thông báo chào mừng
     }
     Tween delayTween;
     TMPro.TextMeshProUGUI textMeshPro; // TextMeshPro để hiển thị thông báo

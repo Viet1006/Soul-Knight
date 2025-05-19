@@ -19,7 +19,7 @@ class ManageSpawnEnemy : MonoBehaviour
     void Awake()
     {
         instance = this;
-        timeWaveRemain = 0; // Lúc bắt đầu thì cho 10s để chuẩn bị
+        timeWaveRemain = 10; // Lúc bắt đầu thì cho 10s để chuẩn bị
         NotificationSystem.Instance.ShowNotification("Hãy cố gắng bảo vệ tháp của bạn khỏi quái vật" , 3f);
         for (int i = 1; i <= 13; i++)
         {

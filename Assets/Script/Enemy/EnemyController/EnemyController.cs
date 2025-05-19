@@ -52,7 +52,7 @@ public class EnemyController : MonoBehaviour, IGetHit , ICanSelect
     void Die()
     {
         DieEffectPool.Instance.GetDieEffect(transform.position); // Tạo die effect
-        CoinPool.Instance.GetCoin(transform.position,Mathf.CeilToInt(1.5f * enemyData.cost)); // Tạo coin rơi ra giá trị ngẫu nhiên
+        CoinPool.Instance.GetCoin(transform.position,Mathf.CeilToInt(1.7f * enemyData.cost)); // Tạo coin rơi ra giá trị ngẫu nhiên
         ResetToOringin();
     }
     public virtual void ResetToOringin()

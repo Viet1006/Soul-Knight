@@ -31,4 +31,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 60208f0aff251e14bbb15653cbe07c1c, type: 2}
   - {fileID: 11400000, guid: 298a8947886422c43864728d78e52770, type: 2}
   cost: 600
-  spawnRate: 4
+  spawnRate: 3.5
