@@ -7,9 +7,9 @@
             "actions": [
                 {
                     "name": "Left Mouse",
-                    "type": "Value",
+                    "type": "Button",
                     "id": "600f3781-938d-495e-ba7e-bf029ebf7d4a",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -18,8 +18,8 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "d6da0cbe-c411-4bc5-9562-de429a7b2526",
-                    "path": "<Mouse>/leftButton",
+                    "id": "09cc78a3-a66d-40a9-bf79-af9d37657b4c",
+                    "path": "<Pointer>/press",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

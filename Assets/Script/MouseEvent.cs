@@ -11,7 +11,7 @@ public class MouseEvent : MonoBehaviour
     {
         if (context.performed )
         {
-            OnLeftMousePerformed?.Invoke(Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue())); // Lấy vị trí chuột để gửi tin nhắn tới subscriber
+            OnLeftMousePerformed?.Invoke(Camera.main.ScreenToWorldPoint(Pointer.current.position.ReadValue())); // Lấy vị trí chuột để gửi tin nhắn tới subscriber
         }
     }
 }
